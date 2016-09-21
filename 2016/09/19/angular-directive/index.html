@@ -25,7 +25,7 @@ Angular内置了一整套指令，如ngBind, ngModel, 和ngView。 就像你可�
 <meta property="og:description" content="指令就是一些附加在HTML元素上的自定义标记（例如：属性，元素，或css类），它告诉AngularJS的HTML编译器 ($compile) 在元素上附加某些指定的行为，甚至操作DOM、改变DOM元素，以及它的各级子节点。
 Angular内置了一整套指令，如ngBind, ngModel, 和ngView。 就像你可以创建控制器和服务那样，你也可以创建自己的指令来让Angular使用。 当Angu">
 <meta property="og:image" content="http://yoursite.com/images/angular-directive/directive-templateUrl.png">
-<meta property="og:updated_time" content="2016-09-21T13:57:13.000Z">
+<meta property="og:updated_time" content="2016-09-21T14:22:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="angular-directive | The Girl King">
 <meta name="twitter:description" content="指令就是一些附加在HTML元素上的自定义标记（例如：属性，元素，或css类），它告诉AngularJS的HTML编译器 ($compile) 在元素上附加某些指定的行为，甚至操作DOM、改变DOM元素，以及它的各级子节点。
@@ -196,16 +196,21 @@ classes that you can use:
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;!-- directive:hello --&gt;</div><div class="line">&lt;div&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>More Code: <a href="http://codepen.io/DaleDu/pen/ammBgY" target="_blank" rel="external">Demo</a></p>
+<p></p><p data-height="265" data-theme-id="dark" data-slug-hash="ammBgY" data-default-tab="html" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/ammBgY/" target="_blank" rel="external">[Angular]  - Matching Directives</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
 <h3 id="Attention"><a href="#Attention" class="headerlink" title="Attention"></a>Attention</h3><p>当需要创建带有自己的模板的指令时，使用元素名称的方式创建指令</p>
 <p>当需要为已有的HTML标签增加功能时，使用属性的方式创建指令</p>
 <h2 id="Transclude"><a href="#Transclude" class="headerlink" title="Transclude"></a>Transclude</h2><ul>
 <li>transclude使得这个选项的指令，所包含的内容能够访问指令外部的作用域</li>
-<li>指令内部嵌套的内容，放到具有ng-transclude的标签中<br>More Code: <a href="http://codepen.io/DaleDu/pen/xEEOBN" target="_blank" rel="external">Demo</a></li>
+<li>指令内部嵌套的内容，放到具有ng-transclude的标签中</li>
 </ul>
-<h2 id="Replace"><a href="#Replace" class="headerlink" title="Replace"></a>Replace</h2><p>More Code: <a href="http://codepen.io/DaleDu/pen/mAAPxa" target="_blank" rel="external">Demo</a></p>
+<p><iframe height="265" scrolling="no" src="//codepen.io/DaleDu/embed/xEEOBN/?height=265&theme-id=dark&default-tab=result&embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="http://codepen.io/DaleDu/pen/xEEOBN/" target="_blank" rel="external">[Angular]  - Transclude</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</iframe></p>
+<h2 id="Replace"><a href="#Replace" class="headerlink" title="Replace"></a>Replace</h2><p><iframe height="265" scrolling="no" src="//codepen.io/DaleDu/embed/mAAPxa/?height=265&theme-id=dark&default-tab=html,result&embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="http://codepen.io/DaleDu/pen/mAAPxa/" target="_blank" rel="external">[Angular]  - Replace</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</iframe></p>
 <h2 id="Template"><a href="#Template" class="headerlink" title="Template"></a>Template</h2><p>当你有大量代表客户信息的模板。这个模板在你的代码中重复了很多次，当你改变一个地方的时候， 你不得不在其他地方同时改动，这时候，你就要使用指令来简化你的模板。</p>
-<h3 id="template"><a href="#template" class="headerlink" title="template"></a>template</h3><p>More Code: <a href="http://codepen.io/DaleDu/pen/NRRjBW" target="_blank" rel="external">Demo</a></p>
+<h3 id="template"><a href="#template" class="headerlink" title="template"></a>template</h3><p></p><p data-height="265" data-theme-id="dark" data-slug-hash="NRRjBW" data-default-tab="result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/NRRjBW/" target="_blank" rel="external">[Angular]  - Directive TemplateCache</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
 <h3 id="templateUrl"><a href="#templateUrl" class="headerlink" title="templateUrl"></a>templateUrl</h3><p><img src="/images/angular-directive/directive-templateUrl.png" alt=""></p>
 <h3 id="templateCache"><a href="#templateCache" class="headerlink" title="templateCache"></a>templateCache</h3><ul>
 <li><a href="https://docs.angularjs.org/api/ng" target="_blank" rel="external">ng</a>模块中的服务</li>
@@ -233,7 +238,13 @@ classes that you can use:
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">传递一个来自父scope的函数，稍后调用</div></pre></td></tr></table></figure>
 <h2 id="Interaction-Controller-amp-Directive"><a href="#Interaction-Controller-amp-Directive" class="headerlink" title="Interaction: Controller &amp; Directive"></a>Interaction: Controller &amp; Directive</h2><p>More Code: <a href="http://codepen.io/DaleDu/pen/RGGOEk" target="_blank" rel="external">Demo</a></p>
+<p></p><p data-height="265" data-theme-id="light" data-slug-hash="RGGOEk" data-default-tab="js,result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/RGGOEk/" target="_blank" rel="external">[Angular]  - Interaction: Controller &amp; Directive</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
 <h2 id="Interaction-Directive-amp-Directive"><a href="#Interaction-Directive-amp-Directive" class="headerlink" title="Interaction: Directive &amp; Directive"></a>Interaction: Directive &amp; Directive</h2><p>More Code: <a href="http://codepen.io/DaleDu/pen/jrVERX" target="_blank" rel="external">Demo</a></p>
+<p></p><p data-height="265" data-theme-id="light" data-slug-hash="jrVERX" data-default-tab="result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/jrVERX/" target="_blank" rel="external">[Angular]  - Interaction: Directive &amp; Directive</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
 <h2 id="Execution-Stage"><a href="#Execution-Stage" class="headerlink" title="Execution Stage"></a>Execution Stage</h2><h3 id="加载阶段"><a href="#加载阶段" class="headerlink" title="加载阶段"></a>加载阶段</h3><blockquote>
 <ul>
 <li>加载angular.js，找到ng-app指令，确定应用边界</li>
