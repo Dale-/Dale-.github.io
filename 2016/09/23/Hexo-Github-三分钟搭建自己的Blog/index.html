@@ -36,7 +36,11 @@ Hexo即会自动在目标文件夹下建立网站所需要的所有文件
 用浏览器打开http://localhost:4000/或者http">
 <meta property="og:image" content="http://yoursite.com/images/hexo-github/createRepository.png">
 <meta property="og:image" content="http://yoursite.com/images/hexo-github/config.png">
-<meta property="og:updated_time" content="2016-09-24T08:44:55.000Z">
+<meta property="og:image" content="http://yoursite.com/images/hexo-github/localImgPath.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo-github/remoteImgPath.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo-github/configTheme.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo-github/markdownPreview.png">
+<meta property="og:updated_time" content="2016-09-24T09:23:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo + Github 三分钟搭建自己的Blog | The Girl King">
 <meta name="twitter:description" content="快速搭建Blog1. 安装hexo1npm install -g hexo
@@ -232,6 +236,14 @@ hexo g == hexo generate
 hexo s == hexo server
 hexo d == hexo deploy
 </code></pre>
+<h2 id="图片deploy后找不到"><a href="#图片deploy后找不到" class="headerlink" title="图片deploy后找不到"></a>图片deploy后找不到</h2><p><img src="/images/hexo-github/localImgPath.png" alt=""></p>
+<p><img src="/images/hexo-github/remoteImgPath.png" alt=""></p>
+<p>引用图片时，注意deploy到github后的路径</p>
+<h2 id="引用Theme"><a href="#引用Theme" class="headerlink" title="引用Theme"></a>引用Theme</h2><ul>
+<li>选择你中意的theme，clone到themes目录下</li>
+<li>在_config.yml文件中找到下图的配置项，修改theme<br><img src="/images/hexo-github/configTheme.png" alt=""></li>
+</ul>
+<h2 id="Markdown-Preview"><a href="#Markdown-Preview" class="headerlink" title="Markdown Preview"></a>Markdown Preview</h2><p> 用Atom打开你的markdown文件，Command + Shift + P , Search:mdpt<br> <img src="/images/hexo-github/markdownPreview.png" alt=""></p>
 
   </section>
 
