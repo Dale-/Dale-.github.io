@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      Understand JavaScript’s “this” | The Girl King 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="John Doe">
+    
+    
+
+    <meta name="description" content="[译] Understand JavaScript’s “this” With Clarity
+原文地址：Understand JavaScript’s “this” With Clarity, and Master It
+JavaScript中 this 的基本用法首先，我们知道在JavaScript中所有函数像对象一样，都具有属性。当一个函数被执行时，将获得 this 这个属性。而 this">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Understand JavaScript’s “this” | The Girl King">
+<meta property="og:url" content="http://yoursite.com/2016/11/21/Understand-JavaScript’s-“this”/index.html">
+<meta property="og:site_name" content="The Girl King">
+<meta property="og:description" content="[译] Understand JavaScript’s “this” With Clarity
+原文地址：Understand JavaScript’s “this” With Clarity, and Master It
+JavaScript中 this 的基本用法首先，我们知道在JavaScript中所有函数像对象一样，都具有属性。当一个函数被执行时，将获得 this 这个属性。而 this">
+<meta property="og:updated_time" content="2016-11-21T15:56:23.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Understand JavaScript’s “this” | The Girl King">
+<meta name="twitter:description" content="[译] Understand JavaScript’s “this” With Clarity
+原文地址：Understand JavaScript’s “this” With Clarity, and Master It
+JavaScript中 this 的基本用法首先，我们知道在JavaScript中所有函数像对象一样，都具有属性。当一个函数被执行时，将获得 this 这个属性。而 this">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">The Girl King</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">Home</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">Archive</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">About</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">Understand JavaScript’s “this”</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2016-11-21" class="post-meta__date date">2016-11-21</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/JavaScript/">JavaScript</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="译-Understand-JavaScript’s-“this”-With-Clarity"><a href="#译-Understand-JavaScript’s-“this”-With-Clarity" class="headerlink" title="[译] Understand JavaScript’s “this” With Clarity"></a>[译] Understand JavaScript’s “this” With Clarity</h3><hr>
+<p>原文地址：<a href="http://javascriptissexy.com/understand-javascripts-this-with-clarity-and-master-it/#" target="_blank" rel="external">Understand JavaScript’s “this” With Clarity, and Master It</a></p>
+<h2 id="JavaScript中-this-的基本用法"><a href="#JavaScript中-this-的基本用法" class="headerlink" title="JavaScript中 this 的基本用法"></a>JavaScript中 <strong>this</strong> 的基本用法</h2><p>首先，我们知道在JavaScript中所有函数像对象一样，都具有属性。当一个函数被执行时，将获得 <strong>this</strong> 这个属性。而 <strong>this</strong> 实际上就是一个具有调用函数对象值的变量。</p>
+<p>变量 <strong>this</strong> 通常都是指向一个对象，并拥有这个对象的值。<strong>this</strong> 通常被用在一个函数或者方法体内，当然它也可以被使用在函数外的全局作用域中。当我们开启严格模式时，<strong>this</strong> 在全局函数和匿名函数中的值为 <strong>undefined</strong> ，不指向任何一个对象。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var person = &#123;</div><div class="line">   firstName   :<span class="string">"Penelope"</span>,</div><div class="line">   lastName    :<span class="string">"Barrymore"</span>,</div><div class="line">   // Since the <span class="string">"this"</span> keyword is used inside the showFullName method below, and the showFullName method is defined on the person object,​</div><div class="line">   // <span class="string">"this"</span> will have the value of the person object because the person object will invoke showFullName ()​</div><div class="line">   showFullName:<span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">   console.log (this.firstName + <span class="string">" "</span> + this.lastName);</div><div class="line">   &#125;</div><div class="line">​</div><div class="line">   &#125;</div><div class="line">​</div><div class="line">   person.showFullName (); // Penelope Barrymore</div></pre></td></tr></table></figure>
+
+  </section>
+
+  
+  
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2016-2018. | About Me  <a href="http://weibo.com/daledu">DaleDu</a> | The Girl Behind</span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
