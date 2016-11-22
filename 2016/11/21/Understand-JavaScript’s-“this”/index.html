@@ -16,22 +16,19 @@
     
     
 
-    <meta name="description" content="[译] Understand JavaScript’s “this” With Clarity
-原文地址：Understand JavaScript’s “this” With Clarity, and Master It
-JavaScript中 this 的基本用法首先，我们知道在JavaScript中所有函数像对象一样，都具有属性。当一个函数被执行时，将获得 this 这个属性。而 this">
+    <meta name="description" content="[译] Understand JavaScript’s “this” With Clarity原文地址：Understand JavaScript’s “this” With Clarity, and Master It
+JavaScript中 this 的基本用法首先，我们知道在JavaScript中所有函数像对象一样，都具有属性。当一个函数被执行时，将获得 this 这个属性。而 this 实">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Understand JavaScript’s “this” | The Girl King">
 <meta property="og:url" content="http://yoursite.com/2016/11/21/Understand-JavaScript’s-“this”/index.html">
 <meta property="og:site_name" content="The Girl King">
-<meta property="og:description" content="[译] Understand JavaScript’s “this” With Clarity
-原文地址：Understand JavaScript’s “this” With Clarity, and Master It
-JavaScript中 this 的基本用法首先，我们知道在JavaScript中所有函数像对象一样，都具有属性。当一个函数被执行时，将获得 this 这个属性。而 this">
-<meta property="og:updated_time" content="2016-11-21T15:59:48.000Z">
+<meta property="og:description" content="[译] Understand JavaScript’s “this” With Clarity原文地址：Understand JavaScript’s “this” With Clarity, and Master It
+JavaScript中 this 的基本用法首先，我们知道在JavaScript中所有函数像对象一样，都具有属性。当一个函数被执行时，将获得 this 这个属性。而 this 实">
+<meta property="og:updated_time" content="2016-11-22T04:19:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Understand JavaScript’s “this” | The Girl King">
-<meta name="twitter:description" content="[译] Understand JavaScript’s “this” With Clarity
-原文地址：Understand JavaScript’s “this” With Clarity, and Master It
-JavaScript中 this 的基本用法首先，我们知道在JavaScript中所有函数像对象一样，都具有属性。当一个函数被执行时，将获得 this 这个属性。而 this">
+<meta name="twitter:description" content="[译] Understand JavaScript’s “this” With Clarity原文地址：Understand JavaScript’s “this” With Clarity, and Master It
+JavaScript中 this 的基本用法首先，我们知道在JavaScript中所有函数像对象一样，都具有属性。当一个函数被执行时，将获得 this 这个属性。而 this 实">
     
     
     
@@ -181,10 +178,9 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <h3 id="译-Understand-JavaScript’s-“this”-With-Clarity"><a href="#译-Understand-JavaScript’s-“this”-With-Clarity" class="headerlink" title="[译] Understand JavaScript’s “this” With Clarity"></a>[译] Understand JavaScript’s “this” With Clarity</h3><hr>
-<p>原文地址：<a href="http://javascriptissexy.com/understand-javascripts-this-with-clarity-and-master-it/#" target="_blank" rel="external">Understand JavaScript’s “this” With Clarity, and Master It</a></p>
-<h2 id="JavaScript中-this-的基本用法"><a href="#JavaScript中-this-的基本用法" class="headerlink" title="JavaScript中 this 的基本用法"></a>JavaScript中 <strong>this</strong> 的基本用法</h2><p>首先，我们知道在JavaScript中所有函数像对象一样，都具有属性。当一个函数被执行时，将获得 <strong>this</strong> 这个属性。而 <strong>this</strong> 实际上就是一个具有调用函数对象值的变量。</p>
-<p>变量 <strong>this</strong> 通常都是指向一个对象，并拥有这个对象的值。<strong>this</strong> 通常被用在一个函数或者方法体内，当然它也可以被使用在函数外的全局作用域中。当我们开启严格模式时，<strong>this</strong> 在全局函数和匿名函数中的值为 <strong>undefined</strong> ，不指向任何一个对象。</p>
+    <h2 id="译-Understand-JavaScript’s-“this”-With-Clarity"><a href="#译-Understand-JavaScript’s-“this”-With-Clarity" class="headerlink" title="[译] Understand JavaScript’s “this” With Clarity"></a>[译] Understand JavaScript’s “this” With Clarity</h2><p>原文地址：<a href="http://javascriptissexy.com/understand-javascripts-this-with-clarity-and-master-it/#" target="_blank" rel="external">Understand JavaScript’s “this” With Clarity, and Master It</a></p>
+<h2 id="JavaScript中-this-的基本用法"><a href="#JavaScript中-this-的基本用法" class="headerlink" title="JavaScript中 this 的基本用法"></a>JavaScript中 <strong>this</strong> 的基本用法</h2><p>首先，我们知道在JavaScript中所有函数像对象一样，都具有属性。当一个函数被执行时，将获得 <code>this</code> 这个属性。而 <code>this</code> 实际上就是一个具有调用函数对象值的变量。</p>
+<p>变量 <code>this</code> 通常都是指向一个对象，并拥有这个对象的值。<code>this</code> 通常被用在一个函数或者方法体内，当然它也可以被使用在函数外的全局作用域中。当我们开启严格模式时，<code>this</code> 在全局函数和匿名函数中的值为 <code>undefined</code> ，不指向任何一个对象。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var person = &#123;</div><div class="line">   firstName   :<span class="string">"Penelope"</span>,</div><div class="line">   lastName    :<span class="string">"Barrymore"</span>,</div><div class="line">   // Since the <span class="string">"this"</span> keyword is used inside the showFullName method below, and the showFullName method is defined on the person object,​</div><div class="line">   // <span class="string">"this"</span> will have the value of the person object because the person object will invoke showFullName ()​</div><div class="line">   showFullName:<span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">   console.log (this.firstName + <span class="string">" "</span> + this.lastName);</div><div class="line">   &#125;</div><div class="line">​</div><div class="line">   &#125;</div><div class="line">​</div><div class="line">   person.showFullName (); // Penelope Barrymore</div></pre></td></tr></table></figure>
 
   </section>
