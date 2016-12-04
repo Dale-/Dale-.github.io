@@ -1,24 +1,8 @@
-.archive-meta h3 {
-    line-height: 2.0;
+h1 {
+    font-size: 16px;
+    margin-top: 8px;
+    margin-bottom: 8px;
 }
-
-.archive-meta sup {
-    font-size: 10px;
-    -moz-border-radius: 5px; 
-    -webkit-border-radius: 5px; 
-    border-radius: 5px;
-    background: #ddd none repeat scroll 0 0;
-    vertical-align: top;
-}
-
-.archive-meta span {
-    margin-right: 20px;
-}
-
-.archive-meta .archive-list-count::before {
-    content: " (";
-}
-
-.archive-meta .archive-list-count::after {
-    content: ")";
+h1>a {
+	font-family: arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, 宋体, Tahoma, Arial, Helvetica, STHeiti;
 }
