@@ -11,28 +11,25 @@
   
   
   
-  <meta name="description" content="什么是闭包
-Wikipedia
-
-
-Closures (also lexical closures or function closures) are techniques for implementing lexically scoped name binding in languages with first-class functions. Operationally, a closure">
+  <meta name="description" content="变量作用域变量的作用域有两种：全局变量和局部变量。在JavaScript中，函数内部可以直接读取全局变量。
+12345var n=999;function f1()&amp;#123;　　alert(n);&amp;#125;f1(); // 999
+当然，在函数外部无法读取函数内的局部变量。
+1234function f1()&amp;#123;　 var n=999;&amp;#125;alert(n); // error">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Closures">
 <meta property="og:url" content="http://yoursite.com/2016/12/06/Closures/index.html">
 <meta property="og:site_name" content="The Girl Behind">
-<meta property="og:description" content="什么是闭包
-Wikipedia
-
-
-Closures (also lexical closures or function closures) are techniques for implementing lexically scoped name binding in languages with first-class functions. Operationally, a closure">
-<meta property="og:updated_time" content="2016-12-06T13:08:21.000Z">
+<meta property="og:description" content="变量作用域变量的作用域有两种：全局变量和局部变量。在JavaScript中，函数内部可以直接读取全局变量。
+12345var n=999;function f1()&amp;#123;　　alert(n);&amp;#125;f1(); // 999
+当然，在函数外部无法读取函数内的局部变量。
+1234function f1()&amp;#123;　 var n=999;&amp;#125;alert(n); // error">
+<meta property="og:updated_time" content="2016-12-06T13:25:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Closures">
-<meta name="twitter:description" content="什么是闭包
-Wikipedia
-
-
-Closures (also lexical closures or function closures) are techniques for implementing lexically scoped name binding in languages with first-class functions. Operationally, a closure">
+<meta name="twitter:description" content="变量作用域变量的作用域有两种：全局变量和局部变量。在JavaScript中，函数内部可以直接读取全局变量。
+12345var n=999;function f1()&amp;#123;　　alert(n);&amp;#125;f1(); // 999
+当然，在函数外部无法读取函数内的局部变量。
+1234function f1()&amp;#123;　 var n=999;&amp;#125;alert(n); // error">
   
     <link rel="alternate" href="/atom.xml" title="The Girl Behind" type="application/atom+xml">
   
@@ -181,7 +178,15 @@ Closures (also lexical closures or function closures) are techniques for impleme
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包"></a>什么是闭包</h2><ul>
+        <h2 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a>变量作用域</h2><p>变量的作用域有两种：全局变量和局部变量。<br>在JavaScript中，函数内部可以直接读取全局变量。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var n=999;</div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">f1</span></span>()&#123;</div><div class="line">　　alert(n);</div><div class="line">&#125;</div><div class="line">f1(); // 999</div></pre></td></tr></table></figure>
+<p>当然，在函数外部无法读取函数内的局部变量。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">f1</span></span>()&#123;</div><div class="line">　 var n=999;</div><div class="line">&#125;</div><div class="line">alert(n); // error</div></pre></td></tr></table></figure>
+<blockquote>
+<p>这里有一个地方需要注意，函数内部声明变量的时候，一定要使用var命令。<br>  如果不用的话，你实际上声明了一个全局变量！</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">f1</span></span>()&#123;</div><div class="line">  n=999;</div><div class="line">&#125;</div><div class="line">f1();</div><div class="line">alert(n); // 999</div></pre></td></tr></table></figure>
+<h2 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包"></a>什么是闭包</h2><ul>
 <li>Wikipedia</li>
 </ul>
 <blockquote>
@@ -259,7 +264,7 @@ Closures (also lexical closures or function closures) are techniques for impleme
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是闭包"><span class="toc-number">1.</span> <span class="toc-text">什么是闭包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Well"><span class="toc-number">2.</span> <span class="toc-text">Well</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Less-Well"><span class="toc-number">3.</span> <span class="toc-text">Less Well</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#变量作用域"><span class="toc-number">1.</span> <span class="toc-text">变量作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是闭包"><span class="toc-number">2.</span> <span class="toc-text">什么是闭包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Well"><span class="toc-number">3.</span> <span class="toc-text">Well</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Less-Well"><span class="toc-number">4.</span> <span class="toc-text">Less Well</span></a></li></ol>
     
     </div>
   </aside>
