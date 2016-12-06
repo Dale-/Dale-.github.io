@@ -23,7 +23,7 @@
 12345var n=999;function f1()&amp;#123;　　alert(n);&amp;#125;f1(); // 999
 当然，在函数外部无法读取函数内的局部变量。
 1234function f1()&amp;#123;　 var n=999;&amp;#125;alert(n); // error">
-<meta property="og:updated_time" content="2016-12-06T13:42:22.000Z">
+<meta property="og:updated_time" content="2016-12-06T13:58:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Closures">
 <meta name="twitter:description" content="变量作用域变量的作用域有两种：全局变量和局部变量。在JavaScript中，函数内部可以直接读取全局变量。
@@ -206,6 +206,8 @@
 </ul>
 <blockquote>
 <p>闭包，不同于一般的函数，它允许一个函数在立即词法作用域外调用时，仍可访问非本地变量。</p>
+<p>闭包就是能够读取其他函数内部变量的函数。</p>
+<p>由于在Javascript语言中，只有函数内部的子函数才能读取局部变量，因此可以把闭包简单理解成”定义在一个函数内部的函数”。<br>所以，在本质上，闭包就是将函数内部和函数外部连接起来的一座桥梁。</p>
 </blockquote>
 <h2 id="Well"><a href="#Well" class="headerlink" title="Well"></a>Well</h2><ul>
 <li>灵活</li>
@@ -217,7 +219,7 @@
 <li>内存泄漏</li>
 <li>性能消耗</li>
 </ul>
-
+<h2 id="闭包的用途"><a href="#闭包的用途" class="headerlink" title="闭包的用途"></a>闭包的用途</h2>
       
     </div>
     <footer class="article-footer">
@@ -272,7 +274,7 @@
     <div id="toc" class="toc-article">
     <strong class="toc-title">Inhalt</strong>
     
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#变量作用域"><span class="toc-number">1.</span> <span class="toc-text">变量作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何从外部读取局部变量？"><span class="toc-number">2.</span> <span class="toc-text">如何从外部读取局部变量？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是闭包"><span class="toc-number">3.</span> <span class="toc-text">什么是闭包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Well"><span class="toc-number">4.</span> <span class="toc-text">Well</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Less-Well"><span class="toc-number">5.</span> <span class="toc-text">Less Well</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#变量作用域"><span class="toc-number">1.</span> <span class="toc-text">变量作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何从外部读取局部变量？"><span class="toc-number">2.</span> <span class="toc-text">如何从外部读取局部变量？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是闭包"><span class="toc-number">3.</span> <span class="toc-text">什么是闭包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Well"><span class="toc-number">4.</span> <span class="toc-text">Well</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Less-Well"><span class="toc-number">5.</span> <span class="toc-text">Less Well</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#闭包的用途"><span class="toc-number">6.</span> <span class="toc-text">闭包的用途</span></a></li></ol>
     
     </div>
   </aside>

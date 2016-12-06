@@ -35,7 +35,7 @@ Hexo即会自动在目标文件夹下建立网站所需要的所有文件
 <meta property="og:image" content="http://yoursite.com/images/hexo-github/remoteImgPath.png">
 <meta property="og:image" content="http://yoursite.com/images/hexo-github/configTheme.png">
 <meta property="og:image" content="http://yoursite.com/images/hexo-github/markdownPreview.png">
-<meta property="og:updated_time" content="2016-12-04T14:34:11.000Z">
+<meta property="og:updated_time" content="2016-12-06T14:01:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo + Github 三分钟搭建自己的Blog">
 <meta name="twitter:description" content="快速搭建Blog1. 安装hexo1npm install -g hexo
@@ -233,6 +233,9 @@ hexo d == hexo deploy
 <h2 id="图片deploy后找不到"><a href="#图片deploy后找不到" class="headerlink" title="图片deploy后找不到"></a>图片deploy后找不到</h2><p><img src="/images/hexo-github/localImgPath.png" alt=""></p>
 <p><img src="/images/hexo-github/remoteImgPath.png" alt=""></p>
 <p>引用图片时，注意deploy到github后的路径</p>
+<blockquote>
+<p>如果将图片放到public中，hexo clean的时候会清空，所以建议将img放到source中。</p>
+</blockquote>
 <h2 id="引用Theme"><a href="#引用Theme" class="headerlink" title="引用Theme"></a>引用Theme</h2><ul>
 <li>选择你中意的theme，clone到themes目录下</li>
 <li>在_config.yml文件中找到下图的配置项，修改theme<br><img src="/images/hexo-github/configTheme.png" alt=""></li>

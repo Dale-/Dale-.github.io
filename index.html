@@ -92,7 +92,7 @@
 
 
   
-    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/sample.jpg); background-size: auto 100%;">
+    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/home-bg.jpg); background-size: auto 100%;">
   
 
     <canvas width="100%" height="100%"></canvas>
@@ -242,6 +242,8 @@
 </ul>
 <blockquote>
 <p>闭包，不同于一般的函数，它允许一个函数在立即词法作用域外调用时，仍可访问非本地变量。</p>
+<p>闭包就是能够读取其他函数内部变量的函数。</p>
+<p>由于在Javascript语言中，只有函数内部的子函数才能读取局部变量，因此可以把闭包简单理解成”定义在一个函数内部的函数”。<br>所以，在本质上，闭包就是将函数内部和函数外部连接起来的一座桥梁。</p>
 </blockquote>
 <h2 id="Well"><a href="#Well" class="headerlink" title="Well"></a>Well</h2><ul>
 <li>灵活</li>
@@ -253,7 +255,7 @@
 <li>内存泄漏</li>
 <li>性能消耗</li>
 </ul>
-
+<h2 id="闭包的用途"><a href="#闭包的用途" class="headerlink" title="闭包的用途"></a>闭包的用途</h2>
       
     </div>
     <footer class="article-footer">
@@ -419,6 +421,9 @@ hexo d == hexo deploy
 <h2 id="图片deploy后找不到"><a href="#图片deploy后找不到" class="headerlink" title="图片deploy后找不到"></a>图片deploy后找不到</h2><p><img src="/images/hexo-github/localImgPath.png" alt=""></p>
 <p><img src="/images/hexo-github/remoteImgPath.png" alt=""></p>
 <p>引用图片时，注意deploy到github后的路径</p>
+<blockquote>
+<p>如果将图片放到public中，hexo clean的时候会清空，所以建议将img放到source中。</p>
+</blockquote>
 <h2 id="引用Theme"><a href="#引用Theme" class="headerlink" title="引用Theme"></a>引用Theme</h2><ul>
 <li>选择你中意的theme，clone到themes目录下</li>
 <li>在_config.yml文件中找到下图的配置项，修改theme<br><img src="/images/hexo-github/configTheme.png" alt=""></li>
