@@ -66,22 +66,22 @@
         <nav id="main-nav">
           <a id="main-nav-toggle" class="nav-icon"></a>
           
-            <a class="main-nav-link" href="/">Home</a>
+            <a class="main-nav-link" href="/">Startseite</a>
           
-            <a class="main-nav-link" href="/archives">Archives</a>
+            <a class="main-nav-link" href="/archives">Archive</a>
           
-            <a class="main-nav-link" href="/categories">Catégories</a>
+            <a class="main-nav-link" href="/categories">Kategorien</a>
           
-            <a class="main-nav-link" href="/tags">Mot-clés</a>
+            <a class="main-nav-link" href="/tags">Tags</a>
           
             <a class="main-nav-link" href="/about">About</a>
           
         </nav>
         <nav id="sub-nav">
           
-            <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+            <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
           
-          <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+          <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
         </nav>
         <div id="search-form-wrap">
           <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -92,7 +92,7 @@
 
 
   
-    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/home-bg.jpg); background-size: auto 100%;">
+    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/sample.jpg); background-size: auto 100%;">
   
 
     <canvas width="100%" height="100%"></canvas>
@@ -167,13 +167,13 @@
   <div class="intro-navigate">
       <p class="navigater-list">
         
-          <a id="beautifont" class="main-nav-link" href="/">Home</a>
+          <a id="beautifont" class="main-nav-link" href="/">Startseite</a>
         
-          <a id="beautifont" class="main-nav-link" href="/archives">Archives</a>
+          <a id="beautifont" class="main-nav-link" href="/archives">Archive</a>
         
-          <a id="beautifont" class="main-nav-link" href="/categories">Catégories</a>
+          <a id="beautifont" class="main-nav-link" href="/categories">Kategorien</a>
         
-          <a id="beautifont" class="main-nav-link" href="/tags">Mot-clés</a>
+          <a id="beautifont" class="main-nav-link" href="/tags">Tags</a>
         
           <a id="beautifont" class="main-nav-link" href="/about">About</a>
         
@@ -222,7 +222,15 @@
 <p>这里有一个地方需要注意，函数内部声明变量的时候，一定要使用var命令。<br>  如果不用的话，你实际上声明了一个全局变量！</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">f1</span></span>()&#123;</div><div class="line">  n=999;</div><div class="line">&#125;</div><div class="line">f1();</div><div class="line">alert(n); // 999</div></pre></td></tr></table></figure>
-<h2 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包"></a>什么是闭包</h2><ul>
+<h2 id="如何从外部读取局部变量？"><a href="#如何从外部读取局部变量？" class="headerlink" title="如何从外部读取局部变量？"></a>如何从外部读取局部变量？</h2><p>在函数的内部，再定义一个函数。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">f1</span></span>()&#123;</div><div class="line">　　var n=999;</div><div class="line">　　<span class="keyword">function</span> <span class="function"><span class="title">f2</span></span>()&#123;</div><div class="line">　　　　alert(n); // 999</div><div class="line">　　&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>在上面的代码中，函数f2就被包括在函数f1内部，这时f1内部的所有局部变量，对f2都是可见的。但是反过来就不行，f2内部的局部变量，对f1就是不可见的。这就是Javascript语言特有的”链式作用域”结构（chain scope），子对象会一级一级地向上寻找所有父对象的变量。所以，父对象的所有变量，对子对象都是可见的，反之则不成立。</p>
+<p>既然f2可以读取f1中的局部变量，那么只要把f2作为返回值，我们不就可以在f1外部读取它的内部变量了吗！</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">f1</span></span>()&#123;</div><div class="line">　　var n=999;</div><div class="line">　　<span class="keyword">function</span> <span class="function"><span class="title">f2</span></span>()&#123;</div><div class="line">　　　　alert(n);</div><div class="line">　　&#125;</div><div class="line">　　<span class="built_in">return</span> f2;</div><div class="line">&#125;</div><div class="line">var result=f1();</div><div class="line">result(); // 999</div></pre></td></tr></table></figure>
+<h2 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包"></a>什么是闭包</h2><p>上一节代码中的f2函数，就是闭包。</p>
+<ul>
 <li>Wikipedia</li>
 </ul>
 <blockquote>
@@ -638,9 +646,9 @@ hexo d == hexo deploy
 
   <div class="container">
       <div class="row">
-	      <p> Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
 	      <p id="copyRightEn">Copyright &copy; 2013 - 2016 The Girl Behind All Rights Reserved.</p>
-	      <p id="copyRightCn">Dale Du hold copyright</p>
+	      <p id="copyRightCn">Dale Du hält Urheberrechtsansprüche.</p>
 	</div>
   </div>
 </footer>
