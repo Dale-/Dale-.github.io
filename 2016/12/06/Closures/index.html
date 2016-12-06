@@ -6,19 +6,33 @@
   <title>closures | The Girl Behind</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
+  <meta name="keywords" content="JavaScript" />
   
   
   
-  <meta name="description" content="To be a better me">
+  
+  <meta name="description" content="什么是闭包
+Wikipedia
+
+
+Closures (also lexical closures or function closures) are techniques for implementing lexically scoped name binding in languages with first-class functions. Operationally, a closure">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Closures">
 <meta property="og:url" content="http://yoursite.com/2016/12/06/Closures/index.html">
 <meta property="og:site_name" content="The Girl Behind">
-<meta property="og:description" content="To be a better me">
-<meta property="og:updated_time" content="2016-12-06T09:04:34.000Z">
+<meta property="og:description" content="什么是闭包
+Wikipedia
+
+
+Closures (also lexical closures or function closures) are techniques for implementing lexically scoped name binding in languages with first-class functions. Operationally, a closure">
+<meta property="og:updated_time" content="2016-12-06T13:08:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Closures">
-<meta name="twitter:description" content="To be a better me">
+<meta name="twitter:description" content="什么是闭包
+Wikipedia
+
+
+Closures (also lexical closures or function closures) are techniques for implementing lexically scoped name binding in languages with first-class functions. Operationally, a closure">
   
     <link rel="alternate" href="/atom.xml" title="The Girl Behind" type="application/atom+xml">
   
@@ -82,11 +96,11 @@
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 
-                  <li> <a class="main-nav-link" href="/">Startseite</a> </li>
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/archives">Archive</a> </li>
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/categories">Kategorien</a> </li>
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
                 
                   <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
                 
@@ -102,7 +116,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Schreib etwas..." />
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -114,11 +128,11 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Beiträge',
-            PAGES: 'Seiten',
-            CATEGORIES: 'Kategorien',
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
             TAGS: 'Tags',
-            UNTITLED: '(Unbenannt)',
+            UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -167,7 +181,30 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包"></a>什么是闭包</h2><ul>
+<li>Wikipedia</li>
+</ul>
+<blockquote>
+<p>Closures (also lexical closures or function closures) are techniques for implementing lexically scoped name binding in languages with first-class functions. Operationally, a closure is a record storing a function[a] together with an environment:[1] a mapping associating each free variable of the function (variables that are used locally, but defined in an enclosing scope) with the value or reference to which the name was bound when the closure was created.[b] A closure—unlike a plain function—allows the function to access those captured variables through the closure’s copies of their values or references, even when the function is invoked outside their scope.</p>
+<p>闭包（也称词法闭包或函数闭包）是指一个函数或函数的引用，与一个引用环境绑定在一起。这个引用环境是一个存储该函数每个非局部变量（也叫自由变量）的表。</p>
+</blockquote>
+<ul>
+<li>Closures</li>
+</ul>
+<blockquote>
+<p>闭包，不同于一般的函数，它允许一个函数在立即词法作用域外调用时，仍可访问非本地变量。</p>
+</blockquote>
+<h2 id="Well"><a href="#Well" class="headerlink" title="Well"></a>Well</h2><ul>
+<li>灵活</li>
+<li>方便</li>
+<li>封装</li>
+</ul>
+<h2 id="Less-Well"><a href="#Less-Well" class="headerlink" title="Less Well"></a>Less Well</h2><ul>
+<li>空间浪费</li>
+<li>内存泄漏</li>
+<li>性能消耗</li>
+</ul>
+
       
     </div>
     <footer class="article-footer">
@@ -197,6 +234,8 @@
 
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
     </footer>
   </div>
   
@@ -205,7 +244,7 @@
   
   
     <a href="/2016/11/21/Understand-JavaScript’s-“this”/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Älter</strong>
+      <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">Understand JavaScript’s “this”</div>
     </a>
   
@@ -218,9 +257,9 @@
 
   <aside id="sidebar">
     <div id="toc" class="toc-article">
-    <strong class="toc-title">Inhalt</strong>
+    <strong class="toc-title">Contents</strong>
     
-    <ol class="toc">Nichts</ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是闭包"><span class="toc-number">1.</span> <span class="toc-text">什么是闭包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Well"><span class="toc-number">2.</span> <span class="toc-text">Well</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Less-Well"><span class="toc-number">3.</span> <span class="toc-text">Less Well</span></a></li></ol>
     
     </div>
   </aside>
@@ -235,7 +274,7 @@
       <div class="row">
 	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
 	      <p id="copyRightEn">Copyright &copy; 2013 - 2016 The Girl Behind All Rights Reserved.</p>
-	      <p id="copyRightCn">Dale Du hält Urheberrechtsansprüche.</p>
+	      <p id="copyRightCn">Dale Du hold copyright</p>
 	</div>
   </div>
 </footer>
