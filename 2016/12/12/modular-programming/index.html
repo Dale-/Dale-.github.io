@@ -3,21 +3,32 @@
 <head>
   <meta charset="utf-8">
   
-  <title>archiv: 2016/12 | The Girl Behind</title>
+  <title>modular programming | The Girl Behind</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
+  <meta name="keywords" content="JavaScript" />
   
   
   
-  <meta name="description" content="To be a better me">
-<meta property="og:type" content="website">
-<meta property="og:title" content="The Girl Behind">
-<meta property="og:url" content="http://yoursite.com/archives/2016/12/index.html">
+  
+  <meta name="description" content="CommonJS2009年，美国程序员Ryan Dahl创造了node.js项目，将javascript语言用于服务器端编程。这标志”Javascript模块化编程”正式诞生。NodeJS就采用了CommonJS。是这样加载模块：
+12var clock = require(&apos;clock&apos;);clock.start();
+这种写法适合服务端，因为在服务器读取模块都是在本地磁盘，加载速度很快。但是如">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Modular Programming">
+<meta property="og:url" content="http://yoursite.com/2016/12/12/modular-programming/index.html">
 <meta property="og:site_name" content="The Girl Behind">
-<meta property="og:description" content="To be a better me">
+<meta property="og:description" content="CommonJS2009年，美国程序员Ryan Dahl创造了node.js项目，将javascript语言用于服务器端编程。这标志”Javascript模块化编程”正式诞生。NodeJS就采用了CommonJS。是这样加载模块：
+12var clock = require(&apos;clock&apos;);clock.start();
+这种写法适合服务端，因为在服务器读取模块都是在本地磁盘，加载速度很快。但是如">
+<meta property="og:image" content="http://yoursite.com/images/modular-programming/nodejs.jpg">
+<meta property="og:updated_time" content="2016-12-12T02:05:54.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="The Girl Behind">
-<meta name="twitter:description" content="To be a better me">
+<meta name="twitter:title" content="Modular Programming">
+<meta name="twitter:description" content="CommonJS2009年，美国程序员Ryan Dahl创造了node.js项目，将javascript语言用于服务器端编程。这标志”Javascript模块化编程”正式诞生。NodeJS就采用了CommonJS。是这样加载模块：
+12var clock = require(&apos;clock&apos;);clock.start();
+这种写法适合服务端，因为在服务器读取模块都是在本地磁盘，加载速度很快。但是如">
+<meta name="twitter:image" content="http://yoursite.com/images/modular-programming/nodejs.jpg">
   
     <link rel="alternate" href="/atom.xml" title="The Girl Behind" type="application/atom+xml">
   
@@ -49,8 +60,6 @@
   
 
   
-    <link rel="stylesheet" href="/css/archive.css" >
-  
 
 </head>
 
@@ -75,7 +84,7 @@
             
               <a class="brand" style="
                  margin-top: 0px;"  
-                 >
+                href="#" data-toggle="modal" data-target="#myModal" >
                   <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
               </a>
             
@@ -144,142 +153,104 @@
             
       <div id="content" class="outer">
         
-          <section id="main">
-  <div class="archives-tags-wrap"><blockquote><span>Dale 的 6 篇文章.</span></blockquote>
+          <section id="main" style="float:none;"><article id="post-modular-programming" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Modular Programming
+    </h1>
+  
 
-
-<!-- 分页显示 -->
-
-	
-	
-	
-	
-	  
-	  
-	  <section class="archives-wrap">
-	    <div class="archive-year-wrap">
-	      <h1><a href="/archives/2016" class="archive-year">2016</a></h1>
-	    </div>
-	    <div class="archives">
-	
-	<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
+      </header>
+    
+    <div class="article-meta">
       
-	<a href="/2016/12/12/modular-programming/" class="archive-article-date">
+	<a href="/2016/12/12/modular-programming/" class="article-date">
 	  <time datetime="2016-12-12T01:45:51.000Z" itemprop="datePublished">2016-12-12</time>
 	</a>
 
       
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2016/12/12/modular-programming/">Modular Programming</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-	
-	
-	
-	<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
+    </div>
+    <div class="article-entry" itemprop="articleBody">
       
-	<a href="/2016/12/06/Closures/" class="archive-article-date">
-	  <time datetime="2016-12-06T09:04:34.000Z" itemprop="datePublished">2016-12-06</time>
-	</a>
+        <h2 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h2><p>2009年，美国程序员Ryan Dahl创造了node.js项目，将javascript语言用于服务器端编程。<br><img src="/images/modular-programming/nodejs.jpg" alt=""><br>这标志”Javascript模块化编程”正式诞生。<br>NodeJS就采用了CommonJS。是这样加载模块：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var clock = require(<span class="string">'clock'</span>);</div><div class="line">clock.start();</div></pre></td></tr></table></figure>
+<p>这种写法适合服务端，因为在服务器读取模块都是在本地磁盘，加载速度很快。<br>但是如果在客户端，加载模块的时候有可能出现“假死”状况。比如上面的例子中clock的<br>调用必须等待clock.js请求成功，加载完毕。那么，能不能异步加载模块呢？</p>
+<h2 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h2><p>AMD，即 (Asynchronous Module Definition)，这种规范是异步的加载模块，requireJs应用了这一规范。<br>先定义所有依赖，然后在加载完成后的回调函数中执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">require([module], callback);</div></pre></td></tr></table></figure>
+<p>用AMD写上一个模块：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">require([<span class="string">'clock'</span>],<span class="keyword">function</span>(clock)&#123;</div><div class="line">  clock.start();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>AMD虽然实现了异步加载，但是开始就把所有依赖写出来是不符合书写的逻辑顺序的，<br>能不能像commonJS那样用的时候再require，而且还支持异步加载后再执行呢？</p>
+<h2 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h2><p>CMD (Common Module Definition)，<br>CMD则是依赖就近，用的时候再require。它写起来是这样的：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">define(<span class="keyword">function</span>(require, exports, module) &#123;</div><div class="line">   var clock = require(<span class="string">'clock'</span>);</div><div class="line">   clock.start();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>用AMD写上一个模块：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">require([<span class="string">'clock'</span>],<span class="keyword">function</span>(clock)&#123;</div><div class="line">  clock.start();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>AMD和CMD最大的区别是对依赖模块的执行时机处理不同，<br>而不是加载的时机或者方式不同，二者皆为异步加载模块。</p>
+<p>AMD依赖前置，js可以方便知道依赖模块是谁，立即加载；而CMD就近依赖，<br>需要使用把模块变为字符串解析一遍才知道依赖了那些模块，这也是很多人诟病CMD的一点，<br>牺牲性能来带来开发的便利性，实际上解析模块用的时间短到可以忽略。</p>
 
       
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2016/12/06/Closures/">Closures</a>
-    </h1>
-  
+    </div>
+    <footer class="article-footer">
+      
+        
+	<div id="comment">
+	
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2016/12/12/modular-programming/" data-title="Modular Programming" data-url="http://yoursite.com/2016/12/12/modular-programming/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"dale-"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0] 
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+	
+	</div>
 
-    </header>
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/12/06/Closures/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">Closures</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-	
-	
-		</div></section>
-	
 
-	<!-- 页数指示器 -->
-	
+<!-- Table of Contents -->
 
-
-
-
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Inhalt</strong>
+    
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CommonJS"><span class="toc-number">1.</span> <span class="toc-text">CommonJS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AMD"><span class="toc-number">2.</span> <span class="toc-text">AMD</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CMD"><span class="toc-number">3.</span> <span class="toc-text">CMD</span></a></li></ol>
+    
+    </div>
+  </aside>
 </section>
-          <aside id="sidebar">
-  
-    
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AngularJS/">AngularJS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/AngularJS/" style="font-size: 10px;">AngularJS</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
-
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">3</span></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2016/12/12/modular-programming/">Modular Programming</a>
-          </li>
-        
-          <li>
-            <a href="/2016/12/06/Closures/">Closures</a>
-          </li>
-        
-          <li>
-            <a href="/2016/11/21/Understand-JavaScript’s-“this”/">Understand JavaScript’s “this”</a>
-          </li>
-        
-          <li>
-            <a href="/2016/09/23/Hexo-Github-三分钟搭建自己的Blog/">Hexo + Github 三分钟搭建自己的Blog</a>
-          </li>
-        
-          <li>
-            <a href="/2016/09/19/angular-directive/">angular-directive</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
         
       </div>
       
@@ -367,6 +338,8 @@
 
 
 
+
+  <script src="/js/dialog.js"></script>
 
 
 
