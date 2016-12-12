@@ -92,7 +92,7 @@
 
 
   
-    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/home-bg.jpg); background-size: auto 100%;">
+    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/sample.jpg); background-size: auto 100%;">
   
 
     <canvas width="100%" height="100%"></canvas>
@@ -214,13 +214,19 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h2><p>2009年，美国程序员Ryan Dahl创造了node.js项目，将javascript语言用于服务器端编程。<br><img src="/images/modular-programming/nodejs.jpg" alt=""><br>这标志”Javascript模块化编程”正式诞生。<br>NodeJS就采用了CommonJS。是这样加载模块：</p>
+        <h2 id="模块的规范"><a href="#模块的规范" class="headerlink" title="模块的规范"></a>模块的规范</h2><p>先想一想，为什么模块很重要？</p>
+<p>因为有了模块，我们就可以更方便地使用别人的代码，想要什么功能，就加载什么模块。</p>
+<p>但是，这样做有一个前提，那就是大家必须以同样的方式编写模块，否则你有你的写法，我有我的写法，岂不是乱了套！<br>考虑到Javascript模块现在还没有官方规范，这一点就更重要了。</p>
+<p>目前，AMD,CMD,CommonJS是目前最常用的三种模块化书写规范。</p>
+<h2 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h2><p>2009年，美国程序员Ryan Dahl创造了node.js项目，将javascript语言用于服务器端编程。<br><img src="/images/modular-programming/nodejs.jpg" alt=""><br>这标志”Javascript模块化编程”正式诞生。<br>NodeJS的模块系统，就是参照CommonJS规范实现的。</p>
+<p>在CommonJS中，有一个全局性方法require()，用于加载模块。<br>假定有一个时钟模块clock.js，就可以像下面这样加载：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var clock = require(<span class="string">'clock'</span>);</div><div class="line">clock.start();</div></pre></td></tr></table></figure>
 <p>这种写法适合服务端，因为在服务器读取模块都是在本地磁盘，加载速度很快。<br>但是如果在客户端，加载模块的时候有可能出现“假死”状况。比如上面的例子中clock的<br>调用必须等待clock.js请求成功，加载完毕。那么，能不能异步加载模块呢？</p>
 <h2 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h2><p>AMD，即 (Asynchronous Module Definition)，这种规范是异步的加载模块，requireJs应用了这一规范。<br>先定义所有依赖，然后在加载完成后的回调函数中执行：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">require([module], callback);</div></pre></td></tr></table></figure>
 <p>用AMD写上一个模块：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">require([<span class="string">'clock'</span>],<span class="keyword">function</span>(clock)&#123;</div><div class="line">  clock.start();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>目前，主要有两个Javascript库实现了AMD规范：require.js和curl.js。</p>
 <p>AMD虽然实现了异步加载，但是开始就把所有依赖写出来是不符合书写的逻辑顺序的，<br>能不能像commonJS那样用的时候再require，而且还支持异步加载后再执行呢？</p>
 <h2 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h2><p>CMD (Common Module Definition)，<br>CMD则是依赖就近，用的时候再require。它写起来是这样的：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">define(<span class="keyword">function</span>(require, exports, module) &#123;</div><div class="line">   var clock = require(<span class="string">'clock'</span>);</div><div class="line">   clock.start();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
@@ -528,7 +534,7 @@ hexo d == hexo deploy
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/09/19/angular-directive/">angular-directive</a>
+      <a class="article-title" href="/2016/09/19/angular-directive/">Angular Directive</a>
     </h1>
   
 
