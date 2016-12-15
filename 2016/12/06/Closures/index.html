@@ -23,7 +23,7 @@
 12345var n=999;function f1()&amp;#123;　　alert(n);&amp;#125;f1(); // 999
 当然，在函数外部无法读取函数内的局部变量。
 1234function f1()&amp;#123;　 var n=999;&amp;#125;alert(n); // error">
-<meta property="og:updated_time" content="2016-12-07T02:18:13.000Z">
+<meta property="og:updated_time" content="2016-12-15T13:18:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Closures">
 <meta name="twitter:description" content="变量作用域变量的作用域有两种：全局变量和局部变量。在JavaScript中，函数内部可以直接读取全局变量。
@@ -93,11 +93,11 @@
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 
-                  <li> <a class="main-nav-link" href="/">Startseite</a> </li>
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/archives">Archive</a> </li>
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/categories">Kategorien</a> </li>
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
                 
                   <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
                 
@@ -113,7 +113,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Schreib etwas..." />
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -125,11 +125,11 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Beiträge',
-            PAGES: 'Seiten',
-            CATEGORIES: 'Kategorien',
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
             TAGS: 'Tags',
-            UNTITLED: '(Unbenannt)',
+            UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -218,18 +218,26 @@
 <li>内存泄漏</li>
 <li>性能消耗</li>
 </ul>
-<h2 id="闭包的用途"><a href="#闭包的用途" class="headerlink" title="闭包的用途"></a>闭包的用途</h2><blockquote>
+<h2 id="闭包的三个事实"><a href="#闭包的三个事实" class="headerlink" title="闭包的三个事实"></a>闭包的三个事实</h2><blockquote>
 <ul>
-<li><p>读取函数内部的变量</p>
-</li>
-<li><p>变量的值始终保持在内存中</p>
-</li>
+<li>JavaScript允许你引入函数以外定义的变量</li>
 </ul>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">f1</span></span>()&#123;</div><div class="line">　　var n=999;</div><div class="line">　　nAdd=<span class="function"><span class="title">function</span></span>()&#123;n+=1&#125;</div><div class="line">　　<span class="keyword">function</span> <span class="function"><span class="title">f2</span></span>()&#123;</div><div class="line">　　　　alert(n);</div><div class="line">　　&#125;</div><div class="line">　　<span class="built_in">return</span> f2;</div><div class="line">&#125;</div><div class="line">var result=f1();</div><div class="line">result(); // 999</div><div class="line">nAdd();</div><div class="line">result(); // 1000</div></pre></td></tr></table></figure>
-<p> 在这段代码中，result实际上就是闭包f2函数。它一共运行了两次，第一次的值是999，第二次的值是1000。这证明了，函数f1中的局部变量n一直保存在内存中，并没有在f1调用后被自动清除。</p>
-<p> 为什么会这样呢？原因就在于f1是f2的父函数，而f2被赋给了一个全局变量，这导致f2始终在内存中，而f2的存在依赖于f1，因此f1也始终在内存中，不会在调用结束后，被垃圾回收机制（garbage collection）回收。</p>
-<p> 这段代码中另一个值得注意的地方，就是”nAdd=function(){n+=1}”这一行，首先在nAdd前面没有使用var关键字，因此nAdd是一个全局变量，而不是局部变量。其次，nAdd的值是一个匿名函数（anonymous function），而这个匿名函数本身也是一个闭包，所以nAdd相当于是一个setter，可以在函数外部对函数内部的局部变量进行操作。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">makeNoodles</span></span>() &#123;</div><div class="line">    var noodlesType = <span class="string">'Lamian'</span></div><div class="line">    <span class="keyword">function</span> make(ingredients) &#123;</div><div class="line">        <span class="built_in">return</span> noodlesType + <span class="string">' with '</span> + ingredients;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> make(<span class="string">'beef'</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">makeNoodles(); // <span class="string">'Lamian with beef'</span></div><div class="line">// 注意 make函数可以访问外部变量 noodlesType 和 ingredients</div></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>即使外部函数已经执行结束, 内部函数依然可以引用在外部函数所定义的变量</li>
+</ul>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">makeNoodles</span></span>() &#123;</div><div class="line">    var noodlesType = <span class="string">'Lamian'</span></div><div class="line">    <span class="keyword">function</span> make(ingredients) &#123;</div><div class="line">        <span class="built_in">return</span> noodlesType + <span class="string">' with '</span> + ingredients;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> make;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var f = makeNoodles();</div><div class="line">f(<span class="string">'beef'</span>); // <span class="string">'Lamian with beef'</span></div><div class="line">f(<span class="string">'fish'</span>); // <span class="string">'Lamian with fish'</span></div><div class="line">f(<span class="string">'eggs and tomatoes'</span>); // <span class="string">'Lamian with eggs and tomatoes'</span></div><div class="line">// 注意 与第一个例子不同的是, makeNoodles 函数返回 make 函数, 此时外部函数执行已经结束, 但是内部函数 make</div><div class="line">// 依然可以访问 noodlesType 变量</div></pre></td></tr></table></figure>
+<p>基于上面的例子, 我们可以写的更通用.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> makeNoodles(noodlesType) &#123;</div><div class="line">    <span class="keyword">function</span> make(ingredients) &#123;</div><div class="line">        <span class="built_in">return</span> noodlesType + <span class="string">' with '</span> + ingredients;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> make;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var makeLamian = makeNoodles(<span class="string">'Lamian'</span>);</div><div class="line">makeLamian(<span class="string">'beef'</span>); // <span class="string">'Lamian with beef'</span></div><div class="line">makeLamian(<span class="string">'fish'</span>); // <span class="string">'Lamian with fish'</span></div><div class="line">makeLamian(<span class="string">'eggs and tomatoes'</span>); // <span class="string">'Lamian with eggs and tomatoes'</span></div><div class="line"></div><div class="line">var makeRiceNoodles = makeNoodles(<span class="string">'Rice noodles'</span>);</div><div class="line">makeRiceNoodles(<span class="string">'beef'</span>); // <span class="string">'Rice noodles with beef'</span></div><div class="line">makeRiceNoodles(<span class="string">'fish'</span>); // <span class="string">'Rice noodles with fish'</span></div><div class="line">makeRiceNoodles(<span class="string">'eggs and tomatoes'</span>); // <span class="string">'Rice noodles with eggs and tomatoes'</span></div></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>最后一个, 闭包可以更新外部函数定义的变量</li>
+</ul>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">counter</span></span>() &#123;</div><div class="line">    var num = 0;</div><div class="line">    <span class="built_in">return</span> &#123;</div><div class="line">        increase: <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">           num++;</div><div class="line">        &#125;,</div><div class="line">        currentNum: <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">            <span class="built_in">return</span> num;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var counter1 = counter();</div><div class="line">counter1.increase();</div><div class="line">counter1.increase();</div><div class="line">counter1.currentNum(); // 2</div><div class="line"></div><div class="line">var counter2 = counter();</div><div class="line">counter2.currentNum(); // 0</div></pre></td></tr></table></figure>
 <h2 id="闭包的中的this"><a href="#闭包的中的this" class="headerlink" title="闭包的中的this"></a>闭包的中的<code>this</code></h2><ul>
 <li>代码片段一</li>
 </ul>
@@ -277,7 +285,7 @@
 <nav id="article-nav">
   
     <a href="/2016/12/12/modular-programming/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
+      <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
           Modular Programming
@@ -287,7 +295,7 @@
   
   
     <a href="/2016/11/21/Understand-JavaScript’s-“this”/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Älter</strong>
+      <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">Understand JavaScript’s “this”</div>
     </a>
   
@@ -300,9 +308,9 @@
 
   <aside id="sidebar">
     <div id="toc" class="toc-article">
-    <strong class="toc-title">Inhalt</strong>
+    <strong class="toc-title">Contents</strong>
     
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#变量作用域"><span class="toc-number">1.</span> <span class="toc-text">变量作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何从外部读取局部变量？"><span class="toc-number">2.</span> <span class="toc-text">如何从外部读取局部变量？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是闭包"><span class="toc-number">3.</span> <span class="toc-text">什么是闭包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Well"><span class="toc-number">4.</span> <span class="toc-text">Well</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Less-Well"><span class="toc-number">5.</span> <span class="toc-text">Less Well</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#闭包的用途"><span class="toc-number">6.</span> <span class="toc-text">闭包的用途</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#闭包的中的this"><span class="toc-number">7.</span> <span class="toc-text">闭包的中的this</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#变量作用域"><span class="toc-number">1.</span> <span class="toc-text">变量作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何从外部读取局部变量？"><span class="toc-number">2.</span> <span class="toc-text">如何从外部读取局部变量？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是闭包"><span class="toc-number">3.</span> <span class="toc-text">什么是闭包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Well"><span class="toc-number">4.</span> <span class="toc-text">Well</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Less-Well"><span class="toc-number">5.</span> <span class="toc-text">Less Well</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#闭包的三个事实"><span class="toc-number">6.</span> <span class="toc-text">闭包的三个事实</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#闭包的中的this"><span class="toc-number">7.</span> <span class="toc-text">闭包的中的this</span></a></li></ol>
     
     </div>
   </aside>
@@ -317,7 +325,7 @@
       <div class="row">
 	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
 	      <p id="copyRightEn">Copyright &copy; 2013 - 2016 The Girl Behind All Rights Reserved.</p>
-	      <p id="copyRightCn">Dale Du hält Urheberrechtsansprüche.</p>
+	      <p id="copyRightCn">Dale Du hold copyright</p>
 	</div>
   </div>
 </footer>
