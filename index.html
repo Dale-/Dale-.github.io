@@ -70,7 +70,7 @@
           
             <a class="main-nav-link" href="/archives">Archive</a>
           
-            <a class="main-nav-link" href="/categories">Categorías</a>
+            <a class="main-nav-link" href="/categories">Kategorien</a>
           
             <a class="main-nav-link" href="/tags">Tags</a>
           
@@ -79,9 +79,9 @@
         </nav>
         <nav id="sub-nav">
           
-            <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS"></a>
+            <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
           
-          <a id="nav-search-btn" class="nav-icon" title="Buscar"></a>
+          <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
         </nav>
         <div id="search-form-wrap">
           <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -92,7 +92,7 @@
 
 
   
-    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/pose.jpg); background-size: auto 100%;">
+    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/sample.jpg); background-size: auto 100%;">
   
 
     <canvas width="100%" height="100%"></canvas>
@@ -171,7 +171,7 @@
         
           <a id="beautifont" class="main-nav-link" href="/archives">Archive</a>
         
-          <a id="beautifont" class="main-nav-link" href="/categories">Categorías</a>
+          <a id="beautifont" class="main-nav-link" href="/categories">Kategorien</a>
         
           <a id="beautifont" class="main-nav-link" href="/tags">Tags</a>
         
@@ -246,6 +246,27 @@
 <p>实体内容：服务器返回给客户端的具体数据</p>
 </blockquote>
 <p><img src="/images/http/process.png" alt=""></p>
+<h2 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h2><p><img src="/images/http/status-code.png" alt=""></p>
+<ul>
+<li><p>200 OK:代表一次成功的http请求。</p>
+</li>
+<li><p>204 No Content：请求已经被服务器成功执行，但是服务器不会返回资源内容，<br>这个状态码可以这样理解：就是告诉客户端，你的请求我已经处理了，但是我没东西答复你，你也不用改变什么。</p>
+</li>
+<li><p>301 Moved Permanently：表示请求的URL已经永久的改变了。<br>这是一些服务端在迁移服务器时会经常用到的状态码。如果服务端返回了301状态码，<br>那么在响应头中往往会包含一个Location响应头，它包含了资源的新地址。通常浏览器遇到这个响应状态码，<br>会直接跳转到新的地址，有些浏览器会缓存新的地址（Firefox），在下次请求时，不去请求老的服务器，<br>只去请求新的url。所以，如果你的资源部是不是永久改变的话，那么请慎用这个状态码。</p>
+</li>
+<li><p>302 Found:如果你的资源搬离只是临时的，那么请使用这个状态响应码。在一些企业应用中，<br>302往往作为一种重定向的手段，比如说将请求转到单点认证服务器。</p>
+</li>
+<li><p>304 Not Modified：这个状态码告诉客户端资源并没有发生改变，可以继续使用缓存副本，<br>这个状态码可以说让开发人员又爱又恨，为什么这么说呢？因为我们需要这个状态码，<br>让浏览器可以更多的使用缓存，提高网站性能。但是，我们在修改代码后，<br>往往又不希望因为缓存问题导致客户使用时出现bug。<br>所以如何很好的配置服务器缓存策略是一个需要思考的问题。</p>
+</li>
+<li><p>401 Unauthorized: 表示客户端访问的资源是受保护的，服务器希望客户端能够带上认证信息后，<br>再去请求服务器资源。服务器会在响应头中带上WWW-Authenticate，告诉客户端编码方式。</p>
+</li>
+<li><p>403 Forbidden：服务器认为客户端没有访问资源的权限。</p>
+</li>
+<li><p>404 Not Found：资源没有找到，通常是用在请求静态资源时，服务器会返回。<br>如果服务器报了404错误，服务器端开发人员应该跟踪日志，查找资源找不到的原因。<br>当然了，还有可能是被代理拦截了，然后强制返回404。</p>
+</li>
+<li><p>500 Internal ServerError：服务端错误，往往出现在动态资源的请求中，出现这个错误的原因很多。<br>但是出现这个错误，往往是程序编码问题，开发人员应该快速定位问题，尽快解决问题。</p>
+</li>
+</ul>
 
       
     </div>
@@ -868,7 +889,7 @@ hexo d == hexo deploy
 
   <div class="container">
       <div class="row">
-	      <p> Construido por <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
 	      <p id="copyRightEn">Copyright &copy; 2013 - 2016 The Girl Behind All Rights Reserved.</p>
 	      <p id="copyRightCn">Dale Du hält Urheberrechtsansprüche.</p>
 	</div>
