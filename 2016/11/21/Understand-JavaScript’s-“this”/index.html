@@ -87,11 +87,11 @@ JavaScript中 this 的基本用法首先，我们知道在JavaScript中所有函
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 
-                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                  <li> <a class="main-nav-link" href="/">Startseite</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                  <li> <a class="main-nav-link" href="/archives">Archive</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
+                  <li> <a class="main-nav-link" href="/categories">Categorías</a> </li>
                 
                   <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
                 
@@ -107,7 +107,7 @@ JavaScript中 this 的基本用法首先，我们知道在JavaScript中所有函
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <input type="text" class="ins-search-input" placeholder="Schreib etwas..." />
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -119,11 +119,11 @@ JavaScript中 this 的基本用法首先，我们知道在JavaScript中所有函
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            PAGES: 'Pages',
-            CATEGORIES: 'Categories',
+            POSTS: 'Beiträge',
+            PAGES: 'Seiten',
+            CATEGORIES: 'Kategorien',
             TAGS: 'Tags',
-            UNTITLED: '(Untitled)',
+            UNTITLED: '(Unbenannt)',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -258,7 +258,7 @@ JavaScript中 this 的基本用法首先，我们知道在JavaScript中所有函
 <nav id="article-nav">
   
     <a href="/2016/12/06/Closures/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
+      <strong class="article-nav-caption">Nuevo</strong>
       <div class="article-nav-title">
         
           Closures
@@ -268,7 +268,7 @@ JavaScript中 this 的基本用法首先，我们知道在JavaScript中所有函
   
   
     <a href="/2016/09/23/Hexo-Github-Blog/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">Viejo</strong>
       <div class="article-nav-title">Hexo + Github + Blog</div>
     </a>
   
@@ -281,7 +281,7 @@ JavaScript中 this 的基本用法首先，我们知道在JavaScript中所有函
 
   <aside id="sidebar">
     <div id="toc" class="toc-article">
-    <strong class="toc-title">Contents</strong>
+    <strong class="toc-title">Inhalt</strong>
     
       <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#译-Understand-JavaScript’s-“this”-With-Clarity"><span class="toc-number">1.</span> <span class="toc-text">[译] Understand JavaScript’s “this” With Clarity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JavaScript中-this-的基本用法"><span class="toc-number">2.</span> <span class="toc-text">JavaScript中 this 的基本用法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#理解Javascript中-this-的关键"><span class="toc-number">3.</span> <span class="toc-text">理解Javascript中 this 的关键</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#全局作用域中的-this"><span class="toc-number">4.</span> <span class="toc-text">全局作用域中的 this</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#this-最容易被误解的情景"><span class="toc-number">5.</span> <span class="toc-text">this 最容易被误解的情景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#在我们继续重现场景前，先讨论下“上下文”这个概念"><span class="toc-number">5.1.</span> <span class="toc-text">在我们继续重现场景前，先讨论下“上下文”这个概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Fix-含有this的函数中作为回调被使用"><span class="toc-number">5.2.</span> <span class="toc-text">1.Fix 含有this的函数中作为回调被使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Fix-this-在闭包中的情景"><span class="toc-number">5.3.</span> <span class="toc-text">2.Fix this 在闭包中的情景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Fix-this上的方法赋值给一个变量"><span class="toc-number">5.4.</span> <span class="toc-text">3.Fix this上的方法赋值给一个变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Fix-当借用方法的时候-this-的值不正确的问题"><span class="toc-number">5.5.</span> <span class="toc-text">4.Fix 当借用方法的时候 this 的值不正确的问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结语"><span class="toc-number">6.</span> <span class="toc-text">结语</span></a></li></ol>
     
@@ -296,9 +296,9 @@ JavaScript中 this 的基本用法首先，我们知道在JavaScript中所有函
 
   <div class="container">
       <div class="row">
-	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p> Construido por <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
 	      <p id="copyRightEn">Copyright &copy; 2013 - 2016 The Girl Behind All Rights Reserved.</p>
-	      <p id="copyRightCn">Dale Du hold copyright</p>
+	      <p id="copyRightCn">Dale Du hält Urheberrechtsansprüche.</p>
 	</div>
   </div>
 </footer>
