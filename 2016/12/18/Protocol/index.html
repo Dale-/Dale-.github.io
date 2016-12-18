@@ -43,7 +43,7 @@ HTTP的通信过程HTTP-Request
 <meta property="og:image" content="http://yoursite.com/images/http/response.png">
 <meta property="og:image" content="http://yoursite.com/images/http/process.png">
 <meta property="og:image" content="http://yoursite.com/images/http/status-code.png">
-<meta property="og:updated_time" content="2016-12-18T16:11:57.000Z">
+<meta property="og:updated_time" content="2016-12-18T16:13:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTTP Protocol">
 <meta name="twitter:description" content="HTTP协议
@@ -121,11 +121,11 @@ HTTP的通信过程HTTP-Request
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 
-                  <li> <a class="main-nav-link" href="/">Startseite</a> </li>
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/archives">Archive</a> </li>
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/categories">Kategorien</a> </li>
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
                 
                   <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
                 
@@ -141,7 +141,7 @@ HTTP的通信过程HTTP-Request
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Schreib etwas..." />
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -153,11 +153,11 @@ HTTP的通信过程HTTP-Request
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Beiträge',
-            PAGES: 'Seiten',
-            CATEGORIES: 'Kategorien',
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
             TAGS: 'Tags',
-            UNTITLED: '(Unbenannt)',
+            UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -259,10 +259,7 @@ HTTP的通信过程HTTP-Request
 <li><p>500 Internal ServerError：服务端错误，往往出现在动态资源的请求中，出现这个错误的原因很多。<br>但是出现这个错误，往往是程序编码问题，开发人员应该快速定位问题，尽快解决问题。</p>
 </li>
 </ul>
-<h2 id="HTTP常用请求的方法"><a href="#HTTP常用请求的方法" class="headerlink" title="HTTP常用请求的方法"></a>HTTP常用请求的方法</h2><blockquote>
-<p>HTTP1.0定义了三种请求方法： GET, POST 和 HEAD方法。<br>HTTP1.1新增了五种请求方法：OPTIONS, PUT, DELETE, TRACE 和 CONNECT 方法。</p>
-</blockquote>
-<table>
+<h2 id="HTTP常用请求的方法"><a href="#HTTP常用请求的方法" class="headerlink" title="HTTP常用请求的方法"></a>HTTP常用请求的方法</h2><table>
 <thead>
 <tr>
 <th style="text-align:left">序号</th>
@@ -318,6 +315,9 @@ HTTP的通信过程HTTP-Request
 </tr>
 </tbody>
 </table>
+<blockquote>
+<p>GET /tickets # 获取ticket列表<br>GET /tickets/12 # 查看某个具体的ticket<br>POST /tickets # 新建一个ticket<br>PUT /tickets/12 # 更新ticket 12<br>PATCH /tickets/12 # 更新ticket 12<br>DELETE /tickets/12 # 删除ticekt 12</p>
+</blockquote>
 
       
     </div>
@@ -358,7 +358,7 @@ HTTP的通信过程HTTP-Request
   
   
     <a href="/2016/12/13/Folders missing in project pane in Webstorm/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Älter</strong>
+      <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">Folders missing in project pane in Webstorm</div>
     </a>
   
@@ -371,7 +371,7 @@ HTTP的通信过程HTTP-Request
 
   <aside id="sidebar">
     <div id="toc" class="toc-article">
-    <strong class="toc-title">Inhalt</strong>
+    <strong class="toc-title">Contents</strong>
     
       <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP协议"><span class="toc-number">1.</span> <span class="toc-text">HTTP协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP的通信过程"><span class="toc-number">2.</span> <span class="toc-text">HTTP的通信过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP-Request"><span class="toc-number">2.1.</span> <span class="toc-text">HTTP-Request</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP-Response"><span class="toc-number">2.2.</span> <span class="toc-text">HTTP-Response</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#状态码"><span class="toc-number">3.</span> <span class="toc-text">状态码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP常用请求的方法"><span class="toc-number">4.</span> <span class="toc-text">HTTP常用请求的方法</span></a></li></ol>
     
@@ -388,7 +388,7 @@ HTTP的通信过程HTTP-Request
       <div class="row">
 	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
 	      <p id="copyRightEn">Copyright &copy; 2013 - 2016 The Girl Behind All Rights Reserved.</p>
-	      <p id="copyRightCn">Dale Du hält Urheberrechtsansprüche.</p>
+	      <p id="copyRightCn">Dale Du hold copyright</p>
 	</div>
   </div>
 </footer>
