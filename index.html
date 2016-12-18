@@ -70,7 +70,7 @@
           
             <a class="main-nav-link" href="/archives">Archive</a>
           
-            <a class="main-nav-link" href="/categories">Categorías</a>
+            <a class="main-nav-link" href="/categories">Kategorien</a>
           
             <a class="main-nav-link" href="/tags">Tags</a>
           
@@ -79,9 +79,9 @@
         </nav>
         <nav id="sub-nav">
           
-            <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS"></a>
+            <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
           
-          <a id="nav-search-btn" class="nav-icon" title="Buscar"></a>
+          <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
         </nav>
         <div id="search-form-wrap">
           <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -171,7 +171,7 @@
         
           <a id="beautifont" class="main-nav-link" href="/archives">Archive</a>
         
-          <a id="beautifont" class="main-nav-link" href="/categories">Categorías</a>
+          <a id="beautifont" class="main-nav-link" href="/categories">Kategorien</a>
         
           <a id="beautifont" class="main-nav-link" href="/tags">Tags</a>
         
@@ -342,6 +342,266 @@
 <!-- Table of Contents -->
 
   
+    <article id="post-angular-directive"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/12/16/angular-directive/">Angular Directive</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/12/16/angular-directive/" class="article-date">
+	  <time datetime="2016-12-16T15:20:21.000Z" itemprop="datePublished">2016-12-16</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://docs.angularjs.org/guide/directive" target="_blank" rel="external">指令</a>就是一些附加在HTML元素上的自定义标记（例如：属性，元素，或css类），它告诉AngularJS的HTML编译器 ($compile) 在元素上附加某些指定的行为，甚至操作DOM、改变DOM元素，以及它的各级子节点。</p>
+<p>Angular内置了一整套指令，如ngBind, ngModel, 和ngView。 就像你可以创建控制器和服务那样，你也可以创建自己的指令来让Angular使用。 当Angular 启动器引导你的应用程序时， HTML编译器就会遍历整个DOM，以匹配DOM元素里的指令。</p>
+<h2 id="Matching-Directives"><a href="#Matching-Directives" class="headerlink" title="Matching Directives"></a>Matching Directives</h2><h3 id="Restrict匹配方式"><a href="#Restrict匹配方式" class="headerlink" title="Restrict匹配方式"></a>Restrict匹配方式</h3><ul>
+<li><p>E - 匹配元素名称</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;my-directive&gt;&lt;/my-directive&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>A - 匹配属性名</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div my-directive=<span class="string">"exp"</span>&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>C - 匹配类名</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div class=<span class="string">"my-directive:exp;"</span>&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>M - 注释</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;!-- directive:hello --&gt;</div><div class="line">&lt;div&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p></p><p data-height="265" data-theme-id="dark" data-slug-hash="ammBgY" data-default-tab="html" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/ammBgY/" target="_blank" rel="external">[Angular]  - Matching Directives</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<h3 id="Attention"><a href="#Attention" class="headerlink" title="Attention"></a>Attention</h3><p>当需要创建带有自己的模板的指令时，使用元素名称的方式创建指令</p>
+<p>当需要为已有的HTML标签增加功能时，使用属性的方式创建指令</p>
+<h2 id="Transclude"><a href="#Transclude" class="headerlink" title="Transclude"></a>Transclude</h2><ul>
+<li>transclude使得这个选项的指令，所包含的内容能够访问指令外部的作用域</li>
+<li>指令内部嵌套的内容，放到具有ng-transclude的标签中</li>
+</ul>
+<p></p><p data-height="265" data-theme-id="dark" data-slug-hash="xEEOBN" data-default-tab="result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/xEEOBN/" target="_blank" rel="external">[Angular]  - Transclude</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<h2 id="Replace"><a href="#Replace" class="headerlink" title="Replace"></a>Replace</h2><p></p><p data-height="265" data-theme-id="dark" data-slug-hash="mAAPxa" data-default-tab="result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/mAAPxa/" target="_blank" rel="external">[Angular]  - Replace</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<h2 id="Template"><a href="#Template" class="headerlink" title="Template"></a>Template</h2><p>当你有大量代表客户信息的模板。这个模板在你的代码中重复了很多次，当你改变一个地方的时候， 你不得不在其他地方同时改动，这时候，你就要使用指令来简化你的模板。</p>
+<h3 id="template"><a href="#template" class="headerlink" title="template"></a>template</h3><p></p><p data-height="265" data-theme-id="dark" data-slug-hash="NRRjBW" data-default-tab="result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/NRRjBW/" target="_blank" rel="external">[Angular]  - Directive TemplateCache</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<h3 id="templateUrl"><a href="#templateUrl" class="headerlink" title="templateUrl"></a>templateUrl</h3><p><img src="/images/angular-directive/directive-templateUrl.png" alt=""></p>
+<h3 id="templateCache"><a href="#templateCache" class="headerlink" title="templateCache"></a>templateCache</h3><ul>
+<li><a href="https://docs.angularjs.org/api/ng" target="_blank" rel="external">ng</a>模块中的服务</li>
+</ul>
+<p>在模板第一次被引用时,它会被载入到模板缓存中以便快速的检索。你可以直接使用一个script标签来添加一个模板，或者直接通过 $templateCache 服务来达到相同的效果。</p>
+<p>【Set】通过 script 标签添加:<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/ng-template"</span> id=<span class="string">"templateId.html"</span>&gt;</div><div class="line">&lt;p&gt;This is the content of the template&lt;/p&gt;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>【Set】通过 $templateCache 服务添加:<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var myApp = angular.module(<span class="string">'myApp'</span>, []);</div><div class="line">myApp.run(<span class="keyword">function</span>(<span class="variable">$templateCache</span>) &#123;</div><div class="line"><span class="variable">$templateCache</span>.put(<span class="string">'templateId.html'</span>, <span class="string">'This is the content of the template'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>【Get】通过 component 得到:<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">myApp.component(<span class="string">'myComponent'</span>, &#123;</div><div class="line">template: <span class="string">'templateId.html'</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>【Get】通过 Javascript 得到:<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$templateCache</span>.get(<span class="string">'templateId.html'</span>)</div></pre></td></tr></table></figure></p>
+<p></p><p data-height="265" data-theme-id="dark" data-slug-hash="NRRjBW" data-default-tab="result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/NRRjBW/" target="_blank" rel="external">[Angular]  - Directive TemplateCache</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<h2 id="Scope"><a href="#Scope" class="headerlink" title="Scope"></a>Scope</h2><h3 id="隔离作用域"><a href="#隔离作用域" class="headerlink" title="隔离作用域"></a>隔离作用域</h3><p></p><p data-height="265" data-theme-id="0" data-slug-hash="mAAXZL" data-default-tab="result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/mAAXZL/" target="_blank" rel="external">[Angular]  - Directive Isolate Scope</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+
+<h3 id="scope的绑定策略"><a href="#scope的绑定策略" class="headerlink" title="scope的绑定策略"></a>scope的绑定策略</h3><ul>
+<li>@ : 字符串</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">把当前属性作为字符串传递</div><div class="line">你还可以绑定来自外层scope的值</div><div class="line">在属性值中插入&#123;&#123;&#125;&#125;</div></pre></td></tr></table></figure>
+<p> </p><p data-height="265" data-theme-id="dark" data-slug-hash="EgNrXo" data-default-tab="result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/EgNrXo/" target="_blank" rel="external">[Angular]  - Directive : Scope@</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><br> <script async src="//assets.codepen.io/assets/embed/ei.js"></script><p></p>
+<ul>
+<li>= : 双向绑定</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">与父scope中的属性进行双向绑定</div></pre></td></tr></table></figure>
+<p> </p><p data-height="265" data-theme-id="dark" data-slug-hash="dpOAdw" data-default-tab="html,result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/dpOAdw/" target="_blank" rel="external">[Angular]  - Directive : Scope=</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><br> <script async src="//assets.codepen.io/assets/embed/ei.js"></script><p></p>
+<ul>
+<li><p>=? : 可选择的属性</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">如果绑定了一个没有被赋值的表达式 或者属性不存在，这时将会抛出一个异常</div><div class="line">为了避免这种现象，我们可以使用=？来设置属性为可选择</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p></p><p data-height="265" data-theme-id="0" data-slug-hash="QGzVpL" data-default-tab="html,result" data-user="DaleDu" data-embed-version="2" data-pen-title="[Angular]  - Directive : Scope=?" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/QGzVpL/" target="_blank" rel="external">[Angular]  - Directive : Scope=?</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+<ul>
+<li>&amp; : 函数</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">传递一个来自父scope的函数，稍后调用</div></pre></td></tr></table></figure>
+<p> </p><p data-height="265" data-theme-id="dark" data-slug-hash="bwBJVq" data-default-tab="result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/bwBJVq/" target="_blank" rel="external">[Angular]  - Directive : Scope&amp;</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<h2 id="Interaction-Controller-amp-Directive"><a href="#Interaction-Controller-amp-Directive" class="headerlink" title="Interaction: Controller &amp; Directive"></a>Interaction: Controller &amp; Directive</h2><p></p><p data-height="265" data-theme-id="dark" data-slug-hash="RGGOEk" data-default-tab="result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/RGGOEk/" target="_blank" rel="external">[Angular]  - Interaction: Controller &amp; Directive</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<h2 id="Interaction-Directive-amp-Directive"><a href="#Interaction-Directive-amp-Directive" class="headerlink" title="Interaction: Directive &amp; Directive"></a>Interaction: Directive &amp; Directive</h2><p></p><p data-height="265" data-theme-id="dark" data-slug-hash="jrVERX" data-default-tab="result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/jrVERX/" target="_blank" rel="external">[Angular]  - Interaction: Directive &amp; Directive</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<h2 id="Execution-Stage"><a href="#Execution-Stage" class="headerlink" title="Execution Stage"></a>Execution Stage</h2><h3 id="加载阶段"><a href="#加载阶段" class="headerlink" title="加载阶段"></a>加载阶段</h3><blockquote>
+<ul>
+<li>加载angular.js，找到ng-app指令，确定应用边界</li>
+</ul>
+</blockquote>
+<h3 id="编译阶段"><a href="#编译阶段" class="headerlink" title="编译阶段"></a>编译阶段</h3><blockquote>
+<ul>
+<li>遍历DOM，找到所有指令</li>
+<li>根据指令代码中的template、replace、transclude转换DOM结构</li>
+<li>如果存在compile函数则调用</li>
+</ul>
+</blockquote>
+<h3 id="链接阶段"><a href="#链接阶段" class="headerlink" title="链接阶段"></a>链接阶段</h3><blockquote>
+<ul>
+<li>对每条指令运行link函数</li>
+<li>link函数一般用来操作DOM、绑定事件监听器</li>
+</ul>
+</blockquote>
+<h2 id="Directive-Demo"><a href="#Directive-Demo" class="headerlink" title="Directive Demo"></a>Directive Demo</h2><h3 id="Expander"><a href="#Expander" class="headerlink" title="Expander"></a>Expander</h3><p></p><p data-height="265" data-theme-id="dark" data-slug-hash="xERZaK" data-default-tab="js,result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/xERZaK/" target="_blank" rel="external">[Angular]  - Directive Demo : Expander</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<h3 id="Accordion"><a href="#Accordion" class="headerlink" title="Accordion"></a>Accordion</h3><p></p><p data-height="265" data-theme-id="dark" data-slug-hash="wzgKVW" data-default-tab="js,result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/wzgKVW/" target="_blank" rel="external">[Angular]  - Directive Demo : Accordion</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<h3 id="Use-Angular-ui"><a href="#Use-Angular-ui" class="headerlink" title="Use Angular-ui"></a>Use Angular-ui</h3><p></p><p data-height="265" data-theme-id="dark" data-slug-hash="gwgPrA" data-default-tab="js,result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/gwgPrA/" target="_blank" rel="external">[Angular]  - Directive Demo : Use Angular UI</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<p>参考文档</p>
+<p><a href="docs.angularjs.org/guide/directive">Directive AngularJS官网</a></p>
+<p><a href="http://docs.ngnice.com/guide/directive" target="_blank" rel="external">Directive AngularJS中文网</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AngularJS/">AngularJS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Closures"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/12/14/Closures/">Closures</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/12/14/Closures/" class="article-date">
+	  <time datetime="2016-12-14T09:04:34.000Z" itemprop="datePublished">2016-12-14</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a>变量作用域</h2><p>变量的作用域有两种：全局变量和局部变量。<br>在JavaScript中，函数内部可以直接读取全局变量。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var n=999;</div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">f1</span></span>()&#123;</div><div class="line">　　alert(n);</div><div class="line">&#125;</div><div class="line">f1(); // 999</div></pre></td></tr></table></figure>
+<p>当然，在函数外部无法读取函数内的局部变量。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">f1</span></span>()&#123;</div><div class="line">　 var n=999;</div><div class="line">&#125;</div><div class="line">alert(n); // error</div></pre></td></tr></table></figure>
+<blockquote>
+<p>这里有一个地方需要注意，函数内部声明变量的时候，一定要使用var命令。<br>  如果不用的话，你实际上声明了一个全局变量！</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">f1</span></span>()&#123;</div><div class="line">  n=999;</div><div class="line">&#125;</div><div class="line">f1();</div><div class="line">alert(n); // 999</div></pre></td></tr></table></figure>
+<h2 id="如何从外部读取局部变量？"><a href="#如何从外部读取局部变量？" class="headerlink" title="如何从外部读取局部变量？"></a>如何从外部读取局部变量？</h2><p>在函数的内部，再定义一个函数。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">f1</span></span>()&#123;</div><div class="line">　　var n=999;</div><div class="line">　　<span class="keyword">function</span> <span class="function"><span class="title">f2</span></span>()&#123;</div><div class="line">　　　　alert(n); // 999</div><div class="line">　　&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>在上面的代码中，函数f2就被包括在函数f1内部，这时f1内部的所有局部变量，对f2都是可见的。但是反过来就不行，f2内部的局部变量，对f1就是不可见的。这就是Javascript语言特有的”链式作用域”结构（chain scope），子对象会一级一级地向上寻找所有父对象的变量。所以，父对象的所有变量，对子对象都是可见的，反之则不成立。</p>
+<p>既然f2可以读取f1中的局部变量，那么只要把f2作为返回值，我们不就可以在f1外部读取它的内部变量了吗！</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">f1</span></span>()&#123;</div><div class="line">　　var n=999;</div><div class="line">　　<span class="keyword">function</span> <span class="function"><span class="title">f2</span></span>()&#123;</div><div class="line">　　　　alert(n);</div><div class="line">　　&#125;</div><div class="line">　　<span class="built_in">return</span> f2;</div><div class="line">&#125;</div><div class="line">var result=f1();</div><div class="line">result(); // 999</div></pre></td></tr></table></figure>
+<h2 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包"></a>什么是闭包</h2><p>上一节代码中的f2函数，就是闭包。</p>
+<ul>
+<li><p>Wikipedia</p>
+<blockquote>
+<p>Closures (also lexical closures or function closures) are techniques for implementing lexically scoped name binding in languages with first-class functions. Operationally, a closure is a record storing a function[a] together with an environment:[1] a mapping associating each free variable of the function (variables that are used locally, but defined in an enclosing scope) with the value or reference to which the name was bound when the closure was created.[b] A closure—unlike a plain function—allows the function to access those captured variables through the closure’s copies of their values or references, even when the function is invoked outside their scope.<br>闭包（也称词法闭包或函数闭包）是指一个函数或函数的引用，与一个引用环境绑定在一起。这个引用环境是一个存储该函数每个非局部变量（也叫自由变量）的表。</p>
+</blockquote>
+</li>
+<li><p>Closures</p>
+<blockquote>
+<p>闭包，不同于一般的函数，它允许一个函数在立即词法作用域外调用时，仍可访问非本地变量。</p>
+<p>闭包就是能够读取其他函数内部变量的函数。</p>
+<p>由于在Javascript语言中，只有函数内部的子函数才能读取局部变量，因此可以把闭包简单理解成”定义在一个函数内部的函数”。<br>所以，在本质上，闭包就是将函数内部和函数外部连接起来的一座桥梁。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="Well"><a href="#Well" class="headerlink" title="Well"></a>Well</h2><ul>
+<li>灵活</li>
+<li>方便</li>
+<li>封装</li>
+</ul>
+<h2 id="Less-Well"><a href="#Less-Well" class="headerlink" title="Less Well"></a>Less Well</h2><ul>
+<li>空间浪费</li>
+<li>内存泄漏</li>
+<li>性能消耗</li>
+</ul>
+<h2 id="闭包的三个事实"><a href="#闭包的三个事实" class="headerlink" title="闭包的三个事实"></a>闭包的三个事实</h2><blockquote>
+<ul>
+<li>JavaScript允许你引入函数以外定义的变量</li>
+</ul>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">makeNoodles</span></span>() &#123;</div><div class="line">    var noodlesType = <span class="string">'Lamian'</span></div><div class="line">    <span class="keyword">function</span> make(ingredients) &#123;</div><div class="line">        <span class="built_in">return</span> noodlesType + <span class="string">' with '</span> + ingredients;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> make(<span class="string">'beef'</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">makeNoodles(); // <span class="string">'Lamian with beef'</span></div><div class="line">// 注意 make函数可以访问外部变量 noodlesType 和 ingredients</div></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>即使外部函数已经执行结束, 内部函数依然可以引用在外部函数所定义的变量</li>
+</ul>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">makeNoodles</span></span>() &#123;</div><div class="line">    var noodlesType = <span class="string">'Lamian'</span></div><div class="line">    <span class="keyword">function</span> make(ingredients) &#123;</div><div class="line">        <span class="built_in">return</span> noodlesType + <span class="string">' with '</span> + ingredients;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> make;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var f = makeNoodles();</div><div class="line">f(<span class="string">'beef'</span>); // <span class="string">'Lamian with beef'</span></div><div class="line">f(<span class="string">'fish'</span>); // <span class="string">'Lamian with fish'</span></div><div class="line">f(<span class="string">'eggs and tomatoes'</span>); // <span class="string">'Lamian with eggs and tomatoes'</span></div><div class="line">// 注意 与第一个例子不同的是, makeNoodles 函数返回 make 函数, 此时外部函数执行已经结束, 但是内部函数 make</div><div class="line">// 依然可以访问 noodlesType 变量</div></pre></td></tr></table></figure>
+<p>基于上面的例子, 我们可以写的更通用.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> makeNoodles(noodlesType) &#123;</div><div class="line">    <span class="keyword">function</span> make(ingredients) &#123;</div><div class="line">        <span class="built_in">return</span> noodlesType + <span class="string">' with '</span> + ingredients;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> make;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var makeLamian = makeNoodles(<span class="string">'Lamian'</span>);</div><div class="line">makeLamian(<span class="string">'beef'</span>); // <span class="string">'Lamian with beef'</span></div><div class="line">makeLamian(<span class="string">'fish'</span>); // <span class="string">'Lamian with fish'</span></div><div class="line">makeLamian(<span class="string">'eggs and tomatoes'</span>); // <span class="string">'Lamian with eggs and tomatoes'</span></div><div class="line"></div><div class="line">var makeRiceNoodles = makeNoodles(<span class="string">'Rice noodles'</span>);</div><div class="line">makeRiceNoodles(<span class="string">'beef'</span>); // <span class="string">'Rice noodles with beef'</span></div><div class="line">makeRiceNoodles(<span class="string">'fish'</span>); // <span class="string">'Rice noodles with fish'</span></div><div class="line">makeRiceNoodles(<span class="string">'eggs and tomatoes'</span>); // <span class="string">'Rice noodles with eggs and tomatoes'</span></div></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>最后一个, 闭包可以更新外部函数定义的变量</li>
+</ul>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">counter</span></span>() &#123;</div><div class="line">    var num = 0;</div><div class="line">    <span class="built_in">return</span> &#123;</div><div class="line">        increase: <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">           num++;</div><div class="line">        &#125;,</div><div class="line">        currentNum: <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">            <span class="built_in">return</span> num;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var counter1 = counter();</div><div class="line">counter1.increase();</div><div class="line">counter1.increase();</div><div class="line">counter1.currentNum(); // 2</div><div class="line"></div><div class="line">var counter2 = counter();</div><div class="line">counter2.currentNum(); // 0</div></pre></td></tr></table></figure>
+<h2 id="闭包的中的this"><a href="#闭包的中的this" class="headerlink" title="闭包的中的this"></a>闭包的中的<code>this</code></h2><ul>
+<li>代码片段一</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var name = <span class="string">"The Window"</span>;</div><div class="line">var object = &#123;</div><div class="line">　　name : <span class="string">"My Object"</span>,</div><div class="line">　　getNameFunc : <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">　　　　<span class="built_in">return</span> <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">　　　　　　<span class="built_in">return</span> this.name;</div><div class="line">　　　　&#125;;</div><div class="line">　　&#125;</div><div class="line">&#125;;</div><div class="line">alert(object.getNameFunc()());</div></pre></td></tr></table></figure>
+<ul>
+<li>代码片段二</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var name = <span class="string">"The Window"</span>;</div><div class="line">var object = &#123;</div><div class="line">　　name : <span class="string">"My Object"</span>,</div><div class="line">　　getNameFunc : <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">　　　　var that = this;</div><div class="line">　　　　<span class="built_in">return</span> <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">　　　　　　<span class="built_in">return</span> that.name;</div><div class="line">　　　　&#125;;</div><div class="line">　　&#125;</div><div class="line">&#125;;</div><div class="line">alert(object.getNameFunc()());</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-Folders missing in project pane in Webstorm"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -436,114 +696,6 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">require([<span class="string">'clock'</span>],<span class="keyword">function</span>(clock)&#123;</div><div class="line">  clock.start();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>AMD和CMD最大的区别是对依赖模块的执行时机处理不同，<br>而不是加载的时机或者方式不同，二者皆为异步加载模块。</p>
 <p>AMD依赖前置，js可以方便知道依赖模块是谁，立即加载；而CMD就近依赖，<br>需要使用把模块变为字符串解析一遍才知道依赖了那些模块，这也是很多人诟病CMD的一点，<br>牺牲性能来带来开发的便利性，实际上解析模块用的时间短到可以忽略。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-Closures"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/12/06/Closures/">Closures</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2016/12/06/Closures/" class="article-date">
-	  <time datetime="2016-12-06T09:04:34.000Z" itemprop="datePublished">2016-12-06</time>
-	</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a>变量作用域</h2><p>变量的作用域有两种：全局变量和局部变量。<br>在JavaScript中，函数内部可以直接读取全局变量。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var n=999;</div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">f1</span></span>()&#123;</div><div class="line">　　alert(n);</div><div class="line">&#125;</div><div class="line">f1(); // 999</div></pre></td></tr></table></figure>
-<p>当然，在函数外部无法读取函数内的局部变量。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">f1</span></span>()&#123;</div><div class="line">　 var n=999;</div><div class="line">&#125;</div><div class="line">alert(n); // error</div></pre></td></tr></table></figure>
-<blockquote>
-<p>这里有一个地方需要注意，函数内部声明变量的时候，一定要使用var命令。<br>  如果不用的话，你实际上声明了一个全局变量！</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">f1</span></span>()&#123;</div><div class="line">  n=999;</div><div class="line">&#125;</div><div class="line">f1();</div><div class="line">alert(n); // 999</div></pre></td></tr></table></figure>
-<h2 id="如何从外部读取局部变量？"><a href="#如何从外部读取局部变量？" class="headerlink" title="如何从外部读取局部变量？"></a>如何从外部读取局部变量？</h2><p>在函数的内部，再定义一个函数。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">f1</span></span>()&#123;</div><div class="line">　　var n=999;</div><div class="line">　　<span class="keyword">function</span> <span class="function"><span class="title">f2</span></span>()&#123;</div><div class="line">　　　　alert(n); // 999</div><div class="line">　　&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>在上面的代码中，函数f2就被包括在函数f1内部，这时f1内部的所有局部变量，对f2都是可见的。但是反过来就不行，f2内部的局部变量，对f1就是不可见的。这就是Javascript语言特有的”链式作用域”结构（chain scope），子对象会一级一级地向上寻找所有父对象的变量。所以，父对象的所有变量，对子对象都是可见的，反之则不成立。</p>
-<p>既然f2可以读取f1中的局部变量，那么只要把f2作为返回值，我们不就可以在f1外部读取它的内部变量了吗！</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">f1</span></span>()&#123;</div><div class="line">　　var n=999;</div><div class="line">　　<span class="keyword">function</span> <span class="function"><span class="title">f2</span></span>()&#123;</div><div class="line">　　　　alert(n);</div><div class="line">　　&#125;</div><div class="line">　　<span class="built_in">return</span> f2;</div><div class="line">&#125;</div><div class="line">var result=f1();</div><div class="line">result(); // 999</div></pre></td></tr></table></figure>
-<h2 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包"></a>什么是闭包</h2><p>上一节代码中的f2函数，就是闭包。</p>
-<ul>
-<li><p>Wikipedia</p>
-<blockquote>
-<p>Closures (also lexical closures or function closures) are techniques for implementing lexically scoped name binding in languages with first-class functions. Operationally, a closure is a record storing a function[a] together with an environment:[1] a mapping associating each free variable of the function (variables that are used locally, but defined in an enclosing scope) with the value or reference to which the name was bound when the closure was created.[b] A closure—unlike a plain function—allows the function to access those captured variables through the closure’s copies of their values or references, even when the function is invoked outside their scope.<br>闭包（也称词法闭包或函数闭包）是指一个函数或函数的引用，与一个引用环境绑定在一起。这个引用环境是一个存储该函数每个非局部变量（也叫自由变量）的表。</p>
-</blockquote>
-</li>
-<li><p>Closures</p>
-<blockquote>
-<p>闭包，不同于一般的函数，它允许一个函数在立即词法作用域外调用时，仍可访问非本地变量。</p>
-<p>闭包就是能够读取其他函数内部变量的函数。</p>
-<p>由于在Javascript语言中，只有函数内部的子函数才能读取局部变量，因此可以把闭包简单理解成”定义在一个函数内部的函数”。<br>所以，在本质上，闭包就是将函数内部和函数外部连接起来的一座桥梁。</p>
-</blockquote>
-</li>
-</ul>
-<h2 id="Well"><a href="#Well" class="headerlink" title="Well"></a>Well</h2><ul>
-<li>灵活</li>
-<li>方便</li>
-<li>封装</li>
-</ul>
-<h2 id="Less-Well"><a href="#Less-Well" class="headerlink" title="Less Well"></a>Less Well</h2><ul>
-<li>空间浪费</li>
-<li>内存泄漏</li>
-<li>性能消耗</li>
-</ul>
-<h2 id="闭包的三个事实"><a href="#闭包的三个事实" class="headerlink" title="闭包的三个事实"></a>闭包的三个事实</h2><blockquote>
-<ul>
-<li>JavaScript允许你引入函数以外定义的变量</li>
-</ul>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">makeNoodles</span></span>() &#123;</div><div class="line">    var noodlesType = <span class="string">'Lamian'</span></div><div class="line">    <span class="keyword">function</span> make(ingredients) &#123;</div><div class="line">        <span class="built_in">return</span> noodlesType + <span class="string">' with '</span> + ingredients;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> make(<span class="string">'beef'</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">makeNoodles(); // <span class="string">'Lamian with beef'</span></div><div class="line">// 注意 make函数可以访问外部变量 noodlesType 和 ingredients</div></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li>即使外部函数已经执行结束, 内部函数依然可以引用在外部函数所定义的变量</li>
-</ul>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">makeNoodles</span></span>() &#123;</div><div class="line">    var noodlesType = <span class="string">'Lamian'</span></div><div class="line">    <span class="keyword">function</span> make(ingredients) &#123;</div><div class="line">        <span class="built_in">return</span> noodlesType + <span class="string">' with '</span> + ingredients;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> make;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var f = makeNoodles();</div><div class="line">f(<span class="string">'beef'</span>); // <span class="string">'Lamian with beef'</span></div><div class="line">f(<span class="string">'fish'</span>); // <span class="string">'Lamian with fish'</span></div><div class="line">f(<span class="string">'eggs and tomatoes'</span>); // <span class="string">'Lamian with eggs and tomatoes'</span></div><div class="line">// 注意 与第一个例子不同的是, makeNoodles 函数返回 make 函数, 此时外部函数执行已经结束, 但是内部函数 make</div><div class="line">// 依然可以访问 noodlesType 变量</div></pre></td></tr></table></figure>
-<p>基于上面的例子, 我们可以写的更通用.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> makeNoodles(noodlesType) &#123;</div><div class="line">    <span class="keyword">function</span> make(ingredients) &#123;</div><div class="line">        <span class="built_in">return</span> noodlesType + <span class="string">' with '</span> + ingredients;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> make;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var makeLamian = makeNoodles(<span class="string">'Lamian'</span>);</div><div class="line">makeLamian(<span class="string">'beef'</span>); // <span class="string">'Lamian with beef'</span></div><div class="line">makeLamian(<span class="string">'fish'</span>); // <span class="string">'Lamian with fish'</span></div><div class="line">makeLamian(<span class="string">'eggs and tomatoes'</span>); // <span class="string">'Lamian with eggs and tomatoes'</span></div><div class="line"></div><div class="line">var makeRiceNoodles = makeNoodles(<span class="string">'Rice noodles'</span>);</div><div class="line">makeRiceNoodles(<span class="string">'beef'</span>); // <span class="string">'Rice noodles with beef'</span></div><div class="line">makeRiceNoodles(<span class="string">'fish'</span>); // <span class="string">'Rice noodles with fish'</span></div><div class="line">makeRiceNoodles(<span class="string">'eggs and tomatoes'</span>); // <span class="string">'Rice noodles with eggs and tomatoes'</span></div></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li>最后一个, 闭包可以更新外部函数定义的变量</li>
-</ul>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">counter</span></span>() &#123;</div><div class="line">    var num = 0;</div><div class="line">    <span class="built_in">return</span> &#123;</div><div class="line">        increase: <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">           num++;</div><div class="line">        &#125;,</div><div class="line">        currentNum: <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">            <span class="built_in">return</span> num;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var counter1 = counter();</div><div class="line">counter1.increase();</div><div class="line">counter1.increase();</div><div class="line">counter1.currentNum(); // 2</div><div class="line"></div><div class="line">var counter2 = counter();</div><div class="line">counter2.currentNum(); // 0</div></pre></td></tr></table></figure>
-<h2 id="闭包的中的this"><a href="#闭包的中的this" class="headerlink" title="闭包的中的this"></a>闭包的中的<code>this</code></h2><ul>
-<li>代码片段一</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var name = <span class="string">"The Window"</span>;</div><div class="line">var object = &#123;</div><div class="line">　　name : <span class="string">"My Object"</span>,</div><div class="line">　　getNameFunc : <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">　　　　<span class="built_in">return</span> <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">　　　　　　<span class="built_in">return</span> this.name;</div><div class="line">　　　　&#125;;</div><div class="line">　　&#125;</div><div class="line">&#125;;</div><div class="line">alert(object.getNameFunc()());</div></pre></td></tr></table></figure>
-<ul>
-<li>代码片段二</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var name = <span class="string">"The Window"</span>;</div><div class="line">var object = &#123;</div><div class="line">　　name : <span class="string">"My Object"</span>,</div><div class="line">　　getNameFunc : <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">　　　　var that = this;</div><div class="line">　　　　<span class="built_in">return</span> <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">　　　　　　<span class="built_in">return</span> that.name;</div><div class="line">　　　　&#125;;</div><div class="line">　　&#125;</div><div class="line">&#125;;</div><div class="line">alert(object.getNameFunc()());</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -736,158 +888,6 @@ hexo d == hexo deploy
 <!-- Table of Contents -->
 
   
-    <article id="post-angular-directive"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/09/19/angular-directive/">Angular Directive</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2016/09/19/angular-directive/" class="article-date">
-	  <time datetime="2016-09-19T15:20:21.000Z" itemprop="datePublished">2016-09-19</time>
-	</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://docs.angularjs.org/guide/directive" target="_blank" rel="external">指令</a>就是一些附加在HTML元素上的自定义标记（例如：属性，元素，或css类），它告诉AngularJS的HTML编译器 ($compile) 在元素上附加某些指定的行为，甚至操作DOM、改变DOM元素，以及它的各级子节点。</p>
-<p>Angular内置了一整套指令，如ngBind, ngModel, 和ngView。 就像你可以创建控制器和服务那样，你也可以创建自己的指令来让Angular使用。 当Angular 启动器引导你的应用程序时， HTML编译器就会遍历整个DOM，以匹配DOM元素里的指令。</p>
-<h2 id="Matching-Directives"><a href="#Matching-Directives" class="headerlink" title="Matching Directives"></a>Matching Directives</h2><h3 id="Restrict匹配方式"><a href="#Restrict匹配方式" class="headerlink" title="Restrict匹配方式"></a>Restrict匹配方式</h3><ul>
-<li><p>E - 匹配元素名称</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;my-directive&gt;&lt;/my-directive&gt;</div></pre></td></tr></table></figure>
-</li>
-<li><p>A - 匹配属性名</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div my-directive=<span class="string">"exp"</span>&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
-</li>
-<li><p>C - 匹配类名</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div class=<span class="string">"my-directive:exp;"</span>&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
-</li>
-<li><p>M - 注释</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;!-- directive:hello --&gt;</div><div class="line">&lt;div&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p></p><p data-height="265" data-theme-id="dark" data-slug-hash="ammBgY" data-default-tab="html" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/ammBgY/" target="_blank" rel="external">[Angular]  - Matching Directives</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-
-<h3 id="Attention"><a href="#Attention" class="headerlink" title="Attention"></a>Attention</h3><p>当需要创建带有自己的模板的指令时，使用元素名称的方式创建指令</p>
-<p>当需要为已有的HTML标签增加功能时，使用属性的方式创建指令</p>
-<h2 id="Transclude"><a href="#Transclude" class="headerlink" title="Transclude"></a>Transclude</h2><ul>
-<li>transclude使得这个选项的指令，所包含的内容能够访问指令外部的作用域</li>
-<li>指令内部嵌套的内容，放到具有ng-transclude的标签中</li>
-</ul>
-<p></p><p data-height="265" data-theme-id="dark" data-slug-hash="xEEOBN" data-default-tab="result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/xEEOBN/" target="_blank" rel="external">[Angular]  - Transclude</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-
-<h2 id="Replace"><a href="#Replace" class="headerlink" title="Replace"></a>Replace</h2><p></p><p data-height="265" data-theme-id="dark" data-slug-hash="mAAPxa" data-default-tab="result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/mAAPxa/" target="_blank" rel="external">[Angular]  - Replace</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-
-<h2 id="Template"><a href="#Template" class="headerlink" title="Template"></a>Template</h2><p>当你有大量代表客户信息的模板。这个模板在你的代码中重复了很多次，当你改变一个地方的时候， 你不得不在其他地方同时改动，这时候，你就要使用指令来简化你的模板。</p>
-<h3 id="template"><a href="#template" class="headerlink" title="template"></a>template</h3><p></p><p data-height="265" data-theme-id="dark" data-slug-hash="NRRjBW" data-default-tab="result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/NRRjBW/" target="_blank" rel="external">[Angular]  - Directive TemplateCache</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-
-<h3 id="templateUrl"><a href="#templateUrl" class="headerlink" title="templateUrl"></a>templateUrl</h3><p><img src="/images/angular-directive/directive-templateUrl.png" alt=""></p>
-<h3 id="templateCache"><a href="#templateCache" class="headerlink" title="templateCache"></a>templateCache</h3><ul>
-<li><a href="https://docs.angularjs.org/api/ng" target="_blank" rel="external">ng</a>模块中的服务</li>
-</ul>
-<p>在模板第一次被引用时,它会被载入到模板缓存中以便快速的检索。你可以直接使用一个script标签来添加一个模板，或者直接通过 $templateCache 服务来达到相同的效果。</p>
-<p>【Set】通过 script 标签添加:<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/ng-template"</span> id=<span class="string">"templateId.html"</span>&gt;</div><div class="line">&lt;p&gt;This is the content of the template&lt;/p&gt;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
-<p>【Set】通过 $templateCache 服务添加:<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var myApp = angular.module(<span class="string">'myApp'</span>, []);</div><div class="line">myApp.run(<span class="keyword">function</span>(<span class="variable">$templateCache</span>) &#123;</div><div class="line"><span class="variable">$templateCache</span>.put(<span class="string">'templateId.html'</span>, <span class="string">'This is the content of the template'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p>【Get】通过 component 得到:<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">myApp.component(<span class="string">'myComponent'</span>, &#123;</div><div class="line">template: <span class="string">'templateId.html'</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p>【Get】通过 Javascript 得到:<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$templateCache</span>.get(<span class="string">'templateId.html'</span>)</div></pre></td></tr></table></figure></p>
-<p></p><p data-height="265" data-theme-id="dark" data-slug-hash="NRRjBW" data-default-tab="result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/NRRjBW/" target="_blank" rel="external">[Angular]  - Directive TemplateCache</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-
-<h2 id="Scope"><a href="#Scope" class="headerlink" title="Scope"></a>Scope</h2><h3 id="隔离作用域"><a href="#隔离作用域" class="headerlink" title="隔离作用域"></a>隔离作用域</h3><p></p><p data-height="265" data-theme-id="0" data-slug-hash="mAAXZL" data-default-tab="result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/mAAXZL/" target="_blank" rel="external">[Angular]  - Directive Isolate Scope</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-
-
-<h3 id="scope的绑定策略"><a href="#scope的绑定策略" class="headerlink" title="scope的绑定策略"></a>scope的绑定策略</h3><ul>
-<li>@ : 字符串</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">把当前属性作为字符串传递</div><div class="line">你还可以绑定来自外层scope的值</div><div class="line">在属性值中插入&#123;&#123;&#125;&#125;</div></pre></td></tr></table></figure>
-<p> </p><p data-height="265" data-theme-id="dark" data-slug-hash="EgNrXo" data-default-tab="result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/EgNrXo/" target="_blank" rel="external">[Angular]  - Directive : Scope@</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><br> <script async src="//assets.codepen.io/assets/embed/ei.js"></script><p></p>
-<ul>
-<li>= : 双向绑定</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">与父scope中的属性进行双向绑定</div></pre></td></tr></table></figure>
-<p> </p><p data-height="265" data-theme-id="dark" data-slug-hash="dpOAdw" data-default-tab="html,result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/dpOAdw/" target="_blank" rel="external">[Angular]  - Directive : Scope=</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><br> <script async src="//assets.codepen.io/assets/embed/ei.js"></script><p></p>
-<ul>
-<li><p>=? : 可选择的属性</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">如果绑定了一个没有被赋值的表达式 或者属性不存在，这时将会抛出一个异常</div><div class="line">为了避免这种现象，我们可以使用=？来设置属性为可选择</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p></p><p data-height="265" data-theme-id="0" data-slug-hash="QGzVpL" data-default-tab="html,result" data-user="DaleDu" data-embed-version="2" data-pen-title="[Angular]  - Directive : Scope=?" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/QGzVpL/" target="_blank" rel="external">[Angular]  - Directive : Scope=?</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
-
-<ul>
-<li>&amp; : 函数</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">传递一个来自父scope的函数，稍后调用</div></pre></td></tr></table></figure>
-<p> </p><p data-height="265" data-theme-id="dark" data-slug-hash="bwBJVq" data-default-tab="result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/bwBJVq/" target="_blank" rel="external">[Angular]  - Directive : Scope&amp;</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-
-<h2 id="Interaction-Controller-amp-Directive"><a href="#Interaction-Controller-amp-Directive" class="headerlink" title="Interaction: Controller &amp; Directive"></a>Interaction: Controller &amp; Directive</h2><p></p><p data-height="265" data-theme-id="dark" data-slug-hash="RGGOEk" data-default-tab="result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/RGGOEk/" target="_blank" rel="external">[Angular]  - Interaction: Controller &amp; Directive</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-
-<h2 id="Interaction-Directive-amp-Directive"><a href="#Interaction-Directive-amp-Directive" class="headerlink" title="Interaction: Directive &amp; Directive"></a>Interaction: Directive &amp; Directive</h2><p></p><p data-height="265" data-theme-id="dark" data-slug-hash="jrVERX" data-default-tab="result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/jrVERX/" target="_blank" rel="external">[Angular]  - Interaction: Directive &amp; Directive</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-
-<h2 id="Execution-Stage"><a href="#Execution-Stage" class="headerlink" title="Execution Stage"></a>Execution Stage</h2><h3 id="加载阶段"><a href="#加载阶段" class="headerlink" title="加载阶段"></a>加载阶段</h3><blockquote>
-<ul>
-<li>加载angular.js，找到ng-app指令，确定应用边界</li>
-</ul>
-</blockquote>
-<h3 id="编译阶段"><a href="#编译阶段" class="headerlink" title="编译阶段"></a>编译阶段</h3><blockquote>
-<ul>
-<li>遍历DOM，找到所有指令</li>
-<li>根据指令代码中的template、replace、transclude转换DOM结构</li>
-<li>如果存在compile函数则调用</li>
-</ul>
-</blockquote>
-<h3 id="链接阶段"><a href="#链接阶段" class="headerlink" title="链接阶段"></a>链接阶段</h3><blockquote>
-<ul>
-<li>对每条指令运行link函数</li>
-<li>link函数一般用来操作DOM、绑定事件监听器</li>
-</ul>
-</blockquote>
-<h2 id="Directive-Demo"><a href="#Directive-Demo" class="headerlink" title="Directive Demo"></a>Directive Demo</h2><h3 id="Expander"><a href="#Expander" class="headerlink" title="Expander"></a>Expander</h3><p></p><p data-height="265" data-theme-id="dark" data-slug-hash="xERZaK" data-default-tab="js,result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/xERZaK/" target="_blank" rel="external">[Angular]  - Directive Demo : Expander</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-
-<h3 id="Accordion"><a href="#Accordion" class="headerlink" title="Accordion"></a>Accordion</h3><p></p><p data-height="265" data-theme-id="dark" data-slug-hash="wzgKVW" data-default-tab="js,result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/wzgKVW/" target="_blank" rel="external">[Angular]  - Directive Demo : Accordion</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-
-<h3 id="Use-Angular-ui"><a href="#Use-Angular-ui" class="headerlink" title="Use Angular-ui"></a>Use Angular-ui</h3><p></p><p data-height="265" data-theme-id="dark" data-slug-hash="gwgPrA" data-default-tab="js,result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/gwgPrA/" target="_blank" rel="external">[Angular]  - Directive Demo : Use Angular UI</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-
-<p>参考文档</p>
-<p><a href="docs.angularjs.org/guide/directive">Directive AngularJS官网</a></p>
-<p><a href="http://docs.ngnice.com/guide/directive" target="_blank" rel="external">Directive AngularJS中文网</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AngularJS/">AngularJS</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
     <article id="post-hello-world"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -948,7 +948,7 @@ hexo d == hexo deploy
 
   <div class="container">
       <div class="row">
-	      <p> Construido por <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
 	      <p id="copyRightEn">Copyright &copy; 2013 - 2016 The Girl Behind All Rights Reserved.</p>
 	      <p id="copyRightCn">Dale Du hält Urheberrechtsansprüche.</p>
 	</div>

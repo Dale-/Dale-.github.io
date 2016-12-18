@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>angular directive | The Girl Behind</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="AngularJS" />
+  
+  
+  
+  
+  <meta name="description" content="指令就是一些附加在HTML元素上的自定义标记（例如：属性，元素，或css类），它告诉AngularJS的HTML编译器 ($compile) 在元素上附加某些指定的行为，甚至操作DOM、改变DOM元素，以及它的各级子节点。
+Angular内置了一整套指令，如ngBind, ngModel, 和ngView。 就像你可以创建控制器和服务那样，你也可以创建自己的指令来让Angular使用。 当Angu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Angular Directive">
+<meta property="og:url" content="http://yoursite.com/2016/12/16/angular-directive/index.html">
+<meta property="og:site_name" content="The Girl Behind">
+<meta property="og:description" content="指令就是一些附加在HTML元素上的自定义标记（例如：属性，元素，或css类），它告诉AngularJS的HTML编译器 ($compile) 在元素上附加某些指定的行为，甚至操作DOM、改变DOM元素，以及它的各级子节点。
+Angular内置了一整套指令，如ngBind, ngModel, 和ngView。 就像你可以创建控制器和服务那样，你也可以创建自己的指令来让Angular使用。 当Angu">
+<meta property="og:image" content="http://yoursite.com/images/angular-directive/directive-templateUrl.png">
+<meta property="og:updated_time" content="2016-12-18T16:18:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Angular Directive">
+<meta name="twitter:description" content="指令就是一些附加在HTML元素上的自定义标记（例如：属性，元素，或css类），它告诉AngularJS的HTML编译器 ($compile) 在元素上附加某些指定的行为，甚至操作DOM、改变DOM元素，以及它的各级子节点。
+Angular内置了一整套指令，如ngBind, ngModel, 和ngView。 就像你可以创建控制器和服务那样，你也可以创建自己的指令来让Angular使用。 当Angu">
+<meta name="twitter:image" content="http://yoursite.com/images/angular-directive/directive-templateUrl.png">
+  
+    <link rel="alternate" href="/atom.xml" title="The Girl Behind" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+
+</head>
+
+<body>
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Startseite</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archive</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Kategorien</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Schreib etwas..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Beiträge',
+            PAGES: 'Seiten',
+            CATEGORIES: 'Kategorien',
+            TAGS: 'Tags',
+            UNTITLED: '(Unbenannt)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-angular-directive" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Angular Directive
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/12/16/angular-directive/" class="article-date">
+	  <time datetime="2016-12-16T15:20:21.000Z" itemprop="datePublished">2016-12-16</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://docs.angularjs.org/guide/directive" target="_blank" rel="external">指令</a>就是一些附加在HTML元素上的自定义标记（例如：属性，元素，或css类），它告诉AngularJS的HTML编译器 ($compile) 在元素上附加某些指定的行为，甚至操作DOM、改变DOM元素，以及它的各级子节点。</p>
+<p>Angular内置了一整套指令，如ngBind, ngModel, 和ngView。 就像你可以创建控制器和服务那样，你也可以创建自己的指令来让Angular使用。 当Angular 启动器引导你的应用程序时， HTML编译器就会遍历整个DOM，以匹配DOM元素里的指令。</p>
+<h2 id="Matching-Directives"><a href="#Matching-Directives" class="headerlink" title="Matching Directives"></a>Matching Directives</h2><h3 id="Restrict匹配方式"><a href="#Restrict匹配方式" class="headerlink" title="Restrict匹配方式"></a>Restrict匹配方式</h3><ul>
+<li><p>E - 匹配元素名称</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;my-directive&gt;&lt;/my-directive&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>A - 匹配属性名</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div my-directive=<span class="string">"exp"</span>&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>C - 匹配类名</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div class=<span class="string">"my-directive:exp;"</span>&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>M - 注释</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;!-- directive:hello --&gt;</div><div class="line">&lt;div&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p></p><p data-height="265" data-theme-id="dark" data-slug-hash="ammBgY" data-default-tab="html" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/ammBgY/" target="_blank" rel="external">[Angular]  - Matching Directives</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<h3 id="Attention"><a href="#Attention" class="headerlink" title="Attention"></a>Attention</h3><p>当需要创建带有自己的模板的指令时，使用元素名称的方式创建指令</p>
+<p>当需要为已有的HTML标签增加功能时，使用属性的方式创建指令</p>
+<h2 id="Transclude"><a href="#Transclude" class="headerlink" title="Transclude"></a>Transclude</h2><ul>
+<li>transclude使得这个选项的指令，所包含的内容能够访问指令外部的作用域</li>
+<li>指令内部嵌套的内容，放到具有ng-transclude的标签中</li>
+</ul>
+<p></p><p data-height="265" data-theme-id="dark" data-slug-hash="xEEOBN" data-default-tab="result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/xEEOBN/" target="_blank" rel="external">[Angular]  - Transclude</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<h2 id="Replace"><a href="#Replace" class="headerlink" title="Replace"></a>Replace</h2><p></p><p data-height="265" data-theme-id="dark" data-slug-hash="mAAPxa" data-default-tab="result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/mAAPxa/" target="_blank" rel="external">[Angular]  - Replace</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<h2 id="Template"><a href="#Template" class="headerlink" title="Template"></a>Template</h2><p>当你有大量代表客户信息的模板。这个模板在你的代码中重复了很多次，当你改变一个地方的时候， 你不得不在其他地方同时改动，这时候，你就要使用指令来简化你的模板。</p>
+<h3 id="template"><a href="#template" class="headerlink" title="template"></a>template</h3><p></p><p data-height="265" data-theme-id="dark" data-slug-hash="NRRjBW" data-default-tab="result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/NRRjBW/" target="_blank" rel="external">[Angular]  - Directive TemplateCache</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<h3 id="templateUrl"><a href="#templateUrl" class="headerlink" title="templateUrl"></a>templateUrl</h3><p><img src="/images/angular-directive/directive-templateUrl.png" alt=""></p>
+<h3 id="templateCache"><a href="#templateCache" class="headerlink" title="templateCache"></a>templateCache</h3><ul>
+<li><a href="https://docs.angularjs.org/api/ng" target="_blank" rel="external">ng</a>模块中的服务</li>
+</ul>
+<p>在模板第一次被引用时,它会被载入到模板缓存中以便快速的检索。你可以直接使用一个script标签来添加一个模板，或者直接通过 $templateCache 服务来达到相同的效果。</p>
+<p>【Set】通过 script 标签添加:<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/ng-template"</span> id=<span class="string">"templateId.html"</span>&gt;</div><div class="line">&lt;p&gt;This is the content of the template&lt;/p&gt;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>【Set】通过 $templateCache 服务添加:<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var myApp = angular.module(<span class="string">'myApp'</span>, []);</div><div class="line">myApp.run(<span class="keyword">function</span>(<span class="variable">$templateCache</span>) &#123;</div><div class="line"><span class="variable">$templateCache</span>.put(<span class="string">'templateId.html'</span>, <span class="string">'This is the content of the template'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>【Get】通过 component 得到:<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">myApp.component(<span class="string">'myComponent'</span>, &#123;</div><div class="line">template: <span class="string">'templateId.html'</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>【Get】通过 Javascript 得到:<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$templateCache</span>.get(<span class="string">'templateId.html'</span>)</div></pre></td></tr></table></figure></p>
+<p></p><p data-height="265" data-theme-id="dark" data-slug-hash="NRRjBW" data-default-tab="result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/NRRjBW/" target="_blank" rel="external">[Angular]  - Directive TemplateCache</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<h2 id="Scope"><a href="#Scope" class="headerlink" title="Scope"></a>Scope</h2><h3 id="隔离作用域"><a href="#隔离作用域" class="headerlink" title="隔离作用域"></a>隔离作用域</h3><p></p><p data-height="265" data-theme-id="0" data-slug-hash="mAAXZL" data-default-tab="result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/mAAXZL/" target="_blank" rel="external">[Angular]  - Directive Isolate Scope</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+
+<h3 id="scope的绑定策略"><a href="#scope的绑定策略" class="headerlink" title="scope的绑定策略"></a>scope的绑定策略</h3><ul>
+<li>@ : 字符串</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">把当前属性作为字符串传递</div><div class="line">你还可以绑定来自外层scope的值</div><div class="line">在属性值中插入&#123;&#123;&#125;&#125;</div></pre></td></tr></table></figure>
+<p> </p><p data-height="265" data-theme-id="dark" data-slug-hash="EgNrXo" data-default-tab="result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/EgNrXo/" target="_blank" rel="external">[Angular]  - Directive : Scope@</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><br> <script async src="//assets.codepen.io/assets/embed/ei.js"></script><p></p>
+<ul>
+<li>= : 双向绑定</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">与父scope中的属性进行双向绑定</div></pre></td></tr></table></figure>
+<p> </p><p data-height="265" data-theme-id="dark" data-slug-hash="dpOAdw" data-default-tab="html,result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/dpOAdw/" target="_blank" rel="external">[Angular]  - Directive : Scope=</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><br> <script async src="//assets.codepen.io/assets/embed/ei.js"></script><p></p>
+<ul>
+<li><p>=? : 可选择的属性</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">如果绑定了一个没有被赋值的表达式 或者属性不存在，这时将会抛出一个异常</div><div class="line">为了避免这种现象，我们可以使用=？来设置属性为可选择</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p></p><p data-height="265" data-theme-id="0" data-slug-hash="QGzVpL" data-default-tab="html,result" data-user="DaleDu" data-embed-version="2" data-pen-title="[Angular]  - Directive : Scope=?" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/QGzVpL/" target="_blank" rel="external">[Angular]  - Directive : Scope=?</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+<ul>
+<li>&amp; : 函数</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">传递一个来自父scope的函数，稍后调用</div></pre></td></tr></table></figure>
+<p> </p><p data-height="265" data-theme-id="dark" data-slug-hash="bwBJVq" data-default-tab="result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/bwBJVq/" target="_blank" rel="external">[Angular]  - Directive : Scope&amp;</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<h2 id="Interaction-Controller-amp-Directive"><a href="#Interaction-Controller-amp-Directive" class="headerlink" title="Interaction: Controller &amp; Directive"></a>Interaction: Controller &amp; Directive</h2><p></p><p data-height="265" data-theme-id="dark" data-slug-hash="RGGOEk" data-default-tab="result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/RGGOEk/" target="_blank" rel="external">[Angular]  - Interaction: Controller &amp; Directive</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<h2 id="Interaction-Directive-amp-Directive"><a href="#Interaction-Directive-amp-Directive" class="headerlink" title="Interaction: Directive &amp; Directive"></a>Interaction: Directive &amp; Directive</h2><p></p><p data-height="265" data-theme-id="dark" data-slug-hash="jrVERX" data-default-tab="result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/jrVERX/" target="_blank" rel="external">[Angular]  - Interaction: Directive &amp; Directive</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<h2 id="Execution-Stage"><a href="#Execution-Stage" class="headerlink" title="Execution Stage"></a>Execution Stage</h2><h3 id="加载阶段"><a href="#加载阶段" class="headerlink" title="加载阶段"></a>加载阶段</h3><blockquote>
+<ul>
+<li>加载angular.js，找到ng-app指令，确定应用边界</li>
+</ul>
+</blockquote>
+<h3 id="编译阶段"><a href="#编译阶段" class="headerlink" title="编译阶段"></a>编译阶段</h3><blockquote>
+<ul>
+<li>遍历DOM，找到所有指令</li>
+<li>根据指令代码中的template、replace、transclude转换DOM结构</li>
+<li>如果存在compile函数则调用</li>
+</ul>
+</blockquote>
+<h3 id="链接阶段"><a href="#链接阶段" class="headerlink" title="链接阶段"></a>链接阶段</h3><blockquote>
+<ul>
+<li>对每条指令运行link函数</li>
+<li>link函数一般用来操作DOM、绑定事件监听器</li>
+</ul>
+</blockquote>
+<h2 id="Directive-Demo"><a href="#Directive-Demo" class="headerlink" title="Directive Demo"></a>Directive Demo</h2><h3 id="Expander"><a href="#Expander" class="headerlink" title="Expander"></a>Expander</h3><p></p><p data-height="265" data-theme-id="dark" data-slug-hash="xERZaK" data-default-tab="js,result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/xERZaK/" target="_blank" rel="external">[Angular]  - Directive Demo : Expander</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<h3 id="Accordion"><a href="#Accordion" class="headerlink" title="Accordion"></a>Accordion</h3><p></p><p data-height="265" data-theme-id="dark" data-slug-hash="wzgKVW" data-default-tab="js,result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/wzgKVW/" target="_blank" rel="external">[Angular]  - Directive Demo : Accordion</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<h3 id="Use-Angular-ui"><a href="#Use-Angular-ui" class="headerlink" title="Use Angular-ui"></a>Use Angular-ui</h3><p></p><p data-height="265" data-theme-id="dark" data-slug-hash="gwgPrA" data-default-tab="js,result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/gwgPrA/" target="_blank" rel="external">[Angular]  - Directive Demo : Use Angular UI</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<p>参考文档</p>
+<p><a href="docs.angularjs.org/guide/directive">Directive AngularJS官网</a></p>
+<p><a href="http://docs.ngnice.com/guide/directive" target="_blank" rel="external">Directive AngularJS中文网</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+	<div id="comment">
+	
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2016/12/16/angular-directive/" data-title="Angular Directive" data-url="http://yoursite.com/2016/12/16/angular-directive/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"dale-"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0] 
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+	
+	</div>
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AngularJS/">AngularJS</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/12/18/Protocol/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          HTTP Protocol
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/12/14/Closures/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">Closures</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Inhalt</strong>
+    
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Matching-Directives"><span class="toc-number">1.</span> <span class="toc-text">Matching Directives</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Restrict匹配方式"><span class="toc-number">1.1.</span> <span class="toc-text">Restrict匹配方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Attention"><span class="toc-number">1.2.</span> <span class="toc-text">Attention</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Transclude"><span class="toc-number">2.</span> <span class="toc-text">Transclude</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Replace"><span class="toc-number">3.</span> <span class="toc-text">Replace</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Template"><span class="toc-number">4.</span> <span class="toc-text">Template</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#template"><span class="toc-number">4.1.</span> <span class="toc-text">template</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#templateUrl"><span class="toc-number">4.2.</span> <span class="toc-text">templateUrl</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#templateCache"><span class="toc-number">4.3.</span> <span class="toc-text">templateCache</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Scope"><span class="toc-number">5.</span> <span class="toc-text">Scope</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#隔离作用域"><span class="toc-number">5.1.</span> <span class="toc-text">隔离作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#scope的绑定策略"><span class="toc-number">5.2.</span> <span class="toc-text">scope的绑定策略</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Interaction-Controller-amp-Directive"><span class="toc-number">6.</span> <span class="toc-text">Interaction: Controller & Directive</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Interaction-Directive-amp-Directive"><span class="toc-number">7.</span> <span class="toc-text">Interaction: Directive & Directive</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Execution-Stage"><span class="toc-number">8.</span> <span class="toc-text">Execution Stage</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#加载阶段"><span class="toc-number">8.1.</span> <span class="toc-text">加载阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编译阶段"><span class="toc-number">8.2.</span> <span class="toc-text">编译阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#链接阶段"><span class="toc-number">8.3.</span> <span class="toc-text">链接阶段</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Directive-Demo"><span class="toc-number">9.</span> <span class="toc-text">Directive Demo</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Expander"><span class="toc-number">9.1.</span> <span class="toc-text">Expander</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Accordion"><span class="toc-number">9.2.</span> <span class="toc-text">Accordion</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Use-Angular-ui"><span class="toc-number">9.3.</span> <span class="toc-text">Use Angular-ui</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      <div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2016 The Girl Behind All Rights Reserved.</p>
+	      <p id="copyRightCn">Dale Du hält Urheberrechtsansprüche.</p>
+	</div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+<script src="/js/bootstrap.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            The Girl Behind
+          </div>
+          <div class="panel-body">
+            Copyright © 2016 Dale Du All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+</body>
+</html>

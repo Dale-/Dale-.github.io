@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>closures | The Girl Behind</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="JavaScript" />
+  
+  
+  
+  
+  <meta name="description" content="变量作用域变量的作用域有两种：全局变量和局部变量。在JavaScript中，函数内部可以直接读取全局变量。
+12345var n=999;function f1()&amp;#123;　　alert(n);&amp;#125;f1(); // 999
+当然，在函数外部无法读取函数内的局部变量。
+1234function f1()&amp;#123;　 var n=999;&amp;#125;alert(n); // error">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Closures">
+<meta property="og:url" content="http://yoursite.com/2016/12/14/Closures/index.html">
+<meta property="og:site_name" content="The Girl Behind">
+<meta property="og:description" content="变量作用域变量的作用域有两种：全局变量和局部变量。在JavaScript中，函数内部可以直接读取全局变量。
+12345var n=999;function f1()&amp;#123;　　alert(n);&amp;#125;f1(); // 999
+当然，在函数外部无法读取函数内的局部变量。
+1234function f1()&amp;#123;　 var n=999;&amp;#125;alert(n); // error">
+<meta property="og:updated_time" content="2016-12-18T16:20:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Closures">
+<meta name="twitter:description" content="变量作用域变量的作用域有两种：全局变量和局部变量。在JavaScript中，函数内部可以直接读取全局变量。
+12345var n=999;function f1()&amp;#123;　　alert(n);&amp;#125;f1(); // 999
+当然，在函数外部无法读取函数内的局部变量。
+1234function f1()&amp;#123;　 var n=999;&amp;#125;alert(n); // error">
+  
+    <link rel="alternate" href="/atom.xml" title="The Girl Behind" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+
+</head>
+
+<body>
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Startseite</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archive</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Kategorien</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Schreib etwas..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Beiträge',
+            PAGES: 'Seiten',
+            CATEGORIES: 'Kategorien',
+            TAGS: 'Tags',
+            UNTITLED: '(Unbenannt)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-Closures" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Closures
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/12/14/Closures/" class="article-date">
+	  <time datetime="2016-12-14T09:04:34.000Z" itemprop="datePublished">2016-12-14</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a>变量作用域</h2><p>变量的作用域有两种：全局变量和局部变量。<br>在JavaScript中，函数内部可以直接读取全局变量。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var n=999;</div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">f1</span></span>()&#123;</div><div class="line">　　alert(n);</div><div class="line">&#125;</div><div class="line">f1(); // 999</div></pre></td></tr></table></figure>
+<p>当然，在函数外部无法读取函数内的局部变量。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">f1</span></span>()&#123;</div><div class="line">　 var n=999;</div><div class="line">&#125;</div><div class="line">alert(n); // error</div></pre></td></tr></table></figure>
+<blockquote>
+<p>这里有一个地方需要注意，函数内部声明变量的时候，一定要使用var命令。<br>  如果不用的话，你实际上声明了一个全局变量！</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">f1</span></span>()&#123;</div><div class="line">  n=999;</div><div class="line">&#125;</div><div class="line">f1();</div><div class="line">alert(n); // 999</div></pre></td></tr></table></figure>
+<h2 id="如何从外部读取局部变量？"><a href="#如何从外部读取局部变量？" class="headerlink" title="如何从外部读取局部变量？"></a>如何从外部读取局部变量？</h2><p>在函数的内部，再定义一个函数。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">f1</span></span>()&#123;</div><div class="line">　　var n=999;</div><div class="line">　　<span class="keyword">function</span> <span class="function"><span class="title">f2</span></span>()&#123;</div><div class="line">　　　　alert(n); // 999</div><div class="line">　　&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>在上面的代码中，函数f2就被包括在函数f1内部，这时f1内部的所有局部变量，对f2都是可见的。但是反过来就不行，f2内部的局部变量，对f1就是不可见的。这就是Javascript语言特有的”链式作用域”结构（chain scope），子对象会一级一级地向上寻找所有父对象的变量。所以，父对象的所有变量，对子对象都是可见的，反之则不成立。</p>
+<p>既然f2可以读取f1中的局部变量，那么只要把f2作为返回值，我们不就可以在f1外部读取它的内部变量了吗！</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">f1</span></span>()&#123;</div><div class="line">　　var n=999;</div><div class="line">　　<span class="keyword">function</span> <span class="function"><span class="title">f2</span></span>()&#123;</div><div class="line">　　　　alert(n);</div><div class="line">　　&#125;</div><div class="line">　　<span class="built_in">return</span> f2;</div><div class="line">&#125;</div><div class="line">var result=f1();</div><div class="line">result(); // 999</div></pre></td></tr></table></figure>
+<h2 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包"></a>什么是闭包</h2><p>上一节代码中的f2函数，就是闭包。</p>
+<ul>
+<li><p>Wikipedia</p>
+<blockquote>
+<p>Closures (also lexical closures or function closures) are techniques for implementing lexically scoped name binding in languages with first-class functions. Operationally, a closure is a record storing a function[a] together with an environment:[1] a mapping associating each free variable of the function (variables that are used locally, but defined in an enclosing scope) with the value or reference to which the name was bound when the closure was created.[b] A closure—unlike a plain function—allows the function to access those captured variables through the closure’s copies of their values or references, even when the function is invoked outside their scope.<br>闭包（也称词法闭包或函数闭包）是指一个函数或函数的引用，与一个引用环境绑定在一起。这个引用环境是一个存储该函数每个非局部变量（也叫自由变量）的表。</p>
+</blockquote>
+</li>
+<li><p>Closures</p>
+<blockquote>
+<p>闭包，不同于一般的函数，它允许一个函数在立即词法作用域外调用时，仍可访问非本地变量。</p>
+<p>闭包就是能够读取其他函数内部变量的函数。</p>
+<p>由于在Javascript语言中，只有函数内部的子函数才能读取局部变量，因此可以把闭包简单理解成”定义在一个函数内部的函数”。<br>所以，在本质上，闭包就是将函数内部和函数外部连接起来的一座桥梁。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="Well"><a href="#Well" class="headerlink" title="Well"></a>Well</h2><ul>
+<li>灵活</li>
+<li>方便</li>
+<li>封装</li>
+</ul>
+<h2 id="Less-Well"><a href="#Less-Well" class="headerlink" title="Less Well"></a>Less Well</h2><ul>
+<li>空间浪费</li>
+<li>内存泄漏</li>
+<li>性能消耗</li>
+</ul>
+<h2 id="闭包的三个事实"><a href="#闭包的三个事实" class="headerlink" title="闭包的三个事实"></a>闭包的三个事实</h2><blockquote>
+<ul>
+<li>JavaScript允许你引入函数以外定义的变量</li>
+</ul>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">makeNoodles</span></span>() &#123;</div><div class="line">    var noodlesType = <span class="string">'Lamian'</span></div><div class="line">    <span class="keyword">function</span> make(ingredients) &#123;</div><div class="line">        <span class="built_in">return</span> noodlesType + <span class="string">' with '</span> + ingredients;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> make(<span class="string">'beef'</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">makeNoodles(); // <span class="string">'Lamian with beef'</span></div><div class="line">// 注意 make函数可以访问外部变量 noodlesType 和 ingredients</div></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>即使外部函数已经执行结束, 内部函数依然可以引用在外部函数所定义的变量</li>
+</ul>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">makeNoodles</span></span>() &#123;</div><div class="line">    var noodlesType = <span class="string">'Lamian'</span></div><div class="line">    <span class="keyword">function</span> make(ingredients) &#123;</div><div class="line">        <span class="built_in">return</span> noodlesType + <span class="string">' with '</span> + ingredients;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> make;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var f = makeNoodles();</div><div class="line">f(<span class="string">'beef'</span>); // <span class="string">'Lamian with beef'</span></div><div class="line">f(<span class="string">'fish'</span>); // <span class="string">'Lamian with fish'</span></div><div class="line">f(<span class="string">'eggs and tomatoes'</span>); // <span class="string">'Lamian with eggs and tomatoes'</span></div><div class="line">// 注意 与第一个例子不同的是, makeNoodles 函数返回 make 函数, 此时外部函数执行已经结束, 但是内部函数 make</div><div class="line">// 依然可以访问 noodlesType 变量</div></pre></td></tr></table></figure>
+<p>基于上面的例子, 我们可以写的更通用.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> makeNoodles(noodlesType) &#123;</div><div class="line">    <span class="keyword">function</span> make(ingredients) &#123;</div><div class="line">        <span class="built_in">return</span> noodlesType + <span class="string">' with '</span> + ingredients;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> make;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var makeLamian = makeNoodles(<span class="string">'Lamian'</span>);</div><div class="line">makeLamian(<span class="string">'beef'</span>); // <span class="string">'Lamian with beef'</span></div><div class="line">makeLamian(<span class="string">'fish'</span>); // <span class="string">'Lamian with fish'</span></div><div class="line">makeLamian(<span class="string">'eggs and tomatoes'</span>); // <span class="string">'Lamian with eggs and tomatoes'</span></div><div class="line"></div><div class="line">var makeRiceNoodles = makeNoodles(<span class="string">'Rice noodles'</span>);</div><div class="line">makeRiceNoodles(<span class="string">'beef'</span>); // <span class="string">'Rice noodles with beef'</span></div><div class="line">makeRiceNoodles(<span class="string">'fish'</span>); // <span class="string">'Rice noodles with fish'</span></div><div class="line">makeRiceNoodles(<span class="string">'eggs and tomatoes'</span>); // <span class="string">'Rice noodles with eggs and tomatoes'</span></div></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>最后一个, 闭包可以更新外部函数定义的变量</li>
+</ul>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">counter</span></span>() &#123;</div><div class="line">    var num = 0;</div><div class="line">    <span class="built_in">return</span> &#123;</div><div class="line">        increase: <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">           num++;</div><div class="line">        &#125;,</div><div class="line">        currentNum: <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">            <span class="built_in">return</span> num;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var counter1 = counter();</div><div class="line">counter1.increase();</div><div class="line">counter1.increase();</div><div class="line">counter1.currentNum(); // 2</div><div class="line"></div><div class="line">var counter2 = counter();</div><div class="line">counter2.currentNum(); // 0</div></pre></td></tr></table></figure>
+<h2 id="闭包的中的this"><a href="#闭包的中的this" class="headerlink" title="闭包的中的this"></a>闭包的中的<code>this</code></h2><ul>
+<li>代码片段一</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var name = <span class="string">"The Window"</span>;</div><div class="line">var object = &#123;</div><div class="line">　　name : <span class="string">"My Object"</span>,</div><div class="line">　　getNameFunc : <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">　　　　<span class="built_in">return</span> <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">　　　　　　<span class="built_in">return</span> this.name;</div><div class="line">　　　　&#125;;</div><div class="line">　　&#125;</div><div class="line">&#125;;</div><div class="line">alert(object.getNameFunc()());</div></pre></td></tr></table></figure>
+<ul>
+<li>代码片段二</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var name = <span class="string">"The Window"</span>;</div><div class="line">var object = &#123;</div><div class="line">　　name : <span class="string">"My Object"</span>,</div><div class="line">　　getNameFunc : <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">　　　　var that = this;</div><div class="line">　　　　<span class="built_in">return</span> <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">　　　　　　<span class="built_in">return</span> that.name;</div><div class="line">　　　　&#125;;</div><div class="line">　　&#125;</div><div class="line">&#125;;</div><div class="line">alert(object.getNameFunc()());</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+	<div id="comment">
+	
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2016/12/14/Closures/" data-title="Closures" data-url="http://yoursite.com/2016/12/14/Closures/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"dale-"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0] 
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+	
+	</div>
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/12/16/angular-directive/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          Angular Directive
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/12/13/Folders missing in project pane in Webstorm/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">Folders missing in project pane in Webstorm</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Inhalt</strong>
+    
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#变量作用域"><span class="toc-number">1.</span> <span class="toc-text">变量作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何从外部读取局部变量？"><span class="toc-number">2.</span> <span class="toc-text">如何从外部读取局部变量？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是闭包"><span class="toc-number">3.</span> <span class="toc-text">什么是闭包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Well"><span class="toc-number">4.</span> <span class="toc-text">Well</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Less-Well"><span class="toc-number">5.</span> <span class="toc-text">Less Well</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#闭包的三个事实"><span class="toc-number">6.</span> <span class="toc-text">闭包的三个事实</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#闭包的中的this"><span class="toc-number">7.</span> <span class="toc-text">闭包的中的this</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      <div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2016 The Girl Behind All Rights Reserved.</p>
+	      <p id="copyRightCn">Dale Du hält Urheberrechtsansprüche.</p>
+	</div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+<script src="/js/bootstrap.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            The Girl Behind
+          </div>
+          <div class="panel-body">
+            Copyright © 2016 Dale Du All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+</body>
+</html>
