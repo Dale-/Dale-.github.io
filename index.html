@@ -92,7 +92,7 @@
 
 
   
-    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/sample.jpg); background-size: auto 100%;">
+    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/home-bg.jpg); background-size: auto 100%;">
   
 
     <canvas width="100%" height="100%"></canvas>
@@ -223,8 +223,13 @@
 </ul>
 <p><img src="/images/http/http-protocol.png" alt=""></p>
 <h2 id="HTTP的通信过程"><a href="#HTTP的通信过程" class="headerlink" title="HTTP的通信过程"></a>HTTP的通信过程</h2><h3 id="HTTP-Request"><a href="#HTTP-Request" class="headerlink" title="HTTP-Request"></a>HTTP-Request</h3><blockquote>
-<p> 请求行：请求方法、请求资源路径、HTTP协议版本<br>eg: GET /dale-.github.io/css/images/rocket.png HTTP/1.1</p>
-<p> 请求头：客户端的坏境描述、客户端请求的主机地址等信息</p>
+<p> 请求行</p>
+</blockquote>
+<p>请求方法、请求资源路径、HTTP协议版本<br>eg: GET /dale-.github.io/css/images/rocket.png HTTP/1.1</p>
+<blockquote>
+<p> 请求头</p>
+</blockquote>
+<p>客户端的坏境描述、客户端请求的主机地址等信息</p>
 <ul>
 <li>Host: 客户端想访问的服务器主机地址</li>
 <li>User-Agent: 客户端的类型，客户端的软件环境</li>
@@ -232,20 +237,28 @@
 <li>Accept-Language: 客户端的语言环境</li>
 <li>Accept-Encoding: 客户端支持的压缩数据格式<br><img src="/images/http/request.png" alt=""></li>
 </ul>
-<p>请求体：客户端发给服务器端的具体数据<br><img src="/images/http/request-body.png" alt=""></p>
+<blockquote>
+<p>请求体</p>
 </blockquote>
+<p>客户端发给服务器端的具体数据<br><img src="/images/http/request-body.png" alt=""></p>
 <h3 id="HTTP-Response"><a href="#HTTP-Response" class="headerlink" title="HTTP-Response"></a>HTTP-Response</h3><blockquote>
-<p>状态行： HTTP协议版本、状态码、状态英文标识<br>eg: HTTP/1.1 200 OK</p>
-<p>响应头： 服务器的描述、返回数据的描述</p>
+<p>状态行</p>
+</blockquote>
+<p>HTTP协议版本、状态码、状态英文标识<br>eg: HTTP/1.1 200 OK</p>
+<blockquote>
+<p>响应头</p>
+</blockquote>
+<p>服务器的描述、返回数据的描述</p>
 <ul>
 <li>Sever: 服务器类型</li>
 <li>Content-Type: 返回数据的类型</li>
 <li>Content-Length: 返回数据的长度</li>
 <li>Date: 响应的时间<br><img src="/images/http/response.png" alt=""></li>
 </ul>
-<p>实体内容：服务器返回给客户端的具体数据</p>
+<blockquote>
+<p>实体内容</p>
 </blockquote>
-<p><img src="/images/http/process.png" alt=""></p>
+<p>服务器返回给客户端的具体数据<br><img src="/images/http/process.png" alt=""></p>
 <h2 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h2><p><img src="/images/http/status-code.png" alt=""></p>
 <ul>
 <li><p>200 OK:代表一次成功的http请求。</p>
