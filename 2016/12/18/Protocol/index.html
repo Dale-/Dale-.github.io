@@ -43,7 +43,7 @@ HTTP的通信过程HTTP-Request
 <meta property="og:image" content="http://yoursite.com/images/http/response.png">
 <meta property="og:image" content="http://yoursite.com/images/http/process.png">
 <meta property="og:image" content="http://yoursite.com/images/http/status-code.png">
-<meta property="og:updated_time" content="2016-12-18T16:01:07.000Z">
+<meta property="og:updated_time" content="2016-12-18T16:11:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTTP Protocol">
 <meta name="twitter:description" content="HTTP协议
@@ -259,6 +259,65 @@ HTTP的通信过程HTTP-Request
 <li><p>500 Internal ServerError：服务端错误，往往出现在动态资源的请求中，出现这个错误的原因很多。<br>但是出现这个错误，往往是程序编码问题，开发人员应该快速定位问题，尽快解决问题。</p>
 </li>
 </ul>
+<h2 id="HTTP常用请求的方法"><a href="#HTTP常用请求的方法" class="headerlink" title="HTTP常用请求的方法"></a>HTTP常用请求的方法</h2><blockquote>
+<p>HTTP1.0定义了三种请求方法： GET, POST 和 HEAD方法。<br>HTTP1.1新增了五种请求方法：OPTIONS, PUT, DELETE, TRACE 和 CONNECT 方法。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">序号</th>
+<th style="text-align:left">方法</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left">GET</td>
+<td style="text-align:left">请求指定的页面信息，并返回实体主体。</td>
+</tr>
+<tr>
+<td style="text-align:left">2</td>
+<td style="text-align:left">HEAD</td>
+<td style="text-align:left">类似GET，但只返回 HTTP 报头，不返回文档主体。</td>
+</tr>
+<tr>
+<td style="text-align:left">3</td>
+<td style="text-align:left">POST</td>
+<td style="text-align:left">向指定资源提交数据进行处理请求。新的资源的建立/已有资源的修改。</td>
+</tr>
+<tr>
+<td style="text-align:left">4</td>
+<td style="text-align:left">PUT</td>
+<td style="text-align:left">从客户端向服务器传送的数据取代指定的文档的内容。（全部取代）</td>
+</tr>
+<tr>
+<td style="text-align:left">5</td>
+<td style="text-align:left">PATCH</td>
+<td style="text-align:left">从客户端向服务器传送的数据取代指定的文档的内容。（部分取代）</td>
+</tr>
+<tr>
+<td style="text-align:left">6</td>
+<td style="text-align:left">DELETE</td>
+<td style="text-align:left">局部更新资源。</td>
+</tr>
+<tr>
+<td style="text-align:left">7</td>
+<td style="text-align:left">CONNECT</td>
+<td style="text-align:left">HTTP/1.1协议中预留给能够将连接改为管道方式的代理服务器。</td>
+</tr>
+<tr>
+<td style="text-align:left">8</td>
+<td style="text-align:left">OPTIONS</td>
+<td style="text-align:left">允许客户端查看服务器的性能。</td>
+</tr>
+<tr>
+<td style="text-align:left">9</td>
+<td style="text-align:left">TRACE</td>
+<td style="text-align:left">回显服务器收到的请求，主要用于测试或诊断。</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
@@ -314,7 +373,7 @@ HTTP的通信过程HTTP-Request
     <div id="toc" class="toc-article">
     <strong class="toc-title">Inhalt</strong>
     
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP协议"><span class="toc-number">1.</span> <span class="toc-text">HTTP协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP的通信过程"><span class="toc-number">2.</span> <span class="toc-text">HTTP的通信过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP-Request"><span class="toc-number">2.1.</span> <span class="toc-text">HTTP-Request</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP-Response"><span class="toc-number">2.2.</span> <span class="toc-text">HTTP-Response</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#状态码"><span class="toc-number">3.</span> <span class="toc-text">状态码</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP协议"><span class="toc-number">1.</span> <span class="toc-text">HTTP协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP的通信过程"><span class="toc-number">2.</span> <span class="toc-text">HTTP的通信过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP-Request"><span class="toc-number">2.1.</span> <span class="toc-text">HTTP-Request</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP-Response"><span class="toc-number">2.2.</span> <span class="toc-text">HTTP-Response</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#状态码"><span class="toc-number">3.</span> <span class="toc-text">状态码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP常用请求的方法"><span class="toc-number">4.</span> <span class="toc-text">HTTP常用请求的方法</span></a></li></ol>
     
     </div>
   </aside>
