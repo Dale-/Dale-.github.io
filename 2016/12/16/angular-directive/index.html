@@ -88,9 +88,9 @@
                 
                   <li> <a class="main-nav-link" href="/">Home</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/archives">Archive</a> </li>
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/categories">Category</a> </li>
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
                 
                   <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
                 
@@ -106,7 +106,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Schreib etwas..." />
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -118,11 +118,11 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Beiträge',
-            PAGES: 'Seiten',
-            CATEGORIES: 'Kategorien',
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
             TAGS: 'Tags',
-            UNTITLED: '(Unbenannt)',
+            UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -324,7 +324,7 @@
 <nav id="article-nav">
   
     <a href="/2016/12/18/Protocol/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
+      <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
           HTTP Protocol
@@ -334,7 +334,7 @@
   
   
     <a href="/2016/12/14/Closures/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Älter</strong>
+      <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">Closures</div>
     </a>
   
@@ -347,7 +347,7 @@
 
   <aside id="sidebar">
     <div id="toc" class="toc-article">
-    <strong class="toc-title">Inhalt</strong>
+    <strong class="toc-title">Contents</strong>
     
       <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Matching-Directives"><span class="toc-number">1.</span> <span class="toc-text">Matching Directives</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Restrict匹配方式"><span class="toc-number">1.1.</span> <span class="toc-text">Restrict匹配方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Attention"><span class="toc-number">1.2.</span> <span class="toc-text">Attention</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Transclude"><span class="toc-number">2.</span> <span class="toc-text">Transclude</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Replace"><span class="toc-number">3.</span> <span class="toc-text">Replace</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Template"><span class="toc-number">4.</span> <span class="toc-text">Template</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#template"><span class="toc-number">4.1.</span> <span class="toc-text">template</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#templateUrl"><span class="toc-number">4.2.</span> <span class="toc-text">templateUrl</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#templateCache"><span class="toc-number">4.3.</span> <span class="toc-text">templateCache</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Scope"><span class="toc-number">5.</span> <span class="toc-text">Scope</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#隔离作用域"><span class="toc-number">5.1.</span> <span class="toc-text">隔离作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#scope的绑定策略"><span class="toc-number">5.2.</span> <span class="toc-text">scope的绑定策略</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Interaction-Controller-amp-Directive"><span class="toc-number">6.</span> <span class="toc-text">Interaction: Controller & Directive</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Interaction-Directive-amp-Directive"><span class="toc-number">7.</span> <span class="toc-text">Interaction: Directive & Directive</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Execution-Stage"><span class="toc-number">8.</span> <span class="toc-text">Execution Stage</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#加载阶段"><span class="toc-number">8.1.</span> <span class="toc-text">加载阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编译阶段"><span class="toc-number">8.2.</span> <span class="toc-text">编译阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#链接阶段"><span class="toc-number">8.3.</span> <span class="toc-text">链接阶段</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Directive-Demo"><span class="toc-number">9.</span> <span class="toc-text">Directive Demo</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Expander"><span class="toc-number">9.1.</span> <span class="toc-text">Expander</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Accordion"><span class="toc-number">9.2.</span> <span class="toc-text">Accordion</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Use-Angular-ui"><span class="toc-number">9.3.</span> <span class="toc-text">Use Angular-ui</span></a></li></ol></li></ol>
     
@@ -364,7 +364,7 @@
       <div class="row">
 	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> </p>
 	      <p id="copyRightEn">Copyright &copy; 2015 - 2016 The Girl Behind All Rights Reserved.</p>
-	      <p id="copyRightCn">Dale Du hält Urheberrechtsansprüche.</p>
+	      <p id="copyRightCn">Dale Du hold copyright</p>
 	</div>
   </div>
 </footer>
