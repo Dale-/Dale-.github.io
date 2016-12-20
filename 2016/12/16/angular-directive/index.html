@@ -6,25 +6,22 @@
   <title>angular directive | The Girl Behind</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="AngularJS" />
+    <meta name="keywords" content="Angular Directive" />
   
   
   
   
-  <meta name="description" content="指令就是一些附加在HTML元素上的自定义标记（例如：属性，元素，或css类），它告诉AngularJS的HTML编译器 ($compile) 在元素上附加某些指定的行为，甚至操作DOM、改变DOM元素，以及它的各级子节点。
-Angular内置了一整套指令，如ngBind, ngModel, 和ngView。 就像你可以创建控制器和服务那样，你也可以创建自己的指令来让Angular使用。 当Angu">
+  <meta name="description" content="Angular指令">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Angular Directive">
 <meta property="og:url" content="http://yoursite.com/2016/12/16/angular-directive/index.html">
 <meta property="og:site_name" content="The Girl Behind">
-<meta property="og:description" content="指令就是一些附加在HTML元素上的自定义标记（例如：属性，元素，或css类），它告诉AngularJS的HTML编译器 ($compile) 在元素上附加某些指定的行为，甚至操作DOM、改变DOM元素，以及它的各级子节点。
-Angular内置了一整套指令，如ngBind, ngModel, 和ngView。 就像你可以创建控制器和服务那样，你也可以创建自己的指令来让Angular使用。 当Angu">
+<meta property="og:description" content="Angular指令">
 <meta property="og:image" content="http://yoursite.com/images/angular-directive/directive-templateUrl.png">
-<meta property="og:updated_time" content="2016-12-18T16:18:36.000Z">
+<meta property="og:updated_time" content="2016-12-20T08:42:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Angular Directive">
-<meta name="twitter:description" content="指令就是一些附加在HTML元素上的自定义标记（例如：属性，元素，或css类），它告诉AngularJS的HTML编译器 ($compile) 在元素上附加某些指定的行为，甚至操作DOM、改变DOM元素，以及它的各级子节点。
-Angular内置了一整套指令，如ngBind, ngModel, 和ngView。 就像你可以创建控制器和服务那样，你也可以创建自己的指令来让Angular使用。 当Angu">
+<meta name="twitter:description" content="Angular指令">
 <meta name="twitter:image" content="http://yoursite.com/images/angular-directive/directive-templateUrl.png">
   
     <link rel="alternate" href="/atom.xml" title="The Girl Behind" type="application/atom+xml">
@@ -91,9 +88,11 @@ Angular内置了一整套指令，如ngBind, ngModel, 和ngView。 就像你可�
                 
                   <li> <a class="main-nav-link" href="/">Home</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                  <li> <a class="main-nav-link" href="/archives">Archive</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
+                  <li> <a class="main-nav-link" href="/categories">Category</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
                 
                   <li> <a class="main-nav-link" href="http://weibo.com/daledu">About</a> </li>
                 
@@ -107,7 +106,7 @@ Angular内置了一整套指令，如ngBind, ngModel, 和ngView。 就像你可�
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <input type="text" class="ins-search-input" placeholder="Schreib etwas..." />
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -119,11 +118,11 @@ Angular内置了一整套指令，如ngBind, ngModel, 和ngView。 就像你可�
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            PAGES: 'Pages',
-            CATEGORIES: 'Categories',
+            POSTS: 'Beiträge',
+            PAGES: 'Seiten',
+            CATEGORIES: 'Kategorien',
             TAGS: 'Tags',
-            UNTITLED: '(Untitled)',
+            UNTITLED: '(Unbenannt)',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -169,6 +168,8 @@ Angular内置了一整套指令，如ngBind, ngModel, 和ngView。 就像你可�
 	</a>
 
       
+    <a class="article-category-link" href="/categories/AngularJS/">AngularJS</a>
+
     </div>
     <div class="article-entry" itemprop="articleBody">
       
@@ -323,7 +324,7 @@ Angular内置了一整套指令，如ngBind, ngModel, 和ngView。 就像你可�
 <nav id="article-nav">
   
     <a href="/2016/12/18/Protocol/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
+      <strong class="article-nav-caption">Neuer</strong>
       <div class="article-nav-title">
         
           HTTP Protocol
@@ -333,7 +334,7 @@ Angular内置了一整套指令，如ngBind, ngModel, 和ngView。 就像你可�
   
   
     <a href="/2016/12/14/Closures/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">Älter</strong>
       <div class="article-nav-title">Closures</div>
     </a>
   
@@ -346,7 +347,7 @@ Angular内置了一整套指令，如ngBind, ngModel, 和ngView。 就像你可�
 
   <aside id="sidebar">
     <div id="toc" class="toc-article">
-    <strong class="toc-title">Contents</strong>
+    <strong class="toc-title">Inhalt</strong>
     
       <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Matching-Directives"><span class="toc-number">1.</span> <span class="toc-text">Matching Directives</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Restrict匹配方式"><span class="toc-number">1.1.</span> <span class="toc-text">Restrict匹配方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Attention"><span class="toc-number">1.2.</span> <span class="toc-text">Attention</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Transclude"><span class="toc-number">2.</span> <span class="toc-text">Transclude</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Replace"><span class="toc-number">3.</span> <span class="toc-text">Replace</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Template"><span class="toc-number">4.</span> <span class="toc-text">Template</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#template"><span class="toc-number">4.1.</span> <span class="toc-text">template</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#templateUrl"><span class="toc-number">4.2.</span> <span class="toc-text">templateUrl</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#templateCache"><span class="toc-number">4.3.</span> <span class="toc-text">templateCache</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Scope"><span class="toc-number">5.</span> <span class="toc-text">Scope</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#隔离作用域"><span class="toc-number">5.1.</span> <span class="toc-text">隔离作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#scope的绑定策略"><span class="toc-number">5.2.</span> <span class="toc-text">scope的绑定策略</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Interaction-Controller-amp-Directive"><span class="toc-number">6.</span> <span class="toc-text">Interaction: Controller & Directive</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Interaction-Directive-amp-Directive"><span class="toc-number">7.</span> <span class="toc-text">Interaction: Directive & Directive</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Execution-Stage"><span class="toc-number">8.</span> <span class="toc-text">Execution Stage</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#加载阶段"><span class="toc-number">8.1.</span> <span class="toc-text">加载阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编译阶段"><span class="toc-number">8.2.</span> <span class="toc-text">编译阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#链接阶段"><span class="toc-number">8.3.</span> <span class="toc-text">链接阶段</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Directive-Demo"><span class="toc-number">9.</span> <span class="toc-text">Directive Demo</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Expander"><span class="toc-number">9.1.</span> <span class="toc-text">Expander</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Accordion"><span class="toc-number">9.2.</span> <span class="toc-text">Accordion</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Use-Angular-ui"><span class="toc-number">9.3.</span> <span class="toc-text">Use Angular-ui</span></a></li></ol></li></ol>
     
@@ -363,7 +364,7 @@ Angular内置了一整套指令，如ngBind, ngModel, 和ngView。 就像你可�
       <div class="row">
 	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> </p>
 	      <p id="copyRightEn">Copyright &copy; 2015 - 2016 The Girl Behind All Rights Reserved.</p>
-	      <p id="copyRightCn">Dale Du hold copyright</p>
+	      <p id="copyRightCn">Dale Du hält Urheberrechtsansprüche.</p>
 	</div>
   </div>
 </footer>
@@ -391,6 +392,8 @@ Angular内置了一整套指令，如ngBind, ngModel, 和ngView。 就像你可�
     <a href="/archives" class="mobile-nav-link">Archives</a>
   
     <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
   
     <a href="http://weibo.com/daledu" class="mobile-nav-link">About</a>
   

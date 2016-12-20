@@ -6,30 +6,21 @@
   <title>closures | The Girl Behind</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="JavaScript" />
+    <meta name="keywords" content="JavaScript Closures" />
   
   
   
   
-  <meta name="description" content="变量作用域变量的作用域有两种：全局变量和局部变量。在JavaScript中，函数内部可以直接读取全局变量。
-12345var n=999;function f1()&amp;#123;　　alert(n);&amp;#125;f1(); // 999
-当然，在函数外部无法读取函数内的局部变量。
-1234function f1()&amp;#123;　 var n=999;&amp;#125;alert(n); // error">
+  <meta name="description" content="JavaScript闭包">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Closures">
 <meta property="og:url" content="http://yoursite.com/2016/12/14/Closures/index.html">
 <meta property="og:site_name" content="The Girl Behind">
-<meta property="og:description" content="变量作用域变量的作用域有两种：全局变量和局部变量。在JavaScript中，函数内部可以直接读取全局变量。
-12345var n=999;function f1()&amp;#123;　　alert(n);&amp;#125;f1(); // 999
-当然，在函数外部无法读取函数内的局部变量。
-1234function f1()&amp;#123;　 var n=999;&amp;#125;alert(n); // error">
-<meta property="og:updated_time" content="2016-12-18T16:20:18.000Z">
+<meta property="og:description" content="JavaScript闭包">
+<meta property="og:updated_time" content="2016-12-20T08:42:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Closures">
-<meta name="twitter:description" content="变量作用域变量的作用域有两种：全局变量和局部变量。在JavaScript中，函数内部可以直接读取全局变量。
-12345var n=999;function f1()&amp;#123;　　alert(n);&amp;#125;f1(); // 999
-当然，在函数外部无法读取函数内的局部变量。
-1234function f1()&amp;#123;　 var n=999;&amp;#125;alert(n); // error">
+<meta name="twitter:description" content="JavaScript闭包">
   
     <link rel="alternate" href="/atom.xml" title="The Girl Behind" type="application/atom+xml">
   
@@ -95,9 +86,11 @@
                 
                   <li> <a class="main-nav-link" href="/">Home</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                  <li> <a class="main-nav-link" href="/archives">Archive</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
+                  <li> <a class="main-nav-link" href="/categories">Category</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
                 
                   <li> <a class="main-nav-link" href="http://weibo.com/daledu">About</a> </li>
                 
@@ -111,7 +104,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <input type="text" class="ins-search-input" placeholder="Schreib etwas..." />
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -123,11 +116,11 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            PAGES: 'Pages',
-            CATEGORIES: 'Categories',
+            POSTS: 'Beiträge',
+            PAGES: 'Seiten',
+            CATEGORIES: 'Kategorien',
             TAGS: 'Tags',
-            UNTITLED: '(Untitled)',
+            UNTITLED: '(Unbenannt)',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -173,6 +166,8 @@
 	</a>
 
       
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+
     </div>
     <div class="article-entry" itemprop="articleBody">
       
@@ -283,7 +278,7 @@
 <nav id="article-nav">
   
     <a href="/2016/12/16/angular-directive/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
+      <strong class="article-nav-caption">Neuer</strong>
       <div class="article-nav-title">
         
           Angular Directive
@@ -293,7 +288,7 @@
   
   
     <a href="/2016/12/13/Folders missing in project pane in Webstorm/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">Älter</strong>
       <div class="article-nav-title">Folders missing in project pane in Webstorm</div>
     </a>
   
@@ -306,7 +301,7 @@
 
   <aside id="sidebar">
     <div id="toc" class="toc-article">
-    <strong class="toc-title">Contents</strong>
+    <strong class="toc-title">Inhalt</strong>
     
       <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#变量作用域"><span class="toc-number">1.</span> <span class="toc-text">变量作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何从外部读取局部变量？"><span class="toc-number">2.</span> <span class="toc-text">如何从外部读取局部变量？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是闭包"><span class="toc-number">3.</span> <span class="toc-text">什么是闭包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Well"><span class="toc-number">4.</span> <span class="toc-text">Well</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Less-Well"><span class="toc-number">5.</span> <span class="toc-text">Less Well</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#闭包的三个事实"><span class="toc-number">6.</span> <span class="toc-text">闭包的三个事实</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#闭包的中的this"><span class="toc-number">7.</span> <span class="toc-text">闭包的中的this</span></a></li></ol>
     
@@ -323,7 +318,7 @@
       <div class="row">
 	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> </p>
 	      <p id="copyRightEn">Copyright &copy; 2015 - 2016 The Girl Behind All Rights Reserved.</p>
-	      <p id="copyRightCn">Dale Du hold copyright</p>
+	      <p id="copyRightCn">Dale Du hält Urheberrechtsansprüche.</p>
 	</div>
   </div>
 </footer>
@@ -351,6 +346,8 @@
     <a href="/archives" class="mobile-nav-link">Archives</a>
   
     <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
   
     <a href="http://weibo.com/daledu" class="mobile-nav-link">About</a>
   
