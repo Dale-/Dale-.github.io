@@ -17,7 +17,7 @@
 <meta property="og:url" content="https://dale-.github.io/2016/12/14/Closures/index.html">
 <meta property="og:site_name" content="The Girl Behind">
 <meta property="og:description" content="JavaScript闭包">
-<meta property="og:updated_time" content="2016-12-20T08:42:43.000Z">
+<meta property="og:updated_time" content="2016-12-20T09:44:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Closures">
 <meta name="twitter:description" content="JavaScript闭包">
@@ -173,6 +173,7 @@
       
         <h2 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a>变量作用域</h2><p>变量的作用域有两种：全局变量和局部变量。<br>在JavaScript中，函数内部可以直接读取全局变量。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var n=999;</div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">f1</span></span>()&#123;</div><div class="line">　　alert(n);</div><div class="line">&#125;</div><div class="line">f1(); // 999</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <p>当然，在函数外部无法读取函数内的局部变量。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">f1</span></span>()&#123;</div><div class="line">　 var n=999;</div><div class="line">&#125;</div><div class="line">alert(n); // error</div></pre></td></tr></table></figure>
 <blockquote>

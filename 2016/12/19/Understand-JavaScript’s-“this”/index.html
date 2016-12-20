@@ -14,10 +14,10 @@
   <meta name="description" content="JavaScript scope">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Understand JavaScript’s “this”">
-<meta property="og:url" content="https://dale-.github.io/2016/11/21/Understand-JavaScript’s-“this”/index.html">
+<meta property="og:url" content="https://dale-.github.io/2016/12/19/Understand-JavaScript’s-“this”/index.html">
 <meta property="og:site_name" content="The Girl Behind">
 <meta property="og:description" content="JavaScript scope">
-<meta property="og:updated_time" content="2016-12-20T08:46:33.000Z">
+<meta property="og:updated_time" content="2016-12-20T09:43:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Understand JavaScript’s “this”">
 <meta name="twitter:description" content="JavaScript scope">
@@ -162,7 +162,7 @@
     <div class="article-meta">
       
 	<a href="" class="article-date">
-	  <time datetime="2016-11-21T15:07:55.000Z" itemprop="datePublished">2016-11-21</time>
+	  <time datetime="2016-12-19T15:07:55.000Z" itemprop="datePublished">2016-12-19</time>
 	</a>
 
       
@@ -175,6 +175,7 @@
 <h2 id="JavaScript中-this-的基本用法"><a href="#JavaScript中-this-的基本用法" class="headerlink" title="JavaScript中 this 的基本用法"></a>JavaScript中 <code>this</code> 的基本用法</h2><p>首先，我们知道在JavaScript中所有函数像对象一样，都具有属性。当一个函数被执行时，将获得 <code>this</code> 这个属性。而 <code>this</code> 实际上就是一个具有调用函数对象值的变量。</p>
 <p>变量 <code>this</code> 通常都是指向一个对象，并拥有这个对象的值。<code>this</code> 通常被用在一个函数或者方法体内，当然它也可以被使用在函数外的全局作用域中。当我们开启严格模式时，<code>this</code> 在全局函数和匿名函数中的值为 <code>undefined</code> ，不指向任何一个对象。</p>
 <p><code>this</code>被在函数内使用（函数称为函数A），它包含了能够调用函数A的对象的值。我们需要 <code>this</code> 来获取调用函数A的对象的方法和属性，这在我们不知道函数名字或者函数没有名字的时候去调用对象时，显得尤为重要。实际上，<code>this</code>就是一个祖先对象，或者说是调用函数时的一个指代。</p>
+<a id="more"></a>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var person = &#123;</div><div class="line">    firstName   :<span class="string">"Penelope"</span>,</div><div class="line">    lastName    :<span class="string">"Barrymore"</span>,</div><div class="line">    // Since the <span class="string">"this"</span> keyword is used inside the showFullName method below, and the showFullName method is defined on the person object,​</div><div class="line">    // <span class="string">"this"</span> will have the value of the person object because the person object will invoke showFullName ()​</div><div class="line">    showFullName:<span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">    console.log (this.firstName + <span class="string">" "</span> + this.lastName);</div><div class="line">    &#125;</div><div class="line">​&#125;</div><div class="line">​</div><div class="line">person.showFullName (); // Penelope Barrymore</div></pre></td></tr></table></figure>
 <p>我们再来看看jQuery中<strong>this</strong>的基本用法</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">   // A very common piece of jQuery code​</div><div class="line">​</div><div class="line">   $ (<span class="string">"button"</span>).click (<span class="keyword">function</span> (event) &#123;</div><div class="line">   // $(this) will have the value of the button ($(<span class="string">"button"</span>)) object​</div><div class="line">​   // because the button object invokes the click () method​</div><div class="line">   console.log ($ (this).prop (<span class="string">"name"</span>));</div><div class="line">   &#125;);&#125;);</div></pre></td></tr></table></figure>
@@ -227,7 +228,7 @@
 	<div id="comment">
 	
 	<!-- 多说评论框 start -->
-	 <div class="ds-thread" data-thread-key="/2016/11/21/Understand-JavaScript’s-“this”/" data-title="Understand JavaScript’s “this”" data-url="https://dale-.github.io/2016/11/21/Understand-JavaScript’s-“this”/"></div>
+	 <div class="ds-thread" data-thread-key="/2016/12/19/Understand-JavaScript’s-“this”/" data-title="Understand JavaScript’s “this”" data-url="https://dale-.github.io/2016/12/19/Understand-JavaScript’s-“this”/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -256,19 +257,10 @@
     
 <nav id="article-nav">
   
-    <a href="../../../12/12/modular-programming/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Modular Programming
-        
-      </div>
-    </a>
   
-  
-    <a href="../../../09/23/Hexo-Github-Blog/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="../../18/Protocol/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hexo + Github + Blog</div>
+      <div class="article-nav-title">HTTP Protocol</div>
     </a>
   
 </nav>

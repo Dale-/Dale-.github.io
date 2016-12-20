@@ -92,7 +92,7 @@
 
 
   
-    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/pose.jpg); background-size: auto 100%;">
+    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/sample.jpg); background-size: auto 100%;">
   
 
     <canvas width="100%" height="100%"></canvas>
@@ -190,6 +190,56 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-Understand-JavaScript’s-“this”"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="2016/12/19/Understand-JavaScript’s-“this”/">Understand JavaScript’s “this”</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="2016/12/19/Understand-JavaScript’s-“this”/" class="article-date">
+	  <time datetime="2016-12-19T15:07:55.000Z" itemprop="datePublished">2016-12-19</time>
+	</a>
+
+      
+    <a class="article-category-link" href="categories/JavaScript/">JavaScript</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="译-Understand-JavaScript’s-“this”-With-Clarity"><a href="#译-Understand-JavaScript’s-“this”-With-Clarity" class="headerlink" title="[译] Understand JavaScript’s “this” With Clarity"></a>[译] Understand JavaScript’s “this” With Clarity</h2><p>原文地址：<a href="http://javascriptissexy.com/understand-javascripts-this-with-clarity-and-master-it/#">Understand JavaScript’s “this” With Clarity, and Master It</a></p>
+<h2 id="JavaScript中-this-的基本用法"><a href="#JavaScript中-this-的基本用法" class="headerlink" title="JavaScript中 this 的基本用法"></a>JavaScript中 <code>this</code> 的基本用法</h2><p>首先，我们知道在JavaScript中所有函数像对象一样，都具有属性。当一个函数被执行时，将获得 <code>this</code> 这个属性。而 <code>this</code> 实际上就是一个具有调用函数对象值的变量。</p>
+<p>变量 <code>this</code> 通常都是指向一个对象，并拥有这个对象的值。<code>this</code> 通常被用在一个函数或者方法体内，当然它也可以被使用在函数外的全局作用域中。当我们开启严格模式时，<code>this</code> 在全局函数和匿名函数中的值为 <code>undefined</code> ，不指向任何一个对象。</p>
+<p><code>this</code>被在函数内使用（函数称为函数A），它包含了能够调用函数A的对象的值。我们需要 <code>this</code> 来获取调用函数A的对象的方法和属性，这在我们不知道函数名字或者函数没有名字的时候去调用对象时，显得尤为重要。实际上，<code>this</code>就是一个祖先对象，或者说是调用函数时的一个指代。</p>
+        <!-- [译] Understand JavaScript’s “this” With Clarity原文地址：Understand JavaScript’s “this” With Clarity, and Master It
+JavaScript中 this 的基本用法首先，我们知道在JavaScript中所有函数像对象一样，都具有属性。当一个函数被执行时，将获得 this 这个属性。而 thi......  -->
+        <p class="article-more-link">
+          <a href="2016/12/19/Understand-JavaScript’s-“this”/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-Protocol"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -224,125 +274,26 @@
 <li>让客户端和服务器能有效的进行数据沟通</li>
 </ul>
 <p><img src="/images/http/http-protocol.png" alt=""></p>
-<h2 id="HTTP的通信过程"><a href="#HTTP的通信过程" class="headerlink" title="HTTP的通信过程"></a>HTTP的通信过程</h2><h3 id="HTTP-Request"><a href="#HTTP-Request" class="headerlink" title="HTTP-Request"></a>HTTP-Request</h3><blockquote>
-<p> 请求行</p>
-</blockquote>
-<p>请求方法、请求资源路径、HTTP协议版本<br>eg: GET /dale-.github.io/css/images/rocket.png HTTP/1.1</p>
-<blockquote>
-<p> 请求头</p>
-</blockquote>
-<p>客户端的坏境描述、客户端请求的主机地址等信息</p>
-<ul>
-<li>Host: 客户端想访问的服务器主机地址</li>
-<li>User-Agent: 客户端的类型，客户端的软件环境</li>
-<li>Accept: 客户端所能接受的数据类型</li>
-<li>Accept-Language: 客户端的语言环境</li>
-<li>Accept-Encoding: 客户端支持的压缩数据格式<br><img src="/images/http/request.png" alt=""></li>
-</ul>
-<blockquote>
-<p>请求体</p>
-</blockquote>
-<p>客户端发给服务器端的具体数据<br><img src="/images/http/request-body.png" alt=""></p>
-<h3 id="HTTP-Response"><a href="#HTTP-Response" class="headerlink" title="HTTP-Response"></a>HTTP-Response</h3><blockquote>
-<p>状态行</p>
-</blockquote>
-<p>HTTP协议版本、状态码、状态英文标识<br>eg: HTTP/1.1 200 OK</p>
-<blockquote>
-<p>响应头</p>
-</blockquote>
-<p>服务器的描述、返回数据的描述</p>
-<ul>
-<li>Sever: 服务器类型</li>
-<li>Content-Type: 返回数据的类型</li>
-<li>Content-Length: 返回数据的长度</li>
-<li>Date: 响应的时间<br><img src="/images/http/response.png" alt=""></li>
-</ul>
-<blockquote>
-<p>实体内容</p>
-</blockquote>
-<p>服务器返回给客户端的具体数据<br><img src="/images/http/process.png" alt=""></p>
-<h2 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h2><p><img src="/images/http/status-code.png" alt=""></p>
-<ul>
-<li><p>200 OK:代表一次成功的http请求。</p>
-</li>
-<li><p>204 No Content：请求已经被服务器成功执行，但是服务器不会返回资源内容，<br>这个状态码可以这样理解：就是告诉客户端，你的请求我已经处理了，但是我没东西答复你，你也不用改变什么。</p>
-</li>
-<li><p>301 Moved Permanently：表示请求的URL已经永久的改变了。<br>这是一些服务端在迁移服务器时会经常用到的状态码。如果服务端返回了301状态码，<br>那么在响应头中往往会包含一个Location响应头，它包含了资源的新地址。通常浏览器遇到这个响应状态码，<br>会直接跳转到新的地址，有些浏览器会缓存新的地址（Firefox），在下次请求时，不去请求老的服务器，<br>只去请求新的url。所以，如果你的资源部是不是永久改变的话，那么请慎用这个状态码。</p>
-</li>
-<li><p>302 Found:如果你的资源搬离只是临时的，那么请使用这个状态响应码。在一些企业应用中，<br>302往往作为一种重定向的手段，比如说将请求转到单点认证服务器。</p>
-</li>
-<li><p>304 Not Modified：这个状态码告诉客户端资源并没有发生改变，可以继续使用缓存副本，<br>这个状态码可以说让开发人员又爱又恨，为什么这么说呢？因为我们需要这个状态码，<br>让浏览器可以更多的使用缓存，提高网站性能。但是，我们在修改代码后，<br>往往又不希望因为缓存问题导致客户使用时出现bug。<br>所以如何很好的配置服务器缓存策略是一个需要思考的问题。</p>
-</li>
-<li><p>401 Unauthorized: 表示客户端访问的资源是受保护的，服务器希望客户端能够带上认证信息后，<br>再去请求服务器资源。服务器会在响应头中带上WWW-Authenticate，告诉客户端编码方式。</p>
-</li>
-<li><p>403 Forbidden：服务器认为客户端没有访问资源的权限。</p>
-</li>
-<li><p>404 Not Found：资源没有找到，通常是用在请求静态资源时，服务器会返回。<br>如果服务器报了404错误，服务器端开发人员应该跟踪日志，查找资源找不到的原因。<br>当然了，还有可能是被代理拦截了，然后强制返回404。</p>
-</li>
-<li><p>500 Internal ServerError：服务端错误，往往出现在动态资源的请求中，出现这个错误的原因很多。<br>但是出现这个错误，往往是程序编码问题，开发人员应该快速定位问题，尽快解决问题。</p>
-</li>
-</ul>
-<h2 id="HTTP常用请求的方法"><a href="#HTTP常用请求的方法" class="headerlink" title="HTTP常用请求的方法"></a>HTTP常用请求的方法</h2><table>
-<thead>
-<tr>
-<th style="text-align:left">序号</th>
-<th style="text-align:left">方法</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">1</td>
-<td style="text-align:left">GET</td>
-<td style="text-align:left">请求指定的页面信息，并返回实体主体。</td>
-</tr>
-<tr>
-<td style="text-align:left">2</td>
-<td style="text-align:left">HEAD</td>
-<td style="text-align:left">类似GET，但只返回 HTTP 报头，不返回文档主体。</td>
-</tr>
-<tr>
-<td style="text-align:left">3</td>
-<td style="text-align:left">POST</td>
-<td style="text-align:left">向指定资源提交数据进行处理请求。新的资源的建立/已有资源的修改。</td>
-</tr>
-<tr>
-<td style="text-align:left">4</td>
-<td style="text-align:left">PUT</td>
-<td style="text-align:left">从客户端向服务器传送的数据取代指定的文档的内容。（全部取代）</td>
-</tr>
-<tr>
-<td style="text-align:left">5</td>
-<td style="text-align:left">PATCH</td>
-<td style="text-align:left">从客户端向服务器传送的数据取代指定的文档的内容。（部分取代）</td>
-</tr>
-<tr>
-<td style="text-align:left">6</td>
-<td style="text-align:left">DELETE</td>
-<td style="text-align:left">局部更新资源。</td>
-</tr>
-<tr>
-<td style="text-align:left">7</td>
-<td style="text-align:left">CONNECT</td>
-<td style="text-align:left">HTTP/1.1协议中预留给能够将连接改为管道方式的代理服务器。</td>
-</tr>
-<tr>
-<td style="text-align:left">8</td>
-<td style="text-align:left">OPTIONS</td>
-<td style="text-align:left">允许客户端查看服务器的性能。</td>
-</tr>
-<tr>
-<td style="text-align:left">9</td>
-<td style="text-align:left">TRACE</td>
-<td style="text-align:left">回显服务器收到的请求，主要用于测试或诊断。</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>GET /tickets # 获取ticket列表<br>GET /tickets/12 # 查看某个具体的ticket<br>POST /tickets # 新建一个ticket<br>PUT /tickets/12 # 更新ticket 12<br>PATCH /tickets/12 # 更新ticket 12<br>DELETE /tickets/12 # 删除ticekt 12</p>
-</blockquote>
-<p><a href="https://www.sitepoint.com/creating-crud-app-minutes-angulars-resource/" target="_blank" rel="external">creating-crud-app-minutes-angulars-resource</a></p>
+        <!-- HTTP协议
+Hypertext Transfer Protocol,超文本传输协议
 
+
+固定客户端和服务器之前的数据传输格式
+让客户端和服务器能有效的进行数据沟通
+
+
+
+HTTP的通信过程HTTP-Request
+ 请求行
+
+请求方法、请求资源路径、HTTP协议版本eg: GET /dale-.github.io/css/images/rocket.png HTTP/1.1
+
+ 请求头
+
+......  -->
+        <p class="article-more-link">
+          <a href="2016/12/18/Protocol/#more">Read More</a>
+        </p>
       
     </div>
     <footer class="article-footer">
@@ -384,119 +335,13 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="https://docs.angularjs.org/guide/directive" target="_blank" rel="external">指令</a>就是一些附加在HTML元素上的自定义标记（例如：属性，元素，或css类），它告诉AngularJS的HTML编译器 ($compile) 在元素上附加某些指定的行为，甚至操作DOM、改变DOM元素，以及它的各级子节点。</p>
+        <p><a href="https://docs.angularjs.org/guide/directive">指令</a>就是一些附加在HTML元素上的自定义标记（例如：属性，元素，或css类），它告诉AngularJS的HTML编译器 ($compile) 在元素上附加某些指定的行为，甚至操作DOM、改变DOM元素，以及它的各级子节点。</p>
 <p>Angular内置了一整套指令，如ngBind, ngModel, 和ngView。 就像你可以创建控制器和服务那样，你也可以创建自己的指令来让Angular使用。 当Angular 启动器引导你的应用程序时， HTML编译器就会遍历整个DOM，以匹配DOM元素里的指令。</p>
-<h2 id="Matching-Directives"><a href="#Matching-Directives" class="headerlink" title="Matching Directives"></a>Matching Directives</h2><h3 id="Restrict匹配方式"><a href="#Restrict匹配方式" class="headerlink" title="Restrict匹配方式"></a>Restrict匹配方式</h3><ul>
-<li><p>E - 匹配元素名称</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;my-directive&gt;&lt;/my-directive&gt;</div></pre></td></tr></table></figure>
-</li>
-<li><p>A - 匹配属性名</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div my-directive=<span class="string">"exp"</span>&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
-</li>
-<li><p>C - 匹配类名</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div class=<span class="string">"my-directive:exp;"</span>&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
-</li>
-<li><p>M - 注释</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;!-- directive:hello --&gt;</div><div class="line">&lt;div&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p></p><p data-height="265" data-theme-id="dark" data-slug-hash="ammBgY" data-default-tab="html" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/ammBgY/" target="_blank" rel="external">[Angular]  - Matching Directives</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-
-<h3 id="Attention"><a href="#Attention" class="headerlink" title="Attention"></a>Attention</h3><p>当需要创建带有自己的模板的指令时，使用元素名称的方式创建指令</p>
-<p>当需要为已有的HTML标签增加功能时，使用属性的方式创建指令</p>
-<h2 id="Transclude"><a href="#Transclude" class="headerlink" title="Transclude"></a>Transclude</h2><ul>
-<li>transclude使得这个选项的指令，所包含的内容能够访问指令外部的作用域</li>
-<li>指令内部嵌套的内容，放到具有ng-transclude的标签中</li>
-</ul>
-<p></p><p data-height="265" data-theme-id="dark" data-slug-hash="xEEOBN" data-default-tab="result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/xEEOBN/" target="_blank" rel="external">[Angular]  - Transclude</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-
-<h2 id="Replace"><a href="#Replace" class="headerlink" title="Replace"></a>Replace</h2><p></p><p data-height="265" data-theme-id="dark" data-slug-hash="mAAPxa" data-default-tab="result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/mAAPxa/" target="_blank" rel="external">[Angular]  - Replace</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-
-<h2 id="Template"><a href="#Template" class="headerlink" title="Template"></a>Template</h2><p>当你有大量代表客户信息的模板。这个模板在你的代码中重复了很多次，当你改变一个地方的时候， 你不得不在其他地方同时改动，这时候，你就要使用指令来简化你的模板。</p>
-<h3 id="template"><a href="#template" class="headerlink" title="template"></a>template</h3><p></p><p data-height="265" data-theme-id="dark" data-slug-hash="NRRjBW" data-default-tab="result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/NRRjBW/" target="_blank" rel="external">[Angular]  - Directive TemplateCache</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-
-<h3 id="templateUrl"><a href="#templateUrl" class="headerlink" title="templateUrl"></a>templateUrl</h3><p><img src="/images/angular-directive/directive-templateUrl.png" alt=""></p>
-<h3 id="templateCache"><a href="#templateCache" class="headerlink" title="templateCache"></a>templateCache</h3><ul>
-<li><a href="https://docs.angularjs.org/api/ng" target="_blank" rel="external">ng</a>模块中的服务</li>
-</ul>
-<p>在模板第一次被引用时,它会被载入到模板缓存中以便快速的检索。你可以直接使用一个script标签来添加一个模板，或者直接通过 $templateCache 服务来达到相同的效果。</p>
-<p>【Set】通过 script 标签添加:<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/ng-template"</span> id=<span class="string">"templateId.html"</span>&gt;</div><div class="line">&lt;p&gt;This is the content of the template&lt;/p&gt;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
-<p>【Set】通过 $templateCache 服务添加:<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var myApp = angular.module(<span class="string">'myApp'</span>, []);</div><div class="line">myApp.run(<span class="keyword">function</span>(<span class="variable">$templateCache</span>) &#123;</div><div class="line"><span class="variable">$templateCache</span>.put(<span class="string">'templateId.html'</span>, <span class="string">'This is the content of the template'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p>【Get】通过 component 得到:<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">myApp.component(<span class="string">'myComponent'</span>, &#123;</div><div class="line">template: <span class="string">'templateId.html'</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p>【Get】通过 Javascript 得到:<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$templateCache</span>.get(<span class="string">'templateId.html'</span>)</div></pre></td></tr></table></figure></p>
-<p></p><p data-height="265" data-theme-id="dark" data-slug-hash="NRRjBW" data-default-tab="result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/NRRjBW/" target="_blank" rel="external">[Angular]  - Directive TemplateCache</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-
-<h2 id="Scope"><a href="#Scope" class="headerlink" title="Scope"></a>Scope</h2><h3 id="隔离作用域"><a href="#隔离作用域" class="headerlink" title="隔离作用域"></a>隔离作用域</h3><p></p><p data-height="265" data-theme-id="0" data-slug-hash="mAAXZL" data-default-tab="result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/mAAXZL/" target="_blank" rel="external">[Angular]  - Directive Isolate Scope</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-
-
-<h3 id="scope的绑定策略"><a href="#scope的绑定策略" class="headerlink" title="scope的绑定策略"></a>scope的绑定策略</h3><ul>
-<li>@ : 字符串</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">把当前属性作为字符串传递</div><div class="line">你还可以绑定来自外层scope的值</div><div class="line">在属性值中插入&#123;&#123;&#125;&#125;</div></pre></td></tr></table></figure>
-<p> </p><p data-height="265" data-theme-id="dark" data-slug-hash="EgNrXo" data-default-tab="result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/EgNrXo/" target="_blank" rel="external">[Angular]  - Directive : Scope@</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><br> <script async src="//assets.codepen.io/assets/embed/ei.js"></script><p></p>
-<ul>
-<li>= : 双向绑定</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">与父scope中的属性进行双向绑定</div></pre></td></tr></table></figure>
-<p> </p><p data-height="265" data-theme-id="dark" data-slug-hash="dpOAdw" data-default-tab="html,result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/dpOAdw/" target="_blank" rel="external">[Angular]  - Directive : Scope=</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><br> <script async src="//assets.codepen.io/assets/embed/ei.js"></script><p></p>
-<ul>
-<li><p>=? : 可选择的属性</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">如果绑定了一个没有被赋值的表达式 或者属性不存在，这时将会抛出一个异常</div><div class="line">为了避免这种现象，我们可以使用=？来设置属性为可选择</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p></p><p data-height="265" data-theme-id="0" data-slug-hash="QGzVpL" data-default-tab="html,result" data-user="DaleDu" data-embed-version="2" data-pen-title="[Angular]  - Directive : Scope=?" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/QGzVpL/" target="_blank" rel="external">[Angular]  - Directive : Scope=?</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
-
-<ul>
-<li>&amp; : 函数</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">传递一个来自父scope的函数，稍后调用</div></pre></td></tr></table></figure>
-<p> </p><p data-height="265" data-theme-id="dark" data-slug-hash="bwBJVq" data-default-tab="result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/bwBJVq/" target="_blank" rel="external">[Angular]  - Directive : Scope&amp;</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-
-<h2 id="Interaction-Controller-amp-Directive"><a href="#Interaction-Controller-amp-Directive" class="headerlink" title="Interaction: Controller &amp; Directive"></a>Interaction: Controller &amp; Directive</h2><p></p><p data-height="265" data-theme-id="dark" data-slug-hash="RGGOEk" data-default-tab="result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/RGGOEk/" target="_blank" rel="external">[Angular]  - Interaction: Controller &amp; Directive</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-
-<h2 id="Interaction-Directive-amp-Directive"><a href="#Interaction-Directive-amp-Directive" class="headerlink" title="Interaction: Directive &amp; Directive"></a>Interaction: Directive &amp; Directive</h2><p></p><p data-height="265" data-theme-id="dark" data-slug-hash="jrVERX" data-default-tab="result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/jrVERX/" target="_blank" rel="external">[Angular]  - Interaction: Directive &amp; Directive</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-
-<h2 id="Execution-Stage"><a href="#Execution-Stage" class="headerlink" title="Execution Stage"></a>Execution Stage</h2><h3 id="加载阶段"><a href="#加载阶段" class="headerlink" title="加载阶段"></a>加载阶段</h3><blockquote>
-<ul>
-<li>加载angular.js，找到ng-app指令，确定应用边界</li>
-</ul>
-</blockquote>
-<h3 id="编译阶段"><a href="#编译阶段" class="headerlink" title="编译阶段"></a>编译阶段</h3><blockquote>
-<ul>
-<li>遍历DOM，找到所有指令</li>
-<li>根据指令代码中的template、replace、transclude转换DOM结构</li>
-<li>如果存在compile函数则调用</li>
-</ul>
-</blockquote>
-<h3 id="链接阶段"><a href="#链接阶段" class="headerlink" title="链接阶段"></a>链接阶段</h3><blockquote>
-<ul>
-<li>对每条指令运行link函数</li>
-<li>link函数一般用来操作DOM、绑定事件监听器</li>
-</ul>
-</blockquote>
-<h2 id="Directive-Demo"><a href="#Directive-Demo" class="headerlink" title="Directive Demo"></a>Directive Demo</h2><h3 id="Expander"><a href="#Expander" class="headerlink" title="Expander"></a>Expander</h3><p></p><p data-height="265" data-theme-id="dark" data-slug-hash="xERZaK" data-default-tab="js,result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/xERZaK/" target="_blank" rel="external">[Angular]  - Directive Demo : Expander</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-
-<h3 id="Accordion"><a href="#Accordion" class="headerlink" title="Accordion"></a>Accordion</h3><p></p><p data-height="265" data-theme-id="dark" data-slug-hash="wzgKVW" data-default-tab="js,result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/wzgKVW/" target="_blank" rel="external">[Angular]  - Directive Demo : Accordion</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-
-<h3 id="Use-Angular-ui"><a href="#Use-Angular-ui" class="headerlink" title="Use Angular-ui"></a>Use Angular-ui</h3><p></p><p data-height="265" data-theme-id="dark" data-slug-hash="gwgPrA" data-default-tab="js,result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/gwgPrA/" target="_blank" rel="external">[Angular]  - Directive Demo : Use Angular UI</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-
-<p>参考文档</p>
-<p><a href="docs.angularjs.org/guide/directive">Directive AngularJS官网</a></p>
-<p><a href="http://docs.ngnice.com/guide/directive" target="_blank" rel="external">Directive AngularJS中文网</a></p>
-
+        <!-- 指令就是一些附加在HTML元素上的自定义标记（例如：属性，元素，或css类），它告诉AngularJS的HTML编译器 ($compile) 在元素上附加某些指定的行为，甚至操作DOM、改变DOM元素，以及它的各级子节点。
+Angular内置了一整套指令，如ngBind, ngModel, 和ngView。 就像你可以创建控制器和服务那样，你也可以创建自己的指令来让Angular使用。 当A......  -->
+        <p class="article-more-link">
+          <a href="2016/12/16/angular-directive/#more">Read More</a>
+        </p>
       
     </div>
     <footer class="article-footer">
@@ -540,73 +385,14 @@
       
         <h2 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a>变量作用域</h2><p>变量的作用域有两种：全局变量和局部变量。<br>在JavaScript中，函数内部可以直接读取全局变量。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var n=999;</div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">f1</span></span>()&#123;</div><div class="line">　　alert(n);</div><div class="line">&#125;</div><div class="line">f1(); // 999</div></pre></td></tr></table></figure>
-<p>当然，在函数外部无法读取函数内的局部变量。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">f1</span></span>()&#123;</div><div class="line">　 var n=999;</div><div class="line">&#125;</div><div class="line">alert(n); // error</div></pre></td></tr></table></figure>
-<blockquote>
-<p>这里有一个地方需要注意，函数内部声明变量的时候，一定要使用var命令。<br>  如果不用的话，你实际上声明了一个全局变量！</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">f1</span></span>()&#123;</div><div class="line">  n=999;</div><div class="line">&#125;</div><div class="line">f1();</div><div class="line">alert(n); // 999</div></pre></td></tr></table></figure>
-<h2 id="如何从外部读取局部变量？"><a href="#如何从外部读取局部变量？" class="headerlink" title="如何从外部读取局部变量？"></a>如何从外部读取局部变量？</h2><p>在函数的内部，再定义一个函数。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">f1</span></span>()&#123;</div><div class="line">　　var n=999;</div><div class="line">　　<span class="keyword">function</span> <span class="function"><span class="title">f2</span></span>()&#123;</div><div class="line">　　　　alert(n); // 999</div><div class="line">　　&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>在上面的代码中，函数f2就被包括在函数f1内部，这时f1内部的所有局部变量，对f2都是可见的。但是反过来就不行，f2内部的局部变量，对f1就是不可见的。这就是Javascript语言特有的”链式作用域”结构（chain scope），子对象会一级一级地向上寻找所有父对象的变量。所以，父对象的所有变量，对子对象都是可见的，反之则不成立。</p>
-<p>既然f2可以读取f1中的局部变量，那么只要把f2作为返回值，我们不就可以在f1外部读取它的内部变量了吗！</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">f1</span></span>()&#123;</div><div class="line">　　var n=999;</div><div class="line">　　<span class="keyword">function</span> <span class="function"><span class="title">f2</span></span>()&#123;</div><div class="line">　　　　alert(n);</div><div class="line">　　&#125;</div><div class="line">　　<span class="built_in">return</span> f2;</div><div class="line">&#125;</div><div class="line">var result=f1();</div><div class="line">result(); // 999</div></pre></td></tr></table></figure>
-<h2 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包"></a>什么是闭包</h2><p>上一节代码中的f2函数，就是闭包。</p>
-<ul>
-<li><p>Wikipedia</p>
-<blockquote>
-<p>Closures (also lexical closures or function closures) are techniques for implementing lexically scoped name binding in languages with first-class functions. Operationally, a closure is a record storing a function[a] together with an environment:[1] a mapping associating each free variable of the function (variables that are used locally, but defined in an enclosing scope) with the value or reference to which the name was bound when the closure was created.[b] A closure—unlike a plain function—allows the function to access those captured variables through the closure’s copies of their values or references, even when the function is invoked outside their scope.<br>闭包（也称词法闭包或函数闭包）是指一个函数或函数的引用，与一个引用环境绑定在一起。这个引用环境是一个存储该函数每个非局部变量（也叫自由变量）的表。</p>
-</blockquote>
-</li>
-<li><p>Closures</p>
-<blockquote>
-<p>闭包，不同于一般的函数，它允许一个函数在立即词法作用域外调用时，仍可访问非本地变量。</p>
-<p>闭包就是能够读取其他函数内部变量的函数。</p>
-<p>由于在Javascript语言中，只有函数内部的子函数才能读取局部变量，因此可以把闭包简单理解成”定义在一个函数内部的函数”。<br>所以，在本质上，闭包就是将函数内部和函数外部连接起来的一座桥梁。</p>
-</blockquote>
-</li>
-</ul>
-<h2 id="Well"><a href="#Well" class="headerlink" title="Well"></a>Well</h2><ul>
-<li>灵活</li>
-<li>方便</li>
-<li>封装</li>
-</ul>
-<h2 id="Less-Well"><a href="#Less-Well" class="headerlink" title="Less Well"></a>Less Well</h2><ul>
-<li>空间浪费</li>
-<li>内存泄漏</li>
-<li>性能消耗</li>
-</ul>
-<h2 id="闭包的三个事实"><a href="#闭包的三个事实" class="headerlink" title="闭包的三个事实"></a>闭包的三个事实</h2><blockquote>
-<ul>
-<li>JavaScript允许你引入函数以外定义的变量</li>
-</ul>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">makeNoodles</span></span>() &#123;</div><div class="line">    var noodlesType = <span class="string">'Lamian'</span></div><div class="line">    <span class="keyword">function</span> make(ingredients) &#123;</div><div class="line">        <span class="built_in">return</span> noodlesType + <span class="string">' with '</span> + ingredients;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> make(<span class="string">'beef'</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">makeNoodles(); // <span class="string">'Lamian with beef'</span></div><div class="line">// 注意 make函数可以访问外部变量 noodlesType 和 ingredients</div></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li>即使外部函数已经执行结束, 内部函数依然可以引用在外部函数所定义的变量</li>
-</ul>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">makeNoodles</span></span>() &#123;</div><div class="line">    var noodlesType = <span class="string">'Lamian'</span></div><div class="line">    <span class="keyword">function</span> make(ingredients) &#123;</div><div class="line">        <span class="built_in">return</span> noodlesType + <span class="string">' with '</span> + ingredients;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> make;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var f = makeNoodles();</div><div class="line">f(<span class="string">'beef'</span>); // <span class="string">'Lamian with beef'</span></div><div class="line">f(<span class="string">'fish'</span>); // <span class="string">'Lamian with fish'</span></div><div class="line">f(<span class="string">'eggs and tomatoes'</span>); // <span class="string">'Lamian with eggs and tomatoes'</span></div><div class="line">// 注意 与第一个例子不同的是, makeNoodles 函数返回 make 函数, 此时外部函数执行已经结束, 但是内部函数 make</div><div class="line">// 依然可以访问 noodlesType 变量</div></pre></td></tr></table></figure>
-<p>基于上面的例子, 我们可以写的更通用.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> makeNoodles(noodlesType) &#123;</div><div class="line">    <span class="keyword">function</span> make(ingredients) &#123;</div><div class="line">        <span class="built_in">return</span> noodlesType + <span class="string">' with '</span> + ingredients;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> make;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var makeLamian = makeNoodles(<span class="string">'Lamian'</span>);</div><div class="line">makeLamian(<span class="string">'beef'</span>); // <span class="string">'Lamian with beef'</span></div><div class="line">makeLamian(<span class="string">'fish'</span>); // <span class="string">'Lamian with fish'</span></div><div class="line">makeLamian(<span class="string">'eggs and tomatoes'</span>); // <span class="string">'Lamian with eggs and tomatoes'</span></div><div class="line"></div><div class="line">var makeRiceNoodles = makeNoodles(<span class="string">'Rice noodles'</span>);</div><div class="line">makeRiceNoodles(<span class="string">'beef'</span>); // <span class="string">'Rice noodles with beef'</span></div><div class="line">makeRiceNoodles(<span class="string">'fish'</span>); // <span class="string">'Rice noodles with fish'</span></div><div class="line">makeRiceNoodles(<span class="string">'eggs and tomatoes'</span>); // <span class="string">'Rice noodles with eggs and tomatoes'</span></div></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li>最后一个, 闭包可以更新外部函数定义的变量</li>
-</ul>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">counter</span></span>() &#123;</div><div class="line">    var num = 0;</div><div class="line">    <span class="built_in">return</span> &#123;</div><div class="line">        increase: <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">           num++;</div><div class="line">        &#125;,</div><div class="line">        currentNum: <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">            <span class="built_in">return</span> num;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var counter1 = counter();</div><div class="line">counter1.increase();</div><div class="line">counter1.increase();</div><div class="line">counter1.currentNum(); // 2</div><div class="line"></div><div class="line">var counter2 = counter();</div><div class="line">counter2.currentNum(); // 0</div></pre></td></tr></table></figure>
-<h2 id="闭包的中的this"><a href="#闭包的中的this" class="headerlink" title="闭包的中的this"></a>闭包的中的<code>this</code></h2><ul>
-<li>代码片段一</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var name = <span class="string">"The Window"</span>;</div><div class="line">var object = &#123;</div><div class="line">　　name : <span class="string">"My Object"</span>,</div><div class="line">　　getNameFunc : <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">　　　　<span class="built_in">return</span> <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">　　　　　　<span class="built_in">return</span> this.name;</div><div class="line">　　　　&#125;;</div><div class="line">　　&#125;</div><div class="line">&#125;;</div><div class="line">alert(object.getNameFunc()());</div></pre></td></tr></table></figure>
-<ul>
-<li>代码片段二</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var name = <span class="string">"The Window"</span>;</div><div class="line">var object = &#123;</div><div class="line">　　name : <span class="string">"My Object"</span>,</div><div class="line">　　getNameFunc : <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">　　　　var that = this;</div><div class="line">　　　　<span class="built_in">return</span> <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">　　　　　　<span class="built_in">return</span> that.name;</div><div class="line">　　　　&#125;;</div><div class="line">　　&#125;</div><div class="line">&#125;;</div><div class="line">alert(object.getNameFunc()());</div></pre></td></tr></table></figure>
+        <!-- 变量作用域变量的作用域有两种：全局变量和局部变量。在JavaScript中，函数内部可以直接读取全局变量。
+12345var n=999;function f1()&#123;　　alert(n);&#125;f1(); // 999
 
+当然，在函数外部无法读取函数内的局部变量。
+1234function f1()&#123;　 var n=999;&#125;alert(n); // er......  -->
+        <p class="article-more-link">
+          <a href="2016/12/14/Closures/#more">Read More</a>
+        </p>
       
     </div>
     <footer class="article-footer">
@@ -652,13 +438,21 @@
 <blockquote>
 <p>It can be caused by the corrupted <code>.idea/modules.xml</code> project file</p>
 </blockquote>
-<p>##</p>
-<ol>
-<li>quit webstorm</li>
-<li>delete the directory of .idea（ls -a show hidden file）</li>
-<li>reopen project</li>
-</ol>
+        <!-- 
 
+It can be caused by the corrupted .idea/modules.xml project file
+
+
+##
+
+quit webstorm
+delete the directory of .idea（ls -a show hidden file）
+reopen project
+
+...  -->
+        <p class="article-more-link">
+          <a href="2016/12/13/Folders missing in project pane in Webstorm/#more">Read More</a>
+        </p>
       
     </div>
     <footer class="article-footer">
@@ -704,112 +498,15 @@
 <p>因为有了模块，我们就可以更方便地使用别人的代码，想要什么功能，就加载什么模块。</p>
 <p>但是，这样做有一个前提，那就是大家必须以同样的方式编写模块，否则你有你的写法，我有我的写法，岂不是乱了套！<br>考虑到Javascript模块现在还没有官方规范，这一点就更重要了。</p>
 <p>目前，AMD,CMD,CommonJS是目前最常用的三种模块化书写规范。</p>
-<h2 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h2><p>2009年，美国程序员Ryan Dahl创造了node.js项目，将javascript语言用于服务器端编程。<br><img src="/images/modular-programming/nodejs.jpg" alt=""><br>这标志”Javascript模块化编程”正式诞生。<br>NodeJS的模块系统，就是参照CommonJS规范实现的。</p>
-<p>在CommonJS中，有一个全局性方法require()，用于加载模块。<br>假定有一个时钟模块clock.js，就可以像下面这样加载：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var clock = require(<span class="string">'clock'</span>);</div><div class="line">clock.start();</div></pre></td></tr></table></figure>
-<p>这种写法适合服务端，因为在服务器读取模块都是在本地磁盘，加载速度很快。<br>但是如果在客户端，加载模块的时候有可能出现“假死”状况。比如上面的例子中clock的<br>调用必须等待clock.js请求成功，加载完毕。那么，能不能异步加载模块呢？</p>
-<h2 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h2><p>AMD，即 (Asynchronous Module Definition)，这种规范是异步的加载模块，requireJs应用了这一规范。<br>先定义所有依赖，然后在加载完成后的回调函数中执行：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">require([module], callback);</div></pre></td></tr></table></figure>
-<p>用AMD写上一个模块：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">require([<span class="string">'clock'</span>],<span class="keyword">function</span>(clock)&#123;</div><div class="line">  clock.start();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>目前，主要有两个Javascript库实现了AMD规范：require.js和curl.js。</p>
-<p>AMD虽然实现了异步加载，但是开始就把所有依赖写出来是不符合书写的逻辑顺序的，<br>能不能像commonJS那样用的时候再require，而且还支持异步加载后再执行呢？</p>
-<h2 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h2><p>CMD (Common Module Definition)，<br>CMD则是依赖就近，用的时候再require。它写起来是这样的：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">define(<span class="keyword">function</span>(require, exports, module) &#123;</div><div class="line">   var clock = require(<span class="string">'clock'</span>);</div><div class="line">   clock.start();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>用AMD写上一个模块：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">require([<span class="string">'clock'</span>],<span class="keyword">function</span>(clock)&#123;</div><div class="line">  clock.start();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>AMD和CMD最大的区别是对依赖模块的执行时机处理不同，<br>而不是加载的时机或者方式不同，二者皆为异步加载模块。</p>
-<p>AMD依赖前置，js可以方便知道依赖模块是谁，立即加载；而CMD就近依赖，<br>需要使用把模块变为字符串解析一遍才知道依赖了那些模块，这也是很多人诟病CMD的一点，<br>牺牲性能来带来开发的便利性，实际上解析模块用的时间短到可以忽略。</p>
+        <!-- 模块的规范先想一想，为什么模块很重要？
+因为有了模块，我们就可以更方便地使用别人的代码，想要什么功能，就加载什么模块。
+但是，这样做有一个前提，那就是大家必须以同样的方式编写模块，否则你有你的写法，我有我的写法，岂不是乱了套！考虑到Javascript模块现在还没有官方规范，这一点就更重要了。
+目前，AMD,CMD,CommonJS是目前最常用的三种模块化书写规范。
 
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/JavaScript/">JavaScript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-Understand-JavaScript’s-“this”"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="2016/11/21/Understand-JavaScript’s-“this”/">Understand JavaScript’s “this”</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="2016/11/21/Understand-JavaScript’s-“this”/" class="article-date">
-	  <time datetime="2016-11-21T15:07:55.000Z" itemprop="datePublished">2016-11-21</time>
-	</a>
-
-      
-    <a class="article-category-link" href="categories/JavaScript/">JavaScript</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="译-Understand-JavaScript’s-“this”-With-Clarity"><a href="#译-Understand-JavaScript’s-“this”-With-Clarity" class="headerlink" title="[译] Understand JavaScript’s “this” With Clarity"></a>[译] Understand JavaScript’s “this” With Clarity</h2><p>原文地址：<a href="http://javascriptissexy.com/understand-javascripts-this-with-clarity-and-master-it/#" target="_blank" rel="external">Understand JavaScript’s “this” With Clarity, and Master It</a></p>
-<h2 id="JavaScript中-this-的基本用法"><a href="#JavaScript中-this-的基本用法" class="headerlink" title="JavaScript中 this 的基本用法"></a>JavaScript中 <code>this</code> 的基本用法</h2><p>首先，我们知道在JavaScript中所有函数像对象一样，都具有属性。当一个函数被执行时，将获得 <code>this</code> 这个属性。而 <code>this</code> 实际上就是一个具有调用函数对象值的变量。</p>
-<p>变量 <code>this</code> 通常都是指向一个对象，并拥有这个对象的值。<code>this</code> 通常被用在一个函数或者方法体内，当然它也可以被使用在函数外的全局作用域中。当我们开启严格模式时，<code>this</code> 在全局函数和匿名函数中的值为 <code>undefined</code> ，不指向任何一个对象。</p>
-<p><code>this</code>被在函数内使用（函数称为函数A），它包含了能够调用函数A的对象的值。我们需要 <code>this</code> 来获取调用函数A的对象的方法和属性，这在我们不知道函数名字或者函数没有名字的时候去调用对象时，显得尤为重要。实际上，<code>this</code>就是一个祖先对象，或者说是调用函数时的一个指代。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var person = &#123;</div><div class="line">    firstName   :<span class="string">"Penelope"</span>,</div><div class="line">    lastName    :<span class="string">"Barrymore"</span>,</div><div class="line">    // Since the <span class="string">"this"</span> keyword is used inside the showFullName method below, and the showFullName method is defined on the person object,​</div><div class="line">    // <span class="string">"this"</span> will have the value of the person object because the person object will invoke showFullName ()​</div><div class="line">    showFullName:<span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">    console.log (this.firstName + <span class="string">" "</span> + this.lastName);</div><div class="line">    &#125;</div><div class="line">​&#125;</div><div class="line">​</div><div class="line">person.showFullName (); // Penelope Barrymore</div></pre></td></tr></table></figure>
-<p>我们再来看看jQuery中<strong>this</strong>的基本用法</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">   // A very common piece of jQuery code​</div><div class="line">​</div><div class="line">   $ (<span class="string">"button"</span>).click (<span class="keyword">function</span> (event) &#123;</div><div class="line">   // $(this) will have the value of the button ($(<span class="string">"button"</span>)) object​</div><div class="line">​   // because the button object invokes the click () method​</div><div class="line">   console.log ($ (this).prop (<span class="string">"name"</span>));</div><div class="line">   &#125;);&#125;);</div></pre></td></tr></table></figure>
-<p>我来解释一下上面jQuery的例子：<em>$(this)</em>是jQuery中使用<em>this</em>的语法同在JavaScript中，它被用在一个匿名函数中，这个匿名函数会执行按钮的click方法。<em>$(this)</em>有button这个对象的原因是jQuery的库中把<code>$(this)</code>和调用click方法的对象手动绑定在一起。。尽管<em>$(this)</em>将会拥有jQuery对象<em>$(“button”)</em>的值，但是在<em>$(this)</em>被定义的函数内，不能得到这个函数外的<em>$(this)</em>变量。</p>
-<p>值得注意的，button是一个在HTML中的DOM元素，也是一个对象。在这个例子中button是一个jQuery对象，因为我用jQuery中的<code>$</code>包装了它。</p>
-<h2 id="理解Javascript中-this-的关键"><a href="#理解Javascript中-this-的关键" class="headerlink" title="理解Javascript中 this 的关键"></a>理解Javascript中 <code>this</code> 的关键</h2><p>如果你理解了下面关于JavaScript中this的准则，你将更清楚的理解了<strong>“this”</strong>这个关键字：<em>this</em>不会立刻被赋值，直到一个对象调用了<em>this</em>所在的函数。让我们称这个函数为”this Function”。</p>
-<h2 id="全局作用域中的-this"><a href="#全局作用域中的-this" class="headerlink" title="全局作用域中的 this"></a>全局作用域中的 <code>this</code></h2><p>在全局作用域中，当code执行在浏览器端时，所有全局变量和函数都被定义在window这个对象上。因此，当我们在全局作用域中使用<em>this</em>时，它会指向的全局window对象并拥有它的值（除非在严格模式下），这是<em>this</em>就是JavaScript应用和web page的主要容器。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">var firstName = <span class="string">"Peter"</span>,</div><div class="line">    lastName = <span class="string">"Ally"</span>;</div><div class="line">​</div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">showFullName</span></span> () &#123;</div><div class="line">// <span class="string">"this"</span> inside this <span class="keyword">function</span> will have the value of the window object​</div><div class="line">// because the showFullName () <span class="keyword">function</span> is defined <span class="keyword">in</span> the global scope, just like the firstName and lastName​</div><div class="line">console.log (this.firstName + <span class="string">" "</span> + this.lastName);</div><div class="line">&#125;</div><div class="line">​</div><div class="line">var person = &#123;</div><div class="line">  firstName   :<span class="string">"Penelope"</span>,</div><div class="line">  lastName    :<span class="string">"Barrymore"</span>,</div><div class="line">  showFullName:<span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">  // <span class="string">"this"</span> on the line below refers to the person object, because the showFullName <span class="keyword">function</span> will be invoked by person object.​</div><div class="line">  console.log (this.firstName + <span class="string">" "</span> + this.lastName);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">​</div><div class="line">showFullName (); // Peter Ally​</div><div class="line">​</div><div class="line">// window is the object that all global variables and <span class="built_in">functions</span> are defined on, hence:​</div><div class="line">window.showFullName (); // Peter Ally​</div><div class="line">​</div><div class="line">// <span class="string">"this"</span> inside the showFullName () method that is defined inside the person object still refers to the person object, hence:​</div><div class="line">person.showFullName (); // Penelope Barrymore</div></pre></td></tr></table></figure>
-<h2 id="this-最容易被误解的情景"><a href="#this-最容易被误解的情景" class="headerlink" title="this 最容易被误解的情景"></a><code>this</code> 最容易被误解的情景</h2><p><code>this</code> 最容易被误解的关键：当我们借用一个<code>this</code>的方法，当我们把<code>this</code>的方法赋值给一个变量，当使用了包含<br><code>this</code>的方法作为回调传入，当<code>this</code>在闭包中被使用。我们将重现每个场景，并且给出相对适当的解决方案在每个案例中。</p>
-<h3 id="在我们继续重现场景前，先讨论下“上下文”这个概念"><a href="#在我们继续重现场景前，先讨论下“上下文”这个概念" class="headerlink" title="在我们继续重现场景前，先讨论下“上下文”这个概念"></a>在我们继续重现场景前，先讨论下“上下文”这个概念</h3><blockquote>
-<p>在JavaScript中的上线文接近英文中主语的概念”John is the winner who returned the money.””这句话的主语是John，然后我们可以说这句话的上下文就是John，因为整句话我们都聚焦在John身上。代词”Who”也是指代John。就想我们可以用分号切换一句话的主题一样，我们也可以用这个上下文切换我们调用函数的主题。</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">var person = &#123;</div><div class="line">   firstName   :<span class="string">"Penelope"</span>,</div><div class="line">   lastName    :<span class="string">"Barrymore"</span>,</div><div class="line">   showFullName:<span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">// The <span class="string">"context"</span></div><div class="line">console.log (this.firstName + <span class="string">" "</span> + this.lastName);</div><div class="line"> &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// The <span class="string">"context"</span>, when invoking showFullName, is the person object, when we invoke the showFullName () method on the person object.</div><div class="line">// And the use of <span class="string">"this"</span> inside the showFullName() method has the value of the person object,</div><div class="line">person.showFullName (); // Penelope Barrymore</div><div class="line"></div><div class="line">// If we invoke showFullName with a different object:</div><div class="line">var anotherPerson = &#123;</div><div class="line">firstName   :<span class="string">"Rohit"</span>,</div><div class="line">lastName    :<span class="string">"Khan"</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line">// We can use the apply method to <span class="built_in">set</span> the <span class="string">"this"</span> value explicitly—more on the apply () method later.</div><div class="line">// <span class="string">"this"</span> gets the value of whichever object invokes the <span class="string">"this"</span> Function, hence:</div><div class="line">person.showFullName.apply (anotherPerson); // Rohit Khan</div><div class="line"></div><div class="line">// So the context is now anotherPerson because anotherPerson invoked the person.showFullName ()  method by virtue of using the apply () method</div></pre></td></tr></table></figure>
-<h3 id="1-Fix-含有this的函数中作为回调被使用"><a href="#1-Fix-含有this的函数中作为回调被使用" class="headerlink" title="1.Fix 含有this的函数中作为回调被使用"></a>1.Fix 含有<code>this</code>的函数中作为回调被使用</h3><p>当我们将包含this的方法作为回调去使用时，这往往变得很难以理解。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">// We have a simple object with a clickHandler method that we want to use when a button on the page is clicked</div><div class="line">var user = &#123;</div><div class="line">data:[</div><div class="line">&#123;name:<span class="string">"T. Woods"</span>, age:37&#125;,</div><div class="line">&#123;name:<span class="string">"P. Mickelson"</span>, age:43&#125;</div><div class="line">],</div><div class="line">clickHandler:<span class="keyword">function</span> (event) &#123;</div><div class="line">var randomNum = ((Math.random () * 2 | 0) + 1) - 1; // random number between 0 and 1</div><div class="line"></div><div class="line">// This line is printing a random person<span class="string">'s name and age from the data array</span></div><div class="line">console.log (this.data[randomNum].name + " " + this.data[randomNum].age);</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// The button is wrapped inside a jQuery $ wrapper, so it is now a jQuery object</div><div class="line">// And the output will be undefined because there is no data property on the button object</div><div class="line">$ ("button").click (user.clickHandler); // Cannot read property '0<span class="string">' of undefined</span></div></pre></td></tr></table></figure>
-<p>上面的代码中可以知道，我们调用了$(“button”)这个对象的click方法，并且将user的clickHandler<br>方法作为回调传入click方法中，不难发现user的clickHandler方法，这时user.clickHandler方法中的<br><code>this</code>已经不再指向user这个对象。因为<code>this</code>被定义在user.clickHandler中，所以<code>this</code>现在指向<br>那个调用user.clickHandler方法的对象。这个调用user.clickHandler的对象是button这个对象，<br>user.clickHandler将会在button的click方法被执行。</p>
-<p>由于上面这个观点，当上下文改变的时候，也就是当我们在一些其他对象上执行一个方法的时候<code>this</code>关键字不在<br>指向原始的对象，而是指向调用的这个方法的对象。</p>
-<p>解决<code>this</code>被作为回调这个现象的方法：<br>我们可以使用Bind(),Apply()或者Call()方法显示设置<code>this</code>的值，这样我们的<code>this.data</code>就会指向<br>user对象的data属性了。</p>
-<p>所以，原来下面这行代码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ (<span class="string">"button"</span>).click (user.clickHandler);</div></pre></td></tr></table></figure></p>
-<p>我们用bind方法，将user对象和clickHandler方法绑定起来：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"button"</span>).click (user.clickHandler.bind (user)); // P. Mickelson 43</div></pre></td></tr></table></figure></p>
-<p><a href="http://jsbin.com/exanul/1/edit?html,js,output" target="_blank" rel="external">View a working example of this on JSBin</a></p>
-<h3 id="2-Fix-this-在闭包中的情景"><a href="#2-Fix-this-在闭包中的情景" class="headerlink" title="2.Fix this 在闭包中的情景"></a>2.Fix <code>this</code> 在闭包中的情景</h3><p><code>this</code>在闭包中使用时另一个容易误解的例子。值得注意的是，闭包是不能得到外层函数的<code>this</code>变量通过使用<code>this</code>关键字，<br>因为<code>this</code>变量只能通过函数本身得到，而不是内层函数。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">var user = &#123;</div><div class="line">tournament:<span class="string">"The Masters"</span>,</div><div class="line">data      :[</div><div class="line">&#123;name:<span class="string">"T. Woods"</span>, age:37&#125;,</div><div class="line">&#123;name:<span class="string">"P. Mickelson"</span>, age:43&#125;</div><div class="line">],</div><div class="line"></div><div class="line">clickHandler:<span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">// the use of this.data here is fine, because <span class="string">"this"</span> refers to the user object, and data is a property on the user object.</div><div class="line"></div><div class="line">this.data.forEach (<span class="keyword">function</span> (person) &#123;</div><div class="line">// But here inside the anonymous <span class="keyword">function</span> (that we pass to the <span class="keyword">for</span>Each method), <span class="string">"this"</span> no longer refers to the user object.</div><div class="line">// This inner <span class="keyword">function</span> cannot access the outer <span class="keyword">function</span><span class="string">'s "this"</span></div><div class="line"></div><div class="line">console.log ("What is This referring to? " + this); //[object Window]</div><div class="line"></div><div class="line">console.log (person.name + " is playing at " + this.tournament);</div><div class="line">// T. Woods is playing at undefined</div><div class="line">// P. Mickelson is playing at undefined</div><div class="line">&#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">user.clickHandler(); // What is "this" referring to? [object Window]</div></pre></td></tr></table></figure>
-<p><code>this</code>在一个匿名函数中时，是不能通过外层函数的<code>this</code>得到的，所以当没有使用严格模式的时候，<br>它被绑定在全局window对象上。</p>
-<p>我们可以这样维持<code>this</code>在匿名函数中：</p>
-<p>为了fix这个问题，我们需要在匿名函数的forEach中使用<code>this</code>前，使用一个通用的实践，<br>在我们执行forEach前，将<code>this</code>赋值给其他变量。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">var user = &#123;</div><div class="line">   tournament:<span class="string">"The Masters"</span>,</div><div class="line">   data      :[</div><div class="line">   &#123;name:<span class="string">"T. Woods"</span>, age:37&#125;,</div><div class="line">   &#123;name:<span class="string">"P. Mickelson"</span>, age:43&#125;</div><div class="line">   ],</div><div class="line"></div><div class="line">   clickHandler:<span class="keyword">function</span> (event) &#123;</div><div class="line">   // To capture the value of <span class="string">"this"</span> when it refers to the user object, we have to <span class="built_in">set</span> it to another variable here:</div><div class="line">   // We <span class="built_in">set</span> the value of <span class="string">"this"</span> to theUserObj variable, so we can use it later</div><div class="line">   var theUserObj = this;</div><div class="line">   this.data.forEach (<span class="keyword">function</span> (person) &#123;</div><div class="line">   // Instead of using this.tournament, we now use theUserObj.tournament</div><div class="line">   console.log (person.name + <span class="string">" is playing at "</span> + theUserObj.tournament);</div><div class="line">   &#125;)</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   &#125;</div><div class="line"></div><div class="line">   user.clickHandler();</div><div class="line">   // T. Woods is playing at The Masters</div><div class="line">   //  P. Mickelson is playing at The Masters</div></pre></td></tr></table></figure>
-<p>值得注意的，许多JavaScript的开发者喜欢用一个名字为<code>that</code>的变量接受<code>this</code>的值，像下面提到的那样。<br>但是与我来说<code>that</code>是一个没有意义的名字，所以我尽量将一个变量命名可以描述出<code>this</code>的指向，所以上述代码中<br>我使用了<code>var theUserObj = this</code>。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// A common practice amongst JavaScript users is to use this code​</div><div class="line">var that = this;</div></pre></td></tr></table></figure>
-<p><a href="http://jsbin.com/ibohiw/1/edit?html,js,output" target="_blank" rel="external">View a working example of this on JSBin</a></p>
-<h3 id="3-Fix-this上的方法赋值给一个变量"><a href="#3-Fix-this上的方法赋值给一个变量" class="headerlink" title="3.Fix this上的方法赋值给一个变量"></a>3.Fix <code>this</code>上的方法赋值给一个变量</h3><p>当我们使用<code>this</code>变量去赋值一个方法时，<code>this</code>的值可能会超出我们想象地指向其他对象。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">// This data variable is a global variable</div><div class="line">var data = [</div><div class="line">&#123;name:<span class="string">"Samantha"</span>, age:12&#125;,</div><div class="line">&#123;name:<span class="string">"Alexis"</span>, age:14&#125;</div><div class="line">];</div><div class="line"></div><div class="line">var user = &#123;</div><div class="line">// this data variable is a property on the user object</div><div class="line">data    :[</div><div class="line">&#123;name:<span class="string">"T. Woods"</span>, age:37&#125;,</div><div class="line">&#123;name:<span class="string">"P. Mickelson"</span>, age:43&#125;</div><div class="line">],</div><div class="line">showData:<span class="keyword">function</span> (event) &#123;</div><div class="line">var randomNum = ((Math.random () * 2 | 0) + 1) - 1; // random number between 0 and 1</div><div class="line"></div><div class="line">// This line is adding a random person from the data array to the text field</div><div class="line">console.log (this.data[randomNum].name + <span class="string">" "</span> + this.data[randomNum].age);</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">// Assign the user.showData to a variable</div><div class="line">var showUserData = user.showData;</div><div class="line"></div><div class="line">// When we execute the showUserData <span class="keyword">function</span>, the values printed to the console are from the global data array, not from the data array <span class="keyword">in</span> the user object</div><div class="line">//</div><div class="line">showUserData (); // Samantha 12 (from the global data array)</div></pre></td></tr></table></figure>
-<p>解决方案：<br>同1的解决方案，利用bind方法显示地设置<code>this</code>的值。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// Bind the showData method to the user object</div><div class="line">var showUserData = user.showData.bind (user);</div><div class="line"></div><div class="line">// Now we get the value from the user object, because the this keyword is bound to the user object</div><div class="line">showUserData (); // P. Mickelson 43</div></pre></td></tr></table></figure>
-<h3 id="4-Fix-当借用方法的时候-this-的值不正确的问题"><a href="#4-Fix-当借用方法的时候-this-的值不正确的问题" class="headerlink" title="4.Fix 当借用方法的时候 this 的值不正确的问题"></a>4.Fix 当借用方法的时候 this 的值不正确的问题</h3><p>借用方法在JavaScript开发中是很常见的，作为JavaScript的开发者，我们将会经常遇到这种现象。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">// We have two objects. One of them has a method called avg () that the other doesn<span class="string">'t have</span></div><div class="line">// So we will borrow the (avg()) method</div><div class="line">var gameController = &#123;</div><div class="line">	scores: [20, 34, 55, 46, 77],</div><div class="line">	avgScore: null,</div><div class="line">	players: [</div><div class="line">		&#123;name: "Tommy", playerID: 987, age: 23&#125;,</div><div class="line">		&#123;name: "Pau", playerID: 87, age: 33&#125;</div><div class="line">	]</div><div class="line">&#125;</div><div class="line">var appController = &#123;</div><div class="line">	scores: [900, 845, 809, 950],</div><div class="line">	avgScore: null,</div><div class="line">	avg: function() &#123;</div><div class="line">		var sumOfScores = this.scores.reduce(function(prev, cur, index, array) &#123;</div><div class="line">			return prev + cur;</div><div class="line">		&#125;);</div><div class="line">		this.avgScore = sumOfScores / this.scores.length;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//If we run the code below,</div><div class="line">// the gameController.avgScore property will be set to the average score from the appController object "scores" array</div><div class="line"></div><div class="line">// Don't run this code, <span class="keyword">for</span> it is just <span class="keyword">for</span> illustration; we want the appController.avgScore to remain null</div><div class="line"></div><div class="line">gameController.avgScore = appController.avg();</div></pre></td></tr></table></figure>
-<p>avg函数中<code>this</code>这个关键字不再指向gameController这个对象，它将会指向appController对象因为它是在appController上调用的。<br>为了fix这个问题并且确定 appController.avg()方法内部的this指向gameController，我们使用apply()方法：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">// Note that we are using the apply () method, so the 2nd argument has to be an array—the arguments to pass to the appController.avg () method.​</div><div class="line">appController.avg.apply (gameController, gameController.scores);</div><div class="line">​</div><div class="line">// The avgScore property was successfully <span class="built_in">set</span> on the gameController object, even though we borrowed the avg () method from the appController object​</div><div class="line">console.log (gameController.avgScore); // 46.4​</div><div class="line">​</div><div class="line">// appController.avgScore is still null; it was not updated, only gameController.avgScore was updated​</div><div class="line">console.log (appController.avgScore); // null</div></pre></td></tr></table></figure>
-<p>gameController对象借用appController的avg方法。appController中<code>this</code>的值将会被set到gameController对象，<br>因为我们把gameController作为第一个参数传入了apply方法。apply方法的第一个参数，将会被显示地设置为<code>this</code>的值。</p>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>我希望看完这篇文章后，你对JavaScript中的this关键字有足够的理解。现在你可以使用（bing, apply, and call, and setting this<br>to a variable）来帮助你解决各种情况下的<code>this</code>问题。</p>
-<p>正如我们在上面看到的，<code>this</code>在很多情况下都会难以理解，比如上下文发生改变的时候，特别是在回调函数中，或者被另一个对象调用的时候，<br>或是当借用芳芳的时候。永远记得<code>this</code>具有调用<code>this</code>方法的对象的值。</p>
-<p>Enjoy Coding.</p>
-<p><a href="http://www.tuicool.com/articles/UfamIn2" target="_blank" rel="external">中文翻译</a></p>
-
+CommonJS200......  -->
+        <p class="article-more-link">
+          <a href="2016/12/12/modular-programming/#more">Read More</a>
+        </p>
       
     </div>
     <footer class="article-footer">
@@ -855,52 +552,17 @@
 <h3 id="2-初始化hexo"><a href="#2-初始化hexo" class="headerlink" title="2. 初始化hexo"></a>2. 初始化hexo</h3><p>安装完成后，创建一个存放你Blog的文件夹，进入到该文件夹下，执行hexo init</p>
 <p>Hexo即会自动在目标文件夹下建立网站所需要的所有文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo init</div></pre></td></tr></table></figure>
-<h3 id="3-安装依赖"><a href="#3-安装依赖" class="headerlink" title="3. 安装依赖"></a>3. 安装依赖</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install</div></pre></td></tr></table></figure>
-<h3 id="4-启动服务测试"><a href="#4-启动服务测试" class="headerlink" title="4. 启动服务测试"></a>4. 启动服务测试</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo s</div></pre></td></tr></table></figure>
-<p>用浏览器打开<a href="http://localhost:4000/或者http://127.0.0.1:4000/就可以看到页面了" target="_blank" rel="external">http://localhost:4000/或者http://127.0.0.1:4000/就可以看到页面了</a></p>
-<p>默认会有一个Hello World 的文章</p>
-<h3 id="5-关联Github"><a href="#5-关联Github" class="headerlink" title="5. 关联Github"></a>5. 关联Github</h3><ul>
-<li><p>进入Github建立一个[ID].github.io的Repository</p>
-<p><img src="/images/hexo-github/createRepository.png" alt=""></p>
-</li>
-<li><p>关联你所新建的Github repository</p>
-<p>打开你hexo目录下的_config.yml文件，找到最后配置deploy</p>
-<p>按照下图的三项配置你的deploy信息</p>
-<p><img src="/images/hexo-github/config.png" alt=""></p>
-</li>
-</ul>
-<h3 id="6-部署"><a href="#6-部署" class="headerlink" title="6. 部署"></a>6. 部署</h3><pre><code class="bash">hexo d
-</code></pre>
-<p>deploy之后就可以打开[yourname].github.io看到你的Blog了</p>
-<h2 id="Hexo常用命令"><a href="#Hexo常用命令" class="headerlink" title="Hexo常用命令"></a>Hexo常用命令</h2><pre><code class="bash">hexo new <span class="string">"postName"</span> <span class="comment">#新建文章</span>
-hexo new page <span class="string">"pageName"</span> <span class="comment">#新建页面</span>
-hexo generate <span class="comment">#生成静态页面至public目录</span>
-hexo server <span class="comment">#开启预览访问端口（默认端口4000，'ctrl + c'关闭server）</span>
-hexo deploy <span class="comment">#将.deploy目录部署到GitHub</span>
-hexo <span class="built_in">help</span>  <span class="comment"># 查看帮助</span>
-hexo version  <span class="comment">#查看Hexo的版本</span>
-hexo deploy -g  <span class="comment">#生成加部署</span>
-hexo server -g  <span class="comment">#生成加预览</span>
-命令的简写
-hexo n == hexo new
-hexo g == hexo generate
-hexo s == hexo server
-hexo d == hexo deploy
-</code></pre>
-<h2 id="图片deploy后找不到"><a href="#图片deploy后找不到" class="headerlink" title="图片deploy后找不到"></a>图片deploy后找不到</h2><p><img src="/images/hexo-github/localImgPath.png" alt=""></p>
-<p><img src="/images/hexo-github/remoteImgPath.png" alt=""></p>
-<p>引用图片时，注意deploy到github后的路径</p>
-<blockquote>
-<p>如果将图片放到public中，hexo clean的时候会清空，所以建议将img放到source中。</p>
-</blockquote>
-<h2 id="引用Theme"><a href="#引用Theme" class="headerlink" title="引用Theme"></a>引用Theme</h2><ul>
-<li>选择你中意的theme，clone到themes目录下</li>
-<li>在_config.yml文件中找到下图的配置项，修改theme<br><img src="/images/hexo-github/configTheme.png" alt=""></li>
-<li>如果你下载的主题以hexo-theme-X命名，在改变配置项的theme前，重命名主题为X</li>
-<li>如果你下载的主题的配置项文件以example结尾，请删除掉example</li>
-</ul>
-<h2 id="Markdown-Preview"><a href="#Markdown-Preview" class="headerlink" title="Markdown Preview"></a>Markdown Preview</h2><p> 用Atom打开你的markdown文件，Command + Shift + P , Search:mdpt<br> <img src="/images/hexo-github/markdownPreview.png" alt=""></p>
+        <!-- 快速搭建Blog1. 安装hexo1npm install -g hexo
+2. 初始化hexo安装完成后，创建一个存放你Blog的文件夹，进入到该文件夹下，执行hexo init
+Hexo即会自动在目标文件夹下建立网站所需要的所有文件
+1hexo init
 
+3. 安装依赖1npm install
+4. 启动服务测试1hexo s
+用浏览器打开http://localhost:4000/或......  -->
+        <p class="article-more-link">
+          <a href="2016/09/23/Hexo-Github-Blog/#more">Read More</a>
+        </p>
       
     </div>
     <footer class="article-footer">
