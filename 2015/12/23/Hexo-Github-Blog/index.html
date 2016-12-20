@@ -3,26 +3,31 @@
 <head>
   <meta charset="utf-8">
   
-  <title>folders missing in project pane in webstorm | The Girl Behind</title>
+  <title>hexo + github + blog | The Girl Behind</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-    <meta name="keywords" content="webstorm" />
+    <meta name="keywords" content="Hexo Github" />
   
   
   
   
-  <meta name="description" content="Folders missing in project pane in Webstorm">
+  <meta name="description" content="build hexo blog quickly">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Folders missing in project pane in Webstorm">
-<meta property="og:url" content="https://dale-.github.io/2016/12/13/Folders missing in project pane in Webstorm/index.html">
+<meta property="og:title" content="Hexo + Github + Blog">
+<meta property="og:url" content="https://dale-.github.io/2015/12/23/Hexo-Github-Blog/index.html">
 <meta property="og:site_name" content="The Girl Behind">
-<meta property="og:description" content="Folders missing in project pane in Webstorm">
-<meta property="og:image" content="https://dale-.github.io/images/webstorm/webstorm-no-directory.png">
-<meta property="og:updated_time" content="2016-12-20T09:42:46.000Z">
+<meta property="og:description" content="build hexo blog quickly">
+<meta property="og:image" content="https://dale-.github.io/images/hexo-github/createRepository.png">
+<meta property="og:image" content="https://dale-.github.io/images/hexo-github/config.png">
+<meta property="og:image" content="https://dale-.github.io/images/hexo-github/localImgPath.png">
+<meta property="og:image" content="https://dale-.github.io/images/hexo-github/remoteImgPath.png">
+<meta property="og:image" content="https://dale-.github.io/images/hexo-github/configTheme.png">
+<meta property="og:image" content="https://dale-.github.io/images/hexo-github/markdownPreview.png">
+<meta property="og:updated_time" content="2016-12-20T09:47:38.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Folders missing in project pane in Webstorm">
-<meta name="twitter:description" content="Folders missing in project pane in Webstorm">
-<meta name="twitter:image" content="https://dale-.github.io/images/webstorm/webstorm-no-directory.png">
+<meta name="twitter:title" content="Hexo + Github + Blog">
+<meta name="twitter:description" content="build hexo blog quickly">
+<meta name="twitter:image" content="https://dale-.github.io/images/hexo-github/createRepository.png">
   
     <link rel="alternate" href="/atom.xml" title="The Girl Behind" type="application/atom+xml">
   
@@ -147,7 +152,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-Folders missing in project pane in Webstorm" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-Hexo-Github-Blog" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -155,7 +160,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      Folders missing in project pane in Webstorm
+      Hexo + Github + Blog
     </h1>
   
 
@@ -164,26 +169,65 @@
     <div class="article-meta">
       
 	<a href="" class="article-date">
-	  <time datetime="2016-12-13T00:59:24.000Z" itemprop="datePublished">2016-12-13</time>
+	  <time datetime="2015-12-23T09:48:53.000Z" itemprop="datePublished">2015-12-23</time>
 	</a>
 
       
-    <a class="article-category-link" href="../../../../categories/webstorm/">webstorm</a>
+    <a class="article-category-link" href="../../../../categories/Hexo/">Hexo</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/images/webstorm/webstorm-no-directory.png" alt=""></p>
-<blockquote>
-<p>It can be caused by the corrupted <code>.idea/modules.xml</code> project file</p>
-</blockquote>
+        <h2 id="快速搭建Blog"><a href="#快速搭建Blog" class="headerlink" title="快速搭建Blog"></a>快速搭建Blog</h2><h3 id="1-安装hexo"><a href="#1-安装hexo" class="headerlink" title="1. 安装hexo"></a>1. 安装hexo</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g hexo</div></pre></td></tr></table></figure>
+<h3 id="2-初始化hexo"><a href="#2-初始化hexo" class="headerlink" title="2. 初始化hexo"></a>2. 初始化hexo</h3><p>安装完成后，创建一个存放你Blog的文件夹，进入到该文件夹下，执行hexo init</p>
+<p>Hexo即会自动在目标文件夹下建立网站所需要的所有文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo init</div></pre></td></tr></table></figure>
 <a id="more"></a>
-<p>##</p>
-<ol>
-<li>quit webstorm</li>
-<li>delete the directory of .idea（ls -a show hidden file）</li>
-<li>reopen project</li>
-</ol>
+<h3 id="3-安装依赖"><a href="#3-安装依赖" class="headerlink" title="3. 安装依赖"></a>3. 安装依赖</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install</div></pre></td></tr></table></figure>
+<h3 id="4-启动服务测试"><a href="#4-启动服务测试" class="headerlink" title="4. 启动服务测试"></a>4. 启动服务测试</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo s</div></pre></td></tr></table></figure>
+<p>用浏览器打开<a href="http://localhost:4000/或者http://127.0.0.1:4000/就可以看到页面了" target="_blank" rel="external">http://localhost:4000/或者http://127.0.0.1:4000/就可以看到页面了</a></p>
+<p>默认会有一个Hello World 的文章</p>
+<h3 id="5-关联Github"><a href="#5-关联Github" class="headerlink" title="5. 关联Github"></a>5. 关联Github</h3><ul>
+<li><p>进入Github建立一个[ID].github.io的Repository</p>
+<p><img src="/images/hexo-github/createRepository.png" alt=""></p>
+</li>
+<li><p>关联你所新建的Github repository</p>
+<p>打开你hexo目录下的_config.yml文件，找到最后配置deploy</p>
+<p>按照下图的三项配置你的deploy信息</p>
+<p><img src="/images/hexo-github/config.png" alt=""></p>
+</li>
+</ul>
+<h3 id="6-部署"><a href="#6-部署" class="headerlink" title="6. 部署"></a>6. 部署</h3><pre><code class="bash">hexo d
+</code></pre>
+<p>deploy之后就可以打开[yourname].github.io看到你的Blog了</p>
+<h2 id="Hexo常用命令"><a href="#Hexo常用命令" class="headerlink" title="Hexo常用命令"></a>Hexo常用命令</h2><pre><code class="bash">hexo new <span class="string">"postName"</span> <span class="comment">#新建文章</span>
+hexo new page <span class="string">"pageName"</span> <span class="comment">#新建页面</span>
+hexo generate <span class="comment">#生成静态页面至public目录</span>
+hexo server <span class="comment">#开启预览访问端口（默认端口4000，'ctrl + c'关闭server）</span>
+hexo deploy <span class="comment">#将.deploy目录部署到GitHub</span>
+hexo <span class="built_in">help</span>  <span class="comment"># 查看帮助</span>
+hexo version  <span class="comment">#查看Hexo的版本</span>
+hexo deploy -g  <span class="comment">#生成加部署</span>
+hexo server -g  <span class="comment">#生成加预览</span>
+命令的简写
+hexo n == hexo new
+hexo g == hexo generate
+hexo s == hexo server
+hexo d == hexo deploy
+</code></pre>
+<h2 id="图片deploy后找不到"><a href="#图片deploy后找不到" class="headerlink" title="图片deploy后找不到"></a>图片deploy后找不到</h2><p><img src="/images/hexo-github/localImgPath.png" alt=""></p>
+<p><img src="/images/hexo-github/remoteImgPath.png" alt=""></p>
+<p>引用图片时，注意deploy到github后的路径</p>
+<blockquote>
+<p>如果将图片放到public中，hexo clean的时候会清空，所以建议将img放到source中。</p>
+</blockquote>
+<h2 id="引用Theme"><a href="#引用Theme" class="headerlink" title="引用Theme"></a>引用Theme</h2><ul>
+<li>选择你中意的theme，clone到themes目录下</li>
+<li>在_config.yml文件中找到下图的配置项，修改theme<br><img src="/images/hexo-github/configTheme.png" alt=""></li>
+<li>如果你下载的主题以hexo-theme-X命名，在改变配置项的theme前，重命名主题为X</li>
+<li>如果你下载的主题的配置项文件以example结尾，请删除掉example</li>
+</ul>
+<h2 id="Markdown-Preview"><a href="#Markdown-Preview" class="headerlink" title="Markdown Preview"></a>Markdown Preview</h2><p> 用Atom打开你的markdown文件，Command + Shift + P , Search:mdpt<br> <img src="/images/hexo-github/markdownPreview.png" alt=""></p>
 
       
     </div>
@@ -193,7 +237,7 @@
 	<div id="comment">
 
 	<!-- 多说评论框 start -->
-	 <div class="ds-thread" data-thread-key="/2016/12/13/Folders missing in project pane in Webstorm/" data-title="Folders missing in project pane in Webstorm" data-url="https://dale-.github.io/2016/12/13/Folders missing in project pane in Webstorm/"></div>
+	 <div class="ds-thread" data-thread-key="/2015/12/23/Hexo-Github-Blog/" data-title="Hexo + Github + Blog" data-url="https://dale-.github.io/2015/12/23/Hexo-Github-Blog/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -214,7 +258,7 @@
 
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/webstorm/">webstorm</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/Hexo/">Hexo</a></li></ul>
 
     </footer>
   </div>
@@ -222,20 +266,15 @@
     
 <nav id="article-nav">
   
-    <a href="../../14/Closures/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="../../../../2016/12/12/modular-programming/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          Closures
+          Modular Programming
         
       </div>
     </a>
   
-  
-    <a href="../../12/modular-programming/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Modular Programming</div>
-    </a>
   
 </nav>
 
@@ -248,7 +287,7 @@
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-    <ol class="toc">None</ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#快速搭建Blog"><span class="toc-number">1.</span> <span class="toc-text">快速搭建Blog</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-安装hexo"><span class="toc-number">1.1.</span> <span class="toc-text">1. 安装hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-初始化hexo"><span class="toc-number">1.2.</span> <span class="toc-text">2. 初始化hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-安装依赖"><span class="toc-number">1.3.</span> <span class="toc-text">3. 安装依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-启动服务测试"><span class="toc-number">1.4.</span> <span class="toc-text">4. 启动服务测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-关联Github"><span class="toc-number">1.5.</span> <span class="toc-text">5. 关联Github</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-部署"><span class="toc-number">1.6.</span> <span class="toc-text">6. 部署</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo常用命令"><span class="toc-number">2.</span> <span class="toc-text">Hexo常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图片deploy后找不到"><span class="toc-number">3.</span> <span class="toc-text">图片deploy后找不到</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#引用Theme"><span class="toc-number">4.</span> <span class="toc-text">引用Theme</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Markdown-Preview"><span class="toc-number">5.</span> <span class="toc-text">Markdown Preview</span></a></li></ol>
     
     </div>
   </aside>
