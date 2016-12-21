@@ -92,7 +92,7 @@
 
 
   
-    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/home-bg.jpg); background-size: auto 100%;">
+    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/pose.jpg); background-size: auto 100%;">
   
 
     <canvas width="100%" height="100%"></canvas>
@@ -189,6 +189,78 @@
       <div id="content" class="outer">
         
           <section id="main" style="float:none;">
+  
+    <article id="post-BOM-DOM"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="2016/12/21/BOM-DOM/">BOM &amp; DOM</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="2016/12/21/BOM-DOM/" class="article-date">
+	  <time datetime="2016-12-21T02:43:18.000Z" itemprop="datePublished">2016-12-21</time>
+	</a>
+
+      
+    <a class="article-category-link" href="categories/Event/">Event</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="DOM-Document-Object-Model-文档对象模型"><a href="#DOM-Document-Object-Model-文档对象模型" class="headerlink" title="DOM (Document Object Model) 文档对象模型"></a>DOM (Document Object Model) 文档对象模型</h2><p>一套HTML和XML提供的API（应用程序编程接口）<br>DOM描述了一个层次化的节点，允许添加、移除、修改页面中的某个部分。</p>
+<h3 id="节点层次"><a href="#节点层次" class="headerlink" title="节点层次"></a>节点层次</h3><p>DOM可以将任意HTML或者XML文档描绘成一个由多层节点构成的结构。<br><img src="/images/bom-dom/document.png" alt=""></p>
+<h3 id="节点类型"><a href="#节点类型" class="headerlink" title="节点类型"></a>节点类型</h3><ul>
+<li>元素节点 对应数字1 #Element null</li>
+<li>属性节点 对应数字2 #attr value</li>
+<li>文本节点 对应数字3 #text value</li>
+<li>注释节点 对应数字8 #comment value</li>
+<li>文档节点 对应数字9 #document null</li>
+</ul>
+<h3 id="获得元素的子节点"><a href="#获得元素的子节点" class="headerlink" title="获得元素的子节点"></a>获得元素的子节点</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var box = document.getElementById(<span class="string">'box'</span>);</div><div class="line">// 用childNodes 获取到的是当前一层的所有子节点，包括文本和注释节点</div><div class="line">var childs = box.childNodes;</div><div class="line">console.log(childs.length); // 9</div></pre></td></tr></table></figure>
+<blockquote>
+<p>每个节点有一个childNodes属性，其中保存着一个NodeList对象,NodeList是一种类数组对象，<br>  用于保存一组有序的节点，可以通过为止来访问这些节点。<br>  请注意，虽然可以通过方括号[]的语法来访问NodeList的值，而且这个对象也有length属性，<br>  但它并不是Array的实例。NodeList对象的独特之处在于，它实际上是基于DOM结构动态执行查询的结果，<br>  因此DOM结构的变化能够自动反应在NodeList对象中。我们常说，NodeList是由生命，有呼吸的的对象，<br>  而不是我们第一次访问它们的某个瞬间拍摄下来的一张快照。</p>
+</blockquote>
+<p>  每个节点都有nodeName和nodeValue属性，分别用来获取节点的名字和节点的值，<br>  对于文档节点和元素节点，获取到的nodeValue永远都是null，<br>  对于注释节点文本节点获取到的就是它们本身。</p>
+<p><img src="/images/bom-dom/node.jpg" alt=""></p>
+<h2 id="BOM-Browser-Object-Model-浏览器对象模型"><a href="#BOM-Browser-Object-Model-浏览器对象模型" class="headerlink" title="BOM (Browser Object Model) 浏览器对象模型"></a>BOM (Browser Object Model) 浏览器对象模型</h2><blockquote>
+<p>BOM的核心对象是window，它表示浏览器的一个实例, 同时window也是JavaScript的全局对象。<br>  window对象处于JavaScript结构的最顶层，对于每个打开的窗口，系统都会自动为其定义window对象。<br>  BOM主要负责来对浏览器窗口进行操作和窗口之间的交互。</p>
+</blockquote>
+<p><img src="/images/bom-dom/bom.png" alt=""></p>
+<p>###主要包括</p>
+<ul>
+<li>navigator 导航器对象<br><img src="/images/bom-dom/navigator.png" alt=""></li>
+<li>history 历史对象<br><img src="/images/bom-dom/history.png" alt=""></li>
+<li>screen 显示器对象<br><img src="/images/bom-dom/screen.png" alt=""></li>
+<li>location 对象<br><img src="/images/bom-dom/location.png" alt=""></li>
+<li>对话框<br><img src="/images/bom-dom/dialog.png" alt=""></li>
+<li>定时器<br><img src="/images/bom-dom/timer.png" alt=""></li>
+<li>Document</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Event/">Event</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
   
     <article id="post-Understand-JavaScript’s-“this”"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
@@ -463,61 +535,6 @@ reopen project
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/webstorm/">webstorm</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-modular-programming"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="2016/12/12/modular-programming/">Modular Programming</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="2016/12/12/modular-programming/" class="article-date">
-	  <time datetime="2016-12-12T01:45:51.000Z" itemprop="datePublished">2016-12-12</time>
-	</a>
-
-      
-    <a class="article-category-link" href="categories/JavaScript/">JavaScript</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="模块的规范"><a href="#模块的规范" class="headerlink" title="模块的规范"></a>模块的规范</h2><p>先想一想，为什么模块很重要？</p>
-<p>因为有了模块，我们就可以更方便地使用别人的代码，想要什么功能，就加载什么模块。</p>
-<p>但是，这样做有一个前提，那就是大家必须以同样的方式编写模块，否则你有你的写法，我有我的写法，岂不是乱了套！<br>考虑到Javascript模块现在还没有官方规范，这一点就更重要了。</p>
-<p>目前，AMD,CMD,CommonJS是目前最常用的三种模块化书写规范。</p>
-        <!-- 模块的规范先想一想，为什么模块很重要？
-因为有了模块，我们就可以更方便地使用别人的代码，想要什么功能，就加载什么模块。
-但是，这样做有一个前提，那就是大家必须以同样的方式编写模块，否则你有你的写法，我有我的写法，岂不是乱了套！考虑到Javascript模块现在还没有官方规范，这一点就更重要了。
-目前，AMD,CMD,CommonJS是目前最常用的三种模块化书写规范。
-
-CommonJS200......  -->
-        <p class="article-more-link">
-          <a href="2016/12/12/modular-programming/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/JavaScript/">JavaScript</a></li></ul>
 
     </footer>
   </div>
