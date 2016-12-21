@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://dale-.github.io/images/bom-dom/node.jpg">
 <meta property="og:image" content="https://dale-.github.io/images/bom-dom/bom.png">
 <meta property="og:image" content="https://dale-.github.io/images/bom-dom/constructor.jpeg">
-<meta property="og:updated_time" content="2016-12-21T08:56:42.000Z">
+<meta property="og:updated_time" content="2016-12-21T08:59:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BOM & DOM">
 <meta name="twitter:description" content="Event BOM &amp; DOM">
@@ -182,7 +182,7 @@
 <ul>
 <li>Document : 整个文档树的顶层节点</li>
 <li>DocumentType : doctype标签（比如&lt;!DOCTYPE html&gt;）</li>
-<li>Element : 网页的各种HTML标签（比如 <body> 、<a> 等）</a></body></li>
+<li>Element : 网页的各种HTML标签</li>
 <li>Attribute : 网页元素的属性（比如class = “right”）</li>
 <li>Text : 标签之间或标签包含的文本</li>
 <li>Comment: 注释</li>
@@ -191,7 +191,7 @@
 </blockquote>
 <h3 id="获得元素的子节点"><a href="#获得元素的子节点" class="headerlink" title="获得元素的子节点"></a>获得元素的子节点</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var box = document.getElementById(<span class="string">'box'</span>);</div><div class="line">// 用childNodes 获取到的是当前一层的所有子节点，包括文本和注释节点</div><div class="line">var childs = box.childNodes;</div><div class="line">console.log(childs.length); // 9</div></pre></td></tr></table></figure>
 <blockquote>
-<p>每个节点有一个childNodes属性，其中保存着一个NodeList对象,NodeList是一种类数组对象，<br>  用于保存一组有序的节点，可以通过为止来访问这些节点。请注意，虽然可以通过方括号[]的语法来访问<br>  NodeList的值，而且这个对象也有length属性，但它并不是Array的实例。NodeList对象的独特之处在于，<br>  它实际上是基于DOM结构动态执行查询的结果，因此DOM结构的变化能够自动反应在NodeList对象中。<br>  我们常说，NodeList是由生命，有呼吸的的对象，而不是我们第一次访问它们的某个瞬间拍摄下来的一张快照。</p>
+<p>每个节点有一个childNodes属性，其中保存着一个NodeList对象,NodeList是一种类数组对象，<br>  用于保存一组有序的节点，可以通过为止来访问这些节点。请注意，虽然可以通过方括号[]的<br>  语法来访问NodeList的值，而且这个对象也有length属性，但它并不是Array的实例。<br>  NodeList对象的独特之处在于，它实际上是基于DOM结构动态执行查询的结果，<br>  因此DOM结构的变化能够自动反应在NodeList对象中。我们常说，NodeList是由生命，<br>  有呼吸的的对象，而不是我们第一次访问它们的某个瞬间拍摄下来的一张快照。</p>
 <p>每个节点都有nodeName和nodeValue属性，<br>  分别用来获取节点的名字和节点的值，对于文档节点和元素节点，<br>  获取到的nodeValue永远都是null，对于注释节点文本节点获取到的就是它们本身。</p>
 </blockquote>
 <p><img src="/images/bom-dom/node.jpg" alt=""></p>
