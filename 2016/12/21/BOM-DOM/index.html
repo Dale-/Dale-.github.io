@@ -20,14 +20,8 @@
 <meta property="og:image" content="https://dale-.github.io/images/bom-dom/document.png">
 <meta property="og:image" content="https://dale-.github.io/images/bom-dom/node.jpg">
 <meta property="og:image" content="https://dale-.github.io/images/bom-dom/bom.png">
-<meta property="og:image" content="https://dale-.github.io/images/bom-dom/navigator.png">
-<meta property="og:image" content="https://dale-.github.io/images/bom-dom/history.png">
-<meta property="og:image" content="https://dale-.github.io/images/bom-dom/screen.png">
-<meta property="og:image" content="https://dale-.github.io/images/bom-dom/location.png">
-<meta property="og:image" content="https://dale-.github.io/images/bom-dom/dialog.png">
-<meta property="og:image" content="https://dale-.github.io/images/bom-dom/timer.png">
 <meta property="og:image" content="https://dale-.github.io/images/bom-dom/constructor.jpeg">
-<meta property="og:updated_time" content="2016-12-21T08:20:35.000Z">
+<meta property="og:updated_time" content="2016-12-21T08:56:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BOM & DOM">
 <meta name="twitter:description" content="Event BOM &amp; DOM">
@@ -182,13 +176,13 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="DOM-Document-Object-Model-文档对象模型"><a href="#DOM-Document-Object-Model-文档对象模型" class="headerlink" title="DOM (Document Object Model) 文档对象模型"></a>DOM (Document Object Model) 文档对象模型</h2><p>一套HTML和XML提供的API（应用程序编程接口）<br>DOM描述了一个层次化的节点，允许添加、移除、修改页面中的某个部分。</p>
-<h3 id="节点层次"><a href="#节点层次" class="headerlink" title="节点层次"></a>节点层次</h3><p>DOM可以将任意HTML或者XML文档描绘成一个由多层节点构成的结构。<br><a id="more"></a><br><img src="/images/bom-dom/document.png" alt=""></p>
+        <h2 id="DOM-Document-Object-Model-文档对象模型"><a href="#DOM-Document-Object-Model-文档对象模型" class="headerlink" title="DOM (Document Object Model) 文档对象模型"></a>DOM (Document Object Model) 文档对象模型</h2><p>一套HTML和XML提供的API（应用程序编程接口，DOM描述了一个层次化的节点，允许添加、移除、修改页面中的某个部分。</p>
+<h3 id="节点层次"><a href="#节点层次" class="headerlink" title="节点层次"></a>节点层次</h3><p>DOM可以将任意HTML或者XML文档描绘成一个由多层节点构成的结构。<br><img src="/images/bom-dom/document.png" alt=""><br><a id="more"></a></p>
 <h3 id="节点类型"><a href="#节点类型" class="headerlink" title="节点类型"></a>节点类型</h3><blockquote>
 <ul>
 <li>Document : 整个文档树的顶层节点</li>
 <li>DocumentType : doctype标签（比如&lt;!DOCTYPE html&gt;）</li>
-<li>Element : 网页的各种HTML标签（比如<body>、<a>等）</a></body></li>
+<li>Element : 网页的各种HTML标签（比如 <body> 、<a> 等）</a></body></li>
 <li>Attribute : 网页元素的属性（比如class = “right”）</li>
 <li>Text : 标签之间或标签包含的文本</li>
 <li>Comment: 注释</li>
@@ -197,21 +191,21 @@
 </blockquote>
 <h3 id="获得元素的子节点"><a href="#获得元素的子节点" class="headerlink" title="获得元素的子节点"></a>获得元素的子节点</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var box = document.getElementById(<span class="string">'box'</span>);</div><div class="line">// 用childNodes 获取到的是当前一层的所有子节点，包括文本和注释节点</div><div class="line">var childs = box.childNodes;</div><div class="line">console.log(childs.length); // 9</div></pre></td></tr></table></figure>
 <blockquote>
-<p>每个节点有一个childNodes属性，其中保存着一个NodeList对象,NodeList是一种类数组对象，<br>  用于保存一组有序的节点，可以通过为止来访问这些节点。<br>  请注意，虽然可以通过方括号[]的语法来访问NodeList的值，而且这个对象也有length属性，<br>  但它并不是Array的实例。NodeList对象的独特之处在于，它实际上是基于DOM结构动态执行查询的结果，<br>  因此DOM结构的变化能够自动反应在NodeList对象中。我们常说，NodeList是由生命，有呼吸的的对象，<br>  而不是我们第一次访问它们的某个瞬间拍摄下来的一张快照。</p>
+<p>每个节点有一个childNodes属性，其中保存着一个NodeList对象,NodeList是一种类数组对象，<br>  用于保存一组有序的节点，可以通过为止来访问这些节点。请注意，虽然可以通过方括号[]的语法来访问<br>  NodeList的值，而且这个对象也有length属性，但它并不是Array的实例。NodeList对象的独特之处在于，<br>  它实际上是基于DOM结构动态执行查询的结果，因此DOM结构的变化能够自动反应在NodeList对象中。<br>  我们常说，NodeList是由生命，有呼吸的的对象，而不是我们第一次访问它们的某个瞬间拍摄下来的一张快照。</p>
+<p>每个节点都有nodeName和nodeValue属性，<br>  分别用来获取节点的名字和节点的值，对于文档节点和元素节点，<br>  获取到的nodeValue永远都是null，对于注释节点文本节点获取到的就是它们本身。</p>
 </blockquote>
-<p>  每个节点都有nodeName和nodeValue属性，分别用来获取节点的名字和节点的值，<br>  对于文档节点和元素节点，获取到的nodeValue永远都是null，<br>  对于注释节点文本节点获取到的就是它们本身。</p>
 <p><img src="/images/bom-dom/node.jpg" alt=""></p>
 <h2 id="BOM-Browser-Object-Model-浏览器对象模型"><a href="#BOM-Browser-Object-Model-浏览器对象模型" class="headerlink" title="BOM (Browser Object Model) 浏览器对象模型"></a>BOM (Browser Object Model) 浏览器对象模型</h2><blockquote>
 <p>BOM的核心对象是window，它表示浏览器的一个实例, 同时window也是JavaScript的全局对象。<br>  window对象处于JavaScript结构的最顶层，对于每个打开的窗口，系统都会自动为其定义window对象。<br>  BOM主要负责来对浏览器窗口进行操作和窗口之间的交互。</p>
 </blockquote>
 <p><img src="/images/bom-dom/bom.png" alt=""></p>
 <h3 id="主要包括"><a href="#主要包括" class="headerlink" title="主要包括"></a>主要包括</h3><ul>
-<li>navigator 导航器对象<br><img src="/images/bom-dom/navigator.png" alt=""></li>
-<li>history 历史对象<br><img src="/images/bom-dom/history.png" alt=""></li>
-<li>screen 显示器对象<br><img src="/images/bom-dom/screen.png" alt=""></li>
-<li>location 对象<br><img src="/images/bom-dom/location.png" alt=""></li>
-<li>对话框<br><img src="/images/bom-dom/dialog.png" alt=""></li>
-<li>定时器<br><img src="/images/bom-dom/timer.png" alt=""></li>
+<li>navigator 导航器对象</li>
+<li>history 历史对象</li>
+<li>screen 显示器对象</li>
+<li>location 对象</li>
+<li>对话框</li>
+<li>定时器</li>
 <li>Document</li>
 </ul>
 <h2 id="BOM-amp-DOM-总结"><a href="#BOM-amp-DOM-总结" class="headerlink" title="BOM &amp; DOM 总结"></a>BOM &amp; DOM 总结</h2><h3 id="BOM和DOM结构关系示意图"><a href="#BOM和DOM结构关系示意图" class="headerlink" title="BOM和DOM结构关系示意图"></a>BOM和DOM结构关系示意图</h3><p><img src="/images/bom-dom/constructor.jpeg" alt=""></p>
