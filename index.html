@@ -92,7 +92,7 @@
 
 
   
-    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/pose.jpg); background-size: auto 100%;">
+    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/sample.jpg); background-size: auto 100%;">
   
 
     <canvas width="100%" height="100%"></canvas>
@@ -189,6 +189,61 @@
       <div id="content" class="outer">
         
           <section id="main" style="float:none;">
+  
+    <article id="post-Loops-And-Iteration-In-JavaScript"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="2017/01/03/Loops-And-Iteration-In-JavaScript/">Loops And Iteration In JavaScript</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="2017/01/03/Loops-And-Iteration-In-JavaScript/" class="article-date">
+	  <time datetime="2017-01-03T13:32:36.000Z" itemprop="datePublished">2017-01-03</time>
+	</a>
+
+      
+    <a class="article-category-link" href="categories/JavaScript/">JavaScript</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h2><h3 id="for"><a href="#for" class="headerlink" title="for"></a>for</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="built_in">let</span> index = 0, length = array.length; index &lt; length; index++) &#123;</div><div class="line">  <span class="keyword">if</span> (index == 2) &#123;</div><div class="line">    // <span class="built_in">return</span>;    // 函数执行被终止</div><div class="line">    // <span class="built_in">break</span>;     // 循环被终止</div><div class="line">    <span class="built_in">continue</span>;     // 循环被跳过</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Attention</p>
+<ul>
+<li><p>如果使用var在for循环中声明index变量，那么在循环结束后index依然存在作用域（函数作用域）中，这种情况下可以使用函数自执行的方法将其隔离开来()();当然如果选用let声明，循环后index不会保留，因为let是块级作用域。</p>
+</li>
+<li><p>避免使用 for (let i = index; i &lt; array.length; i++)的方式，这种方式每次的length每次都会被计算，效率比上面例子低。</p>
+</li>
+<li><p>跳出循环：return、break、continue都支持</p>
+</li>
+</ul>
+</blockquote>
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/JavaScript/">JavaScript</a></li></ul>
+
+    </div>
+    <footer class="article-footer">
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
   
     <article id="post-Understand-JavaScript’s-“this”"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
@@ -465,61 +520,6 @@ Angular内置了一整套指令，如ngBind, ngModel, 和ngView。 就像你可�
 
 
   
-    <article id="post-modular-programming"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="2016/12/14/modular-programming/">Modular Programming</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="2016/12/14/modular-programming/" class="article-date">
-	  <time datetime="2016-12-14T01:45:51.000Z" itemprop="datePublished">2016-12-14</time>
-	</a>
-
-      
-    <a class="article-category-link" href="categories/JavaScript/">JavaScript</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="模块的规范"><a href="#模块的规范" class="headerlink" title="模块的规范"></a>模块的规范</h2><p>先想一想，为什么模块很重要？</p>
-<p>因为有了模块，我们就可以更方便地使用别人的代码，想要什么功能，就加载什么模块。</p>
-<p>但是，这样做有一个前提，那就是大家必须以同样的方式编写模块，否则你有你的写法，我有我的写法，岂不是乱了套！<br>考虑到Javascript模块现在还没有官方规范，这一点就更重要了。</p>
-<p>目前，AMD,CMD,CommonJS是目前最常用的三种模块化书写规范。</p>
-        <!-- 模块的规范先想一想，为什么模块很重要？
-因为有了模块，我们就可以更方便地使用别人的代码，想要什么功能，就加载什么模块。
-但是，这样做有一个前提，那就是大家必须以同样的方式编写模块，否则你有你的写法，我有我的写法，岂不是乱了套！考虑到Javascript模块现在还没有官方规范，这一点就更重要了。
-目前，AMD,CMD,CommonJS是目前最常用的三种模块化书写规范。
-
-CommonJS200......  -->
-        <p class="article-more-link">
-          <a href="2016/12/14/modular-programming/#more">Read More</a>
-        </p>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/JavaScript/">JavaScript</a></li></ul>
-
-    </div>
-    <footer class="article-footer">
-      
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
 
 
   <nav id="page-nav">
@@ -539,7 +539,7 @@ CommonJS200......  -->
   <div class="container">
       <div class="row">
 	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> </p>
-	      <p id="copyRightEn">Copyright &copy; 2015 - 2016 The Girl Behind All Rights Reserved.</p>
+	      <p id="copyRightEn">Copyright &copy; 2015 - 2017 The Girl Behind All Rights Reserved.</p>
 	      <p id="copyRightCn">Dale Du hold copyright</p>
 	</div>
   </div>
@@ -670,7 +670,7 @@ CommonJS200......  -->
             The Girl Behind
           </div>
           <div class="panel-body">
-            Copyright © 2016 Dale Du All Rights Reserved.
+            Copyright © 2017 Dale Du All Rights Reserved.
           </div>
         </div>
       </div>
