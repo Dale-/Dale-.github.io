@@ -228,24 +228,10 @@
 </li>
 </ul>
 </blockquote>
-<h3 id="for-in"><a href="#for-in" class="headerlink" title="for in"></a>for in</h3><p><code>for(let item in array|object){}</code> 可以用来遍历数组和对象</p>
-<ul>
-<li>遍历数组时，item表示索引值</li>
-<li>遍历对象时，item表示key值</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="built_in">let</span> key <span class="keyword">in</span> object) &#123;</div><div class="line">  <span class="keyword">if</span> (key == 2) &#123;</div><div class="line">    <span class="built_in">return</span>;       // 函数执行被终止</div><div class="line">    // <span class="built_in">break</span>;     // 循环被终止</div><div class="line">    // <span class="built_in">continue</span>;  // 循环被跳过</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>Attention</p>
-<ul>
-<li><p>key的作用域问题，同上</p>
-</li>
-<li><p>for..in非常适合遍历自变量对象,key是对象的每一个属性,object是要遍历的对象（键值对形式）</p>
-</li>
-<li><p>支持数组、对象甚至是函数等。</p>
-</li>
-</ul>
-</blockquote>
-
+        <!-- 遍历for1234567for (let index = 0, length = array.length; index &lt; length; index++) &#123;  if (index == 2) &#123;    // return;    // 函数执行被终止    // break;     // 循环被终止    continue;     // 循环被跳过  &#......  -->
+        <p class="article-more-link">
+          <a href="2017/01/03/Loops-And-Iteration-In-JavaScript/#more">Read More</a>
+        </p>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/JavaScript/">JavaScript</a></li></ul>
