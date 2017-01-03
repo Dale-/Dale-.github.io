@@ -17,7 +17,7 @@
 <meta property="og:url" content="https://dale-.github.io/2017/01/03/Loops-And-Iteration-In-JavaScript/index.html">
 <meta property="og:site_name" content="The Girl Behind">
 <meta property="og:description" content="how to use different type of loops and iteration in JavaScript">
-<meta property="og:updated_time" content="2017-01-03T15:05:59.000Z">
+<meta property="og:updated_time" content="2017-01-03T15:16:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Loops And Iteration In JavaScript">
 <meta name="twitter:description" content="how to use different type of loops and iteration in JavaScript">
@@ -201,7 +201,21 @@
 </li>
 </ul>
 </blockquote>
-<h3 id="forEach"><a href="#forEach" class="headerlink" title="forEach"></a>forEach</h3>
+<h3 id="forEach"><a href="#forEach" class="headerlink" title="forEach"></a>forEach</h3><p><code>array.forEach(arg =&gt; {})}</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">array.forEach(<span class="keyword">function</span>(value, index) &#123;</div><div class="line">  <span class="keyword">if</span> (value === <span class="string">'javascript'</span>) &#123;</div><div class="line">    <span class="built_in">return</span>;       // 循环被跳过</div><div class="line">    // <span class="built_in">break</span>;     // 报错</div><div class="line">    // <span class="built_in">continue</span>;  // 报错</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Attention</p>
+<ul>
+<li><p>回调函数中有2个参数，分别表示值和索引。</p>
+</li>
+<li><p>forEach无法遍历对象，无法使用break,continue跳出循环</p>
+</li>
+<li><p>可以添加第二个参数，为一个数组，而毁掉函数中的this会指向这个数组。没有第二个参数，this会指向window.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var newArray = [];</div><div class="line">newArray.forEach(<span class="keyword">function</span>(value, index) &#123;</div><div class="line">  this.push(value);</div><div class="line">&#125;, newArray)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/JavaScript/">JavaScript</a></li></ul>
