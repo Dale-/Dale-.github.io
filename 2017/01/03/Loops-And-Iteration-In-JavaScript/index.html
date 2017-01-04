@@ -23,7 +23,7 @@
 <meta property="og:image" content="https://dale-.github.io/images/iteration/reduce.png">
 <meta property="og:image" content="https://dale-.github.io/images/iteration/every.png">
 <meta property="og:image" content="https://dale-.github.io/images/iteration/some.png">
-<meta property="og:updated_time" content="2017-01-04T13:38:41.000Z">
+<meta property="og:updated_time" content="2017-01-04T13:43:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Loops And Iteration In JavaScript">
 <meta name="twitter:description" content="how to use different type of loops and iteration in JavaScript">
@@ -237,10 +237,19 @@
 <p><img src="/images/iteration/forEach.png" alt=""></p>
 <h3 id="map-让数组通过某种计算产生一个新数组"><a href="#map-让数组通过某种计算产生一个新数组" class="headerlink" title="map (让数组通过某种计算产生一个新数组)"></a>map (让数组通过某种计算产生一个新数组)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var newArray = array.map(<span class="keyword">function</span>(item, index) &#123;</div><div class="line">  <span class="built_in">return</span> item * 2;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p><img src="/images/iteration/map.png" alt=""></p>
+<blockquote>
+<p>场景： 数组中的每项做个转换，结果生成了一个新数组，并且新数组的长度和原数组一致。</p>
+</blockquote>
 <h3 id="filter（筛选出数组中符合条件的项，组成新数组）"><a href="#filter（筛选出数组中符合条件的项，组成新数组）" class="headerlink" title="filter（筛选出数组中符合条件的项，组成新数组）"></a>filter（筛选出数组中符合条件的项，组成新数组）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var newArray = array.map(<span class="keyword">function</span>(item, index) &#123;</div><div class="line">  <span class="built_in">return</span> item &gt; 3;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p><img src="/images/iteration/filter.png" alt=""></p>
+<blockquote>
+<p>场景：按照某规则提取出一些特定的项来，结果也生成了一个新数组，但新数组的长度小于或等于原数组。</p>
+</blockquote>
 <h3 id="reduce（让数组中的前项和后项做某种计算，并累计最终值）"><a href="#reduce（让数组中的前项和后项做某种计算，并累计最终值）" class="headerlink" title="reduce（让数组中的前项和后项做某种计算，并累计最终值）"></a>reduce（让数组中的前项和后项做某种计算，并累计最终值）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var newArray = array.reduce(<span class="keyword">function</span>(prev, next) &#123;</div><div class="line">  <span class="built_in">return</span> prev + next;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p><img src="/images/iteration/reduce.png" alt=""></p>
+<blockquote>
+<p>场景： 通过遍历一个数组的每一项来计算出一个新东西，最后生成的结果可以是任何类型的变量：一个新数组，一个新对象，一个新布尔值…</p>
+</blockquote>
 <h3 id="every（检测数组中的每一项是否符合条件）"><a href="#every（检测数组中的每一项是否符合条件）" class="headerlink" title="every（检测数组中的每一项是否符合条件）"></a>every（检测数组中的每一项是否符合条件）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var newArray = array.every(<span class="keyword">function</span>(item, index) &#123;</div><div class="line">  <span class="built_in">return</span> item &gt; 0;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p><img src="/images/iteration/every.png" alt=""></p>
 <h3 id="some（检测数组中是否有某些符合条件）"><a href="#some（检测数组中是否有某些符合条件）" class="headerlink" title="some（检测数组中是否有某些符合条件）"></a>some（检测数组中是否有某些符合条件）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var newArray = array.some(<span class="keyword">function</span>(item, index) &#123;</div><div class="line">  <span class="built_in">return</span> item &gt; 1;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
