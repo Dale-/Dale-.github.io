@@ -27,7 +27,7 @@
 <meta property="og:image" content="https://dale-.github.io/images/iteration/reduceV.png">
 <meta property="og:image" content="https://dale-.github.io/images/iteration/every.png">
 <meta property="og:image" content="https://dale-.github.io/images/iteration/some.png">
-<meta property="og:updated_time" content="2017-01-04T14:04:30.000Z">
+<meta property="og:updated_time" content="2017-01-04T14:16:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Loops And Iteration In JavaScript">
 <meta name="twitter:description" content="how to use different type of loops and iteration in JavaScript">
@@ -221,6 +221,8 @@
 </li>
 <li><p>forEach无法遍历对象，无法使用break,continue跳出循环</p>
 </li>
+<li><p>第一个参数：每个元素值，第二个参数：数组的下标，第三个参数：当前数组对象</p>
+</li>
 <li><p>可以添加第二个参数，为一个数组，而毁掉函数中的this会指向这个数组。没有第二个参数，this会指向window.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var newArray = [];</div><div class="line">newArray.forEach(<span class="keyword">function</span>(value, index) &#123;</div><div class="line">  this.push(value);</div><div class="line">&#125;, newArray)</div></pre></td></tr></table></figure>
 </li>
@@ -246,6 +248,7 @@
 <p><img src="/images/iteration/map.png" alt=""></p>
 <blockquote>
 <p>场景： 数组中的每项做转换（计算比较常用），结果生成了一个新数组，并且新数组的长度和原数组一致。</p>
+<p>第一个参数：value, 第二个参数key值,第三个参数当前对象</p>
 </blockquote>
 <p><img src="/images/iteration/mapV.png" alt=""></p>
 <h3 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var newArray = array.map(<span class="keyword">function</span>(item, index) &#123;</div><div class="line">  <span class="built_in">return</span> item &gt; 3;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
