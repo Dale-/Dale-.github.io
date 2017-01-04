@@ -17,17 +17,21 @@
 <meta property="og:url" content="https://dale-.github.io/2017/01/03/Loops-And-Iteration-In-JavaScript/index.html">
 <meta property="og:site_name" content="The Girl Behind">
 <meta property="og:description" content="how to use different type of loops and iteration in JavaScript">
+<meta property="og:image" content="https://dale-.github.io/images/iteration/iteration.png">
 <meta property="og:image" content="https://dale-.github.io/images/iteration/forEach.png">
 <meta property="og:image" content="https://dale-.github.io/images/iteration/map.png">
+<meta property="og:image" content="https://dale-.github.io/images/iteration/_map.png">
 <meta property="og:image" content="https://dale-.github.io/images/iteration/filter.png">
+<meta property="og:image" content="https://dale-.github.io/images/iteration/_filter.png">
 <meta property="og:image" content="https://dale-.github.io/images/iteration/reduce.png">
+<meta property="og:image" content="https://dale-.github.io/images/iteration/_reduce.png">
 <meta property="og:image" content="https://dale-.github.io/images/iteration/every.png">
 <meta property="og:image" content="https://dale-.github.io/images/iteration/some.png">
-<meta property="og:updated_time" content="2017-01-04T13:51:26.000Z">
+<meta property="og:updated_time" content="2017-01-04T13:56:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Loops And Iteration In JavaScript">
 <meta name="twitter:description" content="how to use different type of loops and iteration in JavaScript">
-<meta name="twitter:image" content="https://dale-.github.io/images/iteration/forEach.png">
+<meta name="twitter:image" content="https://dale-.github.io/images/iteration/iteration.png">
   
     <link rel="alternate" href="/atom.xml" title="The Girl Behind" type="application/atom+xml">
   
@@ -232,7 +236,7 @@
 </li>
 </ul>
 </blockquote>
-<h2 id="迭代方法"><a href="#迭代方法" class="headerlink" title="迭代方法"></a>迭代方法</h2><p><code>var array = [1, 2, 3, 4, 5];</code></p>
+<h2 id="迭代方法"><a href="#迭代方法" class="headerlink" title="迭代方法"></a>迭代方法</h2><p><code>var array = [1, 2, 3, 4, 5];</code><br><img src="/images/iteration/iteration.png" alt=""></p>
 <h3 id="forEach-1"><a href="#forEach-1" class="headerlink" title="forEach"></a>forEach</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">array.forEach(<span class="keyword">function</span>(item, index) &#123;</div><div class="line">  console.log(item);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p><img src="/images/iteration/forEach.png" alt=""></p>
 <blockquote>
@@ -243,16 +247,19 @@
 <blockquote>
 <p>场景： 数组中的每项做转换（计算比较常用），结果生成了一个新数组，并且新数组的长度和原数组一致。</p>
 </blockquote>
+<p><img src="/images/iteration/_map.png" alt=""></p>
 <h3 id="filter（）"><a href="#filter（）" class="headerlink" title="filter（）"></a>filter（）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var newArray = array.map(<span class="keyword">function</span>(item, index) &#123;</div><div class="line">  <span class="built_in">return</span> item &gt; 3;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p><img src="/images/iteration/filter.png" alt=""></p>
 <blockquote>
 <p>场景：按照规则筛选出符合条件的项，结果也生成了一个新数组，但新数组的长度小于或等于原数组。</p>
 </blockquote>
+<p><img src="/images/iteration/_filter.png" alt=""></p>
 <h3 id="reduce"><a href="#reduce" class="headerlink" title="reduce"></a>reduce</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var newArray = array.reduce(<span class="keyword">function</span>(prev, next) &#123;</div><div class="line">  <span class="built_in">return</span> prev + next;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p><img src="/images/iteration/reduce.png" alt=""></p>
 <blockquote>
 <p>场景： 让数组中的前项和后项做某种计算，并累计最终值，最后生成的结果可以是任何类型的变量：一个新数组，一个新对象，一个新布尔值…</p>
 </blockquote>
+<p><img src="/images/iteration/_reduce.png" alt=""></p>
 <h3 id="every"><a href="#every" class="headerlink" title="every"></a>every</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var newArray = array.every(<span class="keyword">function</span>(item, index) &#123;</div><div class="line">  <span class="built_in">return</span> item &gt; 0;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p><img src="/images/iteration/every.png" alt=""></p>
 <blockquote>
