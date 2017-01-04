@@ -27,7 +27,7 @@
 <meta property="og:image" content="https://dale-.github.io/images/iteration/reduceV.png">
 <meta property="og:image" content="https://dale-.github.io/images/iteration/every.png">
 <meta property="og:image" content="https://dale-.github.io/images/iteration/some.png">
-<meta property="og:updated_time" content="2017-01-04T14:16:02.000Z">
+<meta property="og:updated_time" content="2017-01-04T14:22:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Loops And Iteration In JavaScript">
 <meta name="twitter:description" content="how to use different type of loops and iteration in JavaScript">
@@ -228,7 +228,12 @@
 </li>
 </ul>
 </blockquote>
-<h3 id="for-of（ES6新增的语法）"><a href="#for-of（ES6新增的语法）" class="headerlink" title="for..of（ES6新增的语法）"></a>for..of（ES6新增的语法）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var list = new Map().set(<span class="string">'a'</span>, 1).set(<span class="string">'b'</span>, 2).set(<span class="string">'c'</span>, 3);</div><div class="line"><span class="keyword">for</span> (var [key, value] of list) &#123;</div><div class="line">  console.log(key + <span class="string">'=&gt;'</span> + value);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="for-of（ES6新增的语法）"><a href="#for-of（ES6新增的语法）" class="headerlink" title="for..of（ES6新增的语法）"></a>for..of（ES6新增的语法）</h3><ul>
+<li>第一个变量：数组中的每一个元素</li>
+<li>第二个变量：待遍历的数组对象</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>( var element of array ) &#123;</div><div class="line">console.log( element.name );</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var list = new Map().set(<span class="string">'a'</span>, 1).set(<span class="string">'b'</span>, 2).set(<span class="string">'c'</span>, 3);</div><div class="line"><span class="keyword">for</span> (var [key, value] of list) &#123;</div><div class="line">  console.log(key + <span class="string">'=&gt;'</span> + value);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <blockquote>
 <p>Attention</p>
 <ul>
@@ -257,6 +262,10 @@
 <p>场景：按照规则筛选出符合条件的项，结果也生成了一个新数组，但新数组的长度小于或等于原数组。</p>
 </blockquote>
 <p><img src="/images/iteration/filterV.png" alt=""></p>
+<h3 id="find"><a href="#find" class="headerlink" title="find"></a>find</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var newArray = array.find(<span class="keyword">function</span>(item) &#123;</div><div class="line">  <span class="built_in">return</span> item &gt; 3;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>场景：按照规则查找出符合条件的项，返回符合条件的第一个元素。</p>
+</blockquote>
 <h3 id="reduce"><a href="#reduce" class="headerlink" title="reduce"></a>reduce</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var newArray = array.reduce(<span class="keyword">function</span>(prev, next) &#123;</div><div class="line">  <span class="built_in">return</span> prev + next;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p><img src="/images/iteration/reduce.png" alt=""></p>
 <blockquote>
@@ -328,7 +337,7 @@
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#遍历"><span class="toc-number">1.</span> <span class="toc-text">遍历</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#for"><span class="toc-number">1.1.</span> <span class="toc-text">for</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#for-in"><span class="toc-number">1.2.</span> <span class="toc-text">for in</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#forEach"><span class="toc-number">1.3.</span> <span class="toc-text">forEach</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#for-of（ES6新增的语法）"><span class="toc-number">1.4.</span> <span class="toc-text">for..of（ES6新增的语法）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#迭代方法"><span class="toc-number">2.</span> <span class="toc-text">迭代方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#forEach-1"><span class="toc-number">2.1.</span> <span class="toc-text">forEach</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#map"><span class="toc-number">2.2.</span> <span class="toc-text">map</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#filter"><span class="toc-number">2.3.</span> <span class="toc-text">filter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reduce"><span class="toc-number">2.4.</span> <span class="toc-text">reduce</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#every"><span class="toc-number">2.5.</span> <span class="toc-text">every</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#some"><span class="toc-number">2.6.</span> <span class="toc-text">some</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#遍历"><span class="toc-number">1.</span> <span class="toc-text">遍历</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#for"><span class="toc-number">1.1.</span> <span class="toc-text">for</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#for-in"><span class="toc-number">1.2.</span> <span class="toc-text">for in</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#forEach"><span class="toc-number">1.3.</span> <span class="toc-text">forEach</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#for-of（ES6新增的语法）"><span class="toc-number">1.4.</span> <span class="toc-text">for..of（ES6新增的语法）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#迭代方法"><span class="toc-number">2.</span> <span class="toc-text">迭代方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#forEach-1"><span class="toc-number">2.1.</span> <span class="toc-text">forEach</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#map"><span class="toc-number">2.2.</span> <span class="toc-text">map</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#filter"><span class="toc-number">2.3.</span> <span class="toc-text">filter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#find"><span class="toc-number">2.4.</span> <span class="toc-text">find</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reduce"><span class="toc-number">2.5.</span> <span class="toc-text">reduce</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#every"><span class="toc-number">2.6.</span> <span class="toc-text">every</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#some"><span class="toc-number">2.7.</span> <span class="toc-text">some</span></a></li></ol></li></ol>
     
     </div>
   </aside>
