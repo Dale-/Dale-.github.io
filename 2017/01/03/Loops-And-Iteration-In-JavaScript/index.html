@@ -27,7 +27,7 @@
 <meta property="og:image" content="https://dale-.github.io/images/iteration/reduceV.png">
 <meta property="og:image" content="https://dale-.github.io/images/iteration/every.png">
 <meta property="og:image" content="https://dale-.github.io/images/iteration/some.png">
-<meta property="og:updated_time" content="2017-01-06T07:40:24.000Z">
+<meta property="og:updated_time" content="2017-01-07T15:26:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Loops And Iteration In JavaScript">
 <meta name="twitter:description" content="how to use different type of loops and iteration in JavaScript">
@@ -259,6 +259,11 @@
 <p>第一个参数：value, 第二个参数key值,第三个参数当前对象</p>
 </blockquote>
 <p><img src="/images/iteration/mapV.png" alt=""></p>
+<blockquote>
+<p>替代栗子</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var animals = [<span class="string">"cat"</span>,<span class="string">"dog"</span>,<span class="string">"fish"</span>];</div><div class="line">var lengths = [];</div><div class="line">var item;</div><div class="line">var count;</div><div class="line">var loops = animals.length;</div><div class="line"><span class="keyword">for</span> (count = 0; count &lt; loops; count++)&#123;</div><div class="line">  item = animals[count];</div><div class="line">  lengths.push(item.length);</div><div class="line">&#125;</div><div class="line">console.log(lengths); //[3, 3, 4]</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var animals = [<span class="string">"cat"</span>,<span class="string">"dog"</span>,<span class="string">"fish"</span>];</div><div class="line">var lengths = animals.map(<span class="keyword">function</span>(animal) &#123;</div><div class="line">  <span class="built_in">return</span> animal.length;</div><div class="line">&#125;);</div><div class="line">console.log(lengths); //[3, 3, 4]</div></pre></td></tr></table></figure>
 <h3 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var newArray = array.map(<span class="keyword">function</span>(item, index) &#123;</div><div class="line">  <span class="built_in">return</span> item &gt; 3;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p><img src="/images/iteration/filter.png" alt=""></p>
 <blockquote>
