@@ -27,7 +27,7 @@
 <meta property="og:image" content="https://dale-.github.io/images/iteration/reduceV.png">
 <meta property="og:image" content="https://dale-.github.io/images/iteration/every.png">
 <meta property="og:image" content="https://dale-.github.io/images/iteration/some.png">
-<meta property="og:updated_time" content="2017-01-07T15:26:22.000Z">
+<meta property="og:updated_time" content="2017-01-10T14:02:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Loops And Iteration In JavaScript">
 <meta name="twitter:description" content="how to use different type of loops and iteration in JavaScript">
@@ -252,18 +252,39 @@
 <blockquote>
 <p>场景： 让数组中的每一项，做一件事</p>
 </blockquote>
-<h3 id="map"><a href="#map" class="headerlink" title="map"></a>map</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var newArray = array.map(<span class="keyword">function</span>(item, index) &#123;</div><div class="line">  <span class="built_in">return</span> item * 2;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="map"><a href="#map" class="headerlink" title="map"></a>map</h3><blockquote>
+<p>Mapping is a fundamental functional programming technique for operating on all of the elements in an array and producing another array of the same length with transformed contents.</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var newArray = array.map(<span class="keyword">function</span>(item, index) &#123;</div><div class="line">  <span class="built_in">return</span> item * 2;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p><img src="/images/iteration/map.png" alt=""></p>
 <blockquote>
-<p>场景： 数组中的每项做转换（计算比较常用），结果生成了一个新数组，并且新数组的长度和原数组一致。</p>
-<p>第一个参数：value, 第二个参数key值,第三个参数当前对象</p>
+<p>场景</p>
 </blockquote>
+<ul>
+<li>数组中的每项做转换（计算比较常用），结果生成了一个新数组，并且新数组的长度和原数组一致。</li>
+<li>第一个参数：value, 第二个参数key值,第三个参数当前对象</li>
+</ul>
 <p><img src="/images/iteration/mapV.png" alt=""></p>
 <blockquote>
-<p>替代栗子</p>
+<p>A Simple Case</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var animals = [<span class="string">"cat"</span>,<span class="string">"dog"</span>,<span class="string">"fish"</span>];</div><div class="line">var lengths = [];</div><div class="line">var item;</div><div class="line">var count;</div><div class="line">var loops = animals.length;</div><div class="line"><span class="keyword">for</span> (count = 0; count &lt; loops; count++)&#123;</div><div class="line">  item = animals[count];</div><div class="line">  lengths.push(item.length);</div><div class="line">&#125;</div><div class="line">console.log(lengths); //[3, 3, 4]</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Use Map</p>
+</blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var animals = [<span class="string">"cat"</span>,<span class="string">"dog"</span>,<span class="string">"fish"</span>];</div><div class="line">var lengths = animals.map(<span class="keyword">function</span>(animal) &#123;</div><div class="line">  <span class="built_in">return</span> animal.length;</div><div class="line">&#125;);</div><div class="line">console.log(lengths); //[3, 3, 4]</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Refractory</p>
+</blockquote>
+<ul>
+<li>我们声明了一个lengths变量，并且我们把一个匿名函数的值直接赋值给它。</li>
+<li>我们上面使用的方式要比原始的更简短，并且声明更少的变量</li>
+</ul>
+<ol>
+<li>更少的变量意味着在全局作用域中更少的污染，更少有机会与其他使用相同名称的变量产生冲突</li>
+<li>当你深入函数式变成后，你会倾向于使用常量或者不可变变量，这样永远都不会存在太晚使用的问题</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var animals = [<span class="string">"cat"</span>,<span class="string">"dog"</span>,<span class="string">"fish"</span>];</div><div class="line"><span class="keyword">function</span> getLength(word) &#123;</div><div class="line">  <span class="built_in">return</span> word.length;</div><div class="line">&#125;</div><div class="line">console.log(animals.map(getLength)); //[3, 3, 4]</div></pre></td></tr></table></figure>
 <h3 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var newArray = array.map(<span class="keyword">function</span>(item, index) &#123;</div><div class="line">  <span class="built_in">return</span> item &gt; 3;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p><img src="/images/iteration/filter.png" alt=""></p>
 <blockquote>
