@@ -27,7 +27,7 @@
 <meta property="og:image" content="https://dale-.github.io/images/iteration/reduceV.png">
 <meta property="og:image" content="https://dale-.github.io/images/iteration/every.png">
 <meta property="og:image" content="https://dale-.github.io/images/iteration/some.png">
-<meta property="og:updated_time" content="2017-01-10T14:02:52.000Z">
+<meta property="og:updated_time" content="2017-01-10T14:55:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Loops And Iteration In JavaScript">
 <meta name="twitter:description" content="how to use different type of loops and iteration in JavaScript">
@@ -301,6 +301,18 @@
 <p>场景： 让数组中的前项和后项做某种计算，并累计最终值，最后生成的结果可以是任何类型的变量：一个新数组，一个新对象，一个新布尔值…</p>
 </blockquote>
 <p><img src="/images/iteration/reduceV.png" alt=""></p>
+<blockquote>
+<p>A Simple Case</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var animals = [<span class="string">"cat"</span>,<span class="string">"dog"</span>,<span class="string">"fish"</span>];</div><div class="line">var total = 0;</div><div class="line">var item;</div><div class="line"><span class="keyword">for</span> (var count = 0, loops = animals.length; count &lt; loops; count++)&#123;</div><div class="line">  item = animals[count];</div><div class="line">  total += item.length;</div><div class="line">&#125;</div><div class="line">console.log(total); //10</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Use Map</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var animals = [<span class="string">"cat"</span>,<span class="string">"dog"</span>,<span class="string">"fish"</span>];</div><div class="line">var total = animals.reduce(<span class="keyword">function</span>(sum, word) &#123;</div><div class="line">  <span class="built_in">return</span> sum + word.length;</div><div class="line">&#125;, 0);</div><div class="line">console.log(total);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Refractory</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var animals = [<span class="string">"cat"</span>,<span class="string">"dog"</span>,<span class="string">"fish"</span>];</div><div class="line">var addLength = <span class="keyword">function</span>(sum, word) &#123;</div><div class="line">  <span class="built_in">return</span> sum + word.length;</div><div class="line">&#125;;</div><div class="line">var total = animals.reduce(addLength, 0);</div><div class="line">console.log(total);</div></pre></td></tr></table></figure>
 <h3 id="every"><a href="#every" class="headerlink" title="every"></a>every</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var newArray = array.every(<span class="keyword">function</span>(item, index) &#123;</div><div class="line">  <span class="built_in">return</span> item &gt; 0;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p><img src="/images/iteration/every.png" alt=""></p>
 <blockquote>
@@ -311,6 +323,7 @@
 <blockquote>
 <p>场景：数组中有一项符合规则，则返回true</p>
 </blockquote>
+<p>参考文章：[Using Map and Reduce in Functional JavaScript]<br>(<a href="https://www.sitepoint.com/map-reduce-functional-javascript/" target="_blank" rel="external">https://www.sitepoint.com/map-reduce-functional-javascript/</a>)</p>
 
       
       
