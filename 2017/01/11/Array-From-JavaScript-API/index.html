@@ -17,7 +17,7 @@
 <meta property="og:url" content="https://dale-.github.io/2017/01/11/Array-From-JavaScript-API/index.html">
 <meta property="og:site_name" content="The Girl Behind">
 <meta property="og:description" content="JavaScript Array API">
-<meta property="og:updated_time" content="2017-01-12T00:59:39.000Z">
+<meta property="og:updated_time" content="2017-01-12T01:30:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Array From JavaScript API">
 <meta name="twitter:description" content="JavaScript Array API">
@@ -241,10 +241,66 @@
 <h3 id="Array-prototype-fill"><a href="#Array-prototype-fill" class="headerlink" title="Array.prototype.fill()"></a>Array.prototype.fill()</h3><blockquote>
 <p>使用 fill() 方法，可以将一个数组中指定区间的所有元素的值, 都替换成或者说填充成为某个固定的值</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> isBigEnough(element, index, array) &#123;</div><div class="line">  <span class="built_in">return</span> (element &gt;= 10);</div><div class="line">&#125;</div><div class="line">var passed = [12, 5, 8, 130, 44].every(isBigEnough);</div><div class="line">// passed is <span class="literal">false</span></div><div class="line">passed = [12, 54, 18, 130, 44].every(isBigEnough);</div><div class="line">// passed is <span class="literal">true</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[1, 2, 3].fill(4)            // [4, 4, 4]</div><div class="line">[1, 2, 3].fill(4, 1)         // [1, 4, 4]</div><div class="line">[1, 2, 3].fill(4, 1, 2)      // [1, 4, 3]</div><div class="line">[1, 2, 3].fill(4, 1, 1)      // [1, 2, 3]</div><div class="line">[1, 2, 3].fill(4, -3, -2)    // [4, 2, 3]</div><div class="line">[1, 2, 3].fill(4, NaN, NaN)  // [1, 2, 3]</div><div class="line">Array(3).fill(4);            // [4, 4, 4]</div></pre></td></tr></table></figure>
 <p><em>Syntax</em></p>
 <blockquote>
 <p>array.fill(value[, start = 0[, end = this.length]])</p>
+</blockquote>
+<h3 id="Array-prototype-filter"><a href="#Array-prototype-filter" class="headerlink" title="Array.prototype.filter()"></a>Array.prototype.filter()</h3><blockquote>
+<p>filter() 方法使用指定的函数测试所有元素，并创建一个包含所有通过测试的元素的新数组</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> isBigEnough(element) &#123;</div><div class="line">  <span class="built_in">return</span> element &gt;= 10;</div><div class="line">&#125;</div><div class="line">var filtered = [12, 5, 8, 130, 44].filter(isBigEnough);</div><div class="line">// filtered is [12, 130, 44]</div></pre></td></tr></table></figure>
+<p><em>Syntax</em></p>
+<blockquote>
+<p>var newArrary = array.filter(callback[, thisArg])</p>
+</blockquote>
+<h3 id="Array-prototype-find"><a href="#Array-prototype-find" class="headerlink" title="Array.prototype.find()"></a>Array.prototype.find()</h3><blockquote>
+<p>如果数组中某个元素满足测试条件，find() 方法就会返回那个元素的第一个值，如果没有满足条件的元素，则返回 undefined</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var inventory = [</div><div class="line">    &#123;name: <span class="string">'apples'</span>, quantity: 2&#125;,</div><div class="line">    &#123;name: <span class="string">'bananas'</span>, quantity: 0&#125;,</div><div class="line">    &#123;name: <span class="string">'cherries'</span>, quantity: 5&#125;</div><div class="line">];</div><div class="line"></div><div class="line"><span class="keyword">function</span> findCherries(fruit) &#123;</div><div class="line">    <span class="built_in">return</span> fruit.name === <span class="string">'cherries'</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">console.log(inventory.find(findCherries)); // &#123; name: <span class="string">'cherries'</span>, quantity: 5 &#125;</div></pre></td></tr></table></figure>
+<p><em>Syntax</em></p>
+<blockquote>
+<p>array.find(callback[, thisArg])</p>
+</blockquote>
+<h3 id="Array-prototype-findIndex-ES6规范"><a href="#Array-prototype-findIndex-ES6规范" class="headerlink" title="Array.prototype.findIndex()(ES6规范)"></a>Array.prototype.findIndex()(ES6规范)</h3><blockquote>
+<p>findIndex()方法用来查找数组中某指定元素的索引, 如果找不到指定的元素, 则返回 -1</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> isPrime(element, index, array) &#123;</div><div class="line">    var start = 2;</div><div class="line">    <span class="keyword">while</span> (start &lt;= Math.sqrt(element)) &#123;</div><div class="line">        <span class="keyword">if</span> (element % start++ &lt; 1) <span class="built_in">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> (element &gt; 1);</div><div class="line">&#125;</div><div class="line"></div><div class="line">console.log( [4, 6, 8, 12].findIndex(isPrime) ); // -1, 没找到质数元素</div><div class="line">console.log( [4, 6, 7, 12].findIndex(isPrime) ); // 2</div></pre></td></tr></table></figure>
+<p><em>Syntax</em></p>
+<blockquote>
+<p>array.findIndex(callback[, thisArg])</p>
+</blockquote>
+<h3 id="Array-prototype-forEach"><a href="#Array-prototype-forEach" class="headerlink" title="Array.prototype.forEach()"></a>Array.prototype.forEach()</h3><blockquote>
+<p>findIndex()方法用来查找数组中某指定元素的索引, 如果找不到指定的元素, 则返回 -1</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="built_in">log</span>ArrayElements(element, index, array) &#123;</div><div class="line">    console.log(<span class="string">"a["</span> + index + <span class="string">"] = "</span> + element);</div><div class="line">&#125;</div><div class="line">[2, 5, 9].forEach(<span class="built_in">log</span>ArrayElements);</div><div class="line">// logs:</div><div class="line">// a[0] = 2</div><div class="line">// a[1] = 5</div><div class="line">// a[2] = 9</div></pre></td></tr></table></figure>
+<p><em>Syntax</em></p>
+<blockquote>
+<p>array.forEach(callback[, thisArg])</p>
+</blockquote>
+<h3 id="Array-prototype-includes"><a href="#Array-prototype-includes" class="headerlink" title="Array.prototype.includes()"></a>Array.prototype.includes()</h3><blockquote>
+<p>includes() 方法用来判断当前数组是否包含某指定的值，如果是，则返回 true，否则返回 false</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[1, 2, 3].includes(2);     // <span class="literal">true</span></div><div class="line">[1, 2, 3].includes(4);     // <span class="literal">false</span></div><div class="line">[1, 2, 3].includes(3, 3);  // <span class="literal">false</span></div><div class="line">[1, 2, 3].includes(3, -1); // <span class="literal">true</span></div><div class="line">[1, 2, NaN].includes(NaN); // <span class="literal">true</span></div></pre></td></tr></table></figure>
+<p><em>Syntax</em></p>
+<blockquote>
+<p>var boolean = array.includes(searchElement[, fromIndex])</p>
+</blockquote>
+<h3 id="Array-prototype-indexOf"><a href="#Array-prototype-indexOf" class="headerlink" title="Array.prototype.indexOf()"></a>Array.prototype.indexOf()</h3><blockquote>
+<p>indexOf()方法返回给定元素能找在数组中找到的第一个索引值，否则返回-1</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var array = [2, 5, 9];</div><div class="line">array.indexOf(2);     // 0</div><div class="line">array.indexOf(7);     // -1</div><div class="line">array.indexOf(9, 2);  // 2</div><div class="line">array.indexOf(2, -1); // -1</div><div class="line">array.indexOf(2, -3); // 0</div></pre></td></tr></table></figure>
+<p><em>Syntax</em></p>
+<blockquote>
+<p>array.indexOf(searchElement[, fromIndex = 0])</p>
+</blockquote>
+<h3 id="Array-prototype-join"><a href="#Array-prototype-join" class="headerlink" title="Array.prototype.join()"></a>Array.prototype.join()</h3><blockquote>
+<p>join() 方法将数组中的所有元素连接成一个字符串</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var a = [<span class="string">'Wind'</span>, <span class="string">'Rain'</span>, <span class="string">'Fire'</span>];</div><div class="line">var myVar1 = a.join();      // myVar1的值变为<span class="string">"Wind,Rain,Fire"</span></div><div class="line">var myVar2 = a.join(<span class="string">', '</span>);  // myVar2的值变为<span class="string">"Wind, Rain, Fire"</span></div><div class="line">var myVar3 = a.join(<span class="string">' + '</span>); // myVar3的值变为<span class="string">"Wind + Rain + Fire"</span></div><div class="line">var myVar4 = a.join(<span class="string">''</span>);    // myVar4的值变为<span class="string">"WindRainFire"</span></div></pre></td></tr></table></figure>
+<p><em>Syntax</em></p>
+<blockquote>
+<p>str = array.join([separator = ‘,’])</p>
 </blockquote>
 
       
@@ -301,7 +357,7 @@
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Properties"><span class="toc-number">1.</span> <span class="toc-text">Properties</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-length"><span class="toc-number">1.1.</span> <span class="toc-text">Array.length</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype"><span class="toc-number">1.2.</span> <span class="toc-text">Array.prototype</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Methods"><span class="toc-number">2.</span> <span class="toc-text">Methods</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-from-ES6规范"><span class="toc-number">2.1.</span> <span class="toc-text">Array.from() (ES6规范)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-isArray"><span class="toc-number">2.2.</span> <span class="toc-text">Array.isArray()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-of"><span class="toc-number">2.3.</span> <span class="toc-text">Array.of()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-concat"><span class="toc-number">2.4.</span> <span class="toc-text">Array.prototype.concat()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-copyWithin"><span class="toc-number">2.5.</span> <span class="toc-text">Array.prototype.copyWithin()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-entries-ES6规范"><span class="toc-number">2.6.</span> <span class="toc-text">Array.prototype.entries()(ES6规范)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-every"><span class="toc-number">2.7.</span> <span class="toc-text">Array.prototype.every()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-fill"><span class="toc-number">2.8.</span> <span class="toc-text">Array.prototype.fill()</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Properties"><span class="toc-number">1.</span> <span class="toc-text">Properties</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-length"><span class="toc-number">1.1.</span> <span class="toc-text">Array.length</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype"><span class="toc-number">1.2.</span> <span class="toc-text">Array.prototype</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Methods"><span class="toc-number">2.</span> <span class="toc-text">Methods</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-from-ES6规范"><span class="toc-number">2.1.</span> <span class="toc-text">Array.from() (ES6规范)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-isArray"><span class="toc-number">2.2.</span> <span class="toc-text">Array.isArray()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-of"><span class="toc-number">2.3.</span> <span class="toc-text">Array.of()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-concat"><span class="toc-number">2.4.</span> <span class="toc-text">Array.prototype.concat()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-copyWithin"><span class="toc-number">2.5.</span> <span class="toc-text">Array.prototype.copyWithin()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-entries-ES6规范"><span class="toc-number">2.6.</span> <span class="toc-text">Array.prototype.entries()(ES6规范)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-every"><span class="toc-number">2.7.</span> <span class="toc-text">Array.prototype.every()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-fill"><span class="toc-number">2.8.</span> <span class="toc-text">Array.prototype.fill()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-filter"><span class="toc-number">2.9.</span> <span class="toc-text">Array.prototype.filter()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-find"><span class="toc-number">2.10.</span> <span class="toc-text">Array.prototype.find()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-findIndex-ES6规范"><span class="toc-number">2.11.</span> <span class="toc-text">Array.prototype.findIndex()(ES6规范)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-forEach"><span class="toc-number">2.12.</span> <span class="toc-text">Array.prototype.forEach()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-includes"><span class="toc-number">2.13.</span> <span class="toc-text">Array.prototype.includes()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-indexOf"><span class="toc-number">2.14.</span> <span class="toc-text">Array.prototype.indexOf()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-join"><span class="toc-number">2.15.</span> <span class="toc-text">Array.prototype.join()</span></a></li></ol></li></ol>
     
     </div>
   </aside>
