@@ -17,7 +17,7 @@
 <meta property="og:url" content="https://dale-.github.io/2017/01/16/Object-From-JavaScript-API/index.html">
 <meta property="og:site_name" content="The Girl Behind">
 <meta property="og:description" content="JavaScript Object API">
-<meta property="og:updated_time" content="2017-01-16T15:41:37.000Z">
+<meta property="og:updated_time" content="2017-01-17T08:18:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Object From JavaScript API">
 <meta name="twitter:description" content="JavaScript Object API">
@@ -176,7 +176,34 @@
 </blockquote>
 <h2 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h2><h3 id="Object-prototype"><a href="#Object-prototype" class="headerlink" title="Object.prototype"></a>Object.prototype</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">var Person = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">  this.canTalk = <span class="literal">true</span>;</div><div class="line">  this.greet = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">    <span class="keyword">if</span> (this.canTalk) &#123;</div><div class="line">      console.log(<span class="string">'Hi, I\'</span>m <span class="string">' + this.name);</span></div><div class="line">    &#125;</div><div class="line">  &#125;;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var Employee = function(name, title) &#123;</div><div class="line">  this.name = name;</div><div class="line">  this.title = title;</div><div class="line">  this.greet = function() &#123;</div><div class="line">    if (this.canTalk) &#123;</div><div class="line">      console.log("Hi, I'm <span class="string">" + this.name + "</span>, the <span class="string">" + this.title);</span></div><div class="line">    &#125;</div><div class="line">  &#125;;</div><div class="line">&#125;;</div><div class="line">Employee.prototype = new Person();</div><div class="line"></div><div class="line">var Customer = function(name) &#123;</div><div class="line">  this.name = name;</div><div class="line">&#125;;</div><div class="line">Customer.prototype = new Person();</div><div class="line"></div><div class="line">var Mime = function(name) &#123;</div><div class="line">  this.name = name;</div><div class="line">  this.canTalk = false;</div><div class="line">&#125;;</div><div class="line">Mime.prototype = new Person();</div><div class="line"></div><div class="line">var bob = new Employee('Bob', 'Builder');</div><div class="line">var joe = new Customer('Joe');</div><div class="line">var rg = new Employee('Red Green', 'Handyman');</div><div class="line">var mike = new Customer('Mike');</div><div class="line">var mime = new Mime('Mime');</div><div class="line">bob.greet();</div><div class="line">joe.greet();</div><div class="line">rg.greet();</div><div class="line">mike.greet();</div><div class="line">mime.greet();</div></pre></td></tr></table></figure>
 <a id="more"></a>
-<h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h2>
+<h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h2><h3 id="Object-assign"><a href="#Object-assign" class="headerlink" title="Object.assign()"></a>Object.assign()</h3><blockquote>
+<p>Object.assign() 方法可以把任意多个的源对象自身的可枚举属性拷贝给目标对象，然后返回目标对象</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var obj = &#123; a: 1 &#125;;</div><div class="line">var copy = Object.assign(&#123;&#125;, obj);</div><div class="line">console.log(copy); // &#123; a: 1 &#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>合并 objects</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var o1 = &#123; a: 1 &#125;;</div><div class="line">var o2 = &#123; b: 2 &#125;;</div><div class="line">var o3 = &#123; c: 3 &#125;;</div><div class="line"></div><div class="line">var obj = Object.assign(o1, o2, o3);</div><div class="line">console.log(obj); // &#123; a: 1, b: 2, c: 3 &#125;</div><div class="line">console.log(o1);  // &#123; a: 1, b: 2, c: 3 &#125;, 注意目标对象自身也会改变。</div></pre></td></tr></table></figure>
+</li>
+<li><p>拷贝 symbol 类型的属性</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var o1 = &#123; a: 1 &#125;;</div><div class="line">var o2 = &#123; [Symbol(<span class="string">"foo"</span>)]: 2 &#125;;</div><div class="line"></div><div class="line">var obj = Object.assign(&#123;&#125;, o1, o2);</div><div class="line">console.log(obj); // &#123; a: 1, [Symbol(<span class="string">"foo"</span>)]: 2 &#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><em>Syntax</em></p>
+<blockquote>
+<p> Object.assign(target, …sources)</p>
+</blockquote>
+<h3 id="Object-create"><a href="#Object-create" class="headerlink" title="Object.create()"></a>Object.create()</h3><blockquote>
+<p>Object.create() 方法创建一个拥有指定原型和若干个指定属性的对象</p>
+</blockquote>
+<ul>
+<li>下面的例子演示了如何使用Object.create()来实现类式继承。这是一个单继承<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">//Shape - superclass</div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">Shape</span></span>() &#123;</div><div class="line">  this.x = 0;</div><div class="line">  this.y = 0;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Shape.prototype.move = <span class="keyword">function</span>(x, y) &#123;</div><div class="line">    this.x += x;</div><div class="line">    this.y += y;</div><div class="line">    console.info(<span class="string">"Shape moved."</span>);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">// Rectangle - subclass</div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">Rectangle</span></span>() &#123;</div><div class="line">  Shape.call(this); //call super constructor.</div><div class="line">&#125;</div><div class="line"></div><div class="line">Rectangle.prototype = Object.create(Shape.prototype);</div><div class="line"></div><div class="line">var rect = new Rectangle();</div><div class="line"></div><div class="line">rect instanceof Rectangle //true.</div><div class="line">rect instanceof Shape //true.</div><div class="line"></div><div class="line">rect.move(1, 1); //Outputs, <span class="string">"Shape moved."</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><em>Syntax</em></p>
+<blockquote>
+<p> Object.create(proto[, propertiesObject])</p>
+</blockquote>
+
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/JavaScript/">JavaScript</a></li></ul>
@@ -231,7 +258,7 @@
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Properties"><span class="toc-number">1.</span> <span class="toc-text">Properties</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-prototype"><span class="toc-number">1.1.</span> <span class="toc-text">Object.prototype</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Methods"><span class="toc-number">2.</span> <span class="toc-text">Methods</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Properties"><span class="toc-number">1.</span> <span class="toc-text">Properties</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-prototype"><span class="toc-number">1.1.</span> <span class="toc-text">Object.prototype</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Methods"><span class="toc-number">2.</span> <span class="toc-text">Methods</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-assign"><span class="toc-number">2.1.</span> <span class="toc-text">Object.assign()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-create"><span class="toc-number">2.2.</span> <span class="toc-text">Object.create()</span></a></li></ol></li></ol>
     
     </div>
   </aside>
