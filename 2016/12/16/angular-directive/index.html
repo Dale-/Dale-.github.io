@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="The Girl Behind">
 <meta property="og:description" content="Angular指令">
 <meta property="og:image" content="https://dale-.github.io/images/angular-directive/directive-templateUrl.png">
-<meta property="og:updated_time" content="2016-12-20T09:42:29.000Z">
+<meta property="og:updated_time" content="2017-01-22T08:51:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Angular Directive">
 <meta name="twitter:description" content="Angular指令">
@@ -214,9 +214,9 @@
 <li><a href="https://docs.angularjs.org/api/ng" target="_blank" rel="external">ng</a>模块中的服务</li>
 </ul>
 <p>在模板第一次被引用时,它会被载入到模板缓存中以便快速的检索。你可以直接使用一个script标签来添加一个模板，或者直接通过 $templateCache 服务来达到相同的效果。</p>
-<p>【Set】通过 script 标签添加:<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/ng-template"</span> id=<span class="string">"templateId.html"</span>&gt;</div><div class="line">&lt;p&gt;This is the content of the template&lt;/p&gt;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
-<p>【Set】通过 $templateCache 服务添加:<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var myApp = angular.module(<span class="string">'myApp'</span>, []);</div><div class="line">myApp.run(<span class="keyword">function</span>(<span class="variable">$templateCache</span>) &#123;</div><div class="line"><span class="variable">$templateCache</span>.put(<span class="string">'templateId.html'</span>, <span class="string">'This is the content of the template'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p>【Get】通过 component 得到:<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">myApp.component(<span class="string">'myComponent'</span>, &#123;</div><div class="line">template: <span class="string">'templateId.html'</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>【Set】通过 script 标签添加:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/ng-template"</span> id=<span class="string">"templateId.html"</span>&gt;</div><div class="line">&lt;p&gt;This is the content of the template&lt;/p&gt;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>【Set】通过 $templateCache 服务添加:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var myApp = angular.module(<span class="string">'myApp'</span>, []);</div><div class="line">myApp.run(<span class="keyword">function</span>(<span class="variable">$templateCache</span>) &#123;</div><div class="line"><span class="variable">$templateCache</span>.put(<span class="string">'templateId.html'</span>, <span class="string">'This is the content of the template'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>【Get】通过 component 得到:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">myApp.component(<span class="string">'myComponent'</span>, &#123;</div><div class="line">template: <span class="string">'templateId.html'</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
 <p>【Get】通过 Javascript 得到:<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$templateCache</span>.get(<span class="string">'templateId.html'</span>)</div></pre></td></tr></table></figure></p>
 <p></p><p data-height="265" data-theme-id="dark" data-slug-hash="NRRjBW" data-default-tab="result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/NRRjBW/" target="_blank" rel="external">[Angular]  - Directive TemplateCache</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
@@ -236,10 +236,17 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">与父scope中的属性进行双向绑定</div></pre></td></tr></table></figure>
 <p> </p><p data-height="265" data-theme-id="dark" data-slug-hash="dpOAdw" data-default-tab="html,result" data-user="DaleDu" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/dpOAdw/" target="_blank" rel="external">[Angular]  - Directive : Scope=</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><br> <script async src="//assets.codepen.io/assets/embed/ei.js"></script><p></p>
 <ul>
-<li><p>=? : 可选择的属性</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">如果绑定了一个没有被赋值的表达式 或者属性不存在，这时将会抛出一个异常</div><div class="line">为了避免这种现象，我们可以使用=？来设置属性为可选择</div></pre></td></tr></table></figure>
+<li><blockquote>
+<p>: 单向绑定</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">与父scope中的属性进行单向绑定</div></pre></td></tr></table></figure>
+<p></p><p data-height="265" data-theme-id="0" data-slug-hash="xgddra" data-default-tab="html,result" data-user="DaleDu" data-embed-version="2" data-pen-title="[Angular]  - Directive : Scope>" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/xgddra/" target="_blank" rel="external">[Angular]  - Directive : Scope&gt;</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+</li>
+<li><p>? : 可选择的属性</p>
 </li>
 </ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">如果绑定了一个没有被赋值的表达式 或者属性不存在，这时将会抛出一个异常</div><div class="line">为了避免这种现象，我们可以使用=？来设置属性为可选择</div></pre></td></tr></table></figure>
 <p></p><p data-height="265" data-theme-id="0" data-slug-hash="QGzVpL" data-default-tab="html,result" data-user="DaleDu" data-embed-version="2" data-pen-title="[Angular]  - Directive : Scope=?" class="codepen">See the Pen <a href="http://codepen.io/DaleDu/pen/QGzVpL/" target="_blank" rel="external">[Angular]  - Directive : Scope=?</a> by Dale Du (<a href="http://codepen.io/DaleDu" target="_blank" rel="external">@DaleDu</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
