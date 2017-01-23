@@ -17,7 +17,7 @@
 <meta property="og:url" content="https://dale-.github.io/2017/01/16/Object-From-JavaScript-API/index.html">
 <meta property="og:site_name" content="The Girl Behind">
 <meta property="og:description" content="JavaScript Object API">
-<meta property="og:updated_time" content="2017-01-17T08:18:59.000Z">
+<meta property="og:updated_time" content="2017-01-23T02:10:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Object From JavaScript API">
 <meta name="twitter:description" content="JavaScript Object API">
@@ -203,6 +203,25 @@
 <blockquote>
 <p> Object.create(proto[, propertiesObject])</p>
 </blockquote>
+<h3 id="Object-defineProperties"><a href="#Object-defineProperties" class="headerlink" title="Object.defineProperties()"></a>Object.defineProperties()</h3><blockquote>
+<p>Object.defineProperties() 方法在一个对象上添加或修改一个或者多个自有属性，并返回该对象</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;&#125;;</div><div class="line">Object.defineProperties(obj, &#123;</div><div class="line">  <span class="string">"property1"</span>: &#123;</div><div class="line">    value: <span class="literal">true</span>,</div><div class="line">    writable: <span class="literal">true</span></div><div class="line">  &#125;,</div><div class="line">  <span class="string">"property2"</span>: &#123;</div><div class="line">    value: <span class="string">"Hello"</span>,</div><div class="line">    writable: <span class="literal">false</span></div><div class="line">  &#125;</div><div class="line">  // 等等.</div><div class="line">&#125;);</div><div class="line">alert(obj.property2) //弹出<span class="string">"Hello"</span></div></pre></td></tr></table></figure>
+<p><em>Syntax</em></p>
+<blockquote>
+<p> Object.defineProperties(obj, props)</p>
+</blockquote>
+<h3 id="Object-defineProperty"><a href="#Object-defineProperty" class="headerlink" title="Object.defineProperty()"></a>Object.defineProperty()</h3><blockquote>
+<p>Object.defineProperty() 方法会直接在一个对象上定义一个新属性，或者修改一个已经存在的属性，并返回这个对象</p>
+</blockquote>
+<ul>
+<li>如果对象中不存在指定的属性，Object.defineProperty()就创建这个属性。当描述符中省略某些字段时，这些字段将使用它们的默认值。拥有布尔值的字段的默认值都是false。value，get和set字段的默认值为undefined。定义属性时如果没有get/set/value/writable，那它被归类为数据描述符。<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">var o = &#123;&#125;; // 创建一个新对象</div><div class="line"></div><div class="line">// Example of an object property added with defineProperty with a data property descriptor</div><div class="line">Object.defineProperty(o, <span class="string">"a"</span>, &#123;value : 37,</div><div class="line">                             writable : <span class="literal">true</span>,</div><div class="line">                             enumerable : <span class="literal">true</span>,</div><div class="line">                             configurable : <span class="literal">true</span>&#125;);</div><div class="line">// 对象o拥有了属性a，值为37</div><div class="line"></div><div class="line">// Example of an object property added with defineProperty with an accessor property descriptor</div><div class="line">var bValue;</div><div class="line">Object.defineProperty(o, <span class="string">"b"</span>, &#123;get : <span class="function"><span class="title">function</span></span>()&#123; <span class="built_in">return</span> bValue; &#125;,</div><div class="line">                             <span class="built_in">set</span> : <span class="keyword">function</span>(newValue)&#123; bValue = newValue; &#125;,</div><div class="line">                             enumerable : <span class="literal">true</span>,</div><div class="line">                             configurable : <span class="literal">true</span>&#125;);</div><div class="line">o.b = 38;</div><div class="line">// 对象o拥有了属性b，值为38</div><div class="line"></div><div class="line">// The value of o.b is now always identical to bValue, unless o.b is redefined</div><div class="line"></div><div class="line">// 数据描述符和存取描述符不能混合使用</div><div class="line">Object.defineProperty(o, <span class="string">"conflict"</span>, &#123; value: 0x9f91102,</div><div class="line">                                     get: <span class="function"><span class="title">function</span></span>() &#123; <span class="built_in">return</span> 0xdeadbeef; &#125; &#125;);</div><div class="line">// throws a TypeError: value appears only <span class="keyword">in</span> data descriptors, get appears only <span class="keyword">in</span> accessor descriptors</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><em>Syntax</em></p>
+<blockquote>
+<p> Object.defineProperty(obj, prop, descriptor)</p>
+</blockquote>
 
       
       
@@ -267,7 +286,7 @@
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Properties"><span class="toc-number">1.</span> <span class="toc-text">Properties</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-prototype"><span class="toc-number">1.1.</span> <span class="toc-text">Object.prototype</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Methods"><span class="toc-number">2.</span> <span class="toc-text">Methods</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-assign"><span class="toc-number">2.1.</span> <span class="toc-text">Object.assign()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-create"><span class="toc-number">2.2.</span> <span class="toc-text">Object.create()</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Properties"><span class="toc-number">1.</span> <span class="toc-text">Properties</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-prototype"><span class="toc-number">1.1.</span> <span class="toc-text">Object.prototype</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Methods"><span class="toc-number">2.</span> <span class="toc-text">Methods</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-assign"><span class="toc-number">2.1.</span> <span class="toc-text">Object.assign()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-create"><span class="toc-number">2.2.</span> <span class="toc-text">Object.create()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-defineProperties"><span class="toc-number">2.3.</span> <span class="toc-text">Object.defineProperties()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-defineProperty"><span class="toc-number">2.4.</span> <span class="toc-text">Object.defineProperty()</span></a></li></ol></li></ol>
     
     </div>
   </aside>
