@@ -17,7 +17,7 @@
 <meta property="og:url" content="https://dale-.github.io/2017/01/16/Object-From-JavaScript-API/index.html">
 <meta property="og:site_name" content="The Girl Behind">
 <meta property="og:description" content="JavaScript Object API">
-<meta property="og:updated_time" content="2017-01-23T02:10:35.000Z">
+<meta property="og:updated_time" content="2017-01-23T08:43:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Object From JavaScript API">
 <meta name="twitter:description" content="JavaScript Object API">
@@ -222,6 +222,190 @@
 <blockquote>
 <p> Object.defineProperty(obj, prop, descriptor)</p>
 </blockquote>
+<h3 id="Object-freeze"><a href="#Object-freeze" class="headerlink" title="Object.freeze()"></a>Object.freeze()</h3><blockquote>
+<p>Object.freeze() 方法可以冻结一个对象，冻结指的是不能向这个对象添加新的属性，不能修改其已有属性的值，不能删除已有属性，以及不能修改该对象已有属性的可枚举性、可配置性、可写性。也就是说，这个对象永远是不可变的。该方法返回被冻结的对象</p>
+</blockquote>
+<ul>
+<li>冻结对象的所有自身属性都不可能以任何方式被修改。任何尝试修改该对象的操作都会失败，可能是静默失败，也可能会抛出异常（严格模式中）</li>
+<li>数据属性的值不可更改，访问器属性（有getter和setter）也同样（但由于是函数调用，给人的错觉是还是可以修改这个属性）。如果一个属性的值是个对象，则这个对象中的属性是可以修改的，除非它也是个冻结对象<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;</div><div class="line">  prop: <span class="function"><span class="title">function</span></span> ()&#123;&#125;,</div><div class="line">  foo: <span class="string">"bar"</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line">// 可以添加新的属性,已有的属性可以被修改或删除</div><div class="line">obj.foo = <span class="string">"baz"</span>;</div><div class="line">obj.lumpy = <span class="string">"woof"</span>;</div><div class="line">delete obj.prop;</div><div class="line"></div><div class="line">var o = Object.freeze(obj);</div><div class="line"></div><div class="line">assert(Object.isFrozen(obj) === <span class="literal">true</span>);</div><div class="line"></div><div class="line">// 现在任何修改操作都会失败</div><div class="line">obj.foo = <span class="string">"quux"</span>; // 静默失败</div><div class="line">obj.quaxxor = <span class="string">"the friendly duck"</span>; // 静默失败,并没有成功添加上新的属性</div><div class="line"></div><div class="line">// ...在严格模式中会抛出TypeError异常</div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">fail</span></span>()&#123;</div><div class="line">  <span class="string">"use strict"</span>;</div><div class="line">  obj.foo = <span class="string">"sparky"</span>; // 抛出TypeError异常</div><div class="line">  delete obj.quaxxor; // 抛出TypeError异常</div><div class="line">  obj.sparky = <span class="string">"arf"</span>; // 抛出TypeError异常</div><div class="line">&#125;</div><div class="line"></div><div class="line">fail();</div><div class="line"></div><div class="line">// 使用Object.defineProperty方法同样会抛出TypeError异常</div><div class="line">Object.defineProperty(obj, <span class="string">"ohai"</span>, &#123; value: 17 &#125;); // 抛出TypeError异常</div><div class="line">Object.defineProperty(obj, <span class="string">"foo"</span>, &#123; value: <span class="string">"eit"</span> &#125;); // 抛出TypeError异常</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><em>Syntax</em></p>
+<blockquote>
+<p> Object.freeze(obj)</p>
+</blockquote>
+<h3 id="Object-getOwnPropertyDescriptor"><a href="#Object-getOwnPropertyDescriptor" class="headerlink" title="Object.getOwnPropertyDescriptor()"></a>Object.getOwnPropertyDescriptor()</h3><blockquote>
+<p>Object.getOwnPropertyDescriptor() 返回指定对象上一个自有属性对应的属性描述符。（自有属性指的是直接赋予该对象的属性，不需要从原型链上进行查找的属性）</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var o, d;</div><div class="line"></div><div class="line">o = &#123; get <span class="function"><span class="title">foo</span></span>() &#123; <span class="built_in">return</span> 17; &#125; &#125;;</div><div class="line">d = Object.getOwnPropertyDescriptor(o, <span class="string">"foo"</span>);</div><div class="line">// d is &#123; configurable: <span class="literal">true</span>, enumerable: <span class="literal">true</span>, get: /*访问器函数*/, <span class="built_in">set</span>: undefined &#125;</div><div class="line"></div><div class="line">o = &#123; bar: 42 &#125;;</div><div class="line">d = Object.getOwnPropertyDescriptor(o, <span class="string">"bar"</span>);</div><div class="line">// d is &#123; configurable: <span class="literal">true</span>, enumerable: <span class="literal">true</span>, value: 42, writable: <span class="literal">true</span> &#125;</div><div class="line"></div><div class="line">o = &#123;&#125;;</div><div class="line">Object.defineProperty(o, <span class="string">"baz"</span>, &#123; value: 8675309, writable: <span class="literal">false</span>, enumerable: <span class="literal">false</span> &#125;);</div><div class="line">d = Object.getOwnPropertyDescriptor(o, <span class="string">"baz"</span>);</div><div class="line">// d is &#123; value: 8675309, writable: <span class="literal">false</span>, enumerable: <span class="literal">false</span>, configurable: <span class="literal">false</span> &#125;</div></pre></td></tr></table></figure>
+<p><em>Syntax</em></p>
+<blockquote>
+<p> Object.getOwnPropertyDescriptor(obj, prop)</p>
+</blockquote>
+<h3 id="Object-getOwnPropertyDescriptors"><a href="#Object-getOwnPropertyDescriptors" class="headerlink" title="Object.getOwnPropertyDescriptors()"></a>Object.getOwnPropertyDescriptors()</h3><blockquote>
+<p>Object.getOwnPropertyDescriptors() 方法用来获取一个对象的所有自身属性的描述符</p>
+</blockquote>
+<ul>
+<li>浅拷贝一个对象</li>
+</ul>
+<p>Object.assign() 方法只能拷贝源对象的可枚举的自身属性，同时拷贝时无法拷贝属性的特性们，而且访问器属性会被转换成数据属性，也无法拷贝源对象的原型，该方法配合 Object.create() 方法可以实现上面说的这些。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Object.create(</div><div class="line">  Object.getPrototypeOf(obj),</div><div class="line">  Object.getOwnPropertyDescriptors(obj)</div><div class="line">);</div></pre></td></tr></table></figure>
+<p><em>Syntax</em></p>
+<blockquote>
+<p> Object.getOwnPropertyDescriptors(obj)</p>
+</blockquote>
+<h3 id="Object-getOwnPropertyNames"><a href="#Object-getOwnPropertyNames" class="headerlink" title="Object.getOwnPropertyNames()"></a>Object.getOwnPropertyNames()</h3><blockquote>
+<p>Object.getOwnPropertyNames()方法返回一个由指定对象的所有自身属性的属性名（包括不可枚举属性）组成的数组</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">var arr = [<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>];</div><div class="line">console.log(Object.getOwnPropertyNames(arr).sort()); // [<span class="string">"0"</span>, <span class="string">"1"</span>, <span class="string">"2"</span>, <span class="string">"length"</span>]</div><div class="line"></div><div class="line">// 类数组对象</div><div class="line">var obj = &#123; 0: <span class="string">"a"</span>, 1: <span class="string">"b"</span>, 2: <span class="string">"c"</span>&#125;;</div><div class="line">console.log(Object.getOwnPropertyNames(obj).sort()); // [<span class="string">"0"</span>, <span class="string">"1"</span>, <span class="string">"2"</span>]</div><div class="line"></div><div class="line">// 使用Array.forEach输出属性名和属性值</div><div class="line">Object.getOwnPropertyNames(obj).forEach(<span class="keyword">function</span>(val, idx, array) &#123;</div><div class="line">  console.log(val + <span class="string">" -&gt; "</span> + obj[val]);</div><div class="line">&#125;);</div><div class="line">// 输出</div><div class="line">// 0 -&gt; a</div><div class="line">// 1 -&gt; b</div><div class="line">// 2 -&gt; c</div><div class="line"></div><div class="line">//不可枚举属性</div><div class="line">var my_obj = Object.create(&#123;&#125;, &#123;</div><div class="line">  getFoo: &#123;</div><div class="line">    value: <span class="function"><span class="title">function</span></span>() &#123; <span class="built_in">return</span> this.foo; &#125;,</div><div class="line">    enumerable: <span class="literal">false</span></div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line">my_obj.foo = 1;</div><div class="line"></div><div class="line">console.log(Object.getOwnPropertyNames(my_obj).sort()); // [<span class="string">"foo"</span>, <span class="string">"getFoo"</span>]</div></pre></td></tr></table></figure>
+<p><em>Syntax</em></p>
+<blockquote>
+<p> Object.getOwnPropertyNames(obj)</p>
+</blockquote>
+<h3 id="Object-getOwnPropertySymbols"><a href="#Object-getOwnPropertySymbols" class="headerlink" title="Object.getOwnPropertySymbols()"></a>Object.getOwnPropertySymbols()</h3><blockquote>
+<p>Object.getOwnPropertySymbols() 方法会返回一个数组，该数组包含了指定对象自身的（非继承的）所有 symbol 属性键</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;&#125;;</div><div class="line">var a = Symbol(<span class="string">"a"</span>);</div><div class="line">var b = Symbol.for(<span class="string">"b"</span>);</div><div class="line"></div><div class="line">obj[a] = <span class="string">"localSymbol"</span>;</div><div class="line">obj[b] = <span class="string">"globalSymbol"</span>;</div><div class="line"></div><div class="line">var objectSymbols = Object.getOwnPropertySymbols(obj);</div><div class="line"></div><div class="line">console.log(objectSymbols.length); // 2</div><div class="line">console.log(objectSymbols)         // [Symbol(a), Symbol(b)]</div><div class="line">console.log(objectSymbols[0])      // Symbol(a)</div></pre></td></tr></table></figure>
+<p><em>Syntax</em></p>
+<blockquote>
+<p> Object.getOwnPropertySymbols(obj)</p>
+</blockquote>
+<h3 id="Object-getPrototypeOf"><a href="#Object-getPrototypeOf" class="headerlink" title="Object.getPrototypeOf()"></a>Object.getPrototypeOf()</h3><blockquote>
+<p>Object.getPrototypeOf() 方法返回指定对象的原型（也就是该对象内部属性[[prototype]]的值）</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var proto = &#123;&#125;;</div><div class="line">var obj = Object.create(proto);</div><div class="line">Object.getPrototypeOf(obj) === proto; // <span class="literal">true</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>注</p>
+</blockquote>
+<ul>
+<li>在 ES5 中，如果参数不是一个对象类型，将抛出一个 TypeError 异常。在 ES6 中，参数被强制转换为Object。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; Object.getPrototypeOf(<span class="string">"foo"</span>);</div><div class="line">TypeError: <span class="string">"foo"</span> is not an object  // ES5 code</div><div class="line">&gt; Object.getPrototypeOf(<span class="string">"foo"</span>);</div><div class="line">String.prototype                   // ES6 code</div></pre></td></tr></table></figure>
+<p><em>Syntax</em></p>
+<blockquote>
+<p> Object.getOwnPropertySymbols(obj)</p>
+</blockquote>
+<h3 id="Object-is"><a href="#Object-is" class="headerlink" title="Object.is()"></a>Object.is()</h3><blockquote>
+<p>Object.is() 方法用来判断两个值是否是同一个值</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">Object.is(<span class="string">'foo'</span>, <span class="string">'foo'</span>);     // <span class="literal">true</span></div><div class="line">Object.is(window, window);   // <span class="literal">true</span></div><div class="line"></div><div class="line">Object.is(<span class="string">'foo'</span>, <span class="string">'bar'</span>);     // <span class="literal">false</span></div><div class="line">Object.is([], []);           // <span class="literal">false</span></div><div class="line"></div><div class="line">var <span class="built_in">test</span> = &#123; a: 1 &#125;;</div><div class="line">Object.is(<span class="built_in">test</span>, <span class="built_in">test</span>);       // <span class="literal">true</span></div><div class="line"></div><div class="line">Object.is(null, null);       // <span class="literal">true</span></div><div class="line"></div><div class="line">// 特例</div><div class="line">Object.is(0, -0);            // <span class="literal">false</span></div><div class="line">Object.is(-0, -0);           // <span class="literal">true</span></div><div class="line">Object.is(NaN, 0/0);         // <span class="literal">true</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>Object.is() 会在下面这些情况下认为两个值是相同的：</p>
+<ul>
+<li>两个值都是 undefined</li>
+<li>两个值都是 null</li>
+<li>两个值都是 true 或者都是 false</li>
+<li>两个值是由相同个数的字符按照相同的顺序组成的字符串</li>
+<li>两个值指向同一个对象</li>
+<li>两个值都是数字并且<ul>
+<li>都是正零 +0</li>
+<li>都是负零 -0</li>
+<li>都是 NaN</li>
+<li>都是除零和 NaN 外的其它同一个数字</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p><em>Syntax</em></p>
+<blockquote>
+<p> Object.is(value1, value2)</p>
+</blockquote>
+<h3 id="Object-isExtensible"><a href="#Object-isExtensible" class="headerlink" title="Object.isExtensible()"></a>Object.isExtensible()</h3><blockquote>
+<p>Object.isExtensible() 方法判断一个对象是否是可扩展的（是否可以在它上面添加新的属性）</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">// 新对象默认是可扩展的.</div><div class="line">var empty = &#123;&#125;;</div><div class="line">Object.isExtensible(empty); // === <span class="literal">true</span></div><div class="line"></div><div class="line">// ...可以变的不可扩展.</div><div class="line">Object.preventExtensions(empty);</div><div class="line">Object.isExtensible(empty); // === <span class="literal">false</span></div><div class="line"></div><div class="line">// 密封对象是不可扩展的.</div><div class="line">var sealed = Object.seal(&#123;&#125;);</div><div class="line">Object.isExtensible(sealed); // === <span class="literal">false</span></div><div class="line"></div><div class="line">// 冻结对象也是不可扩展.</div><div class="line">var frozen = Object.freeze(&#123;&#125;);</div><div class="line">Object.isExtensible(frozen); // === <span class="literal">false</span></div></pre></td></tr></table></figure>
+<p><em>Syntax</em></p>
+<blockquote>
+<p> Object.isExtensible(obj)</p>
+</blockquote>
+<h3 id="Object-isFrozen"><a href="#Object-isFrozen" class="headerlink" title="Object.isFrozen()"></a>Object.isFrozen()</h3><blockquote>
+<p>Object.isFrozen() 方法判断一个对象是否被冻结（frozen）</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">// 一个对象默认是可扩展的,所以它也是非冻结的.</div><div class="line">assert(Object.isFrozen(&#123;&#125;) === <span class="literal">false</span>);</div><div class="line"></div><div class="line">// 一个不可扩展的空对象同时也是一个冻结对象.</div><div class="line">var vacuouslyFrozen = Object.preventExtensions(&#123;&#125;);</div><div class="line">assert(Object.isFrozen(vacuouslyFrozen) === <span class="literal">true</span>);</div><div class="line"></div><div class="line">// 一个非空对象默认也是非冻结的.</div><div class="line">var oneProp = &#123; p: 42 &#125;;</div><div class="line">assert(Object.isFrozen(oneProp) === <span class="literal">false</span>);</div></pre></td></tr></table></figure>
+<p><em>Syntax</em></p>
+<blockquote>
+<p> Object.isFrozen(obj)</p>
+</blockquote>
+<h3 id="Object-isSealed"><a href="#Object-isSealed" class="headerlink" title="Object.isSealed()"></a>Object.isSealed()</h3><blockquote>
+<p>Object.isSealed() 方法判断一个对象是否是密封的（sealed）</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">// 新建的对象默认不是密封的.</div><div class="line">var empty = &#123;&#125;;</div><div class="line">Object.isSealed(empty); // === <span class="literal">false</span></div><div class="line"></div><div class="line">// 如果你把一个空对象变的不可扩展,则它同时也会变成个密封对象.</div><div class="line">Object.preventExtensions(empty);</div><div class="line">Object.isSealed(empty); // === <span class="literal">true</span></div><div class="line"></div><div class="line">// 但如果这个对象不是空对象,则它不会变成密封对象,因为密封对象的所有自身属性必须是不可配置的.</div><div class="line">var hasProp = &#123; fee: <span class="string">"fie foe fum"</span> &#125;;</div><div class="line">Object.preventExtensions(hasProp);</div><div class="line">Object.isSealed(hasProp); // === <span class="literal">false</span></div><div class="line"></div><div class="line">// 如果把这个属性变的不可配置,则这个对象也就成了密封对象.</div><div class="line">Object.defineProperty(hasProp, <span class="string">"fee"</span>, &#123; configurable: <span class="literal">false</span> &#125;);</div><div class="line">Object.isSealed(hasProp); // === <span class="literal">true</span></div><div class="line"></div><div class="line">// 最简单的方法来生成一个密封对象,当然是使用Object.seal.</div><div class="line">var sealed = &#123;&#125;;</div><div class="line">Object.seal(sealed);</div><div class="line">Object.isSealed(sealed); // === <span class="literal">true</span></div><div class="line"></div><div class="line">// 一个密封对象同时也是不可扩展的.</div><div class="line">Object.isExtensible(sealed); // === <span class="literal">false</span></div></pre></td></tr></table></figure>
+<p><em>Syntax</em></p>
+<blockquote>
+<p> Object.isSealed(obj)</p>
+</blockquote>
+<h3 id="Object-keys"><a href="#Object-keys" class="headerlink" title="Object.keys()"></a>Object.keys()</h3><blockquote>
+<p>Object.keys() 方法会返回一个由给定对象的所有可枚举自身属性的属性名组成的数组，数组中属性名的排列顺序和使用for-in循环遍历该对象时返回的顺序一致 (顺序一致不包括数字属性)（两者的主要区别是 for-in 还会遍历出一个对象从其原型链上继承到的可枚举属性）</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var arr = [<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>];</div><div class="line">alert(Object.keys(arr)); // 弹出<span class="string">"0,1,2"</span></div><div class="line"></div><div class="line">// 类数组对象</div><div class="line">var obj = &#123; 0 : <span class="string">"a"</span>, 1 : <span class="string">"b"</span>, 2 : <span class="string">"c"</span>&#125;;</div><div class="line">alert(Object.keys(obj)); // 弹出<span class="string">"0,1,2"</span></div></pre></td></tr></table></figure>
+<p><em>Syntax</em></p>
+<blockquote>
+<p> Object.keys(obj)</p>
+</blockquote>
+<h3 id="Object-preventExtensions"><a href="#Object-preventExtensions" class="headerlink" title="Object.preventExtensions()"></a>Object.preventExtensions()</h3><blockquote>
+<p>Object.preventExtensions() 方法让一个对象变的不可扩展，也就是永远不能再添加新的属性</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">// Object.preventExtensions将原对象变的不可扩展,并且返回原对象.</div><div class="line">var obj = &#123;&#125;;</div><div class="line">var obj2 = Object.preventExtensions(obj);</div><div class="line">assert(obj === obj2);</div><div class="line"></div><div class="line">// 字面量方式定义的对象默认是可扩展的.</div><div class="line">var empty = &#123;&#125;;</div><div class="line">assert(Object.isExtensible(empty) === <span class="literal">true</span>);</div><div class="line"></div><div class="line">// ...但可以改变.</div><div class="line">Object.preventExtensions(empty);</div><div class="line">assert(Object.isExtensible(empty) === <span class="literal">false</span>);</div><div class="line"></div><div class="line">// 使用Object.defineProperty方法为一个不可扩展的对象添加新属性会抛出异常.</div><div class="line">var nonExtensible = &#123; removable: <span class="literal">true</span> &#125;;</div><div class="line">Object.preventExtensions(nonExtensible);</div><div class="line">Object.defineProperty(nonExtensible, <span class="string">"new"</span>, &#123; value: 8675309 &#125;); // 抛出TypeError异常</div></pre></td></tr></table></figure>
+<p><em>Syntax</em></p>
+<blockquote>
+<p> Object.preventExtensions(obj)</p>
+</blockquote>
+<h3 id="Object-prototype-hasOwnProperty"><a href="#Object-prototype-hasOwnProperty" class="headerlink" title="Object.prototype.hasOwnProperty()"></a>Object.prototype.hasOwnProperty()</h3><blockquote>
+<p>hasOwnProperty() 方法会返回一个布尔值，其用来判断某个对象是否含有指定的属性</p>
+</blockquote>
+<ul>
+<li><p>下面的例子检测了对象 o 是否含有自身属性 prop</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">o = new Object();</div><div class="line">o.prop = <span class="string">'exists'</span>;</div><div class="line"></div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">changeO</span></span>() &#123;</div><div class="line">  o.newprop = o.prop;</div><div class="line">  delete o.prop;</div><div class="line">&#125;</div><div class="line"></div><div class="line">o.hasOwnProperty(<span class="string">'prop'</span>);   // 返回 <span class="literal">true</span></div><div class="line">changeO();</div><div class="line">o.hasOwnProperty(<span class="string">'prop'</span>);   // 返回 <span class="literal">false</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>自身属性与继承属性</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">o = new Object();</div><div class="line">o.prop = <span class="string">'exists'</span>;</div><div class="line">o.hasOwnProperty(<span class="string">'prop'</span>);             // 返回 <span class="literal">true</span></div><div class="line">o.hasOwnProperty(<span class="string">'toString'</span>);         // 返回 <span class="literal">false</span></div><div class="line">o.hasOwnProperty(<span class="string">'hasOwnProperty'</span>);   // 返回 <span class="literal">false</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><em>Syntax</em></p>
+<blockquote>
+<p> obj.hasOwnProperty(prop)</p>
+</blockquote>
+<h3 id="Object-prototype-isPrototypeOf"><a href="#Object-prototype-isPrototypeOf" class="headerlink" title="Object.prototype.isPrototypeOf()"></a>Object.prototype.isPrototypeOf()</h3><blockquote>
+<p>isPrototypeOf() 方法用于测试一个对象是否存在于另一个对象的原型链上</p>
+</blockquote>
+<ul>
+<li><p>考虑下面的原型链</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">Fee</span></span>() &#123;</div><div class="line">  // . . .</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">Fi</span></span>() &#123;</div><div class="line">  // . . .</div><div class="line">&#125;</div><div class="line">Fi.prototype = new Fee();</div><div class="line"></div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">Fo</span></span>() &#123;</div><div class="line">  // . . .</div><div class="line">&#125;</div><div class="line">Fo.prototype = new Fi();</div><div class="line"></div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">Fum</span></span>() &#123;</div><div class="line">  // . . .</div><div class="line">&#125;</div><div class="line">Fum.prototype = new Fo();</div></pre></td></tr></table></figure>
+</li>
+<li><p>下面创建一个 Fum 实例，检测 Fi.prototype 是否存在于该实例的原型链上</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var fum = new Fum();</div><div class="line"></div><div class="line"><span class="keyword">if</span> (Fi.prototype.isPrototypeOf(fum)) &#123;</div><div class="line">  // <span class="keyword">do</span> something safe</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><em>Syntax</em></p>
+<blockquote>
+<p> prototypeObj.isPrototypeOf(object)</p>
+</blockquote>
+<h3 id="Object-prototype-propertyIsEnumerable"><a href="#Object-prototype-propertyIsEnumerable" class="headerlink" title="Object.prototype.propertyIsEnumerable()"></a>Object.prototype.propertyIsEnumerable()</h3><blockquote>
+<p>propertyIsEnumerable() 方法返回一个布尔值，表明指定的属性名是否是当前对象可枚举的自身属性</p>
+</blockquote>
+<ul>
+<li>下面的例子演示了用户自定义对象和引擎内置对象上属性可枚举性的区别<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var a = [<span class="string">'is enumerable'</span>];</div><div class="line"></div><div class="line">a.propertyIsEnumerable(0);          // 返回 <span class="literal">true</span></div><div class="line">a.propertyIsEnumerable(<span class="string">'length'</span>);   // 返回 <span class="literal">false</span></div><div class="line"></div><div class="line">Math.propertyIsEnumerable(<span class="string">'random'</span>);   // 返回 <span class="literal">false</span></div><div class="line">this.propertyIsEnumerable(<span class="string">'Math'</span>);     // 返回 <span class="literal">false</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><em>Syntax</em></p>
+<blockquote>
+<p>obj.propertyIsEnumerable(prop)</p>
+</blockquote>
+<h3 id="Object-prototype-toString"><a href="#Object-prototype-toString" class="headerlink" title="Object.prototype.toString()"></a>Object.prototype.toString()</h3><blockquote>
+<p>toString() 方法返回一个表示该对象的字符串</p>
+</blockquote>
+<ul>
+<li><p>每个对象都有一个 toString() 方法，当对象被表示为文本值时或者当以期望字符串的方式引用对象时，该方法被自动调用。默认情况下，toString() 方法被每个继承自Object的对象继承。如果此方法在自定义对象中未被覆盖，toString() 返回 “[object type]”,其中type是对象类型。以下代码说明了这一点：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var o = new Object();</div><div class="line">o.toString();           // 返回了[object Object]</div></pre></td></tr></table></figure>
+</li>
+<li><p>覆盖(遮蔽)默认的toString方法</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> Dog(name,breed,color,sex) &#123;</div><div class="line">   this.name=name;</div><div class="line">   this.breed=breed;</div><div class="line">   this.color=color;</div><div class="line">   this.sex=sex;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var theDog = new Dog(<span class="string">"Gabby"</span>,<span class="string">"Lab"</span>,<span class="string">"chocolate"</span>,<span class="string">"female"</span>);</div><div class="line"></div><div class="line">theDog.toString(); //returns [object Object]</div><div class="line"></div><div class="line">Dog.prototype.toString = <span class="keyword">function</span> <span class="function"><span class="title">dogToString</span></span>() &#123;</div><div class="line">  var ret = <span class="string">"Dog "</span> + this.name + <span class="string">" is a "</span> + this.sex + <span class="string">" "</span> + this.color + <span class="string">" "</span> + this.breed;</div><div class="line">  <span class="built_in">return</span> ret;</div><div class="line">&#125;</div><div class="line">// <span class="string">"Dog Gabby is a female chocolate Lab"</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><em>Syntax</em></p>
+<blockquote>
+<p>object.toString()</p>
+</blockquote>
 
       
       
@@ -286,7 +470,7 @@
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Properties"><span class="toc-number">1.</span> <span class="toc-text">Properties</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-prototype"><span class="toc-number">1.1.</span> <span class="toc-text">Object.prototype</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Methods"><span class="toc-number">2.</span> <span class="toc-text">Methods</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-assign"><span class="toc-number">2.1.</span> <span class="toc-text">Object.assign()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-create"><span class="toc-number">2.2.</span> <span class="toc-text">Object.create()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-defineProperties"><span class="toc-number">2.3.</span> <span class="toc-text">Object.defineProperties()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-defineProperty"><span class="toc-number">2.4.</span> <span class="toc-text">Object.defineProperty()</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Properties"><span class="toc-number">1.</span> <span class="toc-text">Properties</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-prototype"><span class="toc-number">1.1.</span> <span class="toc-text">Object.prototype</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Methods"><span class="toc-number">2.</span> <span class="toc-text">Methods</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-assign"><span class="toc-number">2.1.</span> <span class="toc-text">Object.assign()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-create"><span class="toc-number">2.2.</span> <span class="toc-text">Object.create()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-defineProperties"><span class="toc-number">2.3.</span> <span class="toc-text">Object.defineProperties()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-defineProperty"><span class="toc-number">2.4.</span> <span class="toc-text">Object.defineProperty()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-freeze"><span class="toc-number">2.5.</span> <span class="toc-text">Object.freeze()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-getOwnPropertyDescriptor"><span class="toc-number">2.6.</span> <span class="toc-text">Object.getOwnPropertyDescriptor()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-getOwnPropertyDescriptors"><span class="toc-number">2.7.</span> <span class="toc-text">Object.getOwnPropertyDescriptors()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-getOwnPropertyNames"><span class="toc-number">2.8.</span> <span class="toc-text">Object.getOwnPropertyNames()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-getOwnPropertySymbols"><span class="toc-number">2.9.</span> <span class="toc-text">Object.getOwnPropertySymbols()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-getPrototypeOf"><span class="toc-number">2.10.</span> <span class="toc-text">Object.getPrototypeOf()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-is"><span class="toc-number">2.11.</span> <span class="toc-text">Object.is()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-isExtensible"><span class="toc-number">2.12.</span> <span class="toc-text">Object.isExtensible()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-isFrozen"><span class="toc-number">2.13.</span> <span class="toc-text">Object.isFrozen()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-isSealed"><span class="toc-number">2.14.</span> <span class="toc-text">Object.isSealed()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-keys"><span class="toc-number">2.15.</span> <span class="toc-text">Object.keys()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-preventExtensions"><span class="toc-number">2.16.</span> <span class="toc-text">Object.preventExtensions()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-prototype-hasOwnProperty"><span class="toc-number">2.17.</span> <span class="toc-text">Object.prototype.hasOwnProperty()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-prototype-isPrototypeOf"><span class="toc-number">2.18.</span> <span class="toc-text">Object.prototype.isPrototypeOf()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-prototype-propertyIsEnumerable"><span class="toc-number">2.19.</span> <span class="toc-text">Object.prototype.propertyIsEnumerable()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-prototype-toString"><span class="toc-number">2.20.</span> <span class="toc-text">Object.prototype.toString()</span></a></li></ol></li></ol>
     
     </div>
   </aside>
