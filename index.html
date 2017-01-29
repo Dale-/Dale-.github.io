@@ -92,7 +92,7 @@
 
 
   
-    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/home-bg.jpg); background-size: auto 100%;">
+    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/sample.jpg); background-size: auto 100%;">
   
 
     <canvas width="100%" height="100%"></canvas>
@@ -274,7 +274,38 @@ Subscrib......  -->
         <blockquote>
 <p>第一版只更新 Simple Case<br>后期随时补充特性</p>
 </blockquote>
-<h2 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h2><h3 id="Function-length"><a href="#Function-length" class="headerlink" title="Function.length"></a>Function.length</h3>
+<h2 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h2><h3 id="Function-length"><a href="#Function-length" class="headerlink" title="Function.length"></a>Function.length</h3><blockquote>
+<p>length 属性指明函数的形参个数</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">console.log(Function.length); /* 1 */</div><div class="line"></div><div class="line">console.log((<span class="function"><span class="title">function</span></span>()        &#123;&#125;).length); /* 0 */</div><div class="line">console.log((<span class="keyword">function</span>(a)       &#123;&#125;).length); /* 1 */</div><div class="line">console.log((<span class="keyword">function</span>(a, b)    &#123;&#125;).length); /* 2 etc. */</div><div class="line">console.log((<span class="keyword">function</span>(...args) &#123;&#125;).length); /* 0, rest parameter is not counted */</div></pre></td></tr></table></figure>
+<h3 id="Function-prototype"><a href="#Function-prototype" class="headerlink" title="Function.prototype"></a>Function.prototype</h3><blockquote>
+<p>Function.prototype 属性存储了 Function 的原型对象<br>Function对象继承自 Function.prototype 属性。因此，Function.prototype 不能被修改</p>
+<p>属性</p>
+</blockquote>
+<ul>
+<li>Function.length</li>
+</ul>
+<p>获得函数的接收参数个数。</p>
+<ul>
+<li>Function.prototype.constructor</li>
+</ul>
+<p>声明函数的原型构造方法</p>
+<blockquote>
+<p>方法</p>
+</blockquote>
+<ul>
+<li>Function.prototype.apply()</li>
+</ul>
+<p>在一个对象的上下文中应用另一个对象的方法；参数能够以数组形式传入。</p>
+<ul>
+<li>Function.prototype.bind()</li>
+</ul>
+<p>bind()方法会创建一个新函数，称为绑定函数，当调用这个绑定函数时，绑定函数会以创建它时传入bind(）<br>方法的第一个参数作为this,传入bind()方法的第二个以及以后的参数加上绑定函数运行时本身的参数按照<br>顺序作为原函数的参数来调用原函数。</p>
+<ul>
+<li>Function.prototype.call()</li>
+</ul>
+<p>在一个对象的上下文中应用另一个对象的方法；参数能够以列表形式传入。</p>
+<h2 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h2>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/JavaScript/">JavaScript</a></li></ul>
