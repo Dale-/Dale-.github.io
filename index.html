@@ -92,7 +92,7 @@
 
 
   
-    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/sample.jpg); background-size: auto 100%;">
+    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/home-bg.jpg); background-size: auto 100%;">
   
 
     <canvas width="100%" height="100%"></canvas>
@@ -189,6 +189,92 @@
       <div id="content" class="outer">
         
           <section id="main" style="float:none;">
+  
+    <article id="post-Geometric-Figure"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="2017/02/03/Geometric-Figure/">Geometric Figure</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="2017/02/03/Geometric-Figure/" class="article-date">
+	  <time datetime="2017-02-03T09:34:38.000Z" itemprop="datePublished">2017-02-03</time>
+	</a>
+
+      
+    <a class="article-category-link" href="categories/CSS/">CSS</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/CSS/">CSS</a></li></ul>
+
+    </div>
+    <footer class="article-footer">
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-String-From-JavaScript"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="2017/02/01/String-From-JavaScript/">String From JavaScript API</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="2017/02/01/String-From-JavaScript/" class="article-date">
+	  <time datetime="2017-01-31T17:21:08.000Z" itemprop="datePublished">2017-02-01</time>
+	</a>
+
+      
+    <a class="article-category-link" href="categories/JavaScript/">JavaScript</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/JavaScript/">JavaScript</a></li></ul>
+
+    </div>
+    <footer class="article-footer">
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
   
     <article id="post-How-To-Learn-A-New-Skill-Fast"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
@@ -442,139 +528,6 @@ Array.prototype12345if (!Array.prototype.first) &#123;  Array.p......  -->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/JavaScript/">JavaScript</a></li></ul>
-
-    </div>
-    <footer class="article-footer">
-      
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-Loops-And-Iteration-In-JavaScript"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="2017/01/03/Loops-And-Iteration-In-JavaScript/">Loops And Iteration In JavaScript</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="2017/01/03/Loops-And-Iteration-In-JavaScript/" class="article-date">
-	  <time datetime="2017-01-03T13:32:36.000Z" itemprop="datePublished">2017-01-03</time>
-	</a>
-
-      
-    <a class="article-category-link" href="categories/JavaScript/">JavaScript</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h2><h3 id="for"><a href="#for" class="headerlink" title="for"></a>for</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="built_in">let</span> index = 0, length = array.length; index &lt; length; index++) &#123;</div><div class="line">  <span class="keyword">if</span> (index == 2) &#123;</div><div class="line">    // <span class="built_in">return</span>;    // 函数执行被终止</div><div class="line">    // <span class="built_in">break</span>;     // 循环被终止</div><div class="line">    <span class="built_in">continue</span>;     // 循环被跳过</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>Attention</p>
-<ul>
-<li><p>如果使用var在for循环中声明index变量，那么在循环结束后index依然存在作用域（函数作用域）中，这种情况下可以使用函数自执行的方法将其隔离开来()();当然如果选用let声明，循环后index不会保留，因为let是块级作用域。</p>
-</li>
-<li><p>避免使用 for (let i = index; i &lt; array.length; i++)的方式，这种方式每次的length每次都会被计算，效率比上面例子低。</p>
-</li>
-<li><p>跳出循环：return、break、continue都支持</p>
-</li>
-</ul>
-</blockquote>
-        <!-- 遍历for1234567for (let index = 0, length = array.length; index &lt; length; index++) &#123;  if (index == 2) &#123;    // return;    // 函数执行被终止    // break;     // 循环被终止    continue;     // 循环被跳过  &#......  -->
-        <p class="article-more-link">
-          <a href="2017/01/03/Loops-And-Iteration-In-JavaScript/#more">Read More</a>
-        </p>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/JavaScript/">JavaScript</a></li></ul>
-
-    </div>
-    <footer class="article-footer">
-      
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-Plan-Review"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="2017/01/01/Plan-Review/">Plan Review</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="2017/01/01/Plan-Review/" class="article-date">
-	  <time datetime="2017-01-01T03:03:03.000Z" itemprop="datePublished">2017-01-01</time>
-	</a>
-
-      
-    <a class="article-category-link" href="categories/Plan/">Plan</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>你之所以觉得时间一年比一年过得快，是因为时间对你一年比一年重要。</p>
-</blockquote>
-<p><img src="/images/plan-review/weibo_plan.png" alt=""></p>
-<h2 id="为什么要有这次Plan"><a href="#为什么要有这次Plan" class="headerlink" title="为什么要有这次Plan?"></a>为什么要有这次Plan?</h2><ol>
-<li><p>通过这次的Plan，检验出目前的学习效率和学习能力</p>
-</li>
-<li><p>增强驱动力</p>
-</li>
-<li><p>为2017年的plan做一个base story</p>
-</li>
-</ol>
-<p>所以，初衷并不是期望自己100%完成Plan，而是期望自己在一种不太费力的状态下，稳步完成这次Plan。</p>
-<hr>
-        <!-- 
-你之所以觉得时间一年比一年过得快，是因为时间对你一年比一年重要。
-
-
-为什么要有这次Plan?
-通过这次的Plan，检验出目前的学习效率和学习能力
-
-增强驱动力
-
-为2017年的plan做一个base story
-
-
-所以，初衷并不是期望自己100%完成Plan，而是期望自己在一种不太费力的状态下，稳步完成这次Plan。
-
-
-计划的ToDo1. Balance Wheel在对自己毕业一年工......  -->
-        <p class="article-more-link">
-          <a href="2017/01/01/Plan-Review/#more">Read More</a>
-        </p>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Plan/">Plan</a></li></ul>
 
     </div>
     <footer class="article-footer">
