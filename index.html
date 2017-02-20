@@ -216,7 +216,12 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="减少HTTP请求"><a href="#减少HTTP请求" class="headerlink" title="减少HTTP请求"></a>减少HTTP请求</h3><h3 id="减少DOM元素数量"><a href="#减少DOM元素数量" class="headerlink" title="减少DOM元素数量"></a>减少DOM元素数量</h3>
+        <h2 id="减少HTTP请求"><a href="#减少HTTP请求" class="headerlink" title="减少HTTP请求"></a>减少HTTP请求</h2><p>一个正常HTTP请求的流程简述：如在浏览器中输入”www.xxxxxx.com”并按下回车，浏览器再与这个URL指向的服务器建立连接，然后浏览器才能向服务器发送请求信息，服务器在接受到请求的信息后再返回相应的信息，浏览器接收到来自服务器的应答信息后，对这些数据解释执行。</p>
+<p>而当我们请求的网页文件中有很多图片、CSS、JS甚至音乐等信息时，将会频繁的与服务器建立连接，与释放连接，这必定会造成资源的浪费，且每个HTTP请求都会对服务器和浏览器产生性能负担。</p>
+<p>网速相同的条件下，下载一个100KB的图片比下载两个50KB的图片要快。所以，请减少HTTP请求。</p>
+<h3 id="css、js文件数量及大小优化"><a href="#css、js文件数量及大小优化" class="headerlink" title="css、js文件数量及大小优化"></a>css、js文件数量及大小优化</h3><p> css、js建议采用外联式来进行导入，我们可以对css、js做相应的规划也可以减少css、js的个数以减少http请求。同时也要注重减少重复代码，注重代码重复利用，已达到用最少的代码干最多的事。同时当项目要投入线上使用的时候，可以对css、js文件进行代码压缩，文件的减少可以加速文件的链接导入，以便加速网页的加载渲染。</p>
+<h3 id="图片的数量和大小"><a href="#图片的数量和大小" class="headerlink" title="图片的数量和大小"></a>图片的数量和大小</h3><p> 适当的压缩图片，加快文档内容的加载，或者如果是需要用户下载的图片，小的图片可以加快用户的下载。</p>
+<h2 id="减少DOM元素数量"><a href="#减少DOM元素数量" class="headerlink" title="减少DOM元素数量"></a>减少DOM元素数量</h2>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/performance/">performance</a></li></ul>
