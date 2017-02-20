@@ -17,7 +17,7 @@
 <meta property="og:url" content="https://dale-.github.io/2017/02/20/Performance-Optimization/index.html">
 <meta property="og:site_name" content="The Girl Behind">
 <meta property="og:description" content="前端性能优化">
-<meta property="og:updated_time" content="2017-02-20T15:10:12.000Z">
+<meta property="og:updated_time" content="2017-02-20T15:18:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Performance Optimization">
 <meta name="twitter:description" content="前端性能优化">
@@ -176,7 +176,19 @@
 <p>网速相同的条件下，下载一个100KB的图片比下载两个50KB的图片要快。所以，请减少HTTP请求。</p>
 <h3 id="css、js文件数量及大小优化"><a href="#css、js文件数量及大小优化" class="headerlink" title="css、js文件数量及大小优化"></a>css、js文件数量及大小优化</h3><p> css、js建议采用外联式来进行导入，我们可以对css、js做相应的规划也可以减少css、js的个数以减少http请求。同时也要注重减少重复代码，注重代码重复利用，已达到用最少的代码干最多的事。同时当项目要投入线上使用的时候，可以对css、js文件进行代码压缩，文件的减少可以加速文件的链接导入，以便加速网页的加载渲染。</p>
 <h3 id="图片的数量和大小"><a href="#图片的数量和大小" class="headerlink" title="图片的数量和大小"></a>图片的数量和大小</h3><p> 适当的压缩图片，加快文档内容的加载，或者如果是需要用户下载的图片，小的图片可以加快用户的下载。</p>
-<h2 id="减少DOM元素数量"><a href="#减少DOM元素数量" class="headerlink" title="减少DOM元素数量"></a>减少DOM元素数量</h2>
+<h2 id="减少DOM元素数量"><a href="#减少DOM元素数量" class="headerlink" title="减少DOM元素数量"></a>减少DOM元素数量</h2><ul>
+<li>是否还在使用表格布局？</li>
+<li>塞进去更多的 <div> 仅为了处理布局问题？也许有更好、更语义化的标记。</div></li>
+<li>能通过伪元素实现的功能，就没必要添加额外元素，如清除浮动。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// 浏览器控制台中输入以下代码可以计算出页面中有多少 DOM 元素：</div><div class="line">document.getElementsByTagName(<span class="string">'*'</span>).length;</div></pre></td></tr></table></figure>
+<p>为什么不使用表格布局？</p>
+<ul>
+<li>更多的标签，增加文件大小；</li>
+<li>不易维护，无法适应响应式设计；</li>
+<li>性能考量，默认的表格布局算法会产生大量重绘（参见表格布局算法）。</li>
+</ul>
+
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/performance/">performance</a></li></ul>
