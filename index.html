@@ -223,17 +223,15 @@
 <h3 id="图片的数量和大小"><a href="#图片的数量和大小" class="headerlink" title="图片的数量和大小"></a>图片的数量和大小</h3><p> 适当的压缩图片，加快文档内容的加载，或者如果是需要用户下载的图片，小的图片可以加快用户的下载。</p>
 <h2 id="减少DOM元素数量"><a href="#减少DOM元素数量" class="headerlink" title="减少DOM元素数量"></a>减少DOM元素数量</h2><ul>
 <li>是否还在使用表格布局？</li>
-<li>塞进去更多的 <div> 仅为了处理布局问题？也许有更好、更语义化的标记。</div></li>
+<li>塞进去更多的 <div> 仅为了处理布局问题？也许有更好、更语义化的标记。</li>
 <li>能通过伪元素实现的功能，就没必要添加额外元素，如清除浮动。</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// 浏览器控制台中输入以下代码可以计算出页面中有多少 DOM 元素：</div><div class="line">document.getElementsByTagName(<span class="string">'*'</span>).length;</div></pre></td></tr></table></figure>
-<p>为什么不使用表格布局？</p>
-<ul>
-<li>更多的标签，增加文件大小；</li>
-<li>不易维护，无法适应响应式设计；</li>
-<li>性能考量，默认的表格布局算法会产生大量重绘（参见表格布局算法）。</li>
-</ul>
-
+        <!-- 减少HTTP请求一个正常HTTP请求的流程简述：如在浏览器中输入”www.xxxxxx.com”并按下回车，浏览器再与这个URL指向的服务器建立连接，然后浏览器才能向服务器发送请求信息，服务器在接受到请求的信息后再返回相应的信息，浏览器接收到来自服务器的应答信息后，对这些数据解释执行。
+而当我们请求的网页文件中有很多图片、CSS、JS甚至音乐等信息时，将会频繁的与服务器建立连接，与释放连接，......  -->
+        <p class="article-more-link">
+          <a href="2017/02/20/Performance-Optimization/#more">Read More</a>
+        </p>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/performance/">performance</a></li></ul>
