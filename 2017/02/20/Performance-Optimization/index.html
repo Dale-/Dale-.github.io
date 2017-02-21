@@ -17,7 +17,7 @@
 <meta property="og:url" content="https://dale-.github.io/2017/02/20/Performance-Optimization/index.html">
 <meta property="og:site_name" content="The Girl Behind">
 <meta property="og:description" content="前端性能优化">
-<meta property="og:updated_time" content="2017-02-21T02:37:52.000Z">
+<meta property="og:updated_time" content="2017-02-21T03:14:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Performance Optimization">
 <meta name="twitter:description" content="前端性能优化">
@@ -171,11 +171,20 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="减少HTTP请求"><a href="#减少HTTP请求" class="headerlink" title="减少HTTP请求"></a>减少HTTP请求</h2><p>一个正常HTTP请求的流程简述：如在浏览器中输入”www.xxxxxx.com”并按下回车，浏览器再与这个URL指向的服务器建立连接，然后浏览器才能向服务器发送请求信息，服务器在接受到请求的信息后再返回相应的信息，浏览器接收到来自服务器的应答信息后，对这些数据解释执行。</p>
+        <h2 id="HTML标签语义化"><a href="#HTML标签语义化" class="headerlink" title="HTML标签语义化"></a>HTML标签语义化</h2><blockquote>
+<p>语义化是指用合理HTML标记以及其特有的属性去格式化文档内容。机器在需要更少的人类干预的情况下能够研究和收集信息,让网页能够被机器理解,最终让人类受益。即用正确的标签做正确的事。</p>
+</blockquote>
+<ul>
+<li>有利于搜索引擎</li>
+<li>结构清晰的HTML在团队合作中的作用：代码可读、便于维护、提高开发效率、快速达成共识、利于二次开发</li>
+<li>有利于盲人屏幕阅读器</li>
+</ul>
+<h2 id="减少HTTP请求"><a href="#减少HTTP请求" class="headerlink" title="减少HTTP请求"></a>减少HTTP请求</h2><p>一个正常HTTP请求的流程简述：如在浏览器中输入”www.xxxxxx.com”并按下回车，浏览器再与这个URL指向的服务器建立连接，然后浏览器才能向服务器发送请求信息，服务器在接受到请求的信息后再返回相应的信息，浏览器接收到来自服务器的应答信息后，对这些数据解释执行。</p>
 <p>而当我们请求的网页文件中有很多图片、CSS、JS甚至音乐等信息时，将会频繁的与服务器建立连接，与释放连接，这必定会造成资源的浪费，且每个HTTP请求都会对服务器和浏览器产生性能负担。</p>
 <p>网速相同的条件下，下载一个100KB的图片比下载两个50KB的图片要快。所以，请减少HTTP请求。</p>
-<h3 id="css、js文件数量及大小优化"><a href="#css、js文件数量及大小优化" class="headerlink" title="css、js文件数量及大小优化"></a>css、js文件数量及大小优化</h3><p> css、js建议采用外联式来进行导入，我们可以对css、js做相应的规划也可以减少css、js的个数以减少http请求。同时也要注重减少重复代码，注重代码重复利用，已达到用最少的代码干最多的事。同时当项目要投入线上使用的时候，可以对css、js文件进行代码压缩，文件的减少可以加速文件的链接导入，以便加速网页的加载渲染。</p>
-<h3 id="图片的数量和大小"><a href="#图片的数量和大小" class="headerlink" title="图片的数量和大小"></a>图片的数量和大小</h3><p> 适当的压缩图片，加快文档内容的加载，或者如果是需要用户下载的图片，小的图片可以加快用户的下载。</p>
+<h3 id="css、js文件数量及大小优化"><a href="#css、js文件数量及大小优化" class="headerlink" title="css、js文件数量及大小优化"></a>css、js文件数量及大小优化</h3><p>css、js建议采用外联式来进行导入，我们可以对css、js做相应的规划也可以减少css、js的个数以减少http请求。同时也要注重减少重复代码，注重代码重复利用，已达到用最少的代码干最多的事。同时当项目要投入线上使用的时候，可以对css、js文件进行代码压缩，文件的减少可以加速文件的链接导入，以便加速网页的加载渲染。</p>
+<h3 id="图片的数量和大小"><a href="#图片的数量和大小" class="headerlink" title="图片的数量和大小"></a>图片的数量和大小</h3><p>多个服务器请求会对站点的性能产生显著的影响。对一张图片进行导入又是一个http请求，因此我们应该减少图片的导入数量以便减少http请求。对于内容图片，可以对其进行适当的压缩，可以加快文档内容加载，或者如果是需要用户下载的图片，小的图片可以加快用户下载的速度。</p>
+<a id="more"></a>
 <hr>
 <h2 id="Repaint-和-Reflow"><a href="#Repaint-和-Reflow" class="headerlink" title="Repaint 和 Reflow"></a>Repaint 和 Reflow</h2><h3 id="Repaint-重绘）"><a href="#Repaint-重绘）" class="headerlink" title="Repaint(重绘）"></a>Repaint(重绘）</h3><blockquote>
 <p>在一个元素的外观被改变，但没有改变布局(宽高)的情况下发生，如改变visibility、outline、背景色等等</p>
@@ -183,7 +192,6 @@
 <h3 id="Reflow-重排"><a href="#Reflow-重排" class="headerlink" title="Reflow(重排)"></a>Reflow(重排)</h3><blockquote>
 <p>DOM的变化影响到了元素的几何属性（宽和高），浏览器会重新计算元素的几何属性，会使渲染树中受到影响的部分失效，浏览器会验证DOM树上的所有其它结点的visibility属性，这也是Reflow低效的原因。如：改变窗囗大小、改变文字大小、内容的改变、浏览器窗口变化，style属性的改变等等。如果Reflow的过于频繁，CPU使用率就会增加的很快。</p>
 </blockquote>
-<a id="more"></a>
 <h3 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h3><ul>
 <li>设置style属性改变结点样式的话，每设置一次都会导致一次reflow，所以最好通过设置class的方式</li>
 <li>有动画效果的元素，它的position属性应当设为fixed或absolute，这样不会影响其它元素的布局,如果功能需求上不能设置position为fixed或absolute，那么就权衡速度的平滑性。</li>
@@ -200,7 +208,17 @@
 <li>减少对DOM元素的查询和修改，查询时可将其赋值给局部变量。</li>
 <li>修改和访问DOM元素会造成页面的Repaint和Reflow，循环对DOM操作更是罪恶的行为。所以请合理的使用JavaScript变量储存内容，考虑大量DOM元素中循环的性能开销，在循环结束时一次性写入。</li>
 </ul>
-
+<h2 id="延迟加载"><a href="#延迟加载" class="headerlink" title="延迟加载"></a>延迟加载</h2><p>页面初始加载时哪些内容是绝对必需的？不在答案之列的资源都可以延迟加载。比如：</p>
+<ul>
+<li>非首屏使用的数据、样式、脚本、图片等</li>
+<li>用户交互时才会显示的内容</li>
+</ul>
+<p>遵循「渐进增强」理念开发的网站：JavaScript 用于增强用用户体验，但没有（不支持） JavaScript 也能正常工作，完全可以延迟加载 JavaScript。</p>
+<blockquote>
+<p>延迟渲染</p>
+</blockquote>
+<p>将首屏以外的 HTML 放在不渲染的元素中，如隐藏的 <textarea>，或者 type 属性为非执行脚本的 <script> 标签中，减少初始渲染的 DOM 元素数量，提高速度。等首屏加载完成或者用户操作时，再去渲染剩余的页面内容。</p>
+</script></textarea></p>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/performance/">performance</a></li></ul>
@@ -255,7 +273,7 @@
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#减少HTTP请求"><span class="toc-number">1.</span> <span class="toc-text">减少HTTP请求</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#css、js文件数量及大小优化"><span class="toc-number">1.1.</span> <span class="toc-text">css、js文件数量及大小优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图片的数量和大小"><span class="toc-number">1.2.</span> <span class="toc-text">图片的数量和大小</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Repaint-和-Reflow"><span class="toc-number">2.</span> <span class="toc-text">Repaint 和 Reflow</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Repaint-重绘）"><span class="toc-number">2.1.</span> <span class="toc-text">Repaint(重绘）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Reflow-重排"><span class="toc-number">2.2.</span> <span class="toc-text">Reflow(重排)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#solution"><span class="toc-number">2.3.</span> <span class="toc-text">solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#减少DOM元素数量"><span class="toc-number">3.</span> <span class="toc-text">减少DOM元素数量</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML标签语义化"><span class="toc-number">1.</span> <span class="toc-text">HTML标签语义化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#减少HTTP请求"><span class="toc-number">2.</span> <span class="toc-text">减少HTTP请求</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#css、js文件数量及大小优化"><span class="toc-number">2.1.</span> <span class="toc-text">css、js文件数量及大小优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图片的数量和大小"><span class="toc-number">2.2.</span> <span class="toc-text">图片的数量和大小</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Repaint-和-Reflow"><span class="toc-number">3.</span> <span class="toc-text">Repaint 和 Reflow</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Repaint-重绘）"><span class="toc-number">3.1.</span> <span class="toc-text">Repaint(重绘）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Reflow-重排"><span class="toc-number">3.2.</span> <span class="toc-text">Reflow(重排)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#solution"><span class="toc-number">3.3.</span> <span class="toc-text">solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#减少DOM元素数量"><span class="toc-number">4.</span> <span class="toc-text">减少DOM元素数量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#延迟加载"><span class="toc-number">5.</span> <span class="toc-text">延迟加载</span></a></li></ol>
     
     </div>
   </aside>
