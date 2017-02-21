@@ -17,7 +17,7 @@
 <meta property="og:url" content="https://dale-.github.io/2017/02/20/Performance-Optimization/index.html">
 <meta property="og:site_name" content="The Girl Behind">
 <meta property="og:description" content="前端性能优化">
-<meta property="og:updated_time" content="2017-02-21T02:31:26.000Z">
+<meta property="og:updated_time" content="2017-02-21T02:33:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Performance Optimization">
 <meta name="twitter:description" content="前端性能优化">
@@ -183,6 +183,7 @@
 <h3 id="Reflow-重排"><a href="#Reflow-重排" class="headerlink" title="Reflow(重排)"></a>Reflow(重排)</h3><blockquote>
 <p>DOM的变化影响到了元素的几何属性（宽和高），浏览器会重新计算元素的几何属性，会使渲染树中受到影响的部分失效，浏览器会验证DOM树上的所有其它结点的visibility属性，这也是Reflow低效的原因。如：改变窗囗大小、改变文字大小、内容的改变、浏览器窗口变化，style属性的改变等等。如果Reflow的过于频繁，CPU使用率就会增加的很快。</p>
 </blockquote>
+<a id="more"></a>
 <h3 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h3><ul>
 <li>设置style属性改变结点样式的话，每设置一次都会导致一次reflow，所以最好通过设置class的方式</li>
 <li>有动画效果的元素，它的position属性应当设为fixed或absolute，这样不会影响其它元素的布局,如果功能需求上不能设置position为fixed或absolute，那么就权衡速度的平滑性。</li>
@@ -193,7 +194,6 @@
 </blockquote>
 <p>在《高性能JavaScript》中这么比喻：“把DOM看成一个岛屿，把JavaScript(ECMAScript)看成另一个岛屿，两者之间以一座收费桥连接”。所以每次访问DOM都会交一个过桥费，而访问的次数越多，交的费用也就越多。所以一般建议尽量减少过桥次数。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// 浏览器控制台中输入以下代码可以计算出页面中有多少 DOM 元素：</div><div class="line">document.getElementsByTagName(<span class="string">'*'</span>).length;</div></pre></td></tr></table></figure>
-<a id="more"></a>
 <p>解决方法：</p>
 <ul>
 <li>能通过伪元素实现的功能，就没必要添加额外元素。</li>

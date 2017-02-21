@@ -92,7 +92,7 @@
 
 
   
-    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/home-bg.jpg); background-size: auto 100%;">
+    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/sample.jpg); background-size: auto 100%;">
   
 
     <canvas width="100%" height="100%"></canvas>
@@ -228,16 +228,6 @@
 <h3 id="Reflow-重排"><a href="#Reflow-重排" class="headerlink" title="Reflow(重排)"></a>Reflow(重排)</h3><blockquote>
 <p>DOM的变化影响到了元素的几何属性（宽和高），浏览器会重新计算元素的几何属性，会使渲染树中受到影响的部分失效，浏览器会验证DOM树上的所有其它结点的visibility属性，这也是Reflow低效的原因。如：改变窗囗大小、改变文字大小、内容的改变、浏览器窗口变化，style属性的改变等等。如果Reflow的过于频繁，CPU使用率就会增加的很快。</p>
 </blockquote>
-<h3 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h3><ul>
-<li>设置style属性改变结点样式的话，每设置一次都会导致一次reflow，所以最好通过设置class的方式</li>
-<li>有动画效果的元素，它的position属性应当设为fixed或absolute，这样不会影响其它元素的布局,如果功能需求上不能设置position为fixed或absolute，那么就权衡速度的平滑性。</li>
-</ul>
-<hr>
-<h2 id="减少DOM元素数量"><a href="#减少DOM元素数量" class="headerlink" title="减少DOM元素数量"></a>减少DOM元素数量</h2><blockquote>
-<p>对DOM操作的代价是高昂的，这在网页应用中的通常是一个性能瓶颈。</p>
-</blockquote>
-<p>在《高性能JavaScript》中这么比喻：“把DOM看成一个岛屿，把JavaScript(ECMAScript)看成另一个岛屿，两者之间以一座收费桥连接”。所以每次访问DOM都会交一个过桥费，而访问的次数越多，交的费用也就越多。所以一般建议尽量减少过桥次数。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// 浏览器控制台中输入以下代码可以计算出页面中有多少 DOM 元素：</div><div class="line">document.getElementsByTagName(<span class="string">'*'</span>).length;</div></pre></td></tr></table></figure>
         <!-- 减少HTTP请求一个正常HTTP请求的流程简述：如在浏览器中输入”www.xxxxxx.com”并按下回车，浏览器再与这个URL指向的服务器建立连接，然后浏览器才能向服务器发送请求信息，服务器在接受到请求的信息后再返回相应的信息，浏览器接收到来自服务器的应答信息后，对这些数据解释执行。
 而当我们请求的网页文件中有很多图片、CSS、JS甚至音乐等信息时，将会频繁的与服务器建立连接，与释放连接，......  -->
         <p class="article-more-link">
