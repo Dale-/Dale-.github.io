@@ -221,6 +221,18 @@
 <p>网速相同的条件下，下载一个100KB的图片比下载两个50KB的图片要快。所以，请减少HTTP请求。</p>
 <h3 id="css、js文件数量及大小优化"><a href="#css、js文件数量及大小优化" class="headerlink" title="css、js文件数量及大小优化"></a>css、js文件数量及大小优化</h3><p> css、js建议采用外联式来进行导入，我们可以对css、js做相应的规划也可以减少css、js的个数以减少http请求。同时也要注重减少重复代码，注重代码重复利用，已达到用最少的代码干最多的事。同时当项目要投入线上使用的时候，可以对css、js文件进行代码压缩，文件的减少可以加速文件的链接导入，以便加速网页的加载渲染。</p>
 <h3 id="图片的数量和大小"><a href="#图片的数量和大小" class="headerlink" title="图片的数量和大小"></a>图片的数量和大小</h3><p> 适当的压缩图片，加快文档内容的加载，或者如果是需要用户下载的图片，小的图片可以加快用户的下载。</p>
+<hr>
+<h2 id="Repaint-和-Reflow"><a href="#Repaint-和-Reflow" class="headerlink" title="Repaint 和 Reflow"></a>Repaint 和 Reflow</h2><h3 id="Repaint-重绘）"><a href="#Repaint-重绘）" class="headerlink" title="Repaint(重绘）"></a>Repaint(重绘）</h3><blockquote>
+<p>在一个元素的外观被改变，但没有改变布局(宽高)的情况下发生，如改变visibility、outline、背景色等等</p>
+</blockquote>
+<h3 id="Reflow-重排"><a href="#Reflow-重排" class="headerlink" title="Reflow(重排)"></a>Reflow(重排)</h3><blockquote>
+<p>DOM的变化影响到了元素的几何属性（宽和高），浏览器会重新计算元素的几何属性，会使渲染树中受到影响的部分失效，浏览器会验证DOM树上的所有其它结点的visibility属性，这也是Reflow低效的原因。如：改变窗囗大小、改变文字大小、内容的改变、浏览器窗口变化，style属性的改变等等。如果Reflow的过于频繁，CPU使用率就会增加的很快。</p>
+</blockquote>
+<h3 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h3><ul>
+<li>设置style属性改变结点样式的话，每设置一次都会导致一次reflow，所以最好通过设置class的方式</li>
+<li>有动画效果的元素，它的position属性应当设为fixed或absolute，这样不会影响其它元素的布局,如果功能需求上不能设置position为fixed或absolute，那么就权衡速度的平滑性。</li>
+</ul>
+<hr>
 <h2 id="减少DOM元素数量"><a href="#减少DOM元素数量" class="headerlink" title="减少DOM元素数量"></a>减少DOM元素数量</h2><blockquote>
 <p>对DOM操作的代价是高昂的，这在网页应用中的通常是一个性能瓶颈。</p>
 </blockquote>
