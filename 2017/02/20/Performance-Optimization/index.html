@@ -17,7 +17,7 @@
 <meta property="og:url" content="https://dale-.github.io/2017/02/20/Performance-Optimization/index.html">
 <meta property="og:site_name" content="The Girl Behind">
 <meta property="og:description" content="前端性能优化">
-<meta property="og:updated_time" content="2017-02-23T06:57:01.000Z">
+<meta property="og:updated_time" content="2017-02-23T07:52:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Performance Optimization">
 <meta name="twitter:description" content="前端性能优化">
@@ -218,6 +218,18 @@
 <p>延迟渲染</p>
 </blockquote>
 <p>将首屏以外的 HTML 放在不渲染的元素中，如隐藏的 textarea，或者 type 属性为非执行脚本的 <script> 标签中，减少初始渲染的 DOM 元素数量，提高速度。等首屏加载完成或者用户操作时，再去渲染剩余的页面内容。</p>
+<h2 id="把脚本放在页面底部"><a href="#把脚本放在页面底部" class="headerlink" title="把脚本放在页面底部"></a>把脚本放在页面底部</h2><p>即使是来自不同域名的资源，浏览器下载脚本时，会阻塞其他资源并行下载。因此，最好将脚本放在底部，以提高页面加载速度。</p>
+<p>一些特殊场景无法将脚本放到页面底部，可以考虑<script>的以下属性：</p>
+<ul>
+<li>defer属性；</li>
+<li>HTML5新增的async属性</li>
+</ul>
+<h2 id="压缩JavaScript和CSS"><a href="#压缩JavaScript和CSS" class="headerlink" title="压缩JavaScript和CSS"></a>压缩JavaScript和CSS</h2><p>压缩代码可以移除非功能性的字符（注释、空格、空行等），减少文件大小，提高载入速度。</p>
+<blockquote>
+<p>得益于 Node.js 的流行，开源社区涌现出许多高效、易用的前端优化工具，JavaScript 和 CSS 压缩类的，不敢说多如牛毛，多入鸡毛倒是一点不夸张，如 [UglifyJS 2] (<a href="https://github.com/mishoo/UglifyJS2)、csso、cssnano">https://github.com/mishoo/UglifyJS2)、csso、cssnano</a> 等。</p>
+</blockquote>
+<p>对于内嵌的 CSS 和 JavaScript，也可以通过 htmlmin 等工具压缩。</p>
+<p>这些项目都有 Gulp、Webpack 等流行构建工具的配套版本。</p>
 </script></p>
       
       
