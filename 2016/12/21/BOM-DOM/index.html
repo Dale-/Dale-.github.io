@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://dale-.github.io/images/bom-dom/bom.png">
 <meta property="og:image" content="https://dale-.github.io/images/bom-dom/bom-window.png">
 <meta property="og:image" content="https://dale-.github.io/images/bom-dom/constructor.jpeg">
-<meta property="og:updated_time" content="2017-02-26T07:55:55.000Z">
+<meta property="og:updated_time" content="2017-02-26T09:17:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BOM And DOM">
 <meta name="twitter:description" content="Event BOM &amp; DOM">
@@ -233,25 +233,6 @@
 </li>
 </ol>
 <p>2.设置行间样式表的属性的属性值<br>语法：元素节点.style.属性名 = 属性值。<br>类似与background-color –&gt; backgroundColor<br>font-size–&gt;fontSize<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"box"</span>).style.backgroundColor = <span class="string">"green"</span>;</div><div class="line">$(<span class="string">"box"</span>).style.color = <span class="string">"red"</span>;</div><div class="line">$(<span class="string">"box"</span>).style.fontSize = <span class="string">"40px"</span>;//必须带单位</div></pre></td></tr></table></figure></p>
-<h3 id="事件冒泡"><a href="#事件冒泡" class="headerlink" title="事件冒泡"></a>事件冒泡</h3><p>当一个DOM元素上的事件被触发的时候（如：按钮点击事件），同样的事件将会在那个元素的所有父元素中被触发，从这个事件会从原始元素开始一直传递到DOM树的上一层，这一过程被称为<code>事件冒泡</code>。</p>
-<h3 id="事件捕获"><a href="#事件捕获" class="headerlink" title="事件捕获"></a>事件捕获</h3><p>浏览器获取事件（如：按钮点击事件）是从DOM的最顶层开始的，事件发生后会从DOM的根开始向下传递，直到目标元素，目标元素的所有父亲元素都会被依次遍历，浏览器获取事件的过程被称为<code>事件捕获</code>。</p>
-<blockquote>
-<p>事件捕获发生在事件冒泡之前。 事件捕获是从上级元素到下级元素，即：从最不精确的对象（document）开始触发，然后到最精确的目标元素的顺序触发。事件冒泡是从下级元素到上级元素，即：从最特定的事件目标到最不特定的事件目标（document）的顺序触发。</p>
-</blockquote>
-<h3 id="事件处理程序"><a href="#事件处理程序" class="headerlink" title="事件处理程序"></a>事件处理程序</h3><ul>
-<li>HTML事件处理程序</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">  &lt;input onclick=<span class="string">"alert('Be clicked')"</span>&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<ul>
-<li>DOM0级事件处理程序</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">  &lt;input id=<span class="string">"button"</span>&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;script&gt;</div><div class="line">  button = document.getElementById(<span class="string">'button'</span>);</div><div class="line">  button.onClick = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">    alert(<span class="string">'DOM0 Trigger'</span>);</div><div class="line">  &#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<ul>
-<li>DOM2级事件处理程序<br>定义了2个方法，处理指定和删除事件处理程序的操作<br>addEventListener()和removeEventListener()<br>接收参数：要处理的事件名、作为事件处理程序的函数和布尔值（true:时间捕获，false: 事件冒泡）</li>
-</ul>
-<blockquote>
-<p>通过addEventListener事件添加的方法，只能通过removeEventListener删除（置为null无法删除掉）</p>
-</blockquote>
 <h2 id="BOM-Browser-Object-Model-浏览器对象模型"><a href="#BOM-Browser-Object-Model-浏览器对象模型" class="headerlink" title="BOM (Browser Object Model) 浏览器对象模型"></a>BOM (Browser Object Model) 浏览器对象模型</h2><blockquote>
 <p>BOM的核心对象是window，它表示浏览器的一个实例, 同时window也是JavaScript的全局对象。<br>  window对象处于JavaScript结构的最顶层，对于每个打开的窗口，系统都会自动为其定义window对象。<br>  BOM主要负责来对浏览器窗口进行操作和窗口之间的交互。</p>
 </blockquote>
@@ -291,6 +272,43 @@
 </tr>
 </tbody>
 </table>
+<h2 id="事件的传播"><a href="#事件的传播" class="headerlink" title="事件的传播"></a>事件的传播</h2><h3 id="事件冒泡"><a href="#事件冒泡" class="headerlink" title="事件冒泡"></a>事件冒泡</h3><p>当一个DOM元素上的事件被触发的时候（如：按钮点击事件），同样的事件将会在那个元素的所有父元素中被触发，从这个事件会从原始元素开始一直传递到DOM树的上一层，这一过程被称为<code>事件冒泡</code>。</p>
+<h3 id="事件捕获"><a href="#事件捕获" class="headerlink" title="事件捕获"></a>事件捕获</h3><p>浏览器获取事件（如：按钮点击事件）是从DOM的最顶层开始的，事件发生后会从DOM的根开始向下传递，直到目标元素，目标元素的所有父亲元素都会被依次遍历，浏览器获取事件的过程被称为<code>事件捕获</code>。</p>
+<blockquote>
+<p>事件捕获发生在事件冒泡之前。 事件捕获是从上级元素到下级元素，即：从最不精确的对象（document）开始触发，然后到最精确的目标元素的顺序触发。事件冒泡是从下级元素到上级元素，即：从最特定的事件目标到最不特定的事件目标（document）的顺序触发。</p>
+</blockquote>
+<h3 id="事件处理程序"><a href="#事件处理程序" class="headerlink" title="事件处理程序"></a>事件处理程序</h3><ul>
+<li>HTML事件处理程序</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">  &lt;input onclick=<span class="string">"alert('Be clicked')"</span>&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>DOM0级事件处理程序</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">  &lt;input id=<span class="string">"button"</span>&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;script&gt;</div><div class="line">  button = document.getElementById(<span class="string">'button'</span>);</div><div class="line">  button.onClick = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">    alert(<span class="string">'DOM0 Trigger'</span>);</div><div class="line">  &#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>DOM2级事件处理程序<br>定义了2个方法，处理指定和删除事件处理程序的操作<br>addEventListener()和removeEventListener()<br>接收参数：要处理的事件名、作为事件处理程序的函数和布尔值（true:时间捕获，false: 事件冒泡）</li>
+</ul>
+<blockquote>
+<p>通过addEventListener事件添加的方法，只能通过removeEventListener删除（置为null无法删除掉）</p>
+</blockquote>
+<h3 id="传播的三个阶段"><a href="#传播的三个阶段" class="headerlink" title="传播的三个阶段"></a>传播的三个阶段</h3><p>当一个事件发生以后，它会在不同的DOM节点之间传播(propagation)。这种传播分为三个阶段：</p>
+<ul>
+<li><p>第一阶段:从window对象传导到目标节点，称为”捕获阶段”(capture phase)</p>
+</li>
+<li><p>第二阶段：在目标节点上触发，称为”目标阶段”(target phase)</p>
+</li>
+<li><p>第三阶段：从目标节点传导回window对象，称为”冒泡阶段”(bubbling phase)</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&lt;div&gt;</div><div class="line">  &lt;p&gt;Click Me&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line"></div><div class="line">  var phases = &#123;</div><div class="line">    1: <span class="string">'capture'</span>,</div><div class="line">    2: <span class="string">'target'</span>,</div><div class="line">    3: <span class="string">'bubble'</span></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  var div = document.querySelector(<span class="string">'div'</span>);</div><div class="line">  var p = document.querySelector(<span class="string">'p'</span>);</div><div class="line"></div><div class="line">  div.addEventListener(<span class="string">'click'</span>, callback, <span class="literal">true</span>);</div><div class="line">  p.addEventListener(<span class="string">'click'</span>, callback, <span class="literal">true</span>);</div><div class="line">  div.addEventListener(<span class="string">'click'</span>, callback, <span class="literal">false</span>);</div><div class="line">  p.addEventListener(<span class="string">'click'</span>, callback, <span class="literal">false</span>);</div><div class="line"></div><div class="line">  <span class="keyword">function</span> callback(event) &#123;</div><div class="line">    var tag = event.currentTarget.tagName;</div><div class="line">    var phase = phases[event.eventPhase];</div><div class="line">    console.log(<span class="string">"Tag: '"</span> + tag + <span class="string">"'. EventPhase: '"</span> + phase + <span class="string">"'"</span>);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  // 点击以后的结果</div><div class="line">  // Tag: <span class="string">'DIV'</span>. EventPhase: <span class="string">'capture'</span></div><div class="line">  // Tag: <span class="string">'P'</span>. EventPhase: <span class="string">'target'</span></div><div class="line">  // Tag: <span class="string">'P'</span>. EventPhase: <span class="string">'target'</span></div><div class="line">  // Tag: <span class="string">'DIV'</span>. EventPhase: <span class="string">'bubble'</span></div><div class="line"></div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<ol>
+<li>捕获阶段：事件从<div>向<p>传播时，触发<div>的click事件；</div></p></div></li>
+<li>目标阶段：事件从<div>到达<p>时，触发</p><p>的click事件；</p></div></li>
+<li>目标阶段：事件离开<p>时，触发</p><p>的click事件；</p></li>
+<li>冒泡阶段：事件从<p>传回<div>时，再次触发<div>的click事件。</div></div></p></li>
+</ol>
+</blockquote>
 
       
       
@@ -355,7 +373,7 @@
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#DOM-Document-Object-Model-文档对象模型"><span class="toc-number">1.</span> <span class="toc-text">DOM (Document Object Model) 文档对象模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#节点层次"><span class="toc-number">1.1.</span> <span class="toc-text">节点层次</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#节点类型"><span class="toc-number">1.2.</span> <span class="toc-text">节点类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获得元素的子节点"><span class="toc-number">1.3.</span> <span class="toc-text">获得元素的子节点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获取元素节点属性的属性值"><span class="toc-number">1.4.</span> <span class="toc-text">获取元素节点属性的属性值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事件冒泡"><span class="toc-number">1.5.</span> <span class="toc-text">事件冒泡</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事件捕获"><span class="toc-number">1.6.</span> <span class="toc-text">事件捕获</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事件处理程序"><span class="toc-number">1.7.</span> <span class="toc-text">事件处理程序</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BOM-Browser-Object-Model-浏览器对象模型"><span class="toc-number">2.</span> <span class="toc-text">BOM (Browser Object Model) 浏览器对象模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#主要包括"><span class="toc-number">2.1.</span> <span class="toc-text">主要包括</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BOM-amp-DOM-总结"><span class="toc-number">3.</span> <span class="toc-text">BOM & DOM 总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#BOM和DOM结构关系示意图"><span class="toc-number">3.1.</span> <span class="toc-text">BOM和DOM结构关系示意图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BOM与DOM区别"><span class="toc-number">3.2.</span> <span class="toc-text">BOM与DOM区别</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#DOM-Document-Object-Model-文档对象模型"><span class="toc-number">1.</span> <span class="toc-text">DOM (Document Object Model) 文档对象模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#节点层次"><span class="toc-number">1.1.</span> <span class="toc-text">节点层次</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#节点类型"><span class="toc-number">1.2.</span> <span class="toc-text">节点类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获得元素的子节点"><span class="toc-number">1.3.</span> <span class="toc-text">获得元素的子节点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获取元素节点属性的属性值"><span class="toc-number">1.4.</span> <span class="toc-text">获取元素节点属性的属性值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BOM-Browser-Object-Model-浏览器对象模型"><span class="toc-number">2.</span> <span class="toc-text">BOM (Browser Object Model) 浏览器对象模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#主要包括"><span class="toc-number">2.1.</span> <span class="toc-text">主要包括</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BOM-amp-DOM-总结"><span class="toc-number">3.</span> <span class="toc-text">BOM & DOM 总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#BOM和DOM结构关系示意图"><span class="toc-number">3.1.</span> <span class="toc-text">BOM和DOM结构关系示意图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BOM与DOM区别"><span class="toc-number">3.2.</span> <span class="toc-text">BOM与DOM区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件的传播"><span class="toc-number">4.</span> <span class="toc-text">事件的传播</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#事件冒泡"><span class="toc-number">4.1.</span> <span class="toc-text">事件冒泡</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事件捕获"><span class="toc-number">4.2.</span> <span class="toc-text">事件捕获</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事件处理程序"><span class="toc-number">4.3.</span> <span class="toc-text">事件处理程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#传播的三个阶段"><span class="toc-number">4.4.</span> <span class="toc-text">传播的三个阶段</span></a></li></ol></li></ol>
     
     </div>
   </aside>
