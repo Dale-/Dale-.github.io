@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="The Girl Behind">
 <meta property="og:description" content="Modular Programming">
 <meta property="og:image" content="https://dale-.github.io/images/modular-programming/nodejs.jpg">
-<meta property="og:updated_time" content="2016-12-30T14:58:32.000Z">
+<meta property="og:updated_time" content="2017-02-26T11:02:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Modular Programming">
 <meta name="twitter:description" content="Modular Programming">
@@ -176,6 +176,11 @@
         <h2 id="模块的规范"><a href="#模块的规范" class="headerlink" title="模块的规范"></a>模块的规范</h2><p>先想一想，为什么模块很重要？</p>
 <p>因为有了模块，我们就可以更方便地使用别人的代码，想要什么功能，就加载什么模块。</p>
 <p>但是，这样做有一个前提，那就是大家必须以同样的方式编写模块，否则你有你的写法，我有我的写法，岂不是乱了套！<br>考虑到Javascript模块现在还没有官方规范，这一点就更重要了。</p>
+<ul>
+<li>组件的复用，降低开发成本和维护成本</li>
+<li>组件单独开发，方便分工合作</li>
+<li>模块化遵循标准，方便自动化依赖管理，代码优化，部署</li>
+</ul>
 <p>目前，AMD,CMD,CommonJS是目前最常用的三种模块化书写规范。</p>
 <a id="more"></a>
 <h2 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h2><p>2009年，美国程序员Ryan Dahl创造了node.js项目，将javascript语言用于服务器端编程。<br><img src="/images/modular-programming/nodejs.jpg" alt=""><br>这标志”Javascript模块化编程”正式诞生。<br>NodeJS的模块系统，就是参照CommonJS规范实现的。</p>
@@ -188,11 +193,16 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">require([<span class="string">'clock'</span>],<span class="keyword">function</span>(clock)&#123;</div><div class="line">  clock.start();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>目前，主要有两个Javascript库实现了AMD规范：require.js和curl.js。</p>
 <p>AMD虽然实现了异步加载，但是开始就把所有依赖写出来是不符合书写的逻辑顺序的，<br>能不能像commonJS那样用的时候再require，而且还支持异步加载后再执行呢？</p>
-<h2 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h2><p>CMD (Common Module Definition)，<br>CMD则是依赖就近，用的时候再require。它写起来是这样的：</p>
+<h2 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h2><p>CMD (Common Module Definition)，<br>CMD则是依赖就近，用的时候再require。seaJS 是它的实现，它写起来是这样的：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">define(<span class="keyword">function</span>(require, exports, module) &#123;</div><div class="line">   var clock = require(<span class="string">'clock'</span>);</div><div class="line">   clock.start();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>用AMD写上一个模块：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">require([<span class="string">'clock'</span>],<span class="keyword">function</span>(clock)&#123;</div><div class="line">  clock.start();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>AMD和CMD最大的区别是对依赖模块的执行时机处理不同，<br>而不是加载的时机或者方式不同，二者皆为异步加载模块。</p>
+<ul>
+<li>静态加载:在编译阶段进行,把所有需要的依赖打包到一个文件中</li>
+<li>动态加载:在运行时加载依赖</li>
+</ul>
+<p>AMD标准是动态加载的代表，而CommonJS是静态加载的代表。AMD的目的是用在浏览器上，所以是异步加载的。而NodeJS是运行在服务器上的，同步加载的方式显然更容易被人接收，所以使用了CommonJS。同样的道理，如果静态加载，那就使用同步的加载方式，如果动态加载就必须用异步的加载方式。</p>
 <p>AMD依赖前置，js可以方便知道依赖模块是谁，立即加载；而CMD就近依赖，<br>需要使用把模块变为字符串解析一遍才知道依赖了那些模块，这也是很多人诟病CMD的一点，<br>牺牲性能来带来开发的便利性，实际上解析模块用的时间短到可以忽略。</p>
 
       
