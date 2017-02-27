@@ -3,24 +3,29 @@
 <head>
   <meta charset="utf-8">
   
-  <title>performance optimization | The Girl Behind</title>
+  <title>understanding the critical rendering path | The Girl Behind</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-    <meta name="keywords" content="Performance Optimization" />
+    <meta name="keywords" content="JavaScript" />
   
   
   
   
-  <meta name="description" content="前端性能优化">
+  <meta name="description" content="rendering path">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Performance Optimization">
-<meta property="og:url" content="https://dale-.github.io/2017/02/20/Performance-Optimization/index.html">
+<meta property="og:title" content="Understanding the Critical Rendering Path">
+<meta property="og:url" content="https://dale-.github.io/2017/02/27/Understanding-the-Critical-Rendering-Path/index.html">
 <meta property="og:site_name" content="The Girl Behind">
-<meta property="og:description" content="前端性能优化">
-<meta property="og:updated_time" content="2017-02-23T07:52:57.000Z">
+<meta property="og:description" content="rendering path">
+<meta property="og:image" content="https://dale-.github.io/images/rendering-path/CRP-Sequence-Copy.png">
+<meta property="og:image" content="https://dale-.github.io/images/rendering-path/DOM.png">
+<meta property="og:image" content="https://dale-.github.io/images/rendering-path/CSSOM.png">
+<meta property="og:image" content="https://dale-.github.io/images/rendering-path/Render-Tree.pngs">
+<meta property="og:updated_time" content="2017-02-27T03:00:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Performance Optimization">
-<meta name="twitter:description" content="前端性能优化">
+<meta name="twitter:title" content="Understanding the Critical Rendering Path">
+<meta name="twitter:description" content="rendering path">
+<meta name="twitter:image" content="https://dale-.github.io/images/rendering-path/CRP-Sequence-Copy.png">
   
     <link rel="alternate" href="/atom.xml" title="The Girl Behind" type="application/atom+xml">
   
@@ -145,7 +150,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-Performance-Optimization" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-Understanding-the-Critical-Rendering-Path" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -153,7 +158,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      Performance Optimization
+      Understanding the Critical Rendering Path
     </h1>
   
 
@@ -162,78 +167,41 @@
     <div class="article-meta">
       
 	<a href="" class="article-date">
-	  <time datetime="2017-02-20T15:03:19.000Z" itemprop="datePublished">2017-02-20</time>
+	  <time datetime="2017-02-27T02:38:04.000Z" itemprop="datePublished">2017-02-27</time>
 	</a>
 
       
-    <a class="article-category-link" href="../../../../categories/front-end/">front-end</a>
+    <a class="article-category-link" href="../../../../categories/JavaScript/">JavaScript</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="HTML标签语义化"><a href="#HTML标签语义化" class="headerlink" title="HTML标签语义化"></a>HTML标签语义化</h2><blockquote>
-<p>语义化是指用合理HTML标记以及其特有的属性去格式化文档内容。机器在需要更少的人类干预的情况下能够研究和收集信息,让网页能够被机器理解,最终让人类受益。即用正确的标签做正确的事。</p>
-</blockquote>
-<ul>
-<li>有利于搜索引擎</li>
-<li>结构清晰的HTML在团队合作中的作用：代码可读、便于维护、提高开发效率、快速达成共识、利于二次开发</li>
-<li>有利于盲人屏幕阅读器</li>
-</ul>
-<h2 id="减少HTTP请求"><a href="#减少HTTP请求" class="headerlink" title="减少HTTP请求"></a>减少HTTP请求</h2><p>一个正常HTTP请求的流程简述：如在浏览器中输入”www.xxxxxx.com”并按下回车，浏览器再与这个URL指向的服务器建立连接，然后浏览器才能向服务器发送请求信息，服务器在接受到请求的信息后再返回相应的信息，浏览器接收到来自服务器的应答信息后，对这些数据解释执行。</p>
-<p>而当我们请求的网页文件中有很多图片、CSS、JS甚至音乐等信息时，将会频繁的与服务器建立连接，与释放连接，这必定会造成资源的浪费，且每个HTTP请求都会对服务器和浏览器产生性能负担。</p>
-<p>网速相同的条件下，下载一个100KB的图片比下载两个50KB的图片要快。所以，请减少HTTP请求。</p>
-<h3 id="css、js文件数量及大小优化"><a href="#css、js文件数量及大小优化" class="headerlink" title="css、js文件数量及大小优化"></a>css、js文件数量及大小优化</h3><p>css、js建议采用外联式来进行导入，我们可以对css、js做相应的规划也可以减少css、js的个数以减少http请求。同时也要注重减少重复代码，注重代码重复利用，已达到用最少的代码干最多的事。同时当项目要投入线上使用的时候，可以对css、js文件进行代码压缩，文件的减少可以加速文件的链接导入，以便加速网页的加载渲染。</p>
-<h3 id="图片的数量和大小"><a href="#图片的数量和大小" class="headerlink" title="图片的数量和大小"></a>图片的数量和大小</h3><p>多个服务器请求会对站点的性能产生显著的影响。对一张图片进行导入又是一个http请求，因此我们应该减少图片的导入数量以便减少http请求。对于内容图片，可以对其进行适当的压缩，可以加快文档内容加载，或者如果是需要用户下载的图片，小的图片可以加快用户下载的速度。</p>
-<a id="more"></a>
-<hr>
-<h2 id="Repaint-和-Reflow"><a href="#Repaint-和-Reflow" class="headerlink" title="Repaint 和 Reflow"></a>Repaint 和 Reflow</h2><h3 id="Repaint-重绘）"><a href="#Repaint-重绘）" class="headerlink" title="Repaint(重绘）"></a>Repaint(重绘）</h3><blockquote>
-<p>在一个元素的外观被改变，但没有改变布局(宽高)的情况下发生，如改变visibility、outline、背景色等等</p>
-</blockquote>
-<h3 id="Reflow-重排"><a href="#Reflow-重排" class="headerlink" title="Reflow(重排)"></a>Reflow(重排)</h3><blockquote>
-<p>DOM的变化影响到了元素的几何属性（宽和高），浏览器会重新计算元素的几何属性，会使渲染树中受到影响的部分失效，浏览器会验证DOM树上的所有其它结点的visibility属性，这也是Reflow低效的原因。如：改变窗囗大小、改变文字大小、内容的改变、浏览器窗口变化，style属性的改变等等。如果Reflow的过于频繁，CPU使用率就会增加的很快。</p>
-</blockquote>
-<h3 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h3><ul>
-<li>设置style属性改变结点样式的话，每设置一次都会导致一次reflow，所以最好通过设置class的方式</li>
-<li>有动画效果的元素，它的position属性应当设为fixed或absolute，这样不会影响其它元素的布局,如果功能需求上不能设置position为fixed或absolute，那么就权衡速度的平滑性。</li>
-</ul>
-<hr>
-<h2 id="减少DOM元素数量"><a href="#减少DOM元素数量" class="headerlink" title="减少DOM元素数量"></a>减少DOM元素数量</h2><blockquote>
-<p>对DOM操作的代价是高昂的，这在网页应用中的通常是一个性能瓶颈。</p>
-</blockquote>
-<p>在《高性能JavaScript》中这么比喻：“把DOM看成一个岛屿，把JavaScript(ECMAScript)看成另一个岛屿，两者之间以一座收费桥连接”。所以每次访问DOM都会交一个过桥费，而访问的次数越多，交的费用也就越多。所以一般建议尽量减少过桥次数。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// 浏览器控制台中输入以下代码可以计算出页面中有多少 DOM 元素：</div><div class="line">document.getElementsByTagName(<span class="string">'*'</span>).length;</div></pre></td></tr></table></figure>
-<p>解决方法：</p>
-<ul>
-<li>能通过伪元素实现的功能，就没必要添加额外元素。</li>
-<li>减少对DOM元素的查询和修改，查询时可将其赋值给局部变量。</li>
-<li>修改和访问DOM元素会造成页面的Repaint和Reflow，循环对DOM操作更是罪恶的行为。所以请合理的使用JavaScript变量储存内容，考虑大量DOM元素中循环的性能开销，在循环结束时一次性写入。</li>
-</ul>
-<h2 id="延迟加载"><a href="#延迟加载" class="headerlink" title="延迟加载"></a>延迟加载</h2><p>页面初始加载时哪些内容是绝对必需的？不在答案之列的资源都可以延迟加载。比如：</p>
-<ul>
-<li>非首屏使用的数据、样式、脚本、图片等</li>
-<li>用户交互时才会显示的内容</li>
-</ul>
-<p>遵循「渐进增强」理念开发的网站：JavaScript 用于增强用用户体验，但没有（不支持） JavaScript 也能正常工作，完全可以延迟加载 JavaScript。</p>
-<blockquote>
-<p>延迟渲染</p>
-</blockquote>
-<p>将首屏以外的 HTML 放在不渲染的元素中，如隐藏的 textarea，或者 type 属性为非执行脚本的 <script> 标签中，减少初始渲染的 DOM 元素数量，提高速度。等首屏加载完成或者用户操作时，再去渲染剩余的页面内容。</p>
-<h2 id="把脚本放在页面底部"><a href="#把脚本放在页面底部" class="headerlink" title="把脚本放在页面底部"></a>把脚本放在页面底部</h2><p>即使是来自不同域名的资源，浏览器下载脚本时，会阻塞其他资源并行下载。因此，最好将脚本放在底部，以提高页面加载速度。</p>
-<p>一些特殊场景无法将脚本放到页面底部，可以考虑<script>的以下属性：</p>
-<ul>
-<li>defer属性；</li>
-<li>HTML5新增的async属性</li>
-</ul>
-<h2 id="压缩JavaScript和CSS"><a href="#压缩JavaScript和CSS" class="headerlink" title="压缩JavaScript和CSS"></a>压缩JavaScript和CSS</h2><p>压缩代码可以移除非功能性的字符（注释、空格、空行等），减少文件大小，提高载入速度。</p>
-<blockquote>
-<p>得益于 Node.js 的流行，开源社区涌现出许多高效、易用的前端优化工具，JavaScript 和 CSS 压缩类的，不敢说多如牛毛，多入鸡毛倒是一点不夸张，如 [UglifyJS 2] (<a href="https://github.com/mishoo/UglifyJS2)、csso、cssnano">https://github.com/mishoo/UglifyJS2)、csso、cssnano</a> 等。</p>
-</blockquote>
-<p>对于内嵌的 CSS 和 JavaScript，也可以通过 htmlmin 等工具压缩。</p>
-<p>这些项目都有 Gulp、Webpack 等流行构建工具的配套版本。</p>
-</script></p>
+        <h2 id="Critical-Rendering-Path"><a href="#Critical-Rendering-Path" class="headerlink" title="Critical Rendering Path"></a>Critical Rendering Path</h2><h3 id="There-are-6-stages-to-the-CRP"><a href="#There-are-6-stages-to-the-CRP" class="headerlink" title="There are 6 stages to the CRP -"></a>There are 6 stages to the CRP -</h3><ol>
+<li>Constructing the DOM Tree</li>
+<li>Constructing the CSSOM Tree</li>
+<li>Running JavaScript</li>
+<li>Creating the Render Tree</li>
+<li>Generating the Layout</li>
+<li>Painting</li>
+</ol>
+<p><img src="/images/rendering-path/CRP-Sequence-Copy.png" alt=""></p>
+<h3 id="Constructing-the-DOM-Tree"><a href="#Constructing-the-DOM-Tree" class="headerlink" title="Constructing the DOM Tree"></a>Constructing the DOM Tree</h3><p><img src="/images/rendering-path/DOM.png" alt=""></p>
+<h3 id="Constructing-the-CSSOM-Tree"><a href="#Constructing-the-CSSOM-Tree" class="headerlink" title="Constructing the CSSOM Tree"></a>Constructing the CSSOM Tree</h3><p><img src="/images/rendering-path/CSSOM.png" alt=""></p>
+<h3 id="Running-JavaScript"><a href="#Running-JavaScript" class="headerlink" title="Running JavaScript"></a>Running JavaScript</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script async src=<span class="string">"script.js"</span>&gt;</div></pre></td></tr></table></figure>
+<h3 id="Creating-the-Render-Tree"><a href="#Creating-the-Render-Tree" class="headerlink" title="Creating the Render Tree"></a>Creating the Render Tree</h3><p><img src="/images/rendering-path/Render-Tree.pngs" alt=""></p>
+<h3 id="Generating-the-layout"><a href="#Generating-the-layout" class="headerlink" title="Generating the layout"></a>Generating the layout</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width,initial-scale=1"</span>&gt;</div></pre></td></tr></table></figure>
+<h2 id="Putting-it-All-Together"><a href="#Putting-it-All-Together" class="headerlink" title="Putting it All Together"></a>Putting it All Together</h2><ol>
+<li>Send Request - GET request sent for index.html</li>
+<li>Parse HTML and Send Request - Begin parsing of HTML and DOM construction. Send GET request for style.css and main.js</li>
+<li>Parse Stylesheet - CSSOM created for style.css</li>
+<li>Evaluate Script - Evaluate main.js</li>
+<li>Layout - Generate Layout based on meta viewport tag in HTML</li>
+<li>Paint - Paint pixels on document</li>
+</ol>
+
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/performance/">performance</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/JavaScript/">JavaScript</a></li></ul>
 
     </div>
     <footer class="article-footer">
@@ -242,7 +210,7 @@
 	<div id="comment">
 
 	<!-- 多说评论框 start -->
-	 <div class="ds-thread" data-thread-key="/2017/02/20/Performance-Optimization/" data-title="Performance Optimization" data-url="https://dale-.github.io/2017/02/20/Performance-Optimization/"></div>
+	 <div class="ds-thread" data-thread-key="/2017/02/27/Understanding-the-Critical-Rendering-Path/" data-title="Understanding the Critical Rendering Path" data-url="https://dale-.github.io/2017/02/27/Understanding-the-Critical-Rendering-Path/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -268,19 +236,10 @@
     
 <nav id="article-nav">
   
-    <a href="../../27/Understanding-the-Critical-Rendering-Path/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Understanding the Critical Rendering Path
-        
-      </div>
-    </a>
   
-  
-    <a href="../../07/angular-directive/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="../../20/Performance-Optimization/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Angular Directive</div>
+      <div class="article-nav-title">Performance Optimization</div>
     </a>
   
 </nav>
@@ -294,7 +253,7 @@
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML标签语义化"><span class="toc-number">1.</span> <span class="toc-text">HTML标签语义化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#减少HTTP请求"><span class="toc-number">2.</span> <span class="toc-text">减少HTTP请求</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#css、js文件数量及大小优化"><span class="toc-number">2.1.</span> <span class="toc-text">css、js文件数量及大小优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图片的数量和大小"><span class="toc-number">2.2.</span> <span class="toc-text">图片的数量和大小</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Repaint-和-Reflow"><span class="toc-number">3.</span> <span class="toc-text">Repaint 和 Reflow</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Repaint-重绘）"><span class="toc-number">3.1.</span> <span class="toc-text">Repaint(重绘）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Reflow-重排"><span class="toc-number">3.2.</span> <span class="toc-text">Reflow(重排)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#solution"><span class="toc-number">3.3.</span> <span class="toc-text">solution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#减少DOM元素数量"><span class="toc-number">4.</span> <span class="toc-text">减少DOM元素数量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#延迟加载"><span class="toc-number">5.</span> <span class="toc-text">延迟加载</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Critical-Rendering-Path"><span class="toc-number">1.</span> <span class="toc-text">Critical Rendering Path</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#There-are-6-stages-to-the-CRP"><span class="toc-number">1.1.</span> <span class="toc-text">There are 6 stages to the CRP -</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Constructing-the-DOM-Tree"><span class="toc-number">1.2.</span> <span class="toc-text">Constructing the DOM Tree</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Constructing-the-CSSOM-Tree"><span class="toc-number">1.3.</span> <span class="toc-text">Constructing the CSSOM Tree</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Running-JavaScript"><span class="toc-number">1.4.</span> <span class="toc-text">Running JavaScript</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Creating-the-Render-Tree"><span class="toc-number">1.5.</span> <span class="toc-text">Creating the Render Tree</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generating-the-layout"><span class="toc-number">1.6.</span> <span class="toc-text">Generating the layout</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Putting-it-All-Together"><span class="toc-number">2.</span> <span class="toc-text">Putting it All Together</span></a></li></ol>
     
     </div>
   </aside>

@@ -190,6 +190,71 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-Understanding-the-Critical-Rendering-Path"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="2017/02/27/Understanding-the-Critical-Rendering-Path/">Understanding the Critical Rendering Path</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="2017/02/27/Understanding-the-Critical-Rendering-Path/" class="article-date">
+	  <time datetime="2017-02-27T02:38:04.000Z" itemprop="datePublished">2017-02-27</time>
+	</a>
+
+      
+    <a class="article-category-link" href="categories/JavaScript/">JavaScript</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Critical-Rendering-Path"><a href="#Critical-Rendering-Path" class="headerlink" title="Critical Rendering Path"></a>Critical Rendering Path</h2><h3 id="There-are-6-stages-to-the-CRP"><a href="#There-are-6-stages-to-the-CRP" class="headerlink" title="There are 6 stages to the CRP -"></a>There are 6 stages to the CRP -</h3><ol>
+<li>Constructing the DOM Tree</li>
+<li>Constructing the CSSOM Tree</li>
+<li>Running JavaScript</li>
+<li>Creating the Render Tree</li>
+<li>Generating the Layout</li>
+<li>Painting</li>
+</ol>
+<p><img src="/images/rendering-path/CRP-Sequence-Copy.png" alt=""></p>
+<h3 id="Constructing-the-DOM-Tree"><a href="#Constructing-the-DOM-Tree" class="headerlink" title="Constructing the DOM Tree"></a>Constructing the DOM Tree</h3><p><img src="/images/rendering-path/DOM.png" alt=""></p>
+<h3 id="Constructing-the-CSSOM-Tree"><a href="#Constructing-the-CSSOM-Tree" class="headerlink" title="Constructing the CSSOM Tree"></a>Constructing the CSSOM Tree</h3><p><img src="/images/rendering-path/CSSOM.png" alt=""></p>
+<h3 id="Running-JavaScript"><a href="#Running-JavaScript" class="headerlink" title="Running JavaScript"></a>Running JavaScript</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script async src=<span class="string">"script.js"</span>&gt;</div></pre></td></tr></table></figure>
+<h3 id="Creating-the-Render-Tree"><a href="#Creating-the-Render-Tree" class="headerlink" title="Creating the Render Tree"></a>Creating the Render Tree</h3><p><img src="/images/rendering-path/Render-Tree.pngs" alt=""></p>
+<h3 id="Generating-the-layout"><a href="#Generating-the-layout" class="headerlink" title="Generating the layout"></a>Generating the layout</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width,initial-scale=1"</span>&gt;</div></pre></td></tr></table></figure>
+<h2 id="Putting-it-All-Together"><a href="#Putting-it-All-Together" class="headerlink" title="Putting it All Together"></a>Putting it All Together</h2><ol>
+<li>Send Request - GET request sent for index.html</li>
+<li>Parse HTML and Send Request - Begin parsing of HTML and DOM construction. Send GET request for style.css and main.js</li>
+<li>Parse Stylesheet - CSSOM created for style.css</li>
+<li>Evaluate Script - Evaluate main.js</li>
+<li>Layout - Generate Layout based on meta viewport tag in HTML</li>
+<li>Paint - Paint pixels on document</li>
+</ol>
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/JavaScript/">JavaScript</a></li></ul>
+
+    </div>
+    <footer class="article-footer">
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-Performance-Optimization"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -481,59 +546,6 @@ Subscrib......  -->
 <p>fun.apply(thisArg[, argsArray])</p>
 </blockquote>
 
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/JavaScript/">JavaScript</a></li></ul>
-
-    </div>
-    <footer class="article-footer">
-      
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-Object-From-JavaScript-API"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="2017/01/16/Object-From-JavaScript-API/">Object From JavaScript API</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="2017/01/16/Object-From-JavaScript-API/" class="article-date">
-	  <time datetime="2017-01-16T15:37:00.000Z" itemprop="datePublished">2017-01-16</time>
-	</a>
-
-      
-    <a class="article-category-link" href="categories/JavaScript/">JavaScript</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>第一版只更新 Simple Case<br>后期随时补充特性</p>
-</blockquote>
-<h2 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h2><h3 id="Object-prototype"><a href="#Object-prototype" class="headerlink" title="Object.prototype"></a>Object.prototype</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">var Person = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">  this.canTalk = <span class="literal">true</span>;</div><div class="line">  this.greet = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">    <span class="keyword">if</span> (this.canTalk) &#123;</div><div class="line">      console.log(<span class="string">'Hi, I\'</span>m <span class="string">' + this.name);</div><div class="line">    &#125;</div><div class="line">  &#125;;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var Employee = function(name, title) &#123;</div><div class="line">  this.name = name;</div><div class="line">  this.title = title;</div><div class="line">  this.greet = function() &#123;</div><div class="line">    if (this.canTalk) &#123;</div><div class="line">      console.log("Hi, I'</span>m <span class="string">" + this.name + "</span>, the <span class="string">" + this.title);</div><div class="line">    &#125;</div><div class="line">  &#125;;</div><div class="line">&#125;;</div><div class="line">Employee.prototype = new Person();</div><div class="line"></div><div class="line">var Customer = function(name) &#123;</div><div class="line">  this.name = name;</div><div class="line">&#125;;</div><div class="line">Customer.prototype = new Person();</div><div class="line"></div><div class="line">var Mime = function(name) &#123;</div><div class="line">  this.name = name;</div><div class="line">  this.canTalk = false;</div><div class="line">&#125;;</div><div class="line">Mime.prototype = new Person();</div><div class="line"></div><div class="line">var bob = new Employee('Bob', 'Builder');</div><div class="line">var joe = new Customer('Joe');</div><div class="line">var rg = new Employee('Red Green', 'Handyman');</div><div class="line">var mike = new Customer('Mike');</div><div class="line">var mime = new Mime('Mime');</div><div class="line">bob.greet();</div><div class="line">joe.greet();</div><div class="line">rg.greet();</div><div class="line">mike.greet();</div><div class="line">mime.greet();</span></div></pre></td></tr></table></figure>
-        <!-- 
-第一版只更新 Simple Case后期随时补充特性
-
-PropertiesObject.prototype1234567891011121314151617181920212223242526272829303132333435363738394041var Person = function() &#123;  this.canTalk = true;  this.greet = fu......  -->
-        <p class="article-more-link">
-          <a href="2017/01/16/Object-From-JavaScript-API/#more">Read More</a>
-        </p>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/JavaScript/">JavaScript</a></li></ul>
