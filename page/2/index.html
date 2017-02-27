@@ -190,6 +190,96 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-Function-From-JavaScript"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../2017/01/17/Function-From-JavaScript/">Function From JavaScript API</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../2017/01/17/Function-From-JavaScript/" class="article-date">
+	  <time datetime="2017-01-17T01:09:08.000Z" itemprop="datePublished">2017-01-17</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/JavaScript/">JavaScript</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>第一版只更新 Simple Case<br>后期随时补充特性</p>
+</blockquote>
+<h2 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h2><h3 id="Function-length"><a href="#Function-length" class="headerlink" title="Function.length"></a>Function.length</h3><blockquote>
+<p>length 属性指明函数的形参个数</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">console.log(Function.length); /* 1 */</div><div class="line"></div><div class="line">console.log((<span class="function"><span class="title">function</span></span>()        &#123;&#125;).length); /* 0 */</div><div class="line">console.log((<span class="keyword">function</span>(a)       &#123;&#125;).length); /* 1 */</div><div class="line">console.log((<span class="keyword">function</span>(a, b)    &#123;&#125;).length); /* 2 etc. */</div><div class="line">console.log((<span class="keyword">function</span>(...args) &#123;&#125;).length); /* 0, rest parameter is not counted */</div></pre></td></tr></table></figure>
+<h3 id="Function-prototype"><a href="#Function-prototype" class="headerlink" title="Function.prototype"></a>Function.prototype</h3><blockquote>
+<p>Function.prototype 属性存储了 Function 的原型对象<br>Function对象继承自 Function.prototype 属性。因此，Function.prototype 不能被修改</p>
+<p>属性</p>
+</blockquote>
+<ul>
+<li>Function.length</li>
+</ul>
+<p>获得函数的接收参数个数。</p>
+<ul>
+<li>Function.prototype.constructor</li>
+</ul>
+<p>声明函数的原型构造方法</p>
+<blockquote>
+<p>方法</p>
+</blockquote>
+<ul>
+<li>Function.prototype.apply()</li>
+</ul>
+<p>在一个对象的上下文中应用另一个对象的方法；参数能够以数组形式传入。</p>
+<ul>
+<li>Function.prototype.bind()</li>
+</ul>
+<p>bind()方法会创建一个新函数，称为绑定函数，当调用这个绑定函数时，绑定函数会以创建它时传入bind(）<br>方法的第一个参数作为this,传入bind()方法的第二个以及以后的参数加上绑定函数运行时本身的参数按照<br>顺序作为原函数的参数来调用原函数。</p>
+<ul>
+<li>Function.prototype.call()</li>
+</ul>
+<p>在一个对象的上下文中应用另一个对象的方法；参数能够以列表形式传入。</p>
+<h2 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h2><h3 id="Function-prototype-apply"><a href="#Function-prototype-apply" class="headerlink" title="Function.prototype.apply()"></a>Function.prototype.apply()</h3><blockquote>
+<p>apply() 方法在指定 this 值和参数（参数以数组或类数组对象的形式存在）的情况下调用某个函数</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">  Function.prototype.construct = <span class="keyword">function</span> (aArgs) &#123;</div><div class="line">    var oNew = Object.create(this.prototype);</div><div class="line">    this.apply(oNew, aArgs);</div><div class="line">    <span class="built_in">return</span> oNew;</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  // 注意: 上面使用的Object.create()方法相对来说比较新。另一种可选的方法是使用闭包，请考虑如下替代方法</div><div class="line"></div><div class="line">  Function.prototype.construct = <span class="keyword">function</span>(aArgs) &#123;</div><div class="line">  var fConstructor = this, fNewConstr = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">    fConstructor.apply(this, aArgs);</div><div class="line">  &#125;;</div><div class="line">  fNewConstr.prototype = fConstructor.prototype;</div><div class="line">  <span class="built_in">return</span> new fNewConstr();</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  <span class="keyword">function</span> <span class="function"><span class="title">MyConstructor</span></span> () &#123;</div><div class="line">    <span class="keyword">for</span> (var nProp = 0; nProp &lt; arguments.length; nProp++) &#123;</div><div class="line">        this[<span class="string">"property"</span> + nProp] = arguments[nProp];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">  var myArray = [4, <span class="string">"Hello world!"</span>, <span class="literal">false</span>];</div><div class="line">  var myInstance = MyConstructor.construct(myArray);</div><div class="line"></div><div class="line">  console.log(myInstance.property1);                // logs <span class="string">"Hello world!"</span></div><div class="line">  console.log(myInstance instanceof MyConstructor); // logs <span class="string">"true"</span></div><div class="line">  console.log(myInstance.constructor);              // logs <span class="string">"MyConstructor"</span></div></pre></td></tr></table></figure>
+<p> Array.of() 和 Array 构造函数不同的是：在处理数值类型的参数时，Array.of(42) 创建的数组只有一个元素，即 42, 但 Array(42) 创建了42个元素，每个元素都是undefined。</p>
+<blockquote>
+<p>Attention</p>
+</blockquote>
+<p> 该函数的语法与call()方法的语法几乎完全相同，唯一的区别在于，call()方法接受的是一个参数列表，<br> 而apply()方法接受的是一个包含多个参数的数组（或类数组对象）。</p>
+<p><em>Syntax</em></p>
+<blockquote>
+<p>fun.apply(thisArg[, argsArray])</p>
+</blockquote>
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/JavaScript/">JavaScript</a></li></ul>
+
+    </div>
+    <footer class="article-footer">
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-Object-From-JavaScript-API"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -481,59 +571,6 @@ JavaScript中 this 的基本用法首先，我们知道在JavaScript中所有函
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/JavaScript/">JavaScript</a></li></ul>
-
-    </div>
-    <footer class="article-footer">
-      
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-BOM-DOM"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../2016/12/21/BOM-DOM/">BOM And DOM</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="../../2016/12/21/BOM-DOM/" class="article-date">
-	  <time datetime="2016-12-21T02:43:18.000Z" itemprop="datePublished">2016-12-21</time>
-	</a>
-
-      
-    <a class="article-category-link" href="../../categories/Event/">Event</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="DOM-Document-Object-Model-文档对象模型"><a href="#DOM-Document-Object-Model-文档对象模型" class="headerlink" title="DOM (Document Object Model) 文档对象模型"></a>DOM (Document Object Model) 文档对象模型</h2><p>一套HTML和XML提供的API（应用程序编程接口，DOM描述了一个层次化的节点，允许添加、移除、修改页面中的某个部分。</p>
-<h3 id="节点层次"><a href="#节点层次" class="headerlink" title="节点层次"></a>节点层次</h3><p>DOM可以将任意HTML或者XML文档描绘成一个由多层节点构成的结构。<br><img src="/images/bom-dom/document.png" alt=""><br>
-        <!-- DOM (Document Object Model) 文档对象模型一套HTML和XML提供的API（应用程序编程接口，DOM描述了一个层次化的节点，允许添加、移除、修改页面中的某个部分。
-节点层次DOM可以将任意HTML或者XML文档描绘成一个由多层节点构成的结构。
-节点类型
-
-Document : 整个文档树的顶层节点
-DocumentType : doctype标签（比如&lt;!DO......  -->
-        <p class="article-more-link">
-          <a href="../../2016/12/21/BOM-DOM/#more">Read More</a>
-        </p>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Event/">Event</a></li></ul>
 
     </div>
     <footer class="article-footer">
