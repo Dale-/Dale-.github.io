@@ -23,7 +23,7 @@
 <meta property="og:image" content="https://dale-.github.io/images/http/response.png">
 <meta property="og:image" content="https://dale-.github.io/images/http/process.png">
 <meta property="og:image" content="https://dale-.github.io/images/http/status-code.png">
-<meta property="og:updated_time" content="2017-02-28T06:02:44.000Z">
+<meta property="og:updated_time" content="2017-03-05T16:02:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTTP Protocol">
 <meta name="twitter:description" content="HTTP Protocol">
@@ -321,9 +321,10 @@
 <p>GET /tickets # 获取ticket列表<br>GET /tickets/12 # 查看某个具体的ticket<br>POST /tickets # 新建一个ticket<br>PUT /tickets/12 # 更新ticket 12<br>PATCH /tickets/12 # 更新ticket 12<br>DELETE /tickets/12 # 删除ticekt 12</p>
 </blockquote>
 <h2 id="一个页面从输入-URL-到页面加载显示完成的过程"><a href="#一个页面从输入-URL-到页面加载显示完成的过程" class="headerlink" title="一个页面从输入 URL 到页面加载显示完成的过程"></a>一个页面从输入 URL 到页面加载显示完成的过程</h2><ol>
-<li>浏览器根据请求的URL交给DNS域名解析，找到真实IP，向服务器发起请求；</li>
-<li>服务器交给后台处理完成后返回数据，浏览器接收文件（HTML、JS、CSS、图象等）；</li>
-<li>浏览器对加载到的资源（HTML、JS、CSS等）进行语法解析，建立相应的内部数据结构（如HTML的DOM）；</li>
+<li>浏览器根据请求的URL交给DNS域名解析，找到真实IP</li>
+<li>发起TCP的3次握手,建立TCP连接后发起http请求</li>
+<li>服务器交给后台处理完成后返回数据，浏览器接收文件（HTML、JS、CSS、图象等）</li>
+<li>浏览器对加载到的资源（HTML、JS、CSS等）进行语法解析，建立相应的内部数据结构（如HTML的DOM）</li>
 <li>载入解析到的资源文件，渲染页面，完成。</li>
 </ol>
 <p><a href="https://www.sitepoint.com/creating-crud-app-minutes-angulars-resource/" target="_blank" rel="external">creating-crud-app-minutes-angulars-resource</a></p>
