@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://dale-.github.io/images/react-components-lifecycle/updating-props.png">
 <meta property="og:image" content="https://dale-.github.io/images/react-components-lifecycle/updating-state.png">
 <meta property="og:image" content="https://dale-.github.io/images/react-components-lifecycle/unmounting.png">
-<meta property="og:updated_time" content="2017-03-12T13:31:25.000Z">
+<meta property="og:updated_time" content="2017-03-12T13:36:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React Components Lifecycle">
 <meta name="twitter:description" content="React Components Lifecycle">
@@ -182,7 +182,20 @@
 <h3 id="Update"><a href="#Update" class="headerlink" title="Update"></a>Update</h3><p>一个mounted的React Components被重新render的过程。</p>
 <h3 id="Unmounted"><a href="#Unmounted" class="headerlink" title="Unmounted"></a>Unmounted</h3><p>一个mounted的React Components对应的DOM节点被从DOM结构中移除的这样一个过程。</p>
 <a id="more"></a>
-<h2 id="声明周期"><a href="#声明周期" class="headerlink" title="声明周期"></a>声明周期</h2><h3 id="Mounting"><a href="#Mounting" class="headerlink" title="Mounting"></a>Mounting</h3><p><img src="/images/react-components-lifecycle/mounting.png" alt=""></p>
+<h2 id="声明周期"><a href="#声明周期" class="headerlink" title="声明周期"></a>声明周期</h2><p>React 为每个状态都提供了两种处理函数，will 函数在进入状态之前调用，did 函数在进入状态之后调用，三种状态共计五种处理函数。</p>
+<ul>
+<li>componentWillMount()</li>
+<li>componentDidMount()</li>
+<li>componentWillUpdate(object nextProps, object nextState)</li>
+<li>componentDidUpdate(object prevProps, object prevState)</li>
+<li>componentWillUnmount()</li>
+</ul>
+<p>此外，React 还提供两种特殊状态的处理函数。</p>
+<ul>
+<li>componentWillReceiveProps(object nextProps)：已加载组件收到新的参数时调用</li>
+<li>shouldComponentUpdate(object nextProps, object nextState)：组件判断是否重新渲染时调用</li>
+</ul>
+<h3 id="Mounting"><a href="#Mounting" class="headerlink" title="Mounting"></a>Mounting</h3><p><img src="/images/react-components-lifecycle/mounting.png" alt=""></p>
 <p><script async src="//jsfiddle.net/Dale_/gfLrfg1d/embed/"></script></p>
 <h3 id="Updating"><a href="#Updating" class="headerlink" title="Updating"></a>Updating</h3><p><img src="/images/react-components-lifecycle/updating-props.png" alt=""><br><img src="/images/react-components-lifecycle/updating-state.png" alt=""></p>
 <p><script async src="//jsfiddle.net/Dale_/gfLrfg1d/2/embed/"></script></p>
