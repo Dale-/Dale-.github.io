@@ -3,21 +3,30 @@
 <head>
   <meta charset="utf-8">
   
-  <title>archives: 2017 | The Girl Behind</title>
+  <title>react-components-lifecycle | The Girl Behind</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
+    <meta name="keywords" content="Components-Lifecycle" />
   
   
   
-  <meta name="description" content="To be a better me">
-<meta property="og:type" content="website">
-<meta property="og:title" content="The Girl Behind">
-<meta property="og:url" content="https://dale-.github.io/archives/2017/page/2/index.html">
+  
+  <meta name="description" content="React Components Lifecycle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React-Components-Lifecycle">
+<meta property="og:url" content="https://dale-.github.io/2017/03/12/React-Components-Lifecycle/index.html">
 <meta property="og:site_name" content="The Girl Behind">
-<meta property="og:description" content="To be a better me">
+<meta property="og:description" content="React Components Lifecycle">
+<meta property="og:image" content="https://dale-.github.io/images/React-Components-Lifecycle/component-lifecycle.png">
+<meta property="og:image" content="https://dale-.github.io/images/React-Components-Lifecycle/mounting.png">
+<meta property="og:image" content="https://dale-.github.io/images/React-Components-Lifecycle/updating-props.png">
+<meta property="og:image" content="https://dale-.github.io/images/React-Components-Lifecycle/updating-state.png">
+<meta property="og:image" content="https://dale-.github.io/images/React-Components-Lifecycle/unmounting.png">
+<meta property="og:updated_time" content="2017-03-12T12:52:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="The Girl Behind">
-<meta name="twitter:description" content="To be a better me">
+<meta name="twitter:title" content="React-Components-Lifecycle">
+<meta name="twitter:description" content="React Components Lifecycle">
+<meta name="twitter:image" content="https://dale-.github.io/images/React-Components-Lifecycle/component-lifecycle.png">
   
     <link rel="alternate" href="/atom.xml" title="The Girl Behind" type="application/atom+xml">
   
@@ -49,8 +58,6 @@
   
 
   
-    <link rel="stylesheet" href="/css/archive.css" >
-  
 
 </head>
 
@@ -75,7 +82,7 @@
             
               <a class="brand" style="
                  margin-top: 0px;"  
-                 >
+                href="#" data-toggle="modal" data-target="#myModal" >
                   <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
               </a>
             
@@ -85,7 +92,7 @@
                 
                   <li> <a class="main-nav-link" href="../../../../index.html">Home</a> </li>
                 
-                  <li> <a class="main-nav-link" href="../../..">Archives</a> </li>
+                  <li> <a class="main-nav-link" href="../../../../archives">Archives</a> </li>
                 
                   <li> <a class="main-nav-link" href="../../../../categories">Categories</a> </li>
                 
@@ -144,195 +151,100 @@
             
       <div id="content" class="outer">
         
-          <section id="main">
-  <div class="archives-tags-wrap"><blockquote><span>There are 18 posts in total till now.</span></blockquote>
-
-
-<!-- 分页显示 -->
-
-	
-	
-	
-	
-	  
-	  
-	  <section class="archives-wrap">
-	    <div class="archive-year-wrap">
-	      <h1><a href="../.." class="archive-year">2017</a></h1>
-	    </div>
-	    <div class="archives">
-	
-	<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="../../../../2017/01/16/Object-From-JavaScript-API/" class="archive-article-date">
-	  <time datetime="2017-01-16T15:37:00.000Z" itemprop="datePublished">2017-01-16</time>
-	</a>
-
-      
+          <section id="main" style="float:none;"><article id="post-React-Components-Lifecycle" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="../../../../2017/01/16/Object-From-JavaScript-API/">Object From JavaScript API</a>
+    <h1 class="thumb" class="article-title" itemprop="name">
+      React-Components-Lifecycle
     </h1>
   
 
-    </header>
-  </div>
-</article>
-	
-	
-	
-	<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
+      </header>
+    
+    <div class="article-meta">
       
-	<a href="../../../../2017/01/11/Array-From-JavaScript-API/" class="archive-article-date">
-	  <time datetime="2017-01-11T01:09:08.000Z" itemprop="datePublished">2017-01-11</time>
+	<a href="" class="article-date">
+	  <time datetime="2017-03-12T10:03:49.000Z" itemprop="datePublished">2017-03-12</time>
 	</a>
 
       
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="../../../../2017/01/11/Array-From-JavaScript-API/">Array From JavaScript API</a>
-    </h1>
-  
+    <a class="article-category-link" href="../../../../categories/React/">React</a>
 
-    </header>
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="生命周期的三种状态"><a href="#生命周期的三种状态" class="headerlink" title="生命周期的三种状态"></a>生命周期的三种状态</h3><p><img src="/images/React-Components-Lifecycle/component-lifecycle.png" alt=""></p>
+<h3 id="Mounted"><a href="#Mounted" class="headerlink" title="Mounted"></a>Mounted</h3><p>React Components被render解析生成对应的DOM节点并被插入浏览器的DOM结构的一个过程。</p>
+<h3 id="Update"><a href="#Update" class="headerlink" title="Update"></a>Update</h3><p>一个mounted的React Components被重新render的过程</p>
+<h3 id="Unmounted"><a href="#Unmounted" class="headerlink" title="Unmounted"></a>Unmounted</h3><p>一个mounted的React Components对应的DOM节点被从DOM结构中移除的这样一个过程</p>
+<h3 id="声明周期"><a href="#声明周期" class="headerlink" title="声明周期"></a>声明周期</h3><h3 id="Mounting"><a href="#Mounting" class="headerlink" title="Mounting"></a>Mounting</h3><p><img src="/images/React-Components-Lifecycle/mounting.png" alt=""></p>
+<h3 id="Updating"><a href="#Updating" class="headerlink" title="Updating"></a>Updating</h3><p><img src="/images/React-Components-Lifecycle/updating-props.png" alt=""><br><img src="/images/React-Components-Lifecycle/updating-state.png" alt=""></p>
+<h3 id="Unmounting"><a href="#Unmounting" class="headerlink" title="Unmounting"></a>Unmounting</h3><p><img src="/images/React-Components-Lifecycle/unmounting.png" alt=""></p>
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/React/">React</a></li></ul>
+
+    </div>
+    <footer class="article-footer">
+      
+        
+	<div id="comment">
+
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2017/03/12/React-Components-Lifecycle/" data-title="React-Components-Lifecycle" data-url="https://dale-.github.io/2017/03/12/React-Components-Lifecycle/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"daledu"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0]
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+
+	</div>
+
+
+      
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="../../../02/27/Understanding-the-Critical-Rendering-Path/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Understanding the Critical Rendering Path</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-	
-	
-	
-	<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="../../../../2017/01/03/Loops-And-Iteration-In-JavaScript/" class="archive-article-date">
-	  <time datetime="2017-01-03T13:32:36.000Z" itemprop="datePublished">2017-01-03</time>
-	</a>
 
-      
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="../../../../2017/01/03/Loops-And-Iteration-In-JavaScript/">Loops And Iteration In JavaScript</a>
-    </h1>
-  
+<!-- Table of Contents -->
 
-    </header>
-  </div>
-</article>
-	
-	
-	
-	<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="../../../../2017/01/01/Plan-Review/" class="archive-article-date">
-	  <time datetime="2017-01-01T03:03:03.000Z" itemprop="datePublished">2017-01-01</time>
-	</a>
-
-      
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="../../../../2017/01/01/Plan-Review/">Plan Review</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-	
-	
-		</div></section>
-	
-
-	<!-- 页数指示器 -->
-	
-	  <nav id="page-nav">
-	    
-	    <a class="extend prev" rel="prev" href="../../">&laquo; Prev</a><a class="page-number" href="../../">1</a><span class="page-number current">2</span>
-	  </nav>
-	
-
-
-
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#生命周期的三种状态"><span class="toc-number">1.</span> <span class="toc-text">生命周期的三种状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mounted"><span class="toc-number">2.</span> <span class="toc-text">Mounted</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Update"><span class="toc-number">3.</span> <span class="toc-text">Update</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Unmounted"><span class="toc-number">4.</span> <span class="toc-text">Unmounted</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#声明周期"><span class="toc-number">5.</span> <span class="toc-text">声明周期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mounting"><span class="toc-number">6.</span> <span class="toc-text">Mounting</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Updating"><span class="toc-number">7.</span> <span class="toc-text">Updating</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Unmounting"><span class="toc-number">8.</span> <span class="toc-text">Unmounting</span></a></li></ol>
+    
+    </div>
+  </aside>
 
 </section>
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../../../categories/AngularJS/">AngularJS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/Event/">Event</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/Hexo/">Hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/JavaScript/">JavaScript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/Plan/">Plan</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/Protocol/">Protocol</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/React/">React</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/front-end/">front-end</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/methodology/">methodology</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/webstorm/">webstorm</a><span class="category-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/AngularJS/">AngularJS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Event/">Event</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/JavaScript/">JavaScript</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Plan/">Plan</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Protocol/">Protocol</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/React/">React</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/methodology/">methodology</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/performance/">performance</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/webstorm/">webstorm</a><span class="tag-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="../../../../tags/AngularJS/" style="font-size: 10px;">AngularJS</a> <a href="../../../../tags/Event/" style="font-size: 10px;">Event</a> <a href="../../../../tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="../../../../tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="../../../../tags/Plan/" style="font-size: 10px;">Plan</a> <a href="../../../../tags/Protocol/" style="font-size: 10px;">Protocol</a> <a href="../../../../tags/React/" style="font-size: 10px;">React</a> <a href="../../../../tags/methodology/" style="font-size: 10px;">methodology</a> <a href="../../../../tags/performance/" style="font-size: 10px;">performance</a> <a href="../../../../tags/webstorm/" style="font-size: 10px;">webstorm</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../02/">February 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../01/">January 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../2016/12/">December 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../../2015/12/">December 2015</a><span class="archive-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="../../../../2017/03/12/React-Components-Lifecycle/">React-Components-Lifecycle</a>
-          </li>
-        
-          <li>
-            <a href="../../../../2017/02/27/Understanding-the-Critical-Rendering-Path/">Understanding the Critical Rendering Path</a>
-          </li>
-        
-          <li>
-            <a href="../../../../2017/02/20/Performance-Optimization/">Performance Optimization</a>
-          </li>
-        
-          <li>
-            <a href="../../../../2017/02/07/angular-directive/">Angular Directive</a>
-          </li>
-        
-          <li>
-            <a href="../../../../2017/01/18/How-To-Learn-A-New-Skill-Fast/">How To Learn A New Skill Fast</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
         
       </div>
       
@@ -368,7 +280,7 @@
   
     <a href="../../../../index.html" class="mobile-nav-link">Home</a>
   
-    <a href="../../.." class="mobile-nav-link">Archives</a>
+    <a href="../../../../archives" class="mobile-nav-link">Archives</a>
   
     <a href="../../../../categories" class="mobile-nav-link">Categories</a>
   
@@ -420,6 +332,8 @@
 
 
 
+
+  <script src="../../../../js/dialog.js"></script>
 
 
 
