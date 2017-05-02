@@ -92,7 +92,7 @@
 
 
   
-    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/sample.jpg); background-size: auto 100%;">
+    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/home-bg.jpg); background-size: auto 100%;">
   
 
     <canvas width="100%" height="100%"></canvas>
@@ -216,15 +216,16 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
+        <p>原文地址：<a href="https://toddmotto.com/react-create-class-versus-component/#syntax-differences">React.createClass versus extends React.Component</a></p>
+<blockquote>
 <p>这其实是殊途同归的两种方式。过去我们使用React提供<code>React.createClass</code>的方式，<br>而后React提供了小小的语法糖可以允许我们更好基于ES6语法实现此功能:<code>React.Component</code>,<br>我们可以使用<code>extends React.Component</code>替代<code>createClass</code>。</p>
 <p>虽然这两种方式的差别很小，但是有一些值得我们探索的，很有趣的知识，这允许我们在不同的场景中恰当的选择最适合的方式。</p>
 </blockquote>
 <h2 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h2><h3 id="React-createClass"><a href="#React-createClass" class="headerlink" title="React.createClass"></a>React.createClass</h3><p>这里我们把这个React class赋给一个const变量，用render方法来完成一个component最基本的定义。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">import React from <span class="string">'react'</span>;</div><div class="line"></div><div class="line">const Contacts = React.createClass(&#123;</div><div class="line">  <span class="function"><span class="title">render</span></span>() &#123;</div><div class="line">    <span class="built_in">return</span> (</div><div class="line">      &lt;div&gt;&lt;/div&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="built_in">export</span> default Contacts;</div></pre></td></tr></table></figure>
-        <!-- 
-这其实是殊途同归的两种方式。过去我们使用React提供React.createClass的方式，而后React提供了小小的语法糖可以允许我们更好基于ES6语法实现此功能:React.Component,我们可以使用extends React.Component替代createClass。
-虽然这两种方式的差别很小，但是有一些值得我们探索的，很有趣的知识，这允许我们在不同的场景中恰当的选择最......  -->
+        <!-- 原文地址：React.createClass versus extends React.Component
+
+这其实是殊途同归的两种方式。过去我们使用React提供React.createClass的方式，而后React提供了小小的语法糖可以允许我们更好基于ES6语法实现此功能:React.Component,我们可以使用extends React.Component替代createClas......  -->
         <p class="article-more-link">
           <a href="2017/05/01/React-createClass-extends-React-Component/#more">Read More</a>
         </p>
