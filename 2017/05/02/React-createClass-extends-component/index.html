@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>[react] createclass &amp; extends component | The Girl Behind</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="react" />
+  
+  
+  
+  
+  <meta name="description" content="React.createClass &amp; extends React.Component">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[React] createClass & extends Component">
+<meta property="og:url" content="https://dale-.github.io/2017/05/02/React-createClass-extends-component/index.html">
+<meta property="og:site_name" content="The Girl Behind">
+<meta property="og:description" content="React.createClass &amp; extends React.Component">
+<meta property="og:updated_time" content="2017-05-29T14:36:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[React] createClass & extends Component">
+<meta name="twitter:description" content="React.createClass &amp; extends React.Component">
+  
+    <link rel="alternate" href="/atom.xml" title="The Girl Behind" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../../../css/style.css">
+
+  <script src="../../../../js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="../../../../css/dialog.css">
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+
+</head>
+
+<body>
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="../../../../index.html">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../../../archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../../../categories">Categories</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../../../tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="http://weibo.com/daledu">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="../../../../js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-React-createClass-extends-component" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      [React] createClass &amp; extends Component
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="" class="article-date">
+	  <time datetime="2017-05-02T10:05:49.000Z" itemprop="datePublished">2017-05-02</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../../../categories/React/">React</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>原文地址：<a href="https://toddmotto.com/react-create-class-versus-component/#syntax-differences" target="_blank" rel="external">React.createClass versus extends React.Component</a></p>
+<blockquote>
+<p>这其实是殊途同归的两种方式。过去我们使用React提供<code>React.createClass</code>的方式，<br>而后React提供了小小的语法糖可以允许我们更好基于ES6语法实现此功能:<code>React.Component</code>,<br>我们可以使用<code>extends React.Component</code>替代<code>createClass</code>。</p>
+<p>虽然这两种方式的差别很小，但是有一些值得我们探索的，很有趣的知识，这允许我们在不同的场景中恰当的选择最适合的方式。</p>
+</blockquote>
+<h2 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h2><h3 id="React-createClass"><a href="#React-createClass" class="headerlink" title="React.createClass"></a>React.createClass</h3><p>这里我们把这个React class赋给一个const变量，用render方法来完成一个component最基本的定义。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">import React from <span class="string">'react'</span>;</div><div class="line"></div><div class="line">const Contacts = React.createClass(&#123;</div><div class="line">  <span class="function"><span class="title">render</span></span>() &#123;</div><div class="line">    <span class="built_in">return</span> (</div><div class="line">      &lt;div&gt;&lt;/div&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="built_in">export</span> default Contacts;</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="React-Component"><a href="#React-Component" class="headerlink" title="React.Component"></a>React.Component</h3><p>让我们来尝试一下<code>React.createClass</code>定义，使用ES6来完成这个component的定义。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">import React from <span class="string">'react'</span>;</div><div class="line"></div><div class="line">class Contacts extends React.Component &#123;</div><div class="line"></div><div class="line">  constructor(props) &#123;</div><div class="line">    super(props);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="title">render</span></span>() &#123;</div><div class="line">    <span class="built_in">return</span> (</div><div class="line">      &lt;div&gt;&lt;/div&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">export</span> default Contacts;</div></pre></td></tr></table></figure>
+<p>从JavaScript的前景来说我们已经开始使用ES6 class了，使用像Babel这种的编译方式将ES6转换为ES5后供浏览器使用。针对这种变化，我们推荐<code>constructor</code>,我们需要调用<code>super()</code>方法将props传递给<code>React.Component</code>。</p>
+<p>我们现在创建了一个名为Contacts的<code>class</code>，使用从<code>React.Component</code>继承的方式替代了直接得到一个<code>React.createClass</code>,这种方式更少的引用以及更具有<code>JavaScript</code>的偏好。在这个语法转变的过程中，是具有革命性的。</p>
+<h2 id="propTypes-and-getDefaultProps"><a href="#propTypes-and-getDefaultProps" class="headerlink" title="propTypes and getDefaultProps"></a>propTypes and getDefaultProps</h2><p>怎样使用和声明默认属性、它们的类型以及设置初始状态，是这两种方式最大的差别。</p>
+<h3 id="React-createClass-1"><a href="#React-createClass-1" class="headerlink" title="React.createClass"></a>React.createClass</h3><p>在<code>React.createClass</code>中，<code>propTypes</code>属性是一个对象，我们可以为其中的每一个<code>prop</code>声明。<code>getDefaultProps</code>函数返回一个对象，这个对象的所有属性将会作为组件的初始化属性。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">import React from <span class="string">'react'</span>;</div><div class="line"></div><div class="line">const Contacts = React.createClass(&#123;</div><div class="line"></div><div class="line">  propTypes: &#123;</div><div class="line"></div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  <span class="function"><span class="title">getDefaultProps</span></span>() &#123;</div><div class="line">    <span class="built_in">return</span> &#123;</div><div class="line"></div><div class="line">    &#125;;</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  <span class="function"><span class="title">render</span></span>() &#123;</div><div class="line">    <span class="built_in">return</span> (</div><div class="line">      &lt;div&gt;&lt;/div&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="built_in">export</span> default Contacts;</div></pre></td></tr></table></figure>
+<h3 id="React-Component-1"><a href="#React-Component-1" class="headerlink" title="React.Component"></a>React.Component</h3><p>我们将<code>propTypes</code>作为<code>Contacts</code>类的一个属性而不是在<code>createClass</code>的内部定义这个对象。我认为这比<code>createClass</code>更加友好和清晰。</p>
+<p>现在<code>getDefaultProps</code>转变为类的一个对象属性:<code>defaultProps</code>,不在使用<code>get</code>,只是一个对象。我喜欢这种语法，因为他避免了React的语法，而变成了原生JavaScript。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">import React from <span class="string">'react'</span>;</div><div class="line"></div><div class="line">class Contacts extends React.Component &#123;</div><div class="line"></div><div class="line">  constructor(props) &#123;</div><div class="line">    super(props);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="title">render</span></span>() &#123;</div><div class="line">    <span class="built_in">return</span> (</div><div class="line">      &lt;div&gt;&lt;/div&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">Contacts.propTypes = &#123;</div><div class="line"></div><div class="line">&#125;;</div><div class="line"></div><div class="line">Contacts.defaultProps = &#123;</div><div class="line"></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="built_in">export</span> default Contacts;</div></pre></td></tr></table></figure>
+<h2 id="State"><a href="#State" class="headerlink" title="State"></a>State</h2><p>  State的变化很有趣，现在我们使用构造函数来实现状态的初始化。</p>
+<h3 id="React-createClass-2"><a href="#React-createClass-2" class="headerlink" title="React.createClass"></a>React.createClass</h3><p>  <code>getInitialState</code>只做一件事，就是返回一个包含初始化状态的对象。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">import React from <span class="string">'react'</span>;</div><div class="line"></div><div class="line">const Contacts = React.createClass(&#123;</div><div class="line"></div><div class="line">  <span class="function"><span class="title">getInitialState</span></span>() &#123;</div><div class="line">    <span class="built_in">return</span> &#123;</div><div class="line"></div><div class="line">    &#125;;</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  <span class="function"><span class="title">render</span></span>() &#123;</div><div class="line">    <span class="built_in">return</span> (</div><div class="line">      &lt;div&gt;&lt;/div&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="built_in">export</span> default Contacts;</div></pre></td></tr></table></figure>
+<h3 id="React-Component-2"><a href="#React-Component-2" class="headerlink" title="React.Component"></a>React.Component</h3><p>  在<code>React.Component</code>中，<code>getInitialState</code>方法被抛弃了，现在我们在<code>constructor</code>中像初始化属性一样声明所有的状态，我想这种方式更加像<code>JavaScript</code>并且更少的驱动了”API”。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">import React from <span class="string">'react'</span>;</div><div class="line"></div><div class="line">class Contacts extends React.Component &#123;</div><div class="line"></div><div class="line">  constructor(props) &#123;</div><div class="line">    super(props);</div><div class="line">    this.state = &#123;</div><div class="line"></div><div class="line">    &#125;;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="title">render</span></span>() &#123;</div><div class="line">    <span class="built_in">return</span> (</div><div class="line">      &lt;div&gt;&lt;/div&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">export</span> default Contacts;</div></pre></td></tr></table></figure>
+<h2 id="“this”"><a href="#“this”" class="headerlink" title="“this”"></a>“this”</h2><p>  使用<code>React.createClass</code>将会自动绑定<code>this</code>的值，但是在ES6中<code>this</code>将会失效。</p>
+<h3 id="React-createClass-3"><a href="#React-createClass-3" class="headerlink" title="React.createClass"></a>React.createClass</h3><p>  <code>onClick</code>声明与<code>this.handleClick</code>进行绑定。当这个方法被触发时，React将会根据正确的上下文去执行<code>handleClick</code>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">import React from <span class="string">'react'</span>;</div><div class="line"></div><div class="line">const Contacts = React.createClass(&#123;</div><div class="line"></div><div class="line">  <span class="function"><span class="title">handleClick</span></span>() &#123;</div><div class="line">    console.log(this);  // React Component instance</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  <span class="function"><span class="title">render</span></span>() &#123;</div><div class="line">    <span class="built_in">return</span> (</div><div class="line">      &lt;div onClick=&#123;this.handleClick&#125;&gt;&lt;/div&gt;</div><div class="line">    )</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="built_in">export</span> default Contacts;</div></pre></td></tr></table></figure>
+<h3 id="React-Component-3"><a href="#React-Component-3" class="headerlink" title="React.Component"></a>React.Component</h3><p>  在ES6类中有轻微的不同，属性不会自动绑定到React类的实例上。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">import React from <span class="string">'react'</span>;</div><div class="line"></div><div class="line">class Contacts extends React.Component &#123;</div><div class="line"></div><div class="line">  constructor(props) &#123;</div><div class="line">    super(props);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="title">handleClick</span></span>() &#123;</div><div class="line">    console.log(this); //null</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="title">render</span></span>() &#123;</div><div class="line">    <span class="built_in">return</span> (</div><div class="line">      &lt;div onClick=&#123;this.handleClick&#125;&gt;&lt;/div&gt;</div><div class="line">    )</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">export</span> default Contacts;</div></pre></td></tr></table></figure>
+<p>  这里有一种方式可以帮助我们绑定正确的上下文，下面我们在行内代码中进行绑定。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">import React from <span class="string">'react'</span>;</div><div class="line"></div><div class="line">class Contacts extends React.Component &#123;</div><div class="line"></div><div class="line">  constructor(props) &#123;</div><div class="line">    super(props);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="title">handleClick</span></span>() &#123;</div><div class="line">    console.log(this); // React Component instance</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="title">render</span></span>() &#123;</div><div class="line">    <span class="built_in">return</span> (</div><div class="line">      &lt;div onClick=&#123;this.handleClick.bind(this)&#125;&gt;&lt;/div&gt;</div><div class="line">    )</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">export</span> default Contacts;</div></pre></td></tr></table></figure>
+<pre><code>除此之外，我们还有一种在`constructor`里面绑定上下文的方法，这种方法更加优雅，即便日后改变了语法接口，也不需要去改动JSX:
+</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">  import React from <span class="string">'react'</span>;</div><div class="line"></div><div class="line">  class Contacts extends React.Component &#123;</div><div class="line"></div><div class="line">    constructor(props) &#123;</div><div class="line">      super(props);</div><div class="line">      this.handleClick = this.handleClick.bind(this);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="title">handleClick</span></span>() &#123;</div><div class="line">      console.log(this); // React Component instance</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="title">render</span></span>() &#123;</div><div class="line">      <span class="built_in">return</span> (</div><div class="line">        &lt;div onClick=&#123;this.handleClick&#125;&gt;&lt;/div&gt;</div><div class="line">      )</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="built_in">export</span> default Contacts;</div><div class="line">```    </div><div class="line"></div><div class="line"><span class="comment">## Mixins</span></div><div class="line"></div><div class="line">  ES6的`React.Component`不支持Mixins</div><div class="line"></div><div class="line"><span class="comment">### React.createClass</span></div><div class="line"></div><div class="line">  `React.createClass`中我们创建组件时，添加一个叫mixins的属性，并将这个属性集合以数组的形式赋给 mixins</div><div class="line"></div><div class="line">```bash</div><div class="line"></div><div class="line">  import React from <span class="string">'react'</span>;</div><div class="line"></div><div class="line">  var SomeMixin = &#123;</div><div class="line">    <span class="function"><span class="title">doSomething</span></span>() &#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  const Contacts = React.createClass(&#123;</div><div class="line"></div><div class="line">    mixins: [SomeMixin],</div><div class="line"></div><div class="line">    <span class="function"><span class="title">handleClick</span></span>() &#123;</div><div class="line">      this.doSomething(); // use mixin</div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    <span class="function"><span class="title">render</span></span>() &#123;</div><div class="line">      <span class="built_in">return</span> (</div><div class="line">        &lt;div onClick=&#123;this.handleClick&#125;&gt;&lt;/div&gt;</div><div class="line">      )</div><div class="line">    &#125;</div><div class="line">  &#125;)</div><div class="line"></div><div class="line">  <span class="built_in">export</span> default Contacts;</div></pre></td></tr></table></figure>
+<h3 id="React-Component-4"><a href="#React-Component-4" class="headerlink" title="React.Component"></a>React.Component</h3><p>  ES6类暂不支持Mixins</p>
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/React/">React</a></li></ul>
+
+    </div>
+    <footer class="article-footer">
+      
+        
+	<div id="comment">
+
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2017/05/02/React-createClass-extends-component/" data-title="[React] createClass & extends Component" data-url="https://dale-.github.io/2017/05/02/React-createClass-extends-component/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"daledu"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0]
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+
+	</div>
+
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="../../../03/18/How-To-Learn-A-New-Skill-Fast/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">How To Learn A New Skill Fast</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Syntax"><span class="toc-number">1.</span> <span class="toc-text">Syntax</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#React-createClass"><span class="toc-number">1.1.</span> <span class="toc-text">React.createClass</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#React-Component"><span class="toc-number">1.2.</span> <span class="toc-text">React.Component</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#propTypes-and-getDefaultProps"><span class="toc-number">2.</span> <span class="toc-text">propTypes and getDefaultProps</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#React-createClass-1"><span class="toc-number">2.1.</span> <span class="toc-text">React.createClass</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#React-Component-1"><span class="toc-number">2.2.</span> <span class="toc-text">React.Component</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#State"><span class="toc-number">3.</span> <span class="toc-text">State</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#React-createClass-2"><span class="toc-number">3.1.</span> <span class="toc-text">React.createClass</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#React-Component-2"><span class="toc-number">3.2.</span> <span class="toc-text">React.Component</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#“this”"><span class="toc-number">4.</span> <span class="toc-text">“this”</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#React-createClass-3"><span class="toc-number">4.1.</span> <span class="toc-text">React.createClass</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#React-Component-3"><span class="toc-number">4.2.</span> <span class="toc-text">React.Component</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#React-Component-4"><span class="toc-number">4.3.</span> <span class="toc-text">React.Component</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      <div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2015 - 2017 The Girl Behind All Rights Reserved.</p>
+	      <p id="copyRightCn">Dale Du hold copyright</p>
+	</div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../../../categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="../../../../tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="http://weibo.com/daledu" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../js/script.js"></script>
+<script src="../../../../js/bootstrap.js"></script>
+
+
+
+
+  <script src="../../../../js/dialog.js"></script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            The Girl Behind
+          </div>
+          <div class="panel-body">
+            Copyright © 2017 Dale Du All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+</body>
+</html>

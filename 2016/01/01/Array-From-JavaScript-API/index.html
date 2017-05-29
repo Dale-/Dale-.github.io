@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>array from javascript api | The Girl Behind</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Array JavaScript" />
+  
+  
+  
+  
+  <meta name="description" content="JavaScript Array API">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Array From JavaScript API">
+<meta property="og:url" content="https://dale-.github.io/2016/01/01/Array-From-JavaScript-API/index.html">
+<meta property="og:site_name" content="The Girl Behind">
+<meta property="og:description" content="JavaScript Array API">
+<meta property="og:updated_time" content="2017-05-29T14:29:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Array From JavaScript API">
+<meta name="twitter:description" content="JavaScript Array API">
+  
+    <link rel="alternate" href="/atom.xml" title="The Girl Behind" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../../../css/style.css">
+
+  <script src="../../../../js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="../../../../css/dialog.css">
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+
+</head>
+
+<body>
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="../../../../index.html">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../../../archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../../../categories">Categories</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../../../tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="http://weibo.com/daledu">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="../../../../js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-Array-From-JavaScript-API" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Array From JavaScript API
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="" class="article-date">
+	  <time datetime="2016-01-01T01:09:08.000Z" itemprop="datePublished">2016-01-01</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../../../categories/JavaScript/">JavaScript</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>第一版只更新 Simple Case<br>后期随时补充特性</p>
+</blockquote>
+<h2 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h2><h3 id="Array-length"><a href="#Array-length" class="headerlink" title="Array.length"></a>Array.length</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var items = [<span class="string">"shoes"</span>, <span class="string">"shirts"</span>, <span class="string">"socks"</span>, <span class="string">"sweaters"</span>];</div><div class="line">items.length;</div><div class="line"></div><div class="line">// returns 4</div></pre></td></tr></table></figure>
+<h3 id="Array-prototype"><a href="#Array-prototype" class="headerlink" title="Array.prototype"></a>Array.prototype</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (!Array.prototype.first) &#123;</div><div class="line">  Array.prototype.first = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">    <span class="built_in">return</span> this[0];</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h2><h3 id="Array-from-ES6规范"><a href="#Array-from-ES6规范" class="headerlink" title="Array.from() (ES6规范)"></a>Array.from() (ES6规范)</h3><blockquote>
+<p>将一个 ArrayLike 对象或者 Iterable 对象转换成一个 Array（性能较差）</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Array.from(<span class="string">"foo"</span>);</div><div class="line">// [<span class="string">"f"</span>, <span class="string">"o"</span>, <span class="string">"o"</span>]</div></pre></td></tr></table></figure>
+<blockquote>
+<p>ArrayLike对象指具有数组某些行为的对象，表达出来的特征就是具有<code>length</code>属性</p>
+</blockquote>
+<p><em>Syntax</em></p>
+<blockquote>
+<p>Array.from(arrayLike[, mapFn[, thisArg]])</p>
+</blockquote>
+<p><a href="https://docs.angularjs.org/guide/directive" target="_blank" rel="external">Array.from()</a><br><a id="more"></a></p>
+<h3 id="Array-isArray"><a href="#Array-isArray" class="headerlink" title="Array.isArray()"></a>Array.isArray()</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Array.isArray([1, 2, 3]);  // <span class="literal">true</span></div><div class="line">Array.isArray(&#123;foo: 123&#125;); // <span class="literal">false</span></div><div class="line">Array.isArray(<span class="string">"foobar"</span>);   // <span class="literal">false</span></div><div class="line">Array.isArray(undefined);  // <span class="literal">false</span></div></pre></td></tr></table></figure>
+<p><em>Syntax</em></p>
+<blockquote>
+<p>Array.isArray(obj)</p>
+</blockquote>
+<h3 id="Array-of"><a href="#Array-of" class="headerlink" title="Array.of()"></a>Array.of()</h3><blockquote>
+<p>将它的任意类型的多个参数放在一个数组里并返回</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Array.of(7);       // [7]</div><div class="line">Array.of(1, 2, 3); // [1, 2, 3]</div><div class="line"></div><div class="line">Array(7);          // [ , , , , , , ]</div><div class="line">Array(1, 2, 3);    // [1, 2, 3]</div></pre></td></tr></table></figure>
+<p> Array.of() 和 Array 构造函数不同的是：在处理数值类型的参数时，Array.of(42) 创建的数组只有一个元素，即 42, 但 Array(42) 创建了42个元素，每个元素都是undefined。</p>
+<p><em>Syntax</em></p>
+<blockquote>
+<p>Array.of(element0[, element1[, …[, elementN]]])</p>
+</blockquote>
+<h3 id="Array-prototype-concat"><a href="#Array-prototype-concat" class="headerlink" title="Array.prototype.concat()"></a>Array.prototype.concat()</h3><blockquote>
+<p>concat() 方法将传入的数组或非数组值与原数组合并,组成一个新的数组并返回</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var alpha = [<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>];</div><div class="line">var numeric = [1, 2, 3];</div><div class="line"></div><div class="line">// 组成新数组 [<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>, 1, 2, 3]; 原数组 alpha 和 numeric 未被修改</div><div class="line">var alphaNumeric = alpha.concat(numeric);</div></pre></td></tr></table></figure>
+<ul>
+<li>连接三个数组<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var num1 = [1, 2, 3];</div><div class="line">var num2 = [4, 5, 6];</div><div class="line">var num3 = [7, 8, 9];</div><div class="line"></div><div class="line">// 组成新数组[1, 2, 3, 4, 5, 6, 7, 8, 9]; 原数组 num1, num2, num3 未被修改</div><div class="line">var nums = num1.concat(num2, num3);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><em>Syntax</em></p>
+<blockquote>
+<p>var new_array = old_array.concat(value1[, value2[, …[, valueN]]])</p>
+</blockquote>
+<h3 id="Array-prototype-copyWithin"><a href="#Array-prototype-copyWithin" class="headerlink" title="Array.prototype.copyWithin()"></a>Array.prototype.copyWithin()</h3><blockquote>
+<p>copyWithin() 方法会浅拷贝数组的部分元素到同一数组的不同位置，且不改变数组的大小，返回该数组</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">[1, 2, 3, 4, 5].copyWithin(-2);</div><div class="line">// [1, 2, 3, 1, 2]</div><div class="line"></div><div class="line">[1, 2, 3, 4, 5].copyWithin(0, 3);</div><div class="line">// [4, 5, 3, 4, 5]</div><div class="line"></div><div class="line">[1, 2, 3, 4, 5].copyWithin(0, 3, 4);</div><div class="line">// [4, 2, 3, 4, 5]</div><div class="line"></div><div class="line">[1, 2, 3, 4, 5].copyWithin(0, -2, -1);</div><div class="line">// [4, 2, 3, 4, 5]</div></pre></td></tr></table></figure>
+<p><em>Syntax</em></p>
+<blockquote>
+<p>array.copyWithin(target[, start[, end]])</p>
+</blockquote>
+<h3 id="Array-prototype-entries-ES6规范"><a href="#Array-prototype-entries-ES6规范" class="headerlink" title="Array.prototype.entries()(ES6规范)"></a>Array.prototype.entries()(ES6规范)</h3><blockquote>
+<p>copyWithin() 方法返回一个 Array Iterator 对象，该对象包含数组中每一个索引的键值对</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var array = [<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>];</div><div class="line">var eArray = array.entries();</div><div class="line"></div><div class="line">console.log(eArray.next().value); // [0, <span class="string">"a"</span>]</div><div class="line">console.log(eArray.next().value); // [1, <span class="string">"b"</span>]</div><div class="line">console.log(eArray.next().value); // [2, <span class="string">"c"</span>]</div></pre></td></tr></table></figure>
+<p><em>Syntax</em></p>
+<blockquote>
+<p>array.entries()</p>
+</blockquote>
+<h3 id="Array-prototype-every"><a href="#Array-prototype-every" class="headerlink" title="Array.prototype.every()"></a>Array.prototype.every()</h3><blockquote>
+<p>every() 方法测试数组的所有元素是否都通过了指定函数的测试</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> isBigEnough(element, index, array) &#123;</div><div class="line">  <span class="built_in">return</span> (element &gt;= 10);</div><div class="line">&#125;</div><div class="line">var passed = [12, 5, 8, 130, 44].every(isBigEnough);</div><div class="line">// passed is <span class="literal">false</span></div><div class="line">passed = [12, 54, 18, 130, 44].every(isBigEnough);</div><div class="line">// passed is <span class="literal">true</span></div></pre></td></tr></table></figure>
+<p><em>Syntax</em></p>
+<blockquote>
+<p>array.every(callback[, thisArg])</p>
+</blockquote>
+<h3 id="Array-prototype-fill"><a href="#Array-prototype-fill" class="headerlink" title="Array.prototype.fill()"></a>Array.prototype.fill()</h3><blockquote>
+<p>使用 fill() 方法，可以将一个数组中指定区间的所有元素的值, 都替换成或者说填充成为某个固定的值</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[1, 2, 3].fill(4)            // [4, 4, 4]</div><div class="line">[1, 2, 3].fill(4, 1)         // [1, 4, 4]</div><div class="line">[1, 2, 3].fill(4, 1, 2)      // [1, 4, 3]</div><div class="line">[1, 2, 3].fill(4, 1, 1)      // [1, 2, 3]</div><div class="line">[1, 2, 3].fill(4, -3, -2)    // [4, 2, 3]</div><div class="line">[1, 2, 3].fill(4, NaN, NaN)  // [1, 2, 3]</div><div class="line">Array(3).fill(4);            // [4, 4, 4]</div></pre></td></tr></table></figure>
+<p><em>Syntax</em></p>
+<blockquote>
+<p>array.fill(value[, start = 0[, end = this.length]])</p>
+</blockquote>
+<h3 id="Array-prototype-filter"><a href="#Array-prototype-filter" class="headerlink" title="Array.prototype.filter()"></a>Array.prototype.filter()</h3><blockquote>
+<p>filter() 方法使用指定的函数测试所有元素，并创建一个包含所有通过测试的元素的新数组</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> isBigEnough(element) &#123;</div><div class="line">  <span class="built_in">return</span> element &gt;= 10;</div><div class="line">&#125;</div><div class="line">var filtered = [12, 5, 8, 130, 44].filter(isBigEnough);</div><div class="line">// filtered is [12, 130, 44]</div></pre></td></tr></table></figure>
+<p><em>Syntax</em></p>
+<blockquote>
+<p>var newArrary = array.filter(callback[, thisArg])</p>
+</blockquote>
+<h3 id="Array-prototype-find"><a href="#Array-prototype-find" class="headerlink" title="Array.prototype.find()"></a>Array.prototype.find()</h3><blockquote>
+<p>如果数组中某个元素满足测试条件，find() 方法就会返回那个元素的第一个值，如果没有满足条件的元素，则返回 undefined</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var inventory = [</div><div class="line">    &#123;name: <span class="string">'apples'</span>, quantity: 2&#125;,</div><div class="line">    &#123;name: <span class="string">'bananas'</span>, quantity: 0&#125;,</div><div class="line">    &#123;name: <span class="string">'cherries'</span>, quantity: 5&#125;</div><div class="line">];</div><div class="line"></div><div class="line"><span class="keyword">function</span> findCherries(fruit) &#123;</div><div class="line">    <span class="built_in">return</span> fruit.name === <span class="string">'cherries'</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">console.log(inventory.find(findCherries)); // &#123; name: <span class="string">'cherries'</span>, quantity: 5 &#125;</div></pre></td></tr></table></figure>
+<p><em>Syntax</em></p>
+<blockquote>
+<p>array.find(callback[, thisArg])</p>
+</blockquote>
+<h3 id="Array-prototype-findIndex-ES6规范"><a href="#Array-prototype-findIndex-ES6规范" class="headerlink" title="Array.prototype.findIndex()(ES6规范)"></a>Array.prototype.findIndex()(ES6规范)</h3><blockquote>
+<p>findIndex()方法用来查找数组中某指定元素的索引, 如果找不到指定的元素, 则返回 -1</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> isPrime(element, index, array) &#123;</div><div class="line">    var start = 2;</div><div class="line">    <span class="keyword">while</span> (start &lt;= Math.sqrt(element)) &#123;</div><div class="line">        <span class="keyword">if</span> (element % start++ &lt; 1) <span class="built_in">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">return</span> (element &gt; 1);</div><div class="line">&#125;</div><div class="line"></div><div class="line">console.log( [4, 6, 8, 12].findIndex(isPrime) ); // -1, 没找到质数元素</div><div class="line">console.log( [4, 6, 7, 12].findIndex(isPrime) ); // 2</div></pre></td></tr></table></figure>
+<p><em>Syntax</em></p>
+<blockquote>
+<p>array.findIndex(callback[, thisArg])</p>
+</blockquote>
+<h3 id="Array-prototype-forEach"><a href="#Array-prototype-forEach" class="headerlink" title="Array.prototype.forEach()"></a>Array.prototype.forEach()</h3><blockquote>
+<p>findIndex()方法用来查找数组中某指定元素的索引, 如果找不到指定的元素, 则返回 -1</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="built_in">log</span>ArrayElements(element, index, array) &#123;</div><div class="line">    console.log(<span class="string">"a["</span> + index + <span class="string">"] = "</span> + element);</div><div class="line">&#125;</div><div class="line">[2, 5, 9].forEach(<span class="built_in">log</span>ArrayElements);</div><div class="line">// logs:</div><div class="line">// a[0] = 2</div><div class="line">// a[1] = 5</div><div class="line">// a[2] = 9</div></pre></td></tr></table></figure>
+<p><em>Syntax</em></p>
+<blockquote>
+<p>array.forEach(callback[, thisArg])</p>
+</blockquote>
+<h3 id="Array-prototype-includes"><a href="#Array-prototype-includes" class="headerlink" title="Array.prototype.includes()"></a>Array.prototype.includes()</h3><blockquote>
+<p>includes() 方法用来判断当前数组是否包含某指定的值，如果是，则返回 true，否则返回 false</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[1, 2, 3].includes(2);     // <span class="literal">true</span></div><div class="line">[1, 2, 3].includes(4);     // <span class="literal">false</span></div><div class="line">[1, 2, 3].includes(3, 3);  // <span class="literal">false</span></div><div class="line">[1, 2, 3].includes(3, -1); // <span class="literal">true</span></div><div class="line">[1, 2, NaN].includes(NaN); // <span class="literal">true</span></div></pre></td></tr></table></figure>
+<p><em>Syntax</em></p>
+<blockquote>
+<p>var boolean = array.includes(searchElement[, fromIndex])</p>
+</blockquote>
+<h3 id="Array-prototype-indexOf"><a href="#Array-prototype-indexOf" class="headerlink" title="Array.prototype.indexOf()"></a>Array.prototype.indexOf()</h3><blockquote>
+<p>indexOf()方法返回给定元素能找在数组中找到的第一个索引值，否则返回-1</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var array = [2, 5, 9];</div><div class="line">array.indexOf(2);     // 0</div><div class="line">array.indexOf(7);     // -1</div><div class="line">array.indexOf(9, 2);  // 2</div><div class="line">array.indexOf(2, -1); // -1</div><div class="line">array.indexOf(2, -3); // 0</div></pre></td></tr></table></figure>
+<p><em>Syntax</em></p>
+<blockquote>
+<p>array.indexOf(searchElement[, fromIndex = 0])</p>
+</blockquote>
+<h3 id="Array-prototype-join"><a href="#Array-prototype-join" class="headerlink" title="Array.prototype.join()"></a>Array.prototype.join()</h3><blockquote>
+<p>join() 方法将数组中的所有元素连接成一个字符串</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var a = [<span class="string">'Wind'</span>, <span class="string">'Rain'</span>, <span class="string">'Fire'</span>];</div><div class="line">var myVar1 = a.join();      // myVar1的值变为<span class="string">"Wind,Rain,Fire"</span></div><div class="line">var myVar2 = a.join(<span class="string">', '</span>);  // myVar2的值变为<span class="string">"Wind, Rain, Fire"</span></div><div class="line">var myVar3 = a.join(<span class="string">' + '</span>); // myVar3的值变为<span class="string">"Wind + Rain + Fire"</span></div><div class="line">var myVar4 = a.join(<span class="string">''</span>);    // myVar4的值变为<span class="string">"WindRainFire"</span></div></pre></td></tr></table></figure>
+<p><em>Syntax</em></p>
+<blockquote>
+<p>str = array.join([separator = ‘,’])</p>
+</blockquote>
+<h3 id="Array-prototype-join-ES6规范"><a href="#Array-prototype-join-ES6规范" class="headerlink" title="Array.prototype.join()[ES6规范]"></a>Array.prototype.join()[ES6规范]</h3><blockquote>
+<p>数组的 keys() 方法返回一个数组索引的迭代器</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var array = [<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>];</div><div class="line">var iterator = array.keys();</div><div class="line"></div><div class="line">console.log(iterator.next()); // &#123; value: 0, <span class="keyword">done</span>: <span class="literal">false</span> &#125;</div><div class="line">console.log(iterator.next()); // &#123; value: 1, <span class="keyword">done</span>: <span class="literal">false</span> &#125;</div><div class="line">console.log(iterator.next()); // &#123; value: 2, <span class="keyword">done</span>: <span class="literal">false</span> &#125;</div><div class="line">console.log(iterator.next()); // &#123; value: undefined, <span class="keyword">done</span>: <span class="literal">true</span> &#125;</div></pre></td></tr></table></figure>
+<p><em>Syntax</em></p>
+<blockquote>
+<p>array.keys()</p>
+</blockquote>
+<h3 id="Array-prototype-lastIndexOf"><a href="#Array-prototype-lastIndexOf" class="headerlink" title="Array.prototype.lastIndexOf()"></a>Array.prototype.lastIndexOf()</h3><blockquote>
+<p>lastIndexOf() 方法返回指定元素（也即有效的 JavaScript 值或变量）在数组中的最后一个的索引，如果不存在则返回 -1。从数组的后面向前查找，从 fromIndex 处开始</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var array = [<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>];</div><div class="line">var iterator = array.keys();</div><div class="line"></div><div class="line">console.log(iterator.next()); // &#123; value: 0, <span class="keyword">done</span>: <span class="literal">false</span> &#125;</div><div class="line">console.log(iterator.next()); // &#123; value: 1, <span class="keyword">done</span>: <span class="literal">false</span> &#125;</div><div class="line">console.log(iterator.next()); // &#123; value: 2, <span class="keyword">done</span>: <span class="literal">false</span> &#125;</div><div class="line">console.log(iterator.next()); // &#123; value: undefined, <span class="keyword">done</span>: <span class="literal">true</span> &#125;</div></pre></td></tr></table></figure>
+<p><em>Syntax</em></p>
+<blockquote>
+<p>array.lastIndexOf(searchElement[, fromIndex = array.length - 1])</p>
+</blockquote>
+<h3 id="Array-prototype-map"><a href="#Array-prototype-map" class="headerlink" title="Array.prototype.map()"></a>Array.prototype.map()</h3><blockquote>
+<p>map() 方法返回一个由原数组中的每个元素调用一个指定方法后的返回值组成的新数组</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var numbers = [1, 4, 9];</div><div class="line">var roots = numbers.map(Math.sqrt);</div><div class="line">/* roots的值为[1, 2, 3], numbers的值仍为[1, 4, 9] */</div></pre></td></tr></table></figure>
+<p><em>Syntax</em></p>
+<blockquote>
+<p>array.map(callback[, thisArg])</p>
+</blockquote>
+<h3 id="Array-prototype-pop"><a href="#Array-prototype-pop" class="headerlink" title="Array.prototype.pop()"></a>Array.prototype.pop()</h3><blockquote>
+<p>pop() 方法删除一个数组中的最后的一个元素，并且返回这个元素</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var myFish = [<span class="string">"angel"</span>, <span class="string">"clown"</span>, <span class="string">"mandarin"</span>, <span class="string">"surgeon"</span>];</div><div class="line"></div><div class="line">console.log(<span class="string">"myFish before: "</span> + myFish); // <span class="string">"myFish before: angel,clown,mandarin,surgeon"</span></div><div class="line"></div><div class="line">var popped = myFish.pop();</div><div class="line"></div><div class="line">console.log(<span class="string">"myFish after: "</span> + myFish); // <span class="string">"myFish after: angel,clown,mandarin"</span></div><div class="line">console.log(<span class="string">"Removed this element: "</span> + popped); // <span class="string">"Removed this element: surgeon"</span></div></pre></td></tr></table></figure>
+<p><em>Syntax</em></p>
+<blockquote>
+<p>array.pop()</p>
+</blockquote>
+<h3 id="Array-prototype-push"><a href="#Array-prototype-push" class="headerlink" title="Array.prototype.push()"></a>Array.prototype.push()</h3><blockquote>
+<p>push() 方法添加一个或多个元素到数组的末尾，并返回数组新的长度（length 属性值）</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var numbers = [1, 2, 3];</div><div class="line">numbers.push(4);</div><div class="line"></div><div class="line">console.log(numbers); // [1, 2, 3, 4]</div><div class="line"></div><div class="line">numbers.push(5, 6, 7);</div><div class="line"></div><div class="line">console.log(numbers); // [1, 2, 3, 4, 5, 6, 7]</div></pre></td></tr></table></figure>
+<p><em>Syntax</em></p>
+<blockquote>
+<p>array.push(element1, …, elementN)</p>
+</blockquote>
+<h3 id="Array-prototype-reduce"><a href="#Array-prototype-reduce" class="headerlink" title="Array.prototype.reduce()"></a>Array.prototype.reduce()</h3><blockquote>
+<p>reduce() 方法接收一个函数作为累加器（accumulator），数组中的每个值（从左到右）开始合并，最终为一个值</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var sum = [0, 1, 2, 3].reduce(<span class="keyword">function</span>(a, b) &#123;</div><div class="line"><span class="built_in">return</span> a + b;</div><div class="line">&#125;, 0);</div><div class="line">// sum is 6</div><div class="line"></div><div class="line">var flattened = [[0, 1], [2, 3], [4, 5]].reduce(<span class="keyword">function</span>(a, b) &#123;</div><div class="line"><span class="built_in">return</span> a.concat(b);</div><div class="line">&#125;, []);</div><div class="line">// flattened is [0, 1, 2, 3, 4, 5]</div></pre></td></tr></table></figure>
+<p><em>Syntax</em></p>
+<blockquote>
+<p>array.reduce(callback,[initialValue])</p>
+</blockquote>
+<h3 id="Array-prototype-reduceRight"><a href="#Array-prototype-reduceRight" class="headerlink" title="Array.prototype.reduceRight()"></a>Array.prototype.reduceRight()</h3><blockquote>
+<p>reduceRight() 方法接受一个函数作为累加器（accumulator），让每个值（从右到左，亦即从尾到头）缩减为一个值。（与 reduce() 的执行方向相反）</p>
+</blockquote>
+<ul>
+<li><p>求一个数组中所有值的和</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var total = [0, 1, 2, 3].reduceRight(<span class="keyword">function</span>(a, b) &#123;</div><div class="line">    <span class="built_in">return</span> a + b;</div><div class="line">&#125;);</div><div class="line">// total == 6</div></pre></td></tr></table></figure>
+</li>
+<li><p>扁平化（flatten）一个元素为数组的数组</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var flattened = [[0, 1], [2, 3], [4, 5]].reduceRight(<span class="keyword">function</span>(a, b) &#123;</div><div class="line">    <span class="built_in">return</span> a.concat(b);</div><div class="line">&#125;, []);</div><div class="line">// flattened is [4, 5, 2, 3, 0, 1]</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><em>Syntax</em></p>
+<blockquote>
+<p>array.reduceRight(callback[, initialValue])</p>
+<p>reduce 与 reduceRight 之间的区别<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var a = [<span class="string">"1"</span>, <span class="string">"2"</span>, <span class="string">"3"</span>, <span class="string">"4"</span>, <span class="string">"5"</span>];</div><div class="line">var left  = a.reduce(<span class="keyword">function</span>(previous, current)      &#123; <span class="built_in">return</span> previous + current; &#125;);</div><div class="line">var right = a.reduceRight(<span class="keyword">function</span>(previous, current) &#123; <span class="built_in">return</span> previous + current; &#125;);</div><div class="line"></div><div class="line">console.log(left);  // <span class="string">"12345"</span></div><div class="line">console.log(right); // <span class="string">"54321"</span></div></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="Array-prototype-reverse"><a href="#Array-prototype-reverse" class="headerlink" title="Array.prototype.reverse()"></a>Array.prototype.reverse()</h3><blockquote>
+<p>reverse() 方法颠倒数组中元素的位置。第一个元素会成为最后一个，最后一个会成为第一个</p>
+</blockquote>
+<ul>
+<li>颠倒数组中的元素<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var myArray = [<span class="string">'one'</span>, <span class="string">'two'</span>, <span class="string">'three'</span>];</div><div class="line">myArray.reverse();</div><div class="line"></div><div class="line">console.log(myArray) // [<span class="string">'three'</span>, <span class="string">'two'</span>, <span class="string">'one'</span>]</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><em>Syntax</em></p>
+<blockquote>
+<p> array.reverse()</p>
+</blockquote>
+<h3 id="Array-prototype-shift"><a href="#Array-prototype-shift" class="headerlink" title="Array.prototype.shift()"></a>Array.prototype.shift()</h3><blockquote>
+<p>shift() 方法删除数组的<code>第一个</code>元素，并返回这个元素。该方法会改变数组的长度</p>
+</blockquote>
+<ul>
+<li>移除数组中的一个元素<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var myFish = [<span class="string">'angel'</span>, <span class="string">'clown'</span>, <span class="string">'mandarin'</span>, <span class="string">'surgeon'</span>];</div><div class="line"></div><div class="line">console.log(<span class="string">'调用 shift 之前: '</span> + myFish);</div><div class="line">// <span class="string">"调用 shift 之前: angel,clown,mandarin,surgeon"</span></div><div class="line"></div><div class="line">var shifted = myFish.shift();</div><div class="line"></div><div class="line">console.log(<span class="string">'调用 shift 之后: '</span> + myFish);</div><div class="line">// <span class="string">"调用 shift 之后: clown,mandarin,surgeon"</span></div><div class="line"></div><div class="line">console.log(<span class="string">'被删除的元素: '</span> + shifted);</div><div class="line">// <span class="string">"被删除的元素: angel"</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><em>Syntax</em></p>
+<blockquote>
+<p> array.shift()</p>
+</blockquote>
+<h3 id="Array-prototype-slice"><a href="#Array-prototype-slice" class="headerlink" title="Array.prototype.slice()"></a>Array.prototype.slice()</h3><blockquote>
+<p>slice() 方法会浅复制（shallow copy）数组的一部分到一个新的数组，并返回这个新数组</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// Our good friend the citrus from fruits example</div><div class="line">var fruits = [<span class="string">"Banana"</span>, <span class="string">"Orange"</span>, <span class="string">"Lemon"</span>, <span class="string">"Apple"</span>, <span class="string">"Mango"</span>];</div><div class="line">var citrus = fruits.slice(1, 3);</div><div class="line"></div><div class="line">// puts --&gt; [<span class="string">"Orange"</span>,<span class="string">"Lemon"</span>]</div></pre></td></tr></table></figure>
+<p><em>Syntax</em></p>
+<blockquote>
+<p> array.slice([begin[, end]])</p>
+</blockquote>
+<h3 id="Array-prototype-some"><a href="#Array-prototype-some" class="headerlink" title="Array.prototype.some()"></a>Array.prototype.some()</h3><blockquote>
+<p>some() 方法测试数组中的某些元素是否通过了指定函数的测试</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> isBigEnough(element, index, array) &#123;</div><div class="line">  <span class="built_in">return</span> (element &gt;= 10);</div><div class="line">&#125;</div><div class="line">var passed = [2, 5, 8, 1, 4].some(isBigEnough);</div><div class="line">// passed is <span class="literal">false</span></div><div class="line">passed = [12, 5, 8, 1, 4].some(isBigEnough);</div><div class="line">// passed is <span class="literal">true</span></div></pre></td></tr></table></figure>
+<p><em>Syntax</em></p>
+<blockquote>
+<p> array.some(callback[, thisArg])</p>
+</blockquote>
+<h3 id="Array-prototype-sort"><a href="#Array-prototype-sort" class="headerlink" title="Array.prototype.sort()"></a>Array.prototype.sort()</h3><blockquote>
+<p>sort() 方法对数组的元素做原地的排序，并返回这个数组。 sort 排序可能是不稳定的。默认按照字符串的Unicode码位点（code point）排序</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var fruit = [<span class="string">'cherries'</span>, <span class="string">'apples'</span>, <span class="string">'bananas'</span>];</div><div class="line">fruit.sort(); // [<span class="string">'apples'</span>, <span class="string">'bananas'</span>, <span class="string">'cherries'</span>]</div><div class="line"></div><div class="line">var scores = [1, 10, 2, 21];</div><div class="line">scores.sort(); // [1, 10, 2, 21]</div><div class="line">// Watch out that 10 comes before 2,</div><div class="line">// because <span class="string">'10'</span> comes before <span class="string">'2'</span> <span class="keyword">in</span> Unicode code point order.</div><div class="line"></div><div class="line">var things = [<span class="string">'word'</span>, <span class="string">'Word'</span>, <span class="string">'1 Word'</span>, <span class="string">'2 Words'</span>];</div><div class="line">things.sort(); // [<span class="string">'1 Word'</span>, <span class="string">'2 Words'</span>, <span class="string">'Word'</span>, <span class="string">'word'</span>]</div><div class="line">// In Unicode, numbers come before upper <span class="keyword">case</span> letters,</div><div class="line">// <span class="built_in">which</span> come before lower <span class="keyword">case</span> letters.</div></pre></td></tr></table></figure>
+<p><em>Syntax</em></p>
+<blockquote>
+<p> array.sort([compareFunction])</p>
+</blockquote>
+<h3 id="Array-prototype-splice"><a href="#Array-prototype-splice" class="headerlink" title="Array.prototype.splice()"></a>Array.prototype.splice()</h3><blockquote>
+<p>splice() 方法用新元素替换旧元素，以此修改数组的内容</p>
+</blockquote>
+<ul>
+<li>移除数组中的一个元素<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">var myFish = [<span class="string">"angel"</span>, <span class="string">"clown"</span>, <span class="string">"mandarin"</span>, <span class="string">"surgeon"</span>];</div><div class="line"></div><div class="line">//从第 2 位开始删除 0 个元素，插入 <span class="string">"drum"</span></div><div class="line">var removed = myFish.splice(2, 0, <span class="string">"drum"</span>);</div><div class="line">//运算后的 myFish:[<span class="string">"angel"</span>, <span class="string">"clown"</span>, <span class="string">"drum"</span>, <span class="string">"mandarin"</span>, <span class="string">"surgeon"</span>]</div><div class="line">//被删除元素数组：[]，没有元素被删除</div><div class="line"></div><div class="line">//从第 3 位开始删除 1 个元素</div><div class="line">removed = myFish.splice(3, 1);</div><div class="line">//运算后的myFish：[<span class="string">"angel"</span>, <span class="string">"clown"</span>, <span class="string">"drum"</span>, <span class="string">"surgeon"</span>]</div><div class="line">//被删除元素数组：[<span class="string">"mandarin"</span>]</div><div class="line"></div><div class="line">//从第 2 位开始删除 1 个元素，然后插入 <span class="string">"trumpet"</span></div><div class="line">removed = myFish.splice(2, 1, <span class="string">"trumpet"</span>);</div><div class="line">//运算后的myFish: [<span class="string">"angel"</span>, <span class="string">"clown"</span>, <span class="string">"trumpet"</span>, <span class="string">"surgeon"</span>]</div><div class="line">//被删除元素数组：[<span class="string">"drum"</span>]</div><div class="line"></div><div class="line">//从第 0 位开始删除 2 个元素，然后插入 <span class="string">"parrot"</span>, <span class="string">"anemone"</span> 和 <span class="string">"blue"</span></div><div class="line">removed = myFish.splice(0, 2, <span class="string">"parrot"</span>, <span class="string">"anemone"</span>, <span class="string">"blue"</span>);</div><div class="line">//运算后的myFish：[<span class="string">"parrot"</span>, <span class="string">"anemone"</span>, <span class="string">"blue"</span>, <span class="string">"trumpet"</span>, <span class="string">"surgeon"</span>]</div><div class="line">//被删除元素的数组：[<span class="string">"angel"</span>, <span class="string">"clown"</span>]</div><div class="line"></div><div class="line">//从第 3 位开始删除 2 个元素</div><div class="line">removed = myFish.splice(3, Number.MAX_VALUE);</div><div class="line">//运算后的myFish: [<span class="string">"parrot"</span>, <span class="string">"anemone"</span>, <span class="string">"blue"</span>]</div><div class="line">//被删除元素的数组：[<span class="string">"trumpet"</span>, <span class="string">"surgeon"</span>]</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><em>Syntax</em></p>
+<blockquote>
+<p> array.splice(start, deleteCount[, item1[, item2[, …]]])</p>
+</blockquote>
+<h3 id="Array-prototype-toLocaleString"><a href="#Array-prototype-toLocaleString" class="headerlink" title="Array.prototype.toLocaleString()"></a>Array.prototype.toLocaleString()</h3><blockquote>
+<p>toLocaleString() 返回一个字符串表示数组中的元素。数组中的元素将使用各自的 toLocaleString 方法转成字符串，这些字符串将使用一个特定语言环境的字符串（例如一个逗号 “,”）隔开</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var number = 1337;</div><div class="line">var date = new Date();</div><div class="line">var myArray = [number, date, <span class="string">"foo"</span>];</div><div class="line"></div><div class="line">var str = myArray.toLocaleString();</div><div class="line"></div><div class="line">console.log(str);</div><div class="line">// 输出 <span class="string">"1337,2015/2/27 下午8:29:04,foo"</span></div><div class="line">// 假定运行在中文（zh-CN）环境，北京时区</div></pre></td></tr></table></figure>
+<p><em>Syntax</em></p>
+<blockquote>
+<p> array.toLocaleString()</p>
+</blockquote>
+<h3 id="Array-prototype-toString"><a href="#Array-prototype-toString" class="headerlink" title="Array.prototype.toString()"></a>Array.prototype.toString()</h3><blockquote>
+<p>toString() 返回一个字符串，表示指定的数组及其元素</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var monthNames = [<span class="string">'Jan'</span>, <span class="string">'Feb'</span>, <span class="string">'Mar'</span>, <span class="string">'Apr'</span>];</div><div class="line">var myVar = monthNames.toString(); // assigns <span class="string">"Jan,Feb,Mar,Apr"</span> to myVar.</div></pre></td></tr></table></figure>
+<p><em>Syntax</em></p>
+<blockquote>
+<p> array.toString()</p>
+</blockquote>
+<h3 id="Array-prototype-unshift"><a href="#Array-prototype-unshift" class="headerlink" title="Array.prototype.unshift()"></a>Array.prototype.unshift()</h3><blockquote>
+<p>unshift() 方法在数组的开头添加一个或者多个元素，并返回数组新的 length 值</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var array = [1, 2];</div><div class="line"></div><div class="line">array.unshift(0); //result of call is 3, the new array length</div><div class="line">//array is [0, 1, 2]</div><div class="line"></div><div class="line">array.unshift(-2, -1); // = 5</div><div class="line">//array is [-2, -1, 0, 1, 2]</div><div class="line"></div><div class="line">array.unshift( [-3] );</div><div class="line">//array is [[-3], -2, -1, 0, 1, 2]</div></pre></td></tr></table></figure>
+<p><em>Syntax</em></p>
+<blockquote>
+<p> array.unshift(element1, …, elementN)</p>
+</blockquote>
+<h3 id="Array-prototype-values"><a href="#Array-prototype-values" class="headerlink" title="Array.prototype.values()"></a>Array.prototype.values()</h3><blockquote>
+<p>values() 方法返回一个新的<code>Array Iterator</code>对象，该对象包含数组每个索引的值</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var array = [<span class="string">'w'</span>, <span class="string">'y'</span>, <span class="string">'k'</span>, <span class="string">'o'</span>, <span class="string">'p'</span>];</div><div class="line">var eArray = array.values();</div><div class="line">// 您的浏览器必须支持 for..of 循环</div><div class="line">// 以及 <span class="built_in">let</span> —— 将变量作用域限定在 <span class="keyword">for</span> 循环中</div><div class="line"><span class="keyword">for</span> (<span class="built_in">let</span> letter of eArray) &#123;</div><div class="line">  console.log(letter);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><em>Syntax</em></p>
+<blockquote>
+<p> array.values()</p>
+</blockquote>
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/JavaScript/">JavaScript</a></li></ul>
+
+    </div>
+    <footer class="article-footer">
+      
+        
+	<div id="comment">
+
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2016/01/01/Array-From-JavaScript-API/" data-title="Array From JavaScript API" data-url="https://dale-.github.io/2016/01/01/Array-From-JavaScript-API/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"daledu"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0]
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+
+	</div>
+
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../../02/Object-From-JavaScript-API/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Object From JavaScript API
+        
+      </div>
+    </a>
+  
+  
+    <a href="../../../../2015/12/23/Hexo-Github-Blog/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hexo + Github + Blog</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Properties"><span class="toc-number">1.</span> <span class="toc-text">Properties</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-length"><span class="toc-number">1.1.</span> <span class="toc-text">Array.length</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype"><span class="toc-number">1.2.</span> <span class="toc-text">Array.prototype</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Methods"><span class="toc-number">2.</span> <span class="toc-text">Methods</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-from-ES6规范"><span class="toc-number">2.1.</span> <span class="toc-text">Array.from() (ES6规范)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-isArray"><span class="toc-number">2.2.</span> <span class="toc-text">Array.isArray()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-of"><span class="toc-number">2.3.</span> <span class="toc-text">Array.of()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-concat"><span class="toc-number">2.4.</span> <span class="toc-text">Array.prototype.concat()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-copyWithin"><span class="toc-number">2.5.</span> <span class="toc-text">Array.prototype.copyWithin()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-entries-ES6规范"><span class="toc-number">2.6.</span> <span class="toc-text">Array.prototype.entries()(ES6规范)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-every"><span class="toc-number">2.7.</span> <span class="toc-text">Array.prototype.every()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-fill"><span class="toc-number">2.8.</span> <span class="toc-text">Array.prototype.fill()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-filter"><span class="toc-number">2.9.</span> <span class="toc-text">Array.prototype.filter()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-find"><span class="toc-number">2.10.</span> <span class="toc-text">Array.prototype.find()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-findIndex-ES6规范"><span class="toc-number">2.11.</span> <span class="toc-text">Array.prototype.findIndex()(ES6规范)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-forEach"><span class="toc-number">2.12.</span> <span class="toc-text">Array.prototype.forEach()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-includes"><span class="toc-number">2.13.</span> <span class="toc-text">Array.prototype.includes()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-indexOf"><span class="toc-number">2.14.</span> <span class="toc-text">Array.prototype.indexOf()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-join"><span class="toc-number">2.15.</span> <span class="toc-text">Array.prototype.join()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-join-ES6规范"><span class="toc-number">2.16.</span> <span class="toc-text">Array.prototype.join()[ES6规范]</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-lastIndexOf"><span class="toc-number">2.17.</span> <span class="toc-text">Array.prototype.lastIndexOf()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-map"><span class="toc-number">2.18.</span> <span class="toc-text">Array.prototype.map()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-pop"><span class="toc-number">2.19.</span> <span class="toc-text">Array.prototype.pop()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-push"><span class="toc-number">2.20.</span> <span class="toc-text">Array.prototype.push()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-reduce"><span class="toc-number">2.21.</span> <span class="toc-text">Array.prototype.reduce()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-reduceRight"><span class="toc-number">2.22.</span> <span class="toc-text">Array.prototype.reduceRight()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-reverse"><span class="toc-number">2.23.</span> <span class="toc-text">Array.prototype.reverse()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-shift"><span class="toc-number">2.24.</span> <span class="toc-text">Array.prototype.shift()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-slice"><span class="toc-number">2.25.</span> <span class="toc-text">Array.prototype.slice()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-some"><span class="toc-number">2.26.</span> <span class="toc-text">Array.prototype.some()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-sort"><span class="toc-number">2.27.</span> <span class="toc-text">Array.prototype.sort()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-splice"><span class="toc-number">2.28.</span> <span class="toc-text">Array.prototype.splice()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-toLocaleString"><span class="toc-number">2.29.</span> <span class="toc-text">Array.prototype.toLocaleString()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-toString"><span class="toc-number">2.30.</span> <span class="toc-text">Array.prototype.toString()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-unshift"><span class="toc-number">2.31.</span> <span class="toc-text">Array.prototype.unshift()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-prototype-values"><span class="toc-number">2.32.</span> <span class="toc-text">Array.prototype.values()</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      <div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2015 - 2017 The Girl Behind All Rights Reserved.</p>
+	      <p id="copyRightCn">Dale Du hold copyright</p>
+	</div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../../../categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="../../../../tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="http://weibo.com/daledu" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../js/script.js"></script>
+<script src="../../../../js/bootstrap.js"></script>
+
+
+
+
+  <script src="../../../../js/dialog.js"></script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            The Girl Behind
+          </div>
+          <div class="panel-body">
+            Copyright © 2017 Dale Du All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+</body>
+</html>

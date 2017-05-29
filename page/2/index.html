@@ -92,7 +92,7 @@
 
 
   
-    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/home-bg.jpg); background-size: auto 100%;">
+    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/pose.jpg); background-size: auto 100%;">
   
 
     <canvas width="100%" height="100%"></canvas>
@@ -280,126 +280,6 @@
 
 
   
-    <article id="post-Object-From-JavaScript-API"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../2017/01/16/Object-From-JavaScript-API/">Object From JavaScript API</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="../../2017/01/16/Object-From-JavaScript-API/" class="article-date">
-	  <time datetime="2017-01-16T15:37:00.000Z" itemprop="datePublished">2017-01-16</time>
-	</a>
-
-      
-    <a class="article-category-link" href="../../categories/JavaScript/">JavaScript</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>第一版只更新 Simple Case<br>后期随时补充特性</p>
-</blockquote>
-<h2 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h2><h3 id="Object-prototype"><a href="#Object-prototype" class="headerlink" title="Object.prototype"></a>Object.prototype</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">var Person = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">  this.canTalk = <span class="literal">true</span>;</div><div class="line">  this.greet = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">    <span class="keyword">if</span> (this.canTalk) &#123;</div><div class="line">      console.log(<span class="string">'Hi, I\'</span>m <span class="string">' + this.name);</div><div class="line">    &#125;</div><div class="line">  &#125;;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var Employee = function(name, title) &#123;</div><div class="line">  this.name = name;</div><div class="line">  this.title = title;</div><div class="line">  this.greet = function() &#123;</div><div class="line">    if (this.canTalk) &#123;</div><div class="line">      console.log("Hi, I'</span>m <span class="string">" + this.name + "</span>, the <span class="string">" + this.title);</div><div class="line">    &#125;</div><div class="line">  &#125;;</div><div class="line">&#125;;</div><div class="line">Employee.prototype = new Person();</div><div class="line"></div><div class="line">var Customer = function(name) &#123;</div><div class="line">  this.name = name;</div><div class="line">&#125;;</div><div class="line">Customer.prototype = new Person();</div><div class="line"></div><div class="line">var Mime = function(name) &#123;</div><div class="line">  this.name = name;</div><div class="line">  this.canTalk = false;</div><div class="line">&#125;;</div><div class="line">Mime.prototype = new Person();</div><div class="line"></div><div class="line">var bob = new Employee('Bob', 'Builder');</div><div class="line">var joe = new Customer('Joe');</div><div class="line">var rg = new Employee('Red Green', 'Handyman');</div><div class="line">var mike = new Customer('Mike');</div><div class="line">var mime = new Mime('Mime');</div><div class="line">bob.greet();</div><div class="line">joe.greet();</div><div class="line">rg.greet();</div><div class="line">mike.greet();</div><div class="line">mime.greet();</span></div></pre></td></tr></table></figure>
-        <!-- 
-第一版只更新 Simple Case后期随时补充特性
-
-PropertiesObject.prototype1234567891011121314151617181920212223242526272829303132333435363738394041var Person = function() &#123;  this.canTalk = true;  this.greet = fu......  -->
-        <p class="article-more-link">
-          <a href="../../2017/01/16/Object-From-JavaScript-API/#more">Read More</a>
-        </p>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/JavaScript/">JavaScript</a></li></ul>
-
-    </div>
-    <footer class="article-footer">
-      
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-Array-From-JavaScript-API"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../2017/01/11/Array-From-JavaScript-API/">Array From JavaScript API</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="../../2017/01/11/Array-From-JavaScript-API/" class="article-date">
-	  <time datetime="2017-01-11T01:09:08.000Z" itemprop="datePublished">2017-01-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="../../categories/JavaScript/">JavaScript</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>第一版只更新 Simple Case<br>后期随时补充特性</p>
-</blockquote>
-<h2 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h2><h3 id="Array-length"><a href="#Array-length" class="headerlink" title="Array.length"></a>Array.length</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var items = [<span class="string">"shoes"</span>, <span class="string">"shirts"</span>, <span class="string">"socks"</span>, <span class="string">"sweaters"</span>];</div><div class="line">items.length;</div><div class="line"></div><div class="line">// returns 4</div></pre></td></tr></table></figure>
-<h3 id="Array-prototype"><a href="#Array-prototype" class="headerlink" title="Array.prototype"></a>Array.prototype</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (!Array.prototype.first) &#123;</div><div class="line">  Array.prototype.first = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">    <span class="built_in">return</span> this[0];</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h2><h3 id="Array-from-ES6规范"><a href="#Array-from-ES6规范" class="headerlink" title="Array.from() (ES6规范)"></a>Array.from() (ES6规范)</h3><blockquote>
-<p>将一个 ArrayLike 对象或者 Iterable 对象转换成一个 Array（性能较差）</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Array.from(<span class="string">"foo"</span>);</div><div class="line">// [<span class="string">"f"</span>, <span class="string">"o"</span>, <span class="string">"o"</span>]</div></pre></td></tr></table></figure>
-<blockquote>
-<p>ArrayLike对象指具有数组某些行为的对象，表达出来的特征就是具有<code>length</code>属性</p>
-</blockquote>
-<p><em>Syntax</em></p>
-<blockquote>
-<p>Array.from(arrayLike[, mapFn[, thisArg]])</p>
-</blockquote>
-<p><a href="https://docs.angularjs.org/guide/directive">Array.from()</a><br>
-        <!-- 
-第一版只更新 Simple Case后期随时补充特性
-
-PropertiesArray.length1234var items = ["shoes", "shirts", "socks", "sweaters"];items.length;// returns 4
-Array.prototype12345if (!Array.prototype.first) &#123;  Array.p......  -->
-        <p class="article-more-link">
-          <a href="../../2017/01/11/Array-From-JavaScript-API/#more">Read More</a>
-        </p>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/JavaScript/">JavaScript</a></li></ul>
-
-    </div>
-    <footer class="article-footer">
-      
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
     <article id="post-Loops-And-Iteration-In-JavaScript"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -571,6 +451,129 @@ JavaScript中 this 的基本用法首先，我们知道在JavaScript中所有函
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/JavaScript/">JavaScript</a></li></ul>
+
+    </div>
+    <footer class="article-footer">
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-BOM-DOM"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../2016/12/21/BOM-DOM/">BOM And DOM</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../2016/12/21/BOM-DOM/" class="article-date">
+	  <time datetime="2016-12-21T02:43:18.000Z" itemprop="datePublished">2016-12-21</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Event/">Event</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="DOM-Document-Object-Model-文档对象模型"><a href="#DOM-Document-Object-Model-文档对象模型" class="headerlink" title="DOM (Document Object Model) 文档对象模型"></a>DOM (Document Object Model) 文档对象模型</h2><p>一套HTML和XML提供的API（应用程序编程接口，DOM描述了一个层次化的节点，允许添加、移除、修改页面中的某个部分。</p>
+<h3 id="节点层次"><a href="#节点层次" class="headerlink" title="节点层次"></a>节点层次</h3><p>DOM可以将任意HTML或者XML文档描绘成一个由多层节点构成的结构。<br><img src="/images/bom-dom/document.png" alt=""><br>
+        <!-- DOM (Document Object Model) 文档对象模型一套HTML和XML提供的API（应用程序编程接口，DOM描述了一个层次化的节点，允许添加、移除、修改页面中的某个部分。
+节点层次DOM可以将任意HTML或者XML文档描绘成一个由多层节点构成的结构。
+节点类型
+
+Document : 整个文档树的顶层节点
+DocumentType : doctype标签（比如&lt;!DO......  -->
+        <p class="article-more-link">
+          <a href="../../2016/12/21/BOM-DOM/#more">Read More</a>
+        </p>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Event/">Event</a></li></ul>
+
+    </div>
+    <footer class="article-footer">
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-Protocol"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../2016/12/18/Protocol/">HTTP Protocol</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../2016/12/18/Protocol/" class="article-date">
+	  <time datetime="2016-12-18T14:39:49.000Z" itemprop="datePublished">2016-12-18</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Protocol/">Protocol</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h2><blockquote>
+<p>Hypertext Transfer Protocol,超文本传输协议</p>
+</blockquote>
+<ul>
+<li>固定客户端和服务器之前的数据传输格式</li>
+<li>让客户端和服务器能有效的进行数据沟通</li>
+</ul>
+<p><img src="/images/http/http-protocol.png" alt=""></p>
+        <!-- HTTP协议
+Hypertext Transfer Protocol,超文本传输协议
+
+
+固定客户端和服务器之前的数据传输格式
+让客户端和服务器能有效的进行数据沟通
+
+
+
+HTTP的通信过程HTTP-Request
+ 请求行
+
+请求方法、请求资源路径、HTTP协议版本eg: GET /dale-.github.io/css/images/rocket.png HTTP/1.1
+
+ 请求头
+
+......  -->
+        <p class="article-more-link">
+          <a href="../../2016/12/18/Protocol/#more">Read More</a>
+        </p>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Protocol/">Protocol</a></li></ul>
 
     </div>
     <footer class="article-footer">

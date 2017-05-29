@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>method invocation pattern | The Girl Behind</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="JavaScript" />
+  
+  
+  
+  
+  <meta name="description" content="调用方式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Method Invocation Pattern">
+<meta property="og:url" content="https://dale-.github.io/2016/06/27/Method Invocation Pattern/index.html">
+<meta property="og:site_name" content="The Girl Behind">
+<meta property="og:description" content="调用方式">
+<meta property="og:updated_time" content="2017-05-29T14:25:27.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Method Invocation Pattern">
+<meta name="twitter:description" content="调用方式">
+  
+    <link rel="alternate" href="/atom.xml" title="The Girl Behind" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../../../css/style.css">
+
+  <script src="../../../../js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="../../../../css/dialog.css">
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+
+</head>
+
+<body>
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="../../../../index.html">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../../../archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../../../categories">Categories</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../../../tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="http://weibo.com/daledu">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="../../../../js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-Method Invocation Pattern" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Method Invocation Pattern
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="" class="article-date">
+	  <time datetime="2016-06-27T10:05:41.000Z" itemprop="datePublished">2016-06-27</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../../../categories/JavaScript/">JavaScript</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="方法调用（Method-Invocation-Pattern）"><a href="#方法调用（Method-Invocation-Pattern）" class="headerlink" title="方法调用（Method Invocation Pattern）"></a>方法调用（Method Invocation Pattern）</h2><p>在面向对象程序设计中，当函数（Function）作为对象属性时被称为方法（Method）。 方法被调用时this会被绑定到对应的对象。在JavaScript中有两种语法可以完成方法调用： a.func()和a<a href="">‘func’</a>。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;</div><div class="line">    val: 0,</div><div class="line">    count: <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">        this.val ++;</div><div class="line">        console.log(this.val);</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">obj.count();    // 1</div><div class="line">obj.count();    // 2</div></pre></td></tr></table></figure></p>
+<p>值得注意的是，this到obj的绑定属于极晚绑定（very late binding）， 绑定发生在调用的那一刻。这使得JavaScript函数在被重用时有极大的灵活性。</p>
+<a id="more"></a>
+<h2 id="函数调用（Function-Invocation-Pattern）"><a href="#函数调用（Function-Invocation-Pattern）" class="headerlink" title="函数调用（Function Invocation Pattern）"></a>函数调用（Function Invocation Pattern）</h2><p>当函数不是对象属性时，它就会被当做函数来调用，比如add(2,3)。 此时this绑定到了全局对象global。</p>
+<p>在那些 JavaScript 的优秀特性一文中曾提到， JavaScript的编译（预处理）需要global对象来链接所有全局名称。<br>其实this绑定到global是JavaScript的一个设计错误（可以说是最严重的错误）， 它导致了对象方法不能直接调用内部函数来做一些辅助工作， 因为内不函数里的this的绑定到了global。 所以如果要重新设计语言，方法调用的this应该绑定到上一级函数的this。</p>
+<p>然而共有方法总是需要调用内部辅助函数，于是产生了这样一个非常普遍的解决方案：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">man.love = <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">    var self = this;</div><div class="line">    <span class="keyword">function</span> <span class="function"><span class="title">fuck</span></span>()&#123;</div><div class="line">        self.happy++;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">function</span> <span class="function"><span class="title">marry</span></span>()&#123;</div><div class="line">        self.happy--;</div><div class="line">    &#125;</div><div class="line">    fuck() &amp;&amp; marry();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>有些场景下用Function.prototype.bind会更加方便：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">man.love = <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">    <span class="keyword">function</span> fuck(girl1, girl2, ...)&#123;</div><div class="line">        this.happy++;</div><div class="line">    &#125;</div><div class="line">    fuck.bind(this)();</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="构造函数调用（Constructor-Invocation-Pattern）"><a href="#构造函数调用（Constructor-Invocation-Pattern）" class="headerlink" title="构造函数调用（Constructor Invocation Pattern）"></a>构造函数调用（Constructor Invocation Pattern）</h2><p>JavaScript中，那些用来new对象的函数成为构造函数。</p>
+<p>JavaScript采用原型继承方式。这意味着一个对象可以从另一个对象直接继承属性， JavaScript是class free的~ 但JavaScript为了迎合主流的基于类声明的继承方式， 同时也给出了构造函数机制：使用new关键字，便会创建一个对象， 根据prototype属性创建原型链，并以该对象为this执行指定的（构造）函数。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> Man(name, age)&#123;</div><div class="line">    this.sex = <span class="string">'man'</span>;</div><div class="line">    this.name = name;</div><div class="line">    this.age = age;</div><div class="line">&#125;</div><div class="line">Man.prototype.fuck = <span class="keyword">function</span>(girl1, girl2, ...)&#123;&#125;</div><div class="line">var man = new Man();</div><div class="line">man.fuck();</div></pre></td></tr></table></figure>
+<p>当构造函数有很多参数时，它们的顺序很难记住，所以通常使用对象进行传参：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var man = new Man(&#123;</div><div class="line">    name: <span class="string">'bob'</span>,</div><div class="line">    age: 18</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="apply调用（Apply-Invocation-Pattern）"><a href="#apply调用（Apply-Invocation-Pattern）" class="headerlink" title="apply调用（Apply Invocation Pattern）"></a>apply调用（Apply Invocation Pattern）</h2><p>apply模式相比之前的模式，没有那么糟糕。apply方法允许，通过传递参数数组给函数来手动调用函数，明确设置this参数。因为函数是一等公民，他们也是对象，因此也可以运行方法（函数）。事实上，每一个function都指向Function.prototype,因此方法可以很容易扩展函数。apply方法就是一个函数扩展方法-我的猜想-它定义在Function.prototype中。</p>
+<p>apply有两个参数：第一个参数是this参数绑定的对象，第二个参数是一个数组，它被映射为第一个对象的参数：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var add = <span class="keyword">function</span>(num1, num2) &#123;</div><div class="line">      <span class="built_in">return</span> num1+num2;</div><div class="line">&#125;</div><div class="line"></div><div class="line">array = [3,4];</div><div class="line">add.apply(null,array); //7</div></pre></td></tr></table></figure>
+<p>上面的例子中，this为空（该函数不是一个对象，所以它不需要）和数组为num1与num2。第一个参数可以更有趣：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;</div><div class="line">    data:<span class="string">'Hello World'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">var displayData = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">    alert(this.data);</div><div class="line">&#125;</div><div class="line"></div><div class="line">displayData(); //undefined</div><div class="line">displayData.apply(obj); //Hello World</div></pre></td></tr></table></figure></p>
+<p>上面的例子使用apply绑定this到obj。结果产生一个this.data值。apply的实际应用价值,就是能明确分配一个值给this.。要是没有这个功能，我们可以直接使用（）来调用函数。</p>
+<p>JavaScript还有种调用方法是call，类似apply方法,不过它传递的不是一个参数数组,而是一个参数列表。如果JavaScript可以实现的函数重载，我认为call应该是apply方法的重载。因此，人们谈论的apply和call其实是一样的。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>总结下this. 1. 对于obj.fun()此类方法函数调用,哪个对象实例(obj)调用this所在的函数(fun),this指向那个对象实例</p>
+<ol>
+<li><p>对于函数调用,this指向全局对象.(其实可以看做上一种,是window对象的方法函数,全局对象调用,则指向全局对象).避免这种语言设计不合理的一个小技巧就是,进入函数后就申明一个变量_this,赋值this给它(_this),保存下来.</p>
+</li>
+<li><p>对于构造函数调用,若该函数返回一个简单类型（number, string, boolean, null or undefined），忽略return值，返回this（指向新的对象）;如果该函数返回一个object实例（简单类型以外的任何类型），那么将返回该对象。</p>
+</li>
+<li><p>apply和call调用,this指向apply和call第一参数.即手动设置this的值.</p>
+</li>
+</ol>
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/JavaScript/">JavaScript</a></li></ul>
+
+    </div>
+    <footer class="article-footer">
+      
+        
+	<div id="comment">
+
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2016/06/27/Method Invocation Pattern/" data-title="Method Invocation Pattern" data-url="https://dale-.github.io/2016/06/27/Method Invocation Pattern/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"daledu"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0]
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+
+	</div>
+
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../../../12/13/Folders missing in project pane in Webstorm/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Folders missing in project pane in Webstorm
+        
+      </div>
+    </a>
+  
+  
+    <a href="../../../01/02/Object-From-JavaScript-API/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Object From JavaScript API</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#方法调用（Method-Invocation-Pattern）"><span class="toc-number">1.</span> <span class="toc-text">方法调用（Method Invocation Pattern）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数调用（Function-Invocation-Pattern）"><span class="toc-number">2.</span> <span class="toc-text">函数调用（Function Invocation Pattern）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#构造函数调用（Constructor-Invocation-Pattern）"><span class="toc-number">3.</span> <span class="toc-text">构造函数调用（Constructor Invocation Pattern）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#apply调用（Apply-Invocation-Pattern）"><span class="toc-number">4.</span> <span class="toc-text">apply调用（Apply Invocation Pattern）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      <div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2015 - 2017 The Girl Behind All Rights Reserved.</p>
+	      <p id="copyRightCn">Dale Du hold copyright</p>
+	</div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../../../categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="../../../../tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="http://weibo.com/daledu" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../js/script.js"></script>
+<script src="../../../../js/bootstrap.js"></script>
+
+
+
+
+  <script src="../../../../js/dialog.js"></script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            The Girl Behind
+          </div>
+          <div class="panel-body">
+            Copyright © 2017 Dale Du All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+</body>
+</html>
