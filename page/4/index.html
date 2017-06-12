@@ -33,9 +33,9 @@
     @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
     @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
     @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
-  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
 
-  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="/js/jquery-3.1.1.min.js"></script>
 
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="/css/bootstrap.css" >
@@ -58,7 +58,7 @@
     <div id="header-outer" class="outer">
       <div id="header-title" class="inner">
         <h1 id="logo-wrap">
-          <a href="../../index.html" id="logo">The Girl Behind</a>
+          <a href="/" id="logo">The Girl Behind</a>
         </h1>
         
       </div>
@@ -66,13 +66,13 @@
         <nav id="main-nav">
           <a id="main-nav-toggle" class="nav-icon"></a>
           
-            <a class="main-nav-link" href="../../index.html">Home</a>
+            <a class="main-nav-link" href="/">Home</a>
           
-            <a class="main-nav-link" href="../../archives">Archives</a>
+            <a class="main-nav-link" href="/archives">Archives</a>
           
-            <a class="main-nav-link" href="../../categories">Categories</a>
+            <a class="main-nav-link" href="/categories">Categories</a>
           
-            <a class="main-nav-link" href="../../tags">Tags</a>
+            <a class="main-nav-link" href="/tags">Tags</a>
           
             <a class="main-nav-link" href="http://weibo.com/daledu">About</a>
           
@@ -84,7 +84,7 @@
           <a id="nav-search-btn" class="nav-icon" title="Search"></a>
         </nav>
         <div id="search-form-wrap">
-          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://dale-.github.io"></form>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://dale-.github.io"></form>
         </div>
       </div>
     </div>
@@ -92,7 +92,7 @@
 
 
   
-    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/sample.jpg); background-size: auto 100%;">
+    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/home-bg.jpg); background-size: auto 100%;">
   
 
     <canvas width="100%" height="100%"></canvas>
@@ -167,13 +167,13 @@
   <div class="intro-navigate">
       <p class="navigater-list">
         
-          <a id="beautifont" class="main-nav-link" href="../../index.html">Home</a>
+          <a id="beautifont" class="main-nav-link" href="/">Home</a>
         
-          <a id="beautifont" class="main-nav-link" href="../../archives">Archives</a>
+          <a id="beautifont" class="main-nav-link" href="/archives">Archives</a>
         
-          <a id="beautifont" class="main-nav-link" href="../../categories">Categories</a>
+          <a id="beautifont" class="main-nav-link" href="/categories">Categories</a>
         
-          <a id="beautifont" class="main-nav-link" href="../../tags">Tags</a>
+          <a id="beautifont" class="main-nav-link" href="/tags">Tags</a>
         
           <a id="beautifont" class="main-nav-link" href="http://weibo.com/daledu">About</a>
         
@@ -190,6 +190,73 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-Array-From-JavaScript-API"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/01/01/Array-From-JavaScript-API/">Array From JavaScript API</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/01/01/Array-From-JavaScript-API/" class="article-date">
+	  <time datetime="2016-01-01T01:09:08.000Z" itemprop="datePublished">2016-01-01</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>第一版只更新 Simple Case<br>后期随时补充特性</p>
+</blockquote>
+<h2 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h2><h3 id="Array-length"><a href="#Array-length" class="headerlink" title="Array.length"></a>Array.length</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var items = [<span class="string">"shoes"</span>, <span class="string">"shirts"</span>, <span class="string">"socks"</span>, <span class="string">"sweaters"</span>];</div><div class="line">items.length;</div><div class="line"></div><div class="line">// returns 4</div></pre></td></tr></table></figure>
+<h3 id="Array-prototype"><a href="#Array-prototype" class="headerlink" title="Array.prototype"></a>Array.prototype</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (!Array.prototype.first) &#123;</div><div class="line">  Array.prototype.first = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">    <span class="built_in">return</span> this[0];</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h2><h3 id="Array-from-ES6规范"><a href="#Array-from-ES6规范" class="headerlink" title="Array.from() (ES6规范)"></a>Array.from() (ES6规范)</h3><blockquote>
+<p>将一个 ArrayLike 对象或者 Iterable 对象转换成一个 Array（性能较差）</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Array.from(<span class="string">"foo"</span>);</div><div class="line">// [<span class="string">"f"</span>, <span class="string">"o"</span>, <span class="string">"o"</span>]</div></pre></td></tr></table></figure>
+<blockquote>
+<p>ArrayLike对象指具有数组某些行为的对象，表达出来的特征就是具有<code>length</code>属性</p>
+</blockquote>
+<p><em>Syntax</em></p>
+<blockquote>
+<p>Array.from(arrayLike[, mapFn[, thisArg]])</p>
+</blockquote>
+<p><a href="https://docs.angularjs.org/guide/directive" target="_blank" rel="external">Array.from()</a><br>
+        <!-- 
+第一版只更新 Simple Case后期随时补充特性
+
+PropertiesArray.length1234var items = ["shoes", "shirts", "socks", "sweaters"];items.length;// returns 4
+Array.prototype12345if (!Array.prototype.first) &#123;  Array.p......  -->
+        <p class="article-more-link">
+          <a href="/2016/01/01/Array-From-JavaScript-API/#more">Read More</a>
+        </p>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </div>
+    <footer class="article-footer">
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-Hexo-Github-Blog"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -198,7 +265,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../2015/12/23/Hexo-Github-Blog/">Hexo + Github + Blog</a>
+      <a class="article-title" href="/2015/12/23/Hexo-Github-Blog/">Hexo + Github + Blog</a>
     </h1>
   
 
@@ -206,12 +273,12 @@
     
     <div class="article-meta">
       
-	<a href="../../2015/12/23/Hexo-Github-Blog/" class="article-date">
+	<a href="/2015/12/23/Hexo-Github-Blog/" class="article-date">
 	  <time datetime="2015-12-23T09:48:53.000Z" itemprop="datePublished">2015-12-23</time>
 	</a>
 
       
-    <a class="article-category-link" href="../../categories/Hexo/">Hexo</a>
+    <a class="article-category-link" href="/categories/Hexo/">Hexo</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
@@ -229,11 +296,11 @@ Hexo即会自动在目标文件夹下建立网站所需要的所有文件
 4. 启动服务测试1hexo s
 用浏览器打开http://localhost:4000/或......  -->
         <p class="article-more-link">
-          <a href="../../2015/12/23/Hexo-Github-Blog/#more">Read More</a>
+          <a href="/2015/12/23/Hexo-Github-Blog/#more">Read More</a>
         </p>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Hexo/">Hexo</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
 
     </div>
     <footer class="article-footer">
@@ -251,7 +318,7 @@ Hexo即会自动在目标文件夹下建立网站所需要的所有文件
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="../3/">&laquo; Prev</a><a class="page-number" href="../../index.html">1</a><a class="page-number" href="../2/">2</a><a class="page-number" href="../3/">3</a><span class="page-number current">4</span>
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
   </nav>
 
 </section>
@@ -290,13 +357,13 @@ Hexo即会自动在目标文件夹下建立网站所需要的所有文件
     </div>
     <!-- <nav id="mobile-nav">
   
-    <a href="../../index.html" class="mobile-nav-link">Home</a>
+    <a href="/" class="mobile-nav-link">Home</a>
   
-    <a href="../../archives" class="mobile-nav-link">Archives</a>
+    <a href="/archives" class="mobile-nav-link">Archives</a>
   
-    <a href="../../categories" class="mobile-nav-link">Categories</a>
+    <a href="/categories" class="mobile-nav-link">Categories</a>
   
-    <a href="../../tags" class="mobile-nav-link">Tags</a>
+    <a href="/tags" class="mobile-nav-link">Tags</a>
   
     <a href="http://weibo.com/daledu" class="mobile-nav-link">About</a>
   
@@ -335,15 +402,15 @@ Hexo即会自动在目标文件夹下建立网站所需要的所有文件
 </script>
 
 
-  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
-  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="../../js/script.js"></script>
-<script src="../../js/bootstrap.js"></script>
+<script src="/js/script.js"></script>
+<script src="/js/bootstrap.js"></script>
 
 
-  <script src="../../js/home.js"></script>
+  <script src="/js/home.js"></script>
 
 
 

@@ -33,9 +33,9 @@
     @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
     @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
     @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
 
-  <script src="js/jquery-3.1.1.min.js"></script>
+  <script src="/js/jquery-3.1.1.min.js"></script>
 
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="/css/bootstrap.css" >
@@ -58,7 +58,7 @@
     <div id="header-outer" class="outer">
       <div id="header-title" class="inner">
         <h1 id="logo-wrap">
-          <a href="index.html" id="logo">The Girl Behind</a>
+          <a href="/" id="logo">The Girl Behind</a>
         </h1>
         
       </div>
@@ -66,13 +66,13 @@
         <nav id="main-nav">
           <a id="main-nav-toggle" class="nav-icon"></a>
           
-            <a class="main-nav-link" href="index.html">Home</a>
+            <a class="main-nav-link" href="/">Home</a>
           
-            <a class="main-nav-link" href="archives">Archives</a>
+            <a class="main-nav-link" href="/archives">Archives</a>
           
-            <a class="main-nav-link" href="categories">Categories</a>
+            <a class="main-nav-link" href="/categories">Categories</a>
           
-            <a class="main-nav-link" href="tags">Tags</a>
+            <a class="main-nav-link" href="/tags">Tags</a>
           
             <a class="main-nav-link" href="http://weibo.com/daledu">About</a>
           
@@ -84,7 +84,7 @@
           <a id="nav-search-btn" class="nav-icon" title="Search"></a>
         </nav>
         <div id="search-form-wrap">
-          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://dale-.github.io"></form>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://dale-.github.io"></form>
         </div>
       </div>
     </div>
@@ -92,7 +92,7 @@
 
 
   
-    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/sample.jpg); background-size: auto 100%;">
+    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/home-bg.jpg); background-size: auto 100%;">
   
 
     <canvas width="100%" height="100%"></canvas>
@@ -167,13 +167,13 @@
   <div class="intro-navigate">
       <p class="navigater-list">
         
-          <a id="beautifont" class="main-nav-link" href="index.html">Home</a>
+          <a id="beautifont" class="main-nav-link" href="/">Home</a>
         
-          <a id="beautifont" class="main-nav-link" href="archives">Archives</a>
+          <a id="beautifont" class="main-nav-link" href="/archives">Archives</a>
         
-          <a id="beautifont" class="main-nav-link" href="categories">Categories</a>
+          <a id="beautifont" class="main-nav-link" href="/categories">Categories</a>
         
-          <a id="beautifont" class="main-nav-link" href="tags">Tags</a>
+          <a id="beautifont" class="main-nav-link" href="/tags">Tags</a>
         
           <a id="beautifont" class="main-nav-link" href="http://weibo.com/daledu">About</a>
         
@@ -190,6 +190,61 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-Getting-started-with-React-Redux"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/06/12/Getting-started-with-React-Redux/">Getting started with React Redux</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/06/12/Getting-started-with-React-Redux/" class="article-date">
+	  <time datetime="2017-06-12T14:50:59.000Z" itemprop="datePublished">2017-06-12</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Store"><a href="#Store" class="headerlink" title="Store"></a>Store</h2><p>Store 就是保存数据的地方，你可以把它看成一个容器。<br>Redux提供<code>createStore</code>这个函数，用来生成Store。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</div><div class="line"><span class="keyword">const</span> store = createStore(fn);</div></pre></td></tr></table></figure>
+<p><code>createStore</code>函数接受另一个函数作为参数，返回新生成的Store对象。</p>
+<h2 id="State"><a href="#State" class="headerlink" title="State"></a>State</h2><p><code>Store</code>对象包含所有数据。如果想要得到某个时点的数据，就要对Store生成快照。这种时点的数据集合，就叫做State。<br>当前时刻的State，可以通过<code>store.getState()</code>拿到。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</div><div class="line"><span class="keyword">const</span> store = createStore(fn);</div><div class="line"></div><div class="line"><span class="keyword">const</span> state = store.getState();</div></pre></td></tr></table></figure>
+<p>Redux规定，一个State对应一个View。只要State相同，View就相同。</p>
+        <!-- StoreStore 就是保存数据的地方，你可以把它看成一个容器。Redux提供createStore这个函数，用来生成Store。
+123import &#123; createStore &#125; from 'redux';const store = createStore(fn);
+createStore函数接受另一个函数作为参数，返回新生成的Store对象。
+StateStore......  -->
+        <p class="article-more-link">
+          <a href="/2017/06/12/Getting-started-with-React-Redux/#more">Read More</a>
+        </p>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redux/">Redux</a></li></ul>
+
+    </div>
+    <footer class="article-footer">
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-React-createClass-extends-component"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -198,7 +253,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="2017/05/02/React-createClass-extends-component/">[React] createClass &amp; extends Component</a>
+      <a class="article-title" href="/2017/05/02/React-createClass-extends-component/">[React] createClass &amp; extends Component</a>
     </h1>
   
 
@@ -206,17 +261,17 @@
     
     <div class="article-meta">
       
-	<a href="2017/05/02/React-createClass-extends-component/" class="article-date">
+	<a href="/2017/05/02/React-createClass-extends-component/" class="article-date">
 	  <time datetime="2017-05-02T10:05:49.000Z" itemprop="datePublished">2017-05-02</time>
 	</a>
 
       
-    <a class="article-category-link" href="categories/React/">React</a>
+    <a class="article-category-link" href="/categories/React/">React</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>原文地址：<a href="https://toddmotto.com/react-create-class-versus-component/#syntax-differences">React.createClass versus extends React.Component</a></p>
+        <p>原文地址：<a href="https://toddmotto.com/react-create-class-versus-component/#syntax-differences" target="_blank" rel="external">React.createClass versus extends React.Component</a></p>
 <blockquote>
 <p>这其实是殊途同归的两种方式。过去我们使用React提供<code>React.createClass</code>的方式，<br>而后React提供了小小的语法糖可以允许我们更好基于ES6语法实现此功能:<code>React.Component</code>,<br>我们可以使用<code>extends React.Component</code>替代<code>createClass</code>。</p>
 <p>虽然这两种方式的差别很小，但是有一些值得我们探索的，很有趣的知识，这允许我们在不同的场景中恰当的选择最适合的方式。</p>
@@ -227,11 +282,11 @@
 
 这其实是殊途同归的两种方式。过去我们使用React提供React.createClass的方式，而后React提供了小小的语法糖可以允许我们更好基于ES6语法实现此功能:React.Component,我们可以使用extends React.Component替代createClas......  -->
         <p class="article-more-link">
-          <a href="2017/05/02/React-createClass-extends-component/#more">Read More</a>
+          <a href="/2017/05/02/React-createClass-extends-component/#more">Read More</a>
         </p>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/React/">React</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
 
     </div>
     <footer class="article-footer">
@@ -253,7 +308,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="2017/03/18/How-To-Learn-A-New-Skill-Fast/">How To Learn A New Skill Fast</a>
+      <a class="article-title" href="/2017/03/18/How-To-Learn-A-New-Skill-Fast/">How To Learn A New Skill Fast</a>
     </h1>
   
 
@@ -261,12 +316,12 @@
     
     <div class="article-meta">
       
-	<a href="2017/03/18/How-To-Learn-A-New-Skill-Fast/" class="article-date">
+	<a href="/2017/03/18/How-To-Learn-A-New-Skill-Fast/" class="article-date">
 	  <time datetime="2017-03-18T14:10:05.000Z" itemprop="datePublished">2017-03-18</time>
 	</a>
 
       
-    <a class="article-category-link" href="categories/methodology/">methodology</a>
+    <a class="article-category-link" href="/categories/methodology/">methodology</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
@@ -282,11 +337,11 @@ Learn a new skill from official website that is the most efficient way, Here are
 Enroll in technical classes, workshops and seminars
 Subscrib......  -->
         <p class="article-more-link">
-          <a href="2017/03/18/How-To-Learn-A-New-Skill-Fast/#more">Read More</a>
+          <a href="/2017/03/18/How-To-Learn-A-New-Skill-Fast/#more">Read More</a>
         </p>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/methodology/">methodology</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/methodology/">methodology</a></li></ul>
 
     </div>
     <footer class="article-footer">
@@ -308,7 +363,7 @@ Subscrib......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="2017/03/12/React-Components-Lifecycle/">React Components Lifecycle</a>
+      <a class="article-title" href="/2017/03/12/React-Components-Lifecycle/">React Components Lifecycle</a>
     </h1>
   
 
@@ -316,12 +371,12 @@ Subscrib......  -->
     
     <div class="article-meta">
       
-	<a href="2017/03/12/React-Components-Lifecycle/" class="article-date">
+	<a href="/2017/03/12/React-Components-Lifecycle/" class="article-date">
 	  <time datetime="2017-03-12T10:05:49.000Z" itemprop="datePublished">2017-03-12</time>
 	</a>
 
       
-    <a class="article-category-link" href="categories/React/">React</a>
+    <a class="article-category-link" href="/categories/React/">React</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
@@ -337,11 +392,11 @@ Unmounted一个mounted的React Components对应的DOM节点被从DOM结构中移
 
 声明周期React 为每个状态都......  -->
         <p class="article-more-link">
-          <a href="2017/03/12/React-Components-Lifecycle/#more">Read More</a>
+          <a href="/2017/03/12/React-Components-Lifecycle/#more">Read More</a>
         </p>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/React/">React</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
 
     </div>
     <footer class="article-footer">
@@ -363,7 +418,7 @@ Unmounted一个mounted的React Components对应的DOM节点被从DOM结构中移
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="2017/02/27/Understanding-the-Critical-Rendering-Path/">Understanding the Critical Rendering Path</a>
+      <a class="article-title" href="/2017/02/27/Understanding-the-Critical-Rendering-Path/">Understanding the Critical Rendering Path</a>
     </h1>
   
 
@@ -371,12 +426,12 @@ Unmounted一个mounted的React Components对应的DOM节点被从DOM结构中移
     
     <div class="article-meta">
       
-	<a href="2017/02/27/Understanding-the-Critical-Rendering-Path/" class="article-date">
+	<a href="/2017/02/27/Understanding-the-Critical-Rendering-Path/" class="article-date">
 	  <time datetime="2017-02-27T02:38:04.000Z" itemprop="datePublished">2017-02-27</time>
 	</a>
 
       
-    <a class="article-category-link" href="categories/JavaScript/">JavaScript</a>
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
@@ -402,11 +457,11 @@ Painting
 
 Constructi......  -->
         <p class="article-more-link">
-          <a href="2017/02/27/Understanding-the-Critical-Rendering-Path/#more">Read More</a>
+          <a href="/2017/02/27/Understanding-the-Critical-Rendering-Path/#more">Read More</a>
         </p>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/JavaScript/">JavaScript</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
 
     </div>
     <footer class="article-footer">
@@ -428,7 +483,7 @@ Constructi......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="2017/02/20/Performance-Optimization/">Performance Optimization</a>
+      <a class="article-title" href="/2017/02/20/Performance-Optimization/">Performance Optimization</a>
     </h1>
   
 
@@ -436,12 +491,12 @@ Constructi......  -->
     
     <div class="article-meta">
       
-	<a href="2017/02/20/Performance-Optimization/" class="article-date">
+	<a href="/2017/02/20/Performance-Optimization/" class="article-date">
 	  <time datetime="2017-02-20T15:03:19.000Z" itemprop="datePublished">2017-02-20</time>
 	</a>
 
       
-    <a class="article-category-link" href="categories/front-end/">front-end</a>
+    <a class="article-category-link" href="/categories/front-end/">front-end</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
@@ -469,60 +524,11 @@ Constructi......  -->
 
 减少HTTP请求一个正常HTTP请求的流程简述：如......  -->
         <p class="article-more-link">
-          <a href="2017/02/20/Performance-Optimization/#more">Read More</a>
+          <a href="/2017/02/20/Performance-Optimization/#more">Read More</a>
         </p>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/performance/">performance</a></li></ul>
-
-    </div>
-    <footer class="article-footer">
-      
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-angular-directive"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="2017/02/07/angular-directive/">Angular Directive</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="2017/02/07/angular-directive/" class="article-date">
-	  <time datetime="2017-02-07T15:20:21.000Z" itemprop="datePublished">2017-02-07</time>
-	</a>
-
-      
-    <a class="article-category-link" href="categories/AngularJS/">AngularJS</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://docs.angularjs.org/guide/directive">指令</a>就是一些附加在HTML元素上的自定义标记（例如：属性，元素，或css类），它告诉AngularJS的HTML编译器 ($compile) 在元素上附加某些指定的行为，甚至操作DOM、改变DOM元素，以及它的各级子节点。</p>
-<p>Angular内置了一整套指令，如ngBind, ngModel, 和ngView。 就像你可以创建控制器和服务那样，你也可以创建自己的指令来让Angular使用。 当Angular 启动器引导你的应用程序时， HTML编译器就会遍历整个DOM，以匹配DOM元素里的指令。</p>
-        <!-- 指令就是一些附加在HTML元素上的自定义标记（例如：属性，元素，或css类），它告诉AngularJS的HTML编译器 ($compile) 在元素上附加某些指定的行为，甚至操作DOM、改变DOM元素，以及它的各级子节点。
-Angular内置了一整套指令，如ngBind, ngModel, 和ngView。 就像你可以创建控制器和服务那样，你也可以创建自己的指令来让Angular使用。 当A......  -->
-        <p class="article-more-link">
-          <a href="2017/02/07/angular-directive/#more">Read More</a>
-        </p>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/AngularJS/">AngularJS</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/performance/">performance</a></li></ul>
 
     </div>
     <footer class="article-footer">
@@ -540,7 +546,7 @@ Angular内置了一整套指令，如ngBind, ngModel, 和ngView。 就像你可�
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="page/2/">2</a><a class="page-number" href="page/3/">3</a><a class="page-number" href="page/4/">4</a><a class="extend next" rel="next" href="page/2/">Next &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -579,13 +585,13 @@ Angular内置了一整套指令，如ngBind, ngModel, 和ngView。 就像你可�
     </div>
     <!-- <nav id="mobile-nav">
   
-    <a href="index.html" class="mobile-nav-link">Home</a>
+    <a href="/" class="mobile-nav-link">Home</a>
   
-    <a href="archives" class="mobile-nav-link">Archives</a>
+    <a href="/archives" class="mobile-nav-link">Archives</a>
   
-    <a href="categories" class="mobile-nav-link">Categories</a>
+    <a href="/categories" class="mobile-nav-link">Categories</a>
   
-    <a href="tags" class="mobile-nav-link">Tags</a>
+    <a href="/tags" class="mobile-nav-link">Tags</a>
   
     <a href="http://weibo.com/daledu" class="mobile-nav-link">About</a>
   
@@ -624,15 +630,15 @@ Angular内置了一整套指令，如ngBind, ngModel, 和ngView。 就像你可�
 </script>
 
 
-  <link rel="stylesheet" href="fancybox/jquery.fancybox.css">
-  <script src="fancybox/jquery.fancybox.pack.js"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="js/script.js"></script>
-<script src="js/bootstrap.js"></script>
+<script src="/js/script.js"></script>
+<script src="/js/bootstrap.js"></script>
 
 
-  <script src="js/home.js"></script>
+  <script src="/js/home.js"></script>
 
 
 

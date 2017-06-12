@@ -12,6 +12,7 @@
   
   
   <meta name="description" content="how to use different type of loops and iteration in JavaScript">
+<meta name="keywords" content="loops iteration">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Loops And Iteration In JavaScript">
 <meta property="og:url" content="https://dale-.github.io/2017/01/03/Loops-And-Iteration-In-JavaScript/index.html">
@@ -47,15 +48,15 @@
     @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
     @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
     @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
-  <link rel="stylesheet" href="../../../../css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
 
-  <script src="../../../../js/jquery-3.1.1.min.js"></script>
+  <script src="/js/jquery-3.1.1.min.js"></script>
 
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="/css/bootstrap.css" >
 
   
-    <link rel="stylesheet" href="../../../../css/dialog.css">
+    <link rel="stylesheet" href="/css/dialog.css">
   
 
   
@@ -95,13 +96,13 @@
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 
-                  <li> <a class="main-nav-link" href="../../../../index.html">Home</a> </li>
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
                 
-                  <li> <a class="main-nav-link" href="../../../../archives">Archives</a> </li>
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
                 
-                  <li> <a class="main-nav-link" href="../../../../categories">Categories</a> </li>
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
                 
-                  <li> <a class="main-nav-link" href="../../../../tags">Tags</a> </li>
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
                 
                   <li> <a class="main-nav-link" href="http://weibo.com/daledu">About</a> </li>
                 
@@ -134,12 +135,12 @@
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
-        CONTENT_URL: '../../../../content.json',
+        CONTENT_URL: '/content.json',
     };
     window.INSIGHT_CONFIG = INSIGHT_CONFIG;
 })(window);
 </script>
-<script src="../../../../js/insight.js"></script>
+<script src="/js/insight.js"></script>
 
 </div></li>
             </div>
@@ -172,12 +173,12 @@
     
     <div class="article-meta">
       
-	<a href="" class="article-date">
+	<a href="/2017/01/03/Loops-And-Iteration-In-JavaScript/" class="article-date">
 	  <time datetime="2017-01-03T13:32:36.000Z" itemprop="datePublished">2017-01-03</time>
 	</a>
 
       
-    <a class="article-category-link" href="../../../../categories/JavaScript/">JavaScript</a>
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
@@ -233,7 +234,7 @@
 <li>第二个变量：待遍历的数组对象</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>( var element of array ) &#123;</div><div class="line">console.log( element.name );</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var list = new Map().set(<span class="string">'a'</span>, 1).set(<span class="string">'b'</span>, 2).set(<span class="string">'c'</span>, 3);</div><div class="line"><span class="keyword">for</span> (var [key, value] of list) &#123;</div><div class="line">  console.log(key + <span class="string">'=&gt;'</span> + value);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var list = new Map().<span class="built_in">set</span>(<span class="string">'a'</span>, 1).<span class="built_in">set</span>(<span class="string">'b'</span>, 2).<span class="built_in">set</span>(<span class="string">'c'</span>, 3);</div><div class="line"><span class="keyword">for</span> (var [key, value] of list) &#123;</div><div class="line">  console.log(key + <span class="string">'=&gt;'</span> + value);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="keys（ES6新增）"><a href="#keys（ES6新增）" class="headerlink" title="keys（ES6新增）"></a>keys（ES6新增）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="built_in">let</span> index of [<span class="string">'a'</span>, <span class="string">'b'</span>].keys()) &#123;</div><div class="line">    console.log(index);</div><div class="line">&#125;</div><div class="line">// 0</div><div class="line">// 1</div></pre></td></tr></table></figure>
 <h3 id="values（ES6新增）"><a href="#values（ES6新增）" class="headerlink" title="values（ES6新增）"></a>values（ES6新增）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="built_in">let</span> element of [<span class="string">'a'</span>, <span class="string">'b'</span>].values()) &#123;</div><div class="line">  console.log(element);</div><div class="line">&#125;</div><div class="line">// <span class="string">'a'</span></div><div class="line">// <span class="string">'b'</span></div></pre></td></tr></table></figure>
 <h3 id="entries（ES6新增）"><a href="#entries（ES6新增）" class="headerlink" title="entries（ES6新增）"></a>entries（ES6新增）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="built_in">let</span> [index, element] of [<span class="string">'a'</span>, <span class="string">'b'</span>].entries()) &#123;</div><div class="line">    console.log(index, element);</div><div class="line">&#125;</div><div class="line">// 0 <span class="string">"a"</span></div><div class="line">// 1 <span class="string">"b"</span></div></pre></td></tr></table></figure>
@@ -327,7 +328,7 @@
 
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/JavaScript/">JavaScript</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
 
     </div>
     <footer class="article-footer">
@@ -362,7 +363,7 @@
     
 <nav id="article-nav">
   
-    <a href="../../17/Function-From-JavaScript/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/01/17/Function-From-JavaScript/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
@@ -372,7 +373,7 @@
     </a>
   
   
-    <a href="../../01/Plan-Review/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/01/01/Plan-Review/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">Plan Review</div>
     </a>
@@ -427,13 +428,13 @@
     </div>
     <!-- <nav id="mobile-nav">
   
-    <a href="../../../../index.html" class="mobile-nav-link">Home</a>
+    <a href="/" class="mobile-nav-link">Home</a>
   
-    <a href="../../../../archives" class="mobile-nav-link">Archives</a>
+    <a href="/archives" class="mobile-nav-link">Archives</a>
   
-    <a href="../../../../categories" class="mobile-nav-link">Categories</a>
+    <a href="/categories" class="mobile-nav-link">Categories</a>
   
-    <a href="../../../../tags" class="mobile-nav-link">Tags</a>
+    <a href="/tags" class="mobile-nav-link">Tags</a>
   
     <a href="http://weibo.com/daledu" class="mobile-nav-link">About</a>
   
@@ -472,17 +473,17 @@
 </script>
 
 
-  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
-  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="../../../../js/script.js"></script>
-<script src="../../../../js/bootstrap.js"></script>
+<script src="/js/script.js"></script>
+<script src="/js/bootstrap.js"></script>
 
 
 
 
-  <script src="../../../../js/dialog.js"></script>
+  <script src="/js/dialog.js"></script>
 
 
 

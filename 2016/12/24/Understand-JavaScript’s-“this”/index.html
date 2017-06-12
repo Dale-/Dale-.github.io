@@ -12,6 +12,7 @@
   
   
   <meta name="description" content="JavaScript scope">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Understand JavaScript’s “this”">
 <meta property="og:url" content="https://dale-.github.io/2016/12/24/Understand-JavaScript’s-“this”/index.html">
@@ -36,15 +37,15 @@
     @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
     @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
     @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
-  <link rel="stylesheet" href="../../../../css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
 
-  <script src="../../../../js/jquery-3.1.1.min.js"></script>
+  <script src="/js/jquery-3.1.1.min.js"></script>
 
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="/css/bootstrap.css" >
 
   
-    <link rel="stylesheet" href="../../../../css/dialog.css">
+    <link rel="stylesheet" href="/css/dialog.css">
   
 
   
@@ -84,13 +85,13 @@
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 
-                  <li> <a class="main-nav-link" href="../../../../index.html">Home</a> </li>
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
                 
-                  <li> <a class="main-nav-link" href="../../../../archives">Archives</a> </li>
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
                 
-                  <li> <a class="main-nav-link" href="../../../../categories">Categories</a> </li>
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
                 
-                  <li> <a class="main-nav-link" href="../../../../tags">Tags</a> </li>
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
                 
                   <li> <a class="main-nav-link" href="http://weibo.com/daledu">About</a> </li>
                 
@@ -123,12 +124,12 @@
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
-        CONTENT_URL: '../../../../content.json',
+        CONTENT_URL: '/content.json',
     };
     window.INSIGHT_CONFIG = INSIGHT_CONFIG;
 })(window);
 </script>
-<script src="../../../../js/insight.js"></script>
+<script src="/js/insight.js"></script>
 
 </div></li>
             </div>
@@ -161,12 +162,12 @@
     
     <div class="article-meta">
       
-	<a href="" class="article-date">
+	<a href="/2016/12/24/Understand-JavaScript’s-“this”/" class="article-date">
 	  <time datetime="2016-12-24T15:07:55.000Z" itemprop="datePublished">2016-12-24</time>
 	</a>
 
       
-    <a class="article-category-link" href="../../../../categories/JavaScript/">JavaScript</a>
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
@@ -198,7 +199,7 @@
 <p>我们用bind方法，将user对象和clickHandler方法绑定起来：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"button"</span>).click (user.clickHandler.bind (user)); // P. Mickelson 43</div></pre></td></tr></table></figure></p>
 <p><a href="http://jsbin.com/exanul/1/edit?html,js,output" target="_blank" rel="external">View a working example of this on JSBin</a></p>
 <h3 id="2-Fix-this-在闭包中的情景"><a href="#2-Fix-this-在闭包中的情景" class="headerlink" title="2.Fix this 在闭包中的情景"></a>2.Fix <code>this</code> 在闭包中的情景</h3><p><code>this</code>在闭包中使用时另一个容易误解的例子。值得注意的是，闭包是不能得到外层函数的<code>this</code>变量通过使用<code>this</code>关键字，<br>因为<code>this</code>变量只能通过函数本身得到，而不是内层函数。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">var user = &#123;</div><div class="line">tournament:<span class="string">"The Masters"</span>,</div><div class="line">data      :[</div><div class="line">&#123;name:<span class="string">"T. Woods"</span>, age:37&#125;,</div><div class="line">&#123;name:<span class="string">"P. Mickelson"</span>, age:43&#125;</div><div class="line">],</div><div class="line"></div><div class="line">clickHandler:<span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">// the use of this.data here is fine, because <span class="string">"this"</span> refers to the user object, and data is a property on the user object.</div><div class="line"></div><div class="line">this.data.forEach (<span class="keyword">function</span> (person) &#123;</div><div class="line">// But here inside the anonymous <span class="keyword">function</span> (that we pass to the <span class="keyword">for</span>Each method), <span class="string">"this"</span> no longer refers to the user object.</div><div class="line">// This inner <span class="keyword">function</span> cannot access the outer <span class="keyword">function</span><span class="string">'s "this"</span></div><div class="line"></div><div class="line">console.log ("What is This referring to? " + this); //[object Window]</div><div class="line"></div><div class="line">console.log (person.name + " is playing at " + this.tournament);</div><div class="line">// T. Woods is playing at undefined</div><div class="line">// P. Mickelson is playing at undefined</div><div class="line">&#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">user.clickHandler(); // What is "this" referring to? [object Window]</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">var user = &#123;</div><div class="line">tournament:<span class="string">"The Masters"</span>,</div><div class="line">data      :[</div><div class="line">&#123;name:<span class="string">"T. Woods"</span>, age:37&#125;,</div><div class="line">&#123;name:<span class="string">"P. Mickelson"</span>, age:43&#125;</div><div class="line">],</div><div class="line"></div><div class="line">clickHandler:<span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">// the use of this.data here is fine, because <span class="string">"this"</span> refers to the user object, and data is a property on the user object.</div><div class="line"></div><div class="line">this.data.forEach (<span class="keyword">function</span> (person) &#123;</div><div class="line">// But here inside the anonymous <span class="keyword">function</span> (that we pass to the forEach method), <span class="string">"this"</span> no longer refers to the user object.</div><div class="line">// This inner <span class="keyword">function</span> cannot access the outer <span class="keyword">function</span><span class="string">'s "this"</span></div><div class="line"></div><div class="line">console.log ("What is This referring to? " + this); //[object Window]</div><div class="line"></div><div class="line">console.log (person.name + " is playing at " + this.tournament);</div><div class="line">// T. Woods is playing at undefined</div><div class="line">// P. Mickelson is playing at undefined</div><div class="line">&#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">user.clickHandler(); // What is "this" referring to? [object Window]</div></pre></td></tr></table></figure>
 <p><code>this</code>在一个匿名函数中时，是不能通过外层函数的<code>this</code>得到的，所以当没有使用严格模式的时候，<br>它被绑定在全局window对象上。</p>
 <p>我们可以这样维持<code>this</code>在匿名函数中：</p>
 <p>为了fix这个问题，我们需要在匿名函数的forEach中使用<code>this</code>前，使用一个通用的实践，<br>在我们执行forEach前，将<code>this</code>赋值给其他变量。</p>
@@ -222,7 +223,7 @@
 
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/JavaScript/">JavaScript</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
 
     </div>
     <footer class="article-footer">
@@ -257,7 +258,7 @@
     
 <nav id="article-nav">
   
-    <a href="../../../../2017/01/01/Plan-Review/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/01/01/Plan-Review/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
@@ -267,7 +268,7 @@
     </a>
   
   
-    <a href="../../21/BOM-DOM/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/12/21/BOM-DOM/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">BOM And DOM</div>
     </a>
@@ -322,13 +323,13 @@
     </div>
     <!-- <nav id="mobile-nav">
   
-    <a href="../../../../index.html" class="mobile-nav-link">Home</a>
+    <a href="/" class="mobile-nav-link">Home</a>
   
-    <a href="../../../../archives" class="mobile-nav-link">Archives</a>
+    <a href="/archives" class="mobile-nav-link">Archives</a>
   
-    <a href="../../../../categories" class="mobile-nav-link">Categories</a>
+    <a href="/categories" class="mobile-nav-link">Categories</a>
   
-    <a href="../../../../tags" class="mobile-nav-link">Tags</a>
+    <a href="/tags" class="mobile-nav-link">Tags</a>
   
     <a href="http://weibo.com/daledu" class="mobile-nav-link">About</a>
   
@@ -367,17 +368,17 @@
 </script>
 
 
-  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
-  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="../../../../js/script.js"></script>
-<script src="../../../../js/bootstrap.js"></script>
+<script src="/js/script.js"></script>
+<script src="/js/bootstrap.js"></script>
 
 
 
 
-  <script src="../../../../js/dialog.js"></script>
+  <script src="/js/dialog.js"></script>
 
 
 

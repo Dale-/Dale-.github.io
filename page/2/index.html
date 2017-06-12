@@ -33,9 +33,9 @@
     @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
     @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
     @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
-  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
 
-  <script src="../../js/jquery-3.1.1.min.js"></script>
+  <script src="/js/jquery-3.1.1.min.js"></script>
 
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="/css/bootstrap.css" >
@@ -58,7 +58,7 @@
     <div id="header-outer" class="outer">
       <div id="header-title" class="inner">
         <h1 id="logo-wrap">
-          <a href="../../index.html" id="logo">The Girl Behind</a>
+          <a href="/" id="logo">The Girl Behind</a>
         </h1>
         
       </div>
@@ -66,13 +66,13 @@
         <nav id="main-nav">
           <a id="main-nav-toggle" class="nav-icon"></a>
           
-            <a class="main-nav-link" href="../../index.html">Home</a>
+            <a class="main-nav-link" href="/">Home</a>
           
-            <a class="main-nav-link" href="../../archives">Archives</a>
+            <a class="main-nav-link" href="/archives">Archives</a>
           
-            <a class="main-nav-link" href="../../categories">Categories</a>
+            <a class="main-nav-link" href="/categories">Categories</a>
           
-            <a class="main-nav-link" href="../../tags">Tags</a>
+            <a class="main-nav-link" href="/tags">Tags</a>
           
             <a class="main-nav-link" href="http://weibo.com/daledu">About</a>
           
@@ -84,7 +84,7 @@
           <a id="nav-search-btn" class="nav-icon" title="Search"></a>
         </nav>
         <div id="search-form-wrap">
-          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://dale-.github.io"></form>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://dale-.github.io"></form>
         </div>
       </div>
     </div>
@@ -92,7 +92,7 @@
 
 
   
-    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/sample.jpg); background-size: auto 100%;">
+    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/home-bg.jpg); background-size: auto 100%;">
   
 
     <canvas width="100%" height="100%"></canvas>
@@ -167,13 +167,13 @@
   <div class="intro-navigate">
       <p class="navigater-list">
         
-          <a id="beautifont" class="main-nav-link" href="../../index.html">Home</a>
+          <a id="beautifont" class="main-nav-link" href="/">Home</a>
         
-          <a id="beautifont" class="main-nav-link" href="../../archives">Archives</a>
+          <a id="beautifont" class="main-nav-link" href="/archives">Archives</a>
         
-          <a id="beautifont" class="main-nav-link" href="../../categories">Categories</a>
+          <a id="beautifont" class="main-nav-link" href="/categories">Categories</a>
         
-          <a id="beautifont" class="main-nav-link" href="../../tags">Tags</a>
+          <a id="beautifont" class="main-nav-link" href="/tags">Tags</a>
         
           <a id="beautifont" class="main-nav-link" href="http://weibo.com/daledu">About</a>
         
@@ -190,6 +190,55 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-angular-directive"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/02/07/angular-directive/">Angular Directive</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/02/07/angular-directive/" class="article-date">
+	  <time datetime="2017-02-07T15:20:21.000Z" itemprop="datePublished">2017-02-07</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/AngularJS/">AngularJS</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://docs.angularjs.org/guide/directive" target="_blank" rel="external">指令</a>就是一些附加在HTML元素上的自定义标记（例如：属性，元素，或css类），它告诉AngularJS的HTML编译器 ($compile) 在元素上附加某些指定的行为，甚至操作DOM、改变DOM元素，以及它的各级子节点。</p>
+<p>Angular内置了一整套指令，如ngBind, ngModel, 和ngView。 就像你可以创建控制器和服务那样，你也可以创建自己的指令来让Angular使用。 当Angular 启动器引导你的应用程序时， HTML编译器就会遍历整个DOM，以匹配DOM元素里的指令。</p>
+        <!-- 指令就是一些附加在HTML元素上的自定义标记（例如：属性，元素，或css类），它告诉AngularJS的HTML编译器 ($compile) 在元素上附加某些指定的行为，甚至操作DOM、改变DOM元素，以及它的各级子节点。
+Angular内置了一整套指令，如ngBind, ngModel, 和ngView。 就像你可以创建控制器和服务那样，你也可以创建自己的指令来让Angular使用。 当A......  -->
+        <p class="article-more-link">
+          <a href="/2017/02/07/angular-directive/#more">Read More</a>
+        </p>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AngularJS/">AngularJS</a></li></ul>
+
+    </div>
+    <footer class="article-footer">
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-Function-From-JavaScript"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -198,7 +247,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../2017/01/17/Function-From-JavaScript/">Function From JavaScript API</a>
+      <a class="article-title" href="/2017/01/17/Function-From-JavaScript/">Function From JavaScript API</a>
     </h1>
   
 
@@ -206,12 +255,12 @@
     
     <div class="article-meta">
       
-	<a href="../../2017/01/17/Function-From-JavaScript/" class="article-date">
+	<a href="/2017/01/17/Function-From-JavaScript/" class="article-date">
 	  <time datetime="2017-01-17T01:09:08.000Z" itemprop="datePublished">2017-01-17</time>
 	</a>
 
       
-    <a class="article-category-link" href="../../categories/JavaScript/">JavaScript</a>
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
@@ -266,7 +315,7 @@
 
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/JavaScript/">JavaScript</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
 
     </div>
     <footer class="article-footer">
@@ -288,7 +337,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../2017/01/03/Loops-And-Iteration-In-JavaScript/">Loops And Iteration In JavaScript</a>
+      <a class="article-title" href="/2017/01/03/Loops-And-Iteration-In-JavaScript/">Loops And Iteration In JavaScript</a>
     </h1>
   
 
@@ -296,12 +345,12 @@
     
     <div class="article-meta">
       
-	<a href="../../2017/01/03/Loops-And-Iteration-In-JavaScript/" class="article-date">
+	<a href="/2017/01/03/Loops-And-Iteration-In-JavaScript/" class="article-date">
 	  <time datetime="2017-01-03T13:32:36.000Z" itemprop="datePublished">2017-01-03</time>
 	</a>
 
       
-    <a class="article-category-link" href="../../categories/JavaScript/">JavaScript</a>
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
@@ -320,11 +369,11 @@
 </blockquote>
         <!-- 遍历for1234567for (let index = 0, length = array.length; index &lt; length; index++) &#123;  if (index == 2) &#123;    // return;    // 函数执行被终止    // break;     // 循环被终止    continue;     // 循环被跳过  &#......  -->
         <p class="article-more-link">
-          <a href="../../2017/01/03/Loops-And-Iteration-In-JavaScript/#more">Read More</a>
+          <a href="/2017/01/03/Loops-And-Iteration-In-JavaScript/#more">Read More</a>
         </p>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/JavaScript/">JavaScript</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
 
     </div>
     <footer class="article-footer">
@@ -346,7 +395,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../2017/01/01/Plan-Review/">Plan Review</a>
+      <a class="article-title" href="/2017/01/01/Plan-Review/">Plan Review</a>
     </h1>
   
 
@@ -354,12 +403,12 @@
     
     <div class="article-meta">
       
-	<a href="../../2017/01/01/Plan-Review/" class="article-date">
+	<a href="/2017/01/01/Plan-Review/" class="article-date">
 	  <time datetime="2017-01-01T03:03:03.000Z" itemprop="datePublished">2017-01-01</time>
 	</a>
 
       
-    <a class="article-category-link" href="../../categories/Plan/">Plan</a>
+    <a class="article-category-link" href="/categories/Plan/">Plan</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
@@ -395,11 +444,11 @@
 
 计划的ToDo1. Balance Wheel在对自己毕业一年工......  -->
         <p class="article-more-link">
-          <a href="../../2017/01/01/Plan-Review/#more">Read More</a>
+          <a href="/2017/01/01/Plan-Review/#more">Read More</a>
         </p>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Plan/">Plan</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Plan/">Plan</a></li></ul>
 
     </div>
     <footer class="article-footer">
@@ -421,7 +470,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../2016/12/24/Understand-JavaScript’s-“this”/">Understand JavaScript’s “this”</a>
+      <a class="article-title" href="/2016/12/24/Understand-JavaScript’s-“this”/">Understand JavaScript’s “this”</a>
     </h1>
   
 
@@ -429,28 +478,28 @@
     
     <div class="article-meta">
       
-	<a href="../../2016/12/24/Understand-JavaScript’s-“this”/" class="article-date">
+	<a href="/2016/12/24/Understand-JavaScript’s-“this”/" class="article-date">
 	  <time datetime="2016-12-24T15:07:55.000Z" itemprop="datePublished">2016-12-24</time>
 	</a>
 
       
-    <a class="article-category-link" href="../../categories/JavaScript/">JavaScript</a>
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="译-Understand-JavaScript’s-“this”-With-Clarity"><a href="#译-Understand-JavaScript’s-“this”-With-Clarity" class="headerlink" title="[译] Understand JavaScript’s “this” With Clarity"></a>[译] Understand JavaScript’s “this” With Clarity</h2><p>原文地址：<a href="http://javascriptissexy.com/understand-javascripts-this-with-clarity-and-master-it/#">Understand JavaScript’s “this” With Clarity, and Master It</a></p>
+        <h2 id="译-Understand-JavaScript’s-“this”-With-Clarity"><a href="#译-Understand-JavaScript’s-“this”-With-Clarity" class="headerlink" title="[译] Understand JavaScript’s “this” With Clarity"></a>[译] Understand JavaScript’s “this” With Clarity</h2><p>原文地址：<a href="http://javascriptissexy.com/understand-javascripts-this-with-clarity-and-master-it/#" target="_blank" rel="external">Understand JavaScript’s “this” With Clarity, and Master It</a></p>
 <h2 id="JavaScript中-this-的基本用法"><a href="#JavaScript中-this-的基本用法" class="headerlink" title="JavaScript中 this 的基本用法"></a>JavaScript中 <code>this</code> 的基本用法</h2><p>首先，我们知道在JavaScript中所有函数像对象一样，都具有属性。当一个函数被执行时，将获得 <code>this</code> 这个属性。而 <code>this</code> 实际上就是一个具有调用函数对象值的变量。</p>
 <p>变量 <code>this</code> 通常都是指向一个对象，并拥有这个对象的值。<code>this</code> 通常被用在一个函数或者方法体内，当然它也可以被使用在函数外的全局作用域中。当我们开启严格模式时，<code>this</code> 在全局函数和匿名函数中的值为 <code>undefined</code> ，不指向任何一个对象。</p>
 <p><code>this</code>被在函数内使用（函数称为函数A），它包含了能够调用函数A的对象的值。我们需要 <code>this</code> 来获取调用函数A的对象的方法和属性，这在我们不知道函数名字或者函数没有名字的时候去调用对象时，显得尤为重要。实际上，<code>this</code>就是一个祖先对象，或者说是调用函数时的一个指代。</p>
         <!-- [译] Understand JavaScript’s “this” With Clarity原文地址：Understand JavaScript’s “this” With Clarity, and Master It
 JavaScript中 this 的基本用法首先，我们知道在JavaScript中所有函数像对象一样，都具有属性。当一个函数被执行时，将获得 this 这个属性。而 thi......  -->
         <p class="article-more-link">
-          <a href="../../2016/12/24/Understand-JavaScript’s-“this”/#more">Read More</a>
+          <a href="/2016/12/24/Understand-JavaScript’s-“this”/#more">Read More</a>
         </p>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/JavaScript/">JavaScript</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
 
     </div>
     <footer class="article-footer">
@@ -472,7 +521,7 @@ JavaScript中 this 的基本用法首先，我们知道在JavaScript中所有函
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../2016/12/21/BOM-DOM/">BOM And DOM</a>
+      <a class="article-title" href="/2016/12/21/BOM-DOM/">BOM And DOM</a>
     </h1>
   
 
@@ -480,12 +529,12 @@ JavaScript中 this 的基本用法首先，我们知道在JavaScript中所有函
     
     <div class="article-meta">
       
-	<a href="../../2016/12/21/BOM-DOM/" class="article-date">
+	<a href="/2016/12/21/BOM-DOM/" class="article-date">
 	  <time datetime="2016-12-21T02:43:18.000Z" itemprop="datePublished">2016-12-21</time>
 	</a>
 
       
-    <a class="article-category-link" href="../../categories/Event/">Event</a>
+    <a class="article-category-link" href="/categories/Event/">Event</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
@@ -499,81 +548,11 @@ JavaScript中 this 的基本用法首先，我们知道在JavaScript中所有函
 Document : 整个文档树的顶层节点
 DocumentType : doctype标签（比如&lt;!DO......  -->
         <p class="article-more-link">
-          <a href="../../2016/12/21/BOM-DOM/#more">Read More</a>
+          <a href="/2016/12/21/BOM-DOM/#more">Read More</a>
         </p>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Event/">Event</a></li></ul>
-
-    </div>
-    <footer class="article-footer">
-      
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-Protocol"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="../../2016/12/18/Protocol/">HTTP Protocol</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="../../2016/12/18/Protocol/" class="article-date">
-	  <time datetime="2016-12-18T14:39:49.000Z" itemprop="datePublished">2016-12-18</time>
-	</a>
-
-      
-    <a class="article-category-link" href="../../categories/Protocol/">Protocol</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h2><blockquote>
-<p>Hypertext Transfer Protocol,超文本传输协议</p>
-</blockquote>
-<ul>
-<li>固定客户端和服务器之前的数据传输格式</li>
-<li>让客户端和服务器能有效的进行数据沟通</li>
-</ul>
-<p><img src="/images/http/http-protocol.png" alt=""></p>
-        <!-- HTTP协议
-Hypertext Transfer Protocol,超文本传输协议
-
-
-固定客户端和服务器之前的数据传输格式
-让客户端和服务器能有效的进行数据沟通
-
-
-
-HTTP的通信过程HTTP-Request
- 请求行
-
-请求方法、请求资源路径、HTTP协议版本eg: GET /dale-.github.io/css/images/rocket.png HTTP/1.1
-
- 请求头
-
-......  -->
-        <p class="article-more-link">
-          <a href="../../2016/12/18/Protocol/#more">Read More</a>
-        </p>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Protocol/">Protocol</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Event/">Event</a></li></ul>
 
     </div>
     <footer class="article-footer">
@@ -591,7 +570,7 @@ HTTP的通信过程HTTP-Request
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="../../index.html">&laquo; Prev</a><a class="page-number" href="../../index.html">1</a><span class="page-number current">2</span><a class="page-number" href="../3/">3</a><a class="page-number" href="../4/">4</a><a class="extend next" rel="next" href="../3/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -630,13 +609,13 @@ HTTP的通信过程HTTP-Request
     </div>
     <!-- <nav id="mobile-nav">
   
-    <a href="../../index.html" class="mobile-nav-link">Home</a>
+    <a href="/" class="mobile-nav-link">Home</a>
   
-    <a href="../../archives" class="mobile-nav-link">Archives</a>
+    <a href="/archives" class="mobile-nav-link">Archives</a>
   
-    <a href="../../categories" class="mobile-nav-link">Categories</a>
+    <a href="/categories" class="mobile-nav-link">Categories</a>
   
-    <a href="../../tags" class="mobile-nav-link">Tags</a>
+    <a href="/tags" class="mobile-nav-link">Tags</a>
   
     <a href="http://weibo.com/daledu" class="mobile-nav-link">About</a>
   
@@ -675,15 +654,15 @@ HTTP的通信过程HTTP-Request
 </script>
 
 
-  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
-  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="../../js/script.js"></script>
-<script src="../../js/bootstrap.js"></script>
+<script src="/js/script.js"></script>
+<script src="/js/bootstrap.js"></script>
 
 
-  <script src="../../js/home.js"></script>
+  <script src="/js/home.js"></script>
 
 
 
