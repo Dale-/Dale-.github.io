@@ -18,7 +18,7 @@
 <meta property="og:url" content="https://dale-.github.io/2017/06/12/Getting-started-with-React-Redux/index.html">
 <meta property="og:site_name" content="The Girl Behind">
 <meta property="og:description" content="how to start a project with React Redux">
-<meta property="og:updated_time" content="2017-06-12T15:43:35.000Z">
+<meta property="og:updated_time" content="2017-06-12T15:52:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Getting started with React Redux">
 <meta name="twitter:description" content="how to start a project with React Redux">
@@ -196,6 +196,11 @@
 <p>为什么这个函数叫 Reducer 呢？ 因为它可以作为数组 <code>reduce</code> 方法的参数。</p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">const</span> actions = [</div><div class="line">  &#123; <span class="attr">type</span>: <span class="string">'ADD'</span>, <span class="attr">payload</span>: <span class="number">0</span> &#125;,</div><div class="line">  &#123; <span class="attr">type</span>: <span class="string">'ADD'</span>, <span class="attr">payload</span>: <span class="number">1</span> &#125;,</div><div class="line">  &#123; <span class="attr">type</span>: <span class="string">'ADD'</span>, <span class="attr">payload</span>: <span class="number">2</span>&#125;</div><div class="line">];</div><div class="line"></div><div class="line"><span class="keyword">const</span> total = actions.reduce(reducer, <span class="number">0</span>); <span class="comment">//3</span></div></pre></td></tr></table></figure>
+<h2 id="store-subscribe"><a href="#store-subscribe" class="headerlink" title="store.subscribe()"></a>store.subscribe()</h2><p>Store 允许使用 <code>store.subscribe</code> 方法设置监听函数，一旦 State 发生变化，就自动执行这个函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</div><div class="line"><span class="keyword">const</span> store = createStore(reducer);</div><div class="line"></div><div class="line">store.subscribe(listener);</div></pre></td></tr></table></figure>
+<p>显然，只要把 View 的更新函数（对于 React 项目，就是组件的 <code>render</code> 方法或 <code>setState</code>方法）放入 <code>listen</code>，<br>就会实现 View 的自动渲染。</p>
+<p><code>store.subscribe</code>方法返回一个函数，调用这个函数就可以解除监听。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">let</span> unsubscribe = store.subscribe( <span class="function"><span class="params">()</span> =&gt;</span></div><div class="line">  <span class="built_in">console</span>.log(store.getState());</div><div class="line">);</div><div class="line"></div><div class="line">unsubscribe();</div></pre></td></tr></table></figure>
 
       
       
@@ -251,7 +256,7 @@
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Store"><span class="toc-number">1.</span> <span class="toc-text">Store</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#State"><span class="toc-number">2.</span> <span class="toc-text">State</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Action"><span class="toc-number">3.</span> <span class="toc-text">Action</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Action-Creator"><span class="toc-number">4.</span> <span class="toc-text">Action Creator</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#store-dispatch"><span class="toc-number">5.</span> <span class="toc-text">store.dispatch()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reducer"><span class="toc-number">6.</span> <span class="toc-text">Reducer</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Store"><span class="toc-number">1.</span> <span class="toc-text">Store</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#State"><span class="toc-number">2.</span> <span class="toc-text">State</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Action"><span class="toc-number">3.</span> <span class="toc-text">Action</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Action-Creator"><span class="toc-number">4.</span> <span class="toc-text">Action Creator</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#store-dispatch"><span class="toc-number">5.</span> <span class="toc-text">store.dispatch()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reducer"><span class="toc-number">6.</span> <span class="toc-text">Reducer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#store-subscribe"><span class="toc-number">7.</span> <span class="toc-text">store.subscribe()</span></a></li></ol>
     
     </div>
   </aside>
