@@ -11,17 +11,17 @@
   
   
   
-  <meta name="description" content="组件 React-Redux 将所有组件分成两大类：UI 组件（presentational component）和容器组件（container component）。  UI组件 [component] component 负责渲染视图   只负责 UI 的渲染，不带有任何业务逻辑 没有状态（即不使用this.state这个变量） 所有数据都由参数（this.props）提供 不使用 Redux">
+  <meta name="description" content="组件 React-Redux 将所有组件分成两大类：UI 组件（presentational component）和容器组件（container component）。  UI组件 [component] component 负责渲染视图  只负责 UI 的渲染，不带有任何业务逻辑 没有状态（即不使用this.state这个变量） 所有数据都由参数（this.props）提供 不使用 Redux">
 <meta name="keywords" content="react redux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Using redux with react">
 <meta property="og:url" content="https://dale-.github.io/2017/06/14/Using-redux-with-react/index.html">
 <meta property="og:site_name" content="The Girl Behind">
-<meta property="og:description" content="组件 React-Redux 将所有组件分成两大类：UI 组件（presentational component）和容器组件（container component）。  UI组件 [component] component 负责渲染视图   只负责 UI 的渲染，不带有任何业务逻辑 没有状态（即不使用this.state这个变量） 所有数据都由参数（this.props）提供 不使用 Redux">
-<meta property="og:updated_time" content="2017-06-14T12:26:34.000Z">
+<meta property="og:description" content="组件 React-Redux 将所有组件分成两大类：UI 组件（presentational component）和容器组件（container component）。  UI组件 [component] component 负责渲染视图  只负责 UI 的渲染，不带有任何业务逻辑 没有状态（即不使用this.state这个变量） 所有数据都由参数（this.props）提供 不使用 Redux">
+<meta property="og:updated_time" content="2017-06-14T12:42:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Using redux with react">
-<meta name="twitter:description" content="组件 React-Redux 将所有组件分成两大类：UI 组件（presentational component）和容器组件（container component）。  UI组件 [component] component 负责渲染视图   只负责 UI 的渲染，不带有任何业务逻辑 没有状态（即不使用this.state这个变量） 所有数据都由参数（this.props）提供 不使用 Redux">
+<meta name="twitter:description" content="组件 React-Redux 将所有组件分成两大类：UI 组件（presentational component）和容器组件（container component）。  UI组件 [component] component 负责渲染视图  只负责 UI 的渲染，不带有任何业务逻辑 没有状态（即不使用this.state这个变量） 所有数据都由参数（this.props）提供 不使用 Redux">
   
     <link rel="alternate" href="/atom.xml" title="The Girl Behind" type="application/atom+xml">
   
@@ -175,24 +175,26 @@
         <h2 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h2><blockquote>
 <p>React-Redux 将所有组件分成两大类：UI 组件（presentational component）和容器组件（container component）。</p>
 </blockquote>
-<h3 id="UI组件-component"><a href="#UI组件-component" class="headerlink" title="UI组件 [component]"></a>UI组件 [component]</h3><ul>
-<li>component 负责渲染视图</li>
-</ul>
+<h3 id="UI组件-component"><a href="#UI组件-component" class="headerlink" title="UI组件 [component]"></a>UI组件 [component]</h3><p> <strong>component 负责渲染视图</strong></p>
 <ul>
 <li>只负责 UI 的渲染，不带有任何业务逻辑</li>
 <li>没有状态（即不使用this.state这个变量）</li>
 <li>所有数据都由参数（this.props）提供</li>
 <li>不使用 Redux 的 API</li>
 </ul>
-<h3 id="容器组件-container"><a href="#容器组件-container" class="headerlink" title="容器组件 [container]"></a>容器组件 [container]</h3><ul>
-<li>container 负责管理数据和逻辑、状态</li>
-</ul>
+<h3 id="容器组件-container"><a href="#容器组件-container" class="headerlink" title="容器组件 [container]"></a>容器组件 [container]</h3><p> <strong>container 负责管理数据和逻辑、状态</strong></p>
 <ul>
 <li>负责管理数据和业务逻辑，不负责 UI 的呈现</li>
 <li>带有内部状态</li>
 <li>使用 Redux 的 API</li>
 </ul>
 <a id="more"></a>
+<h2 id="connect"><a href="#connect" class="headerlink" title="connect()"></a>connect()</h2><p><strong>连接上面所述两种组件</strong></p>
+<blockquote>
+<p>input ：外部的数据（即state对象）如何转换为 UI 组件的参数<br>  output ：用户发出的动作如何变为 Action 对象，从 UI 组件传出去。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; connect &#125; <span class="keyword">from</span> <span class="string">'react-redux'</span></div><div class="line"></div><div class="line"><span class="keyword">const</span> VisibleTodoList = connect(</div><div class="line">mapStateToProps,</div><div class="line">mapDispatchToProps</div><div class="line">)(TodoList)</div></pre></td></tr></table></figure>
+<p>上面代码中，connect方法接受两个参数：mapStateToProps和mapDispatchToProps。它们定义了 UI 组件的业务逻辑。前者负责输入逻辑，即将state映射到 UI 组件的参数（props），后者负责输出逻辑，即将用户对 UI 组件的操作映射成 Action</p>
 
       
       
@@ -248,7 +250,7 @@
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#组件"><span class="toc-number">1.</span> <span class="toc-text">组件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#UI组件-component"><span class="toc-number">1.1.</span> <span class="toc-text">UI组件 [component]</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#容器组件-container"><span class="toc-number">1.2.</span> <span class="toc-text">容器组件 [container]</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#组件"><span class="toc-number">1.</span> <span class="toc-text">组件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#UI组件-component"><span class="toc-number">1.1.</span> <span class="toc-text">UI组件 [component]</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#容器组件-container"><span class="toc-number">1.2.</span> <span class="toc-text">容器组件 [container]</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#connect"><span class="toc-number">2.</span> <span class="toc-text">connect()</span></a></li></ol>
     
     </div>
   </aside>
