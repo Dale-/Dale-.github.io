@@ -219,20 +219,37 @@
         <h2 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h2><blockquote>
 <p>React-Redux 将所有组件分成两大类：UI 组件（presentational component）和容器组件（container component）。</p>
 </blockquote>
-<h3 id="UI组件-component"><a href="#UI组件-component" class="headerlink" title="UI组件 [component]"></a>UI组件 [component]</h3><p>component 负责渲染视图</p>
+<h3 id="UI组件-component"><a href="#UI组件-component" class="headerlink" title="UI组件 [component]"></a>UI组件 [component]</h3><ul>
+<li>component 负责渲染视图</li>
+</ul>
 <ul>
 <li>只负责 UI 的渲染，不带有任何业务逻辑</li>
 <li>没有状态（即不使用this.state这个变量）</li>
 <li>所有数据都由参数（this.props）提供</li>
 <li>不使用 Redux 的 API</li>
 </ul>
-<h3 id="容器组件-container"><a href="#容器组件-container" class="headerlink" title="容器组件 [container]"></a>容器组件 [container]</h3><p>container 负责管理数据和逻辑、状态</p>
+<h3 id="容器组件-container"><a href="#容器组件-container" class="headerlink" title="容器组件 [container]"></a>容器组件 [container]</h3><ul>
+<li>container 负责管理数据和逻辑、状态</li>
+</ul>
 <ul>
 <li>负责管理数据和业务逻辑，不负责 UI 的呈现</li>
 <li>带有内部状态</li>
 <li>使用 Redux 的 API</li>
 </ul>
+        <!-- 组件
+React-Redux 将所有组件分成两大类：UI 组件（presentational component）和容器组件（container component）。
 
+UI组件 [component]
+component 负责渲染视图
+
+
+只负责 UI 的渲染，不带有任何业务逻辑
+没有状态（即不使用this.state这个变量）
+所有数据都由参数（this.props）提供
+不使用 Re......  -->
+        <p class="article-more-link">
+          <a href="/2017/06/14/Using-redux-with-react/#more">Read More</a>
+        </p>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redux/">Redux</a></li></ul>
