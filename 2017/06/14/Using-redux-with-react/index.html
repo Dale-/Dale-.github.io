@@ -18,7 +18,7 @@
 <meta property="og:url" content="https://dale-.github.io/2017/06/14/Using-redux-with-react/index.html">
 <meta property="og:site_name" content="The Girl Behind">
 <meta property="og:description" content="组件 React-Redux 将所有组件分成两大类：UI 组件（presentational component）和容器组件（container component）。  UI组件 [component] component 负责渲染视图  只负责 UI 的渲染，不带有任何业务逻辑 没有状态（即不使用this.state这个变量） 所有数据都由参数（this.props）提供 不使用 Redux">
-<meta property="og:updated_time" content="2017-06-14T14:31:01.000Z">
+<meta property="og:updated_time" content="2017-06-14T14:32:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Using redux with react">
 <meta name="twitter:description" content="组件 React-Redux 将所有组件分成两大类：UI 组件（presentational component）和容器组件（container component）。  UI组件 [component] component 负责渲染视图  只负责 UI 的渲染，不带有任何业务逻辑 没有状态（即不使用this.state这个变量） 所有数据都由参数（this.props）提供 不使用 Redux">
@@ -204,7 +204,7 @@
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 容器组件的代码</span></div><div class="line"><span class="comment">//    &lt;FilterLink filter="SHOW_ALL"&gt;</span></div><div class="line"><span class="comment">//      All</span></div><div class="line"><span class="comment">//    &lt;/FilterLink&gt;</span></div><div class="line"></div><div class="line"><span class="keyword">const</span> mapStateToProps = <span class="function">(<span class="params">state, ownProps</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    <span class="attr">active</span>: ownProps.filter === state.visibilityFilter</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>使用ownProps作为参数后，如果容器组件的参数发生变化，也会引发 UI 组件重新渲染。<br>connect方法可以省略mapStateToProps参数，那样的话，UI 组件就不会订阅Store，就是说 Store 的更新不会引起 UI 组件的更新。</p>
-<h2 id="mapDispatchToProps"><a href="#mapDispatchToProps" class="headerlink" title="mapDispatchToProps()"></a>mapDispatchToProps()</h2><h2 id="组件-1"><a href="#组件-1" class="headerlink" title=" 组件"></a><provider> 组件</provider></h2>
+<h2 id="mapDispatchToProps"><a href="#mapDispatchToProps" class="headerlink" title="mapDispatchToProps()"></a>mapDispatchToProps()</h2><h2 id="Provider-组件"><a href="#Provider-组件" class="headerlink" title="Provider 组件"></a>Provider 组件</h2>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redux/">Redux</a></li></ul>
@@ -259,7 +259,7 @@
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#组件"><span class="toc-number">1.</span> <span class="toc-text">组件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#UI组件-component"><span class="toc-number">1.1.</span> <span class="toc-text">UI组件 [component]</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#容器组件-container"><span class="toc-number">1.2.</span> <span class="toc-text">容器组件 [container]</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#connect"><span class="toc-number">2.</span> <span class="toc-text">connect()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mapStateToProps"><span class="toc-number">3.</span> <span class="toc-text">mapStateToProps()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mapDispatchToProps"><span class="toc-number">4.</span> <span class="toc-text">mapDispatchToProps()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组件-1"><span class="toc-number">5.</span> <span class="toc-text"> 组件</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#组件"><span class="toc-number">1.</span> <span class="toc-text">组件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#UI组件-component"><span class="toc-number">1.1.</span> <span class="toc-text">UI组件 [component]</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#容器组件-container"><span class="toc-number">1.2.</span> <span class="toc-text">容器组件 [container]</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#connect"><span class="toc-number">2.</span> <span class="toc-text">connect()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mapStateToProps"><span class="toc-number">3.</span> <span class="toc-text">mapStateToProps()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mapDispatchToProps"><span class="toc-number">4.</span> <span class="toc-text">mapDispatchToProps()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Provider-组件"><span class="toc-number">5.</span> <span class="toc-text">Provider 组件</span></a></li></ol>
     
     </div>
   </aside>
