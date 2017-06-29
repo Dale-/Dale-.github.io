@@ -92,7 +92,7 @@
 
 
   
-    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/pose.jpg); background-size: auto 100%;">
+    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/sample.jpg); background-size: auto 100%;">
   
 
     <canvas width="100%" height="100%"></canvas>
@@ -315,7 +315,7 @@ UI组件 [component] component 负责渲染视图
 
 
   
-    <article id="post-Getting-started-with-React-Redux"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Understanding-the-Critical-Rendering-Path"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -323,7 +323,7 @@ UI组件 [component] component 负责渲染视图
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/06/12/Getting-started-with-React-Redux/">Getting started with React Redux</a>
+      <a class="article-title" href="/2017/05/27/Understanding-the-Critical-Rendering-Path/">Understanding the Critical Rendering Path</a>
     </h1>
   
 
@@ -331,8 +331,8 @@ UI组件 [component] component 负责渲染视图
     
     <div class="article-meta">
       
-	<a href="/2017/06/12/Getting-started-with-React-Redux/" class="article-date">
-	  <time datetime="2017-06-12T14:50:59.000Z" itemprop="datePublished">2017-06-12</time>
+	<a href="/2017/05/27/Understanding-the-Critical-Rendering-Path/" class="article-date">
+	  <time datetime="2017-05-27T02:38:04.000Z" itemprop="datePublished">2017-05-27</time>
 	</a>
 
       
@@ -341,22 +341,32 @@ UI组件 [component] component 负责渲染视图
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Store"><a href="#Store" class="headerlink" title="Store"></a>Store</h2><p>Store 就是保存数据的地方，你可以把它看成一个容器。<br>Redux提供<code>createStore</code>这个函数，用来生成Store。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</div><div class="line"><span class="keyword">const</span> store = createStore(fn);</div></pre></td></tr></table></figure>
-<p><code>createStore</code>函数接受另一个函数作为参数，返回新生成的Store对象。</p>
-<h3 id="store-dispatch"><a href="#store-dispatch" class="headerlink" title="store.dispatch()"></a>store.dispatch()</h3><p><code>store.dispatch()</code>是View发出Action的唯一方法。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</div><div class="line"><span class="keyword">const</span> store = createStore(fn);</div><div class="line"></div><div class="line">store.dispatch(&#123;</div><div class="line">  <span class="attr">type</span>: <span class="string">'ADD_TODO'</span>,</div><div class="line">  <span class="attr">payload</span>: <span class="string">'Learn Redux'</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>结合 Action Creator ，这段代码可以改写如下。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">store.dispatch(addTodo(<span class="string">'Learn Redux'</span>));</div></pre></td></tr></table></figure></p>
-        <!-- StoreStore 就是保存数据的地方，你可以把它看成一个容器。Redux提供createStore这个函数，用来生成Store。
-123import &#123; createStore &#125; from 'redux';const store = createStore(fn);
-createStore函数接受另一个函数作为参数，返回新生成的Store对象。
-store.disp......  -->
+        <h2 id="Critical-Rendering-Path"><a href="#Critical-Rendering-Path" class="headerlink" title="Critical Rendering Path"></a>Critical Rendering Path</h2><h3 id="There-are-6-stages-to-the-CRP"><a href="#There-are-6-stages-to-the-CRP" class="headerlink" title="There are 6 stages to the CRP -"></a>There are 6 stages to the CRP -</h3><ol>
+<li>Constructing the DOM Tree</li>
+<li>Constructing the CSSOM Tree</li>
+<li>Running JavaScript</li>
+<li>Creating the Render Tree</li>
+<li>Generating the Layout</li>
+<li>Painting</li>
+</ol>
+<p><img src="/images/rendering-path/CRP-Sequence-Copy.png" alt=""></p>
+        <!-- Critical Rendering PathThere are 6 stages to the CRP -
+Constructing the DOM Tree
+Constructing the CSSOM Tree
+Running JavaScript
+Creating the Render Tree
+Generating the Layout
+Painting
+
+
+
+Constructi......  -->
         <p class="article-more-link">
-          <a href="/2017/06/12/Getting-started-with-React-Redux/#more">Read More</a>
+          <a href="/2017/05/27/Understanding-the-Critical-Rendering-Path/#more">Read More</a>
         </p>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redux/">Redux</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
 
     </div>
     <footer class="article-footer">
@@ -429,7 +439,7 @@ JavaScript中 this 的基本用法首先，我们知道在JavaScript中所有函
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/05/02/React-createClass-extends-component/">[React] createClass &amp; extends Component</a>
+      <a class="article-title" href="/2017/05/22/React-createClass-extends-component/">[React] createClass &amp; extends Component</a>
     </h1>
   
 
@@ -437,8 +447,8 @@ JavaScript中 this 的基本用法首先，我们知道在JavaScript中所有函
     
     <div class="article-meta">
       
-	<a href="/2017/05/02/React-createClass-extends-component/" class="article-date">
-	  <time datetime="2017-05-02T10:05:49.000Z" itemprop="datePublished">2017-05-02</time>
+	<a href="/2017/05/22/React-createClass-extends-component/" class="article-date">
+	  <time datetime="2017-05-22T10:05:49.000Z" itemprop="datePublished">2017-05-22</time>
 	</a>
 
       
@@ -458,7 +468,7 @@ JavaScript中 this 的基本用法首先，我们知道在JavaScript中所有函
 
 这其实是殊途同归的两种方式。过去我们使用React提供React.createClass的方式，而后React提供了小小的语法糖可以允许我们更好基于ES6语法实现此功能:React.Component,我们可以使用extends React.Component替代createClas......  -->
         <p class="article-more-link">
-          <a href="/2017/05/02/React-createClass-extends-component/#more">Read More</a>
+          <a href="/2017/05/22/React-createClass-extends-component/#more">Read More</a>
         </p>
       
       
@@ -476,7 +486,7 @@ JavaScript中 this 的基本用法首先，我们知道在JavaScript中所有函
 
 
   
-    <article id="post-Understanding-the-Critical-Rendering-Path"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Getting-started-with-React-Redux"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -484,7 +494,7 @@ JavaScript中 this 的基本用法首先，我们知道在JavaScript中所有函
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/04/27/Understanding-the-Critical-Rendering-Path/">Understanding the Critical Rendering Path</a>
+      <a class="article-title" href="/2017/04/12/Getting-started-with-React-Redux/">Getting started with React Redux</a>
     </h1>
   
 
@@ -492,8 +502,8 @@ JavaScript中 this 的基本用法首先，我们知道在JavaScript中所有函
     
     <div class="article-meta">
       
-	<a href="/2017/04/27/Understanding-the-Critical-Rendering-Path/" class="article-date">
-	  <time datetime="2017-04-27T02:38:04.000Z" itemprop="datePublished">2017-04-27</time>
+	<a href="/2017/04/12/Getting-started-with-React-Redux/" class="article-date">
+	  <time datetime="2017-04-12T14:50:59.000Z" itemprop="datePublished">2017-04-12</time>
 	</a>
 
       
@@ -502,32 +512,22 @@ JavaScript中 this 的基本用法首先，我们知道在JavaScript中所有函
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Critical-Rendering-Path"><a href="#Critical-Rendering-Path" class="headerlink" title="Critical Rendering Path"></a>Critical Rendering Path</h2><h3 id="There-are-6-stages-to-the-CRP"><a href="#There-are-6-stages-to-the-CRP" class="headerlink" title="There are 6 stages to the CRP -"></a>There are 6 stages to the CRP -</h3><ol>
-<li>Constructing the DOM Tree</li>
-<li>Constructing the CSSOM Tree</li>
-<li>Running JavaScript</li>
-<li>Creating the Render Tree</li>
-<li>Generating the Layout</li>
-<li>Painting</li>
-</ol>
-<p><img src="/images/rendering-path/CRP-Sequence-Copy.png" alt=""></p>
-        <!-- Critical Rendering PathThere are 6 stages to the CRP -
-Constructing the DOM Tree
-Constructing the CSSOM Tree
-Running JavaScript
-Creating the Render Tree
-Generating the Layout
-Painting
-
-
-
-Constructi......  -->
+        <h2 id="Store"><a href="#Store" class="headerlink" title="Store"></a>Store</h2><p>Store 就是保存数据的地方，你可以把它看成一个容器。<br>Redux提供<code>createStore</code>这个函数，用来生成Store。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</div><div class="line"><span class="keyword">const</span> store = createStore(fn);</div></pre></td></tr></table></figure>
+<p><code>createStore</code>函数接受另一个函数作为参数，返回新生成的Store对象。</p>
+<h3 id="store-dispatch"><a href="#store-dispatch" class="headerlink" title="store.dispatch()"></a>store.dispatch()</h3><p><code>store.dispatch()</code>是View发出Action的唯一方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</div><div class="line"><span class="keyword">const</span> store = createStore(fn);</div><div class="line"></div><div class="line">store.dispatch(&#123;</div><div class="line">  <span class="attr">type</span>: <span class="string">'ADD_TODO'</span>,</div><div class="line">  <span class="attr">payload</span>: <span class="string">'Learn Redux'</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>结合 Action Creator ，这段代码可以改写如下。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">store.dispatch(addTodo(<span class="string">'Learn Redux'</span>));</div></pre></td></tr></table></figure></p>
+        <!-- StoreStore 就是保存数据的地方，你可以把它看成一个容器。Redux提供createStore这个函数，用来生成Store。
+123import &#123; createStore &#125; from 'redux';const store = createStore(fn);
+createStore函数接受另一个函数作为参数，返回新生成的Store对象。
+store.disp......  -->
         <p class="article-more-link">
-          <a href="/2017/04/27/Understanding-the-Critical-Rendering-Path/#more">Read More</a>
+          <a href="/2017/04/12/Getting-started-with-React-Redux/#more">Read More</a>
         </p>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redux/">Redux</a></li></ul>
 
     </div>
     <footer class="article-footer">
