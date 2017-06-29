@@ -92,7 +92,7 @@
 
 
   
-    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/sample.jpg); background-size: auto 100%;">
+    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/pose.jpg); background-size: auto 100%;">
   
 
     <canvas width="100%" height="100%"></canvas>
@@ -190,7 +190,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-Loops-And-Iteration-In-JavaScript"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Getting-started-with-React-Redux"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -198,7 +198,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/23/Loops-And-Iteration-In-JavaScript/">Loops And Iteration In JavaScript</a>
+      <a class="article-title" href="/2017/04/12/Getting-started-with-React-Redux/">Getting started with React Redux</a>
     </h1>
   
 
@@ -206,8 +206,8 @@
     
     <div class="article-meta">
       
-	<a href="/2017/03/23/Loops-And-Iteration-In-JavaScript/" class="article-date">
-	  <time datetime="2017-03-23T13:32:36.000Z" itemprop="datePublished">2017-03-23</time>
+	<a href="/2017/04/12/Getting-started-with-React-Redux/" class="article-date">
+	  <time datetime="2017-04-12T14:50:59.000Z" itemprop="datePublished">2017-04-12</time>
 	</a>
 
       
@@ -216,25 +216,22 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h2><h3 id="for"><a href="#for" class="headerlink" title="for"></a>for</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="built_in">let</span> index = 0, length = array.length; index &lt; length; index++) &#123;</div><div class="line">  <span class="keyword">if</span> (index == 2) &#123;</div><div class="line">    // <span class="built_in">return</span>;    // 函数执行被终止</div><div class="line">    // <span class="built_in">break</span>;     // 循环被终止</div><div class="line">    <span class="built_in">continue</span>;     // 循环被跳过</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>Attention</p>
-<ul>
-<li><p>如果使用var在for循环中声明index变量，那么在循环结束后index依然存在作用域（函数作用域）中，这种情况下可以使用函数自执行的方法将其隔离开来()();当然如果选用let声明，循环后index不会保留，因为let是块级作用域。</p>
-</li>
-<li><p>避免使用 for (let i = index; i &lt; array.length; i++)的方式，这种方式每次的length每次都会被计算，效率比上面例子低。</p>
-</li>
-<li><p>跳出循环：return、break、continue都支持</p>
-</li>
-</ul>
-</blockquote>
-        <!-- 遍历for1234567for (let index = 0, length = array.length; index &lt; length; index++) &#123;  if (index == 2) &#123;    // return;    // 函数执行被终止    // break;     // 循环被终止    continue;     // 循环被跳过  &#......  -->
+        <h2 id="Store"><a href="#Store" class="headerlink" title="Store"></a>Store</h2><p>Store 就是保存数据的地方，你可以把它看成一个容器。<br>Redux提供<code>createStore</code>这个函数，用来生成Store。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</div><div class="line"><span class="keyword">const</span> store = createStore(fn);</div></pre></td></tr></table></figure>
+<p><code>createStore</code>函数接受另一个函数作为参数，返回新生成的Store对象。</p>
+<h3 id="store-dispatch"><a href="#store-dispatch" class="headerlink" title="store.dispatch()"></a>store.dispatch()</h3><p><code>store.dispatch()</code>是View发出Action的唯一方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</div><div class="line"><span class="keyword">const</span> store = createStore(fn);</div><div class="line"></div><div class="line">store.dispatch(&#123;</div><div class="line">  <span class="attr">type</span>: <span class="string">'ADD_TODO'</span>,</div><div class="line">  <span class="attr">payload</span>: <span class="string">'Learn Redux'</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>结合 Action Creator ，这段代码可以改写如下。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">store.dispatch(addTodo(<span class="string">'Learn Redux'</span>));</div></pre></td></tr></table></figure></p>
+        <!-- StoreStore 就是保存数据的地方，你可以把它看成一个容器。Redux提供createStore这个函数，用来生成Store。
+123import &#123; createStore &#125; from 'redux';const store = createStore(fn);
+createStore函数接受另一个函数作为参数，返回新生成的Store对象。
+store.disp......  -->
         <p class="article-more-link">
-          <a href="/2017/03/23/Loops-And-Iteration-In-JavaScript/#more">Read More</a>
+          <a href="/2017/04/12/Getting-started-with-React-Redux/#more">Read More</a>
         </p>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redux/">Redux</a></li></ul>
 
     </div>
     <footer class="article-footer">

@@ -92,7 +92,7 @@
 
 
   
-    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/sample.jpg); background-size: auto 100%;">
+    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/pose.jpg); background-size: auto 100%;">
   
 
     <canvas width="100%" height="100%"></canvas>
@@ -245,7 +245,7 @@ Subscrib......  -->
 
 
   
-    <article id="post-Using-redux-with-react"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Understand-JavaScript’s-“this”"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -253,7 +253,7 @@ Subscrib......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/06/14/Using-redux-with-react/">Using redux with react</a>
+      <a class="article-title" href="/2017/05/28/Understand-JavaScript’s-“this”/">Understand JavaScript’s “this”</a>
     </h1>
   
 
@@ -261,8 +261,8 @@ Subscrib......  -->
     
     <div class="article-meta">
       
-	<a href="/2017/06/14/Using-redux-with-react/" class="article-date">
-	  <time datetime="2017-06-14T12:06:08.000Z" itemprop="datePublished">2017-06-14</time>
+	<a href="/2017/05/28/Understand-JavaScript’s-“this”/" class="article-date">
+	  <time datetime="2017-05-28T15:07:55.000Z" itemprop="datePublished">2017-05-28</time>
 	</a>
 
       
@@ -271,37 +271,18 @@ Subscrib......  -->
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h2><blockquote>
-<p>React-Redux 将所有组件分成两大类：UI 组件（presentational component）和容器组件（container component）。</p>
-</blockquote>
-<h3 id="UI组件-component"><a href="#UI组件-component" class="headerlink" title="UI组件 [component]"></a>UI组件 [component]</h3><p> <strong>component 负责渲染视图</strong></p>
-<ul>
-<li>只负责 UI 的渲染，不带有任何业务逻辑</li>
-<li>没有状态（即不使用this.state这个变量）</li>
-<li>所有数据都由参数（this.props）提供</li>
-<li>不使用 Redux 的 API</li>
-</ul>
-<h3 id="容器组件-container"><a href="#容器组件-container" class="headerlink" title="容器组件 [container]"></a>容器组件 [container]</h3><p> <strong>container 负责管理数据和逻辑、状态</strong></p>
-<ul>
-<li>负责管理数据和业务逻辑，不负责 UI 的呈现</li>
-<li>带有内部状态</li>
-<li>使用 Redux 的 API</li>
-</ul>
-        <!-- 组件
-React-Redux 将所有组件分成两大类：UI 组件（presentational component）和容器组件（container component）。
-
-UI组件 [component] component 负责渲染视图
-
-只负责 UI 的渲染，不带有任何业务逻辑
-没有状态（即不使用this.state这个变量）
-所有数据都由参数（this.props）提供
-不使用 Red......  -->
+        <h2 id="译-Understand-JavaScript’s-“this”-With-Clarity"><a href="#译-Understand-JavaScript’s-“this”-With-Clarity" class="headerlink" title="[译] Understand JavaScript’s “this” With Clarity"></a>[译] Understand JavaScript’s “this” With Clarity</h2><p>原文地址：<a href="http://javascriptissexy.com/understand-javascripts-this-with-clarity-and-master-it/#" target="_blank" rel="external">Understand JavaScript’s “this” With Clarity, and Master It</a></p>
+<h2 id="JavaScript中-this-的基本用法"><a href="#JavaScript中-this-的基本用法" class="headerlink" title="JavaScript中 this 的基本用法"></a>JavaScript中 <code>this</code> 的基本用法</h2><p>首先，我们知道在JavaScript中所有函数像对象一样，都具有属性。当一个函数被执行时，将获得 <code>this</code> 这个属性。而 <code>this</code> 实际上就是一个具有调用函数对象值的变量。</p>
+<p>变量 <code>this</code> 通常都是指向一个对象，并拥有这个对象的值。<code>this</code> 通常被用在一个函数或者方法体内，当然它也可以被使用在函数外的全局作用域中。当我们开启严格模式时，<code>this</code> 在全局函数和匿名函数中的值为 <code>undefined</code> ，不指向任何一个对象。</p>
+<p><code>this</code>被在函数内使用（函数称为函数A），它包含了能够调用函数A的对象的值。我们需要 <code>this</code> 来获取调用函数A的对象的方法和属性，这在我们不知道函数名字或者函数没有名字的时候去调用对象时，显得尤为重要。实际上，<code>this</code>就是一个祖先对象，或者说是调用函数时的一个指代。</p>
+        <!-- [译] Understand JavaScript’s “this” With Clarity原文地址：Understand JavaScript’s “this” With Clarity, and Master It
+JavaScript中 this 的基本用法首先，我们知道在JavaScript中所有函数像对象一样，都具有属性。当一个函数被执行时，将获得 this 这个属性。而 thi......  -->
         <p class="article-more-link">
-          <a href="/2017/06/14/Using-redux-with-react/#more">Read More</a>
+          <a href="/2017/05/28/Understand-JavaScript’s-“this”/#more">Read More</a>
         </p>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redux/">Redux</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
 
     </div>
     <footer class="article-footer">
@@ -380,57 +361,6 @@ Constructi......  -->
 
 
   
-    <article id="post-Understand-JavaScript’s-“this”"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/05/24/Understand-JavaScript’s-“this”/">Understand JavaScript’s “this”</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/05/24/Understand-JavaScript’s-“this”/" class="article-date">
-	  <time datetime="2017-05-24T15:07:55.000Z" itemprop="datePublished">2017-05-24</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="译-Understand-JavaScript’s-“this”-With-Clarity"><a href="#译-Understand-JavaScript’s-“this”-With-Clarity" class="headerlink" title="[译] Understand JavaScript’s “this” With Clarity"></a>[译] Understand JavaScript’s “this” With Clarity</h2><p>原文地址：<a href="http://javascriptissexy.com/understand-javascripts-this-with-clarity-and-master-it/#" target="_blank" rel="external">Understand JavaScript’s “this” With Clarity, and Master It</a></p>
-<h2 id="JavaScript中-this-的基本用法"><a href="#JavaScript中-this-的基本用法" class="headerlink" title="JavaScript中 this 的基本用法"></a>JavaScript中 <code>this</code> 的基本用法</h2><p>首先，我们知道在JavaScript中所有函数像对象一样，都具有属性。当一个函数被执行时，将获得 <code>this</code> 这个属性。而 <code>this</code> 实际上就是一个具有调用函数对象值的变量。</p>
-<p>变量 <code>this</code> 通常都是指向一个对象，并拥有这个对象的值。<code>this</code> 通常被用在一个函数或者方法体内，当然它也可以被使用在函数外的全局作用域中。当我们开启严格模式时，<code>this</code> 在全局函数和匿名函数中的值为 <code>undefined</code> ，不指向任何一个对象。</p>
-<p><code>this</code>被在函数内使用（函数称为函数A），它包含了能够调用函数A的对象的值。我们需要 <code>this</code> 来获取调用函数A的对象的方法和属性，这在我们不知道函数名字或者函数没有名字的时候去调用对象时，显得尤为重要。实际上，<code>this</code>就是一个祖先对象，或者说是调用函数时的一个指代。</p>
-        <!-- [译] Understand JavaScript’s “this” With Clarity原文地址：Understand JavaScript’s “this” With Clarity, and Master It
-JavaScript中 this 的基本用法首先，我们知道在JavaScript中所有函数像对象一样，都具有属性。当一个函数被执行时，将获得 this 这个属性。而 thi......  -->
-        <p class="article-more-link">
-          <a href="/2017/05/24/Understand-JavaScript’s-“this”/#more">Read More</a>
-        </p>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
-
-    </div>
-    <footer class="article-footer">
-      
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
     <article id="post-React-createClass-extends-component"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -486,7 +416,7 @@ JavaScript中 this 的基本用法首先，我们知道在JavaScript中所有函
 
 
   
-    <article id="post-Getting-started-with-React-Redux"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Loops-And-Iteration-In-JavaScript"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -494,7 +424,7 @@ JavaScript中 this 的基本用法首先，我们知道在JavaScript中所有函
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/04/12/Getting-started-with-React-Redux/">Getting started with React Redux</a>
+      <a class="article-title" href="/2017/04/23/Loops-And-Iteration-In-JavaScript/">Loops And Iteration In JavaScript</a>
     </h1>
   
 
@@ -502,8 +432,8 @@ JavaScript中 this 的基本用法首先，我们知道在JavaScript中所有函
     
     <div class="article-meta">
       
-	<a href="/2017/04/12/Getting-started-with-React-Redux/" class="article-date">
-	  <time datetime="2017-04-12T14:50:59.000Z" itemprop="datePublished">2017-04-12</time>
+	<a href="/2017/04/23/Loops-And-Iteration-In-JavaScript/" class="article-date">
+	  <time datetime="2017-04-23T13:32:36.000Z" itemprop="datePublished">2017-04-23</time>
 	</a>
 
       
@@ -512,18 +442,91 @@ JavaScript中 this 的基本用法首先，我们知道在JavaScript中所有函
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Store"><a href="#Store" class="headerlink" title="Store"></a>Store</h2><p>Store 就是保存数据的地方，你可以把它看成一个容器。<br>Redux提供<code>createStore</code>这个函数，用来生成Store。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</div><div class="line"><span class="keyword">const</span> store = createStore(fn);</div></pre></td></tr></table></figure>
-<p><code>createStore</code>函数接受另一个函数作为参数，返回新生成的Store对象。</p>
-<h3 id="store-dispatch"><a href="#store-dispatch" class="headerlink" title="store.dispatch()"></a>store.dispatch()</h3><p><code>store.dispatch()</code>是View发出Action的唯一方法。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</div><div class="line"><span class="keyword">const</span> store = createStore(fn);</div><div class="line"></div><div class="line">store.dispatch(&#123;</div><div class="line">  <span class="attr">type</span>: <span class="string">'ADD_TODO'</span>,</div><div class="line">  <span class="attr">payload</span>: <span class="string">'Learn Redux'</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>结合 Action Creator ，这段代码可以改写如下。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">store.dispatch(addTodo(<span class="string">'Learn Redux'</span>));</div></pre></td></tr></table></figure></p>
-        <!-- StoreStore 就是保存数据的地方，你可以把它看成一个容器。Redux提供createStore这个函数，用来生成Store。
-123import &#123; createStore &#125; from 'redux';const store = createStore(fn);
-createStore函数接受另一个函数作为参数，返回新生成的Store对象。
-store.disp......  -->
+        <h2 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h2><h3 id="for"><a href="#for" class="headerlink" title="for"></a>for</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="built_in">let</span> index = 0, length = array.length; index &lt; length; index++) &#123;</div><div class="line">  <span class="keyword">if</span> (index == 2) &#123;</div><div class="line">    // <span class="built_in">return</span>;    // 函数执行被终止</div><div class="line">    // <span class="built_in">break</span>;     // 循环被终止</div><div class="line">    <span class="built_in">continue</span>;     // 循环被跳过</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Attention</p>
+<ul>
+<li><p>如果使用var在for循环中声明index变量，那么在循环结束后index依然存在作用域（函数作用域）中，这种情况下可以使用函数自执行的方法将其隔离开来()();当然如果选用let声明，循环后index不会保留，因为let是块级作用域。</p>
+</li>
+<li><p>避免使用 for (let i = index; i &lt; array.length; i++)的方式，这种方式每次的length每次都会被计算，效率比上面例子低。</p>
+</li>
+<li><p>跳出循环：return、break、continue都支持</p>
+</li>
+</ul>
+</blockquote>
+        <!-- 遍历for1234567for (let index = 0, length = array.length; index &lt; length; index++) &#123;  if (index == 2) &#123;    // return;    // 函数执行被终止    // break;     // 循环被终止    continue;     // 循环被跳过  &#......  -->
         <p class="article-more-link">
-          <a href="/2017/04/12/Getting-started-with-React-Redux/#more">Read More</a>
+          <a href="/2017/04/23/Loops-And-Iteration-In-JavaScript/#more">Read More</a>
+        </p>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </div>
+    <footer class="article-footer">
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-Using-redux-with-react"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/04/14/Using-redux-with-react/">Using redux with react</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/04/14/Using-redux-with-react/" class="article-date">
+	  <time datetime="2017-04-14T12:06:08.000Z" itemprop="datePublished">2017-04-14</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h2><blockquote>
+<p>React-Redux 将所有组件分成两大类：UI 组件（presentational component）和容器组件（container component）。</p>
+</blockquote>
+<h3 id="UI组件-component"><a href="#UI组件-component" class="headerlink" title="UI组件 [component]"></a>UI组件 [component]</h3><p> <strong>component 负责渲染视图</strong></p>
+<ul>
+<li>只负责 UI 的渲染，不带有任何业务逻辑</li>
+<li>没有状态（即不使用this.state这个变量）</li>
+<li>所有数据都由参数（this.props）提供</li>
+<li>不使用 Redux 的 API</li>
+</ul>
+<h3 id="容器组件-container"><a href="#容器组件-container" class="headerlink" title="容器组件 [container]"></a>容器组件 [container]</h3><p> <strong>container 负责管理数据和逻辑、状态</strong></p>
+<ul>
+<li>负责管理数据和业务逻辑，不负责 UI 的呈现</li>
+<li>带有内部状态</li>
+<li>使用 Redux 的 API</li>
+</ul>
+        <!-- 组件
+React-Redux 将所有组件分成两大类：UI 组件（presentational component）和容器组件（container component）。
+
+UI组件 [component] component 负责渲染视图
+
+只负责 UI 的渲染，不带有任何业务逻辑
+没有状态（即不使用this.state这个变量）
+所有数据都由参数（this.props）提供
+不使用 Red......  -->
+        <p class="article-more-link">
+          <a href="/2017/04/14/Using-redux-with-react/#more">Read More</a>
         </p>
       
       
