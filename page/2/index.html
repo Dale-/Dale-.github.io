@@ -92,7 +92,7 @@
 
 
   
-    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/pose.jpg); background-size: auto 100%;">
+    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/home-bg.jpg); background-size: auto 100%;">
   
 
     <canvas width="100%" height="100%"></canvas>
@@ -190,7 +190,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-Getting-started-with-React-Redux"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Using-redux-with-react"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -198,7 +198,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/04/12/Getting-started-with-React-Redux/">Getting started with React Redux</a>
+      <a class="article-title" href="/2017/03/14/Using-redux-with-react/">Using redux with react</a>
     </h1>
   
 
@@ -206,8 +206,8 @@
     
     <div class="article-meta">
       
-	<a href="/2017/04/12/Getting-started-with-React-Redux/" class="article-date">
-	  <time datetime="2017-04-12T14:50:59.000Z" itemprop="datePublished">2017-04-12</time>
+	<a href="/2017/03/14/Using-redux-with-react/" class="article-date">
+	  <time datetime="2017-03-14T12:06:08.000Z" itemprop="datePublished">2017-03-14</time>
 	</a>
 
       
@@ -216,18 +216,33 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Store"><a href="#Store" class="headerlink" title="Store"></a>Store</h2><p>Store 就是保存数据的地方，你可以把它看成一个容器。<br>Redux提供<code>createStore</code>这个函数，用来生成Store。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</div><div class="line"><span class="keyword">const</span> store = createStore(fn);</div></pre></td></tr></table></figure>
-<p><code>createStore</code>函数接受另一个函数作为参数，返回新生成的Store对象。</p>
-<h3 id="store-dispatch"><a href="#store-dispatch" class="headerlink" title="store.dispatch()"></a>store.dispatch()</h3><p><code>store.dispatch()</code>是View发出Action的唯一方法。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</div><div class="line"><span class="keyword">const</span> store = createStore(fn);</div><div class="line"></div><div class="line">store.dispatch(&#123;</div><div class="line">  <span class="attr">type</span>: <span class="string">'ADD_TODO'</span>,</div><div class="line">  <span class="attr">payload</span>: <span class="string">'Learn Redux'</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>结合 Action Creator ，这段代码可以改写如下。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">store.dispatch(addTodo(<span class="string">'Learn Redux'</span>));</div></pre></td></tr></table></figure></p>
-        <!-- StoreStore 就是保存数据的地方，你可以把它看成一个容器。Redux提供createStore这个函数，用来生成Store。
-123import &#123; createStore &#125; from 'redux';const store = createStore(fn);
-createStore函数接受另一个函数作为参数，返回新生成的Store对象。
-store.disp......  -->
+        <h2 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h2><blockquote>
+<p>React-Redux 将所有组件分成两大类：UI 组件（presentational component）和容器组件（container component）。</p>
+</blockquote>
+<h3 id="UI组件-component"><a href="#UI组件-component" class="headerlink" title="UI组件 [component]"></a>UI组件 [component]</h3><p> <strong>component 负责渲染视图</strong></p>
+<ul>
+<li>只负责 UI 的渲染，不带有任何业务逻辑</li>
+<li>没有状态（即不使用this.state这个变量）</li>
+<li>所有数据都由参数（this.props）提供</li>
+<li>不使用 Redux 的 API</li>
+</ul>
+<h3 id="容器组件-container"><a href="#容器组件-container" class="headerlink" title="容器组件 [container]"></a>容器组件 [container]</h3><p> <strong>container 负责管理数据和逻辑、状态</strong></p>
+<ul>
+<li>负责管理数据和业务逻辑，不负责 UI 的呈现</li>
+<li>带有内部状态</li>
+<li>使用 Redux 的 API</li>
+</ul>
+        <!-- 组件
+React-Redux 将所有组件分成两大类：UI 组件（presentational component）和容器组件（container component）。
+
+UI组件 [component] component 负责渲染视图
+
+只负责 UI 的渲染，不带有任何业务逻辑
+没有状态（即不使用this.state这个变量）
+所有数据都由参数（this.props）提供
+不使用 Red......  -->
         <p class="article-more-link">
-          <a href="/2017/04/12/Getting-started-with-React-Redux/#more">Read More</a>
+          <a href="/2017/03/14/Using-redux-with-react/#more">Read More</a>
         </p>
       
       
