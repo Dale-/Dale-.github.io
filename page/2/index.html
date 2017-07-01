@@ -190,247 +190,6 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-Using-redux-with-react"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/14/Using-redux-with-react/">Using redux with react</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/14/Using-redux-with-react/" class="article-date">
-	  <time datetime="2017-03-14T12:06:08.000Z" itemprop="datePublished">2017-03-14</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h2><blockquote>
-<p>React-Redux 将所有组件分成两大类：UI 组件（presentational component）和容器组件（container component）。</p>
-</blockquote>
-<h3 id="UI组件-component"><a href="#UI组件-component" class="headerlink" title="UI组件 [component]"></a>UI组件 [component]</h3><p> <strong>component 负责渲染视图</strong></p>
-<ul>
-<li>只负责 UI 的渲染，不带有任何业务逻辑</li>
-<li>没有状态（即不使用this.state这个变量）</li>
-<li>所有数据都由参数（this.props）提供</li>
-<li>不使用 Redux 的 API</li>
-</ul>
-<h3 id="容器组件-container"><a href="#容器组件-container" class="headerlink" title="容器组件 [container]"></a>容器组件 [container]</h3><p> <strong>container 负责管理数据和逻辑、状态</strong></p>
-<ul>
-<li>负责管理数据和业务逻辑，不负责 UI 的呈现</li>
-<li>带有内部状态</li>
-<li>使用 Redux 的 API</li>
-</ul>
-        <!-- 组件
-React-Redux 将所有组件分成两大类：UI 组件（presentational component）和容器组件（container component）。
-
-UI组件 [component] component 负责渲染视图
-
-只负责 UI 的渲染，不带有任何业务逻辑
-没有状态（即不使用this.state这个变量）
-所有数据都由参数（this.props）提供
-不使用 Red......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/14/Using-redux-with-react/#more">Read More</a>
-        </p>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redux/">Redux</a></li></ul>
-
-    </div>
-    <footer class="article-footer">
-      
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-React-Components-Lifecycle"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/12/React-Components-Lifecycle/">React Components Lifecycle</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/12/React-Components-Lifecycle/" class="article-date">
-	  <time datetime="2017-03-12T10:05:49.000Z" itemprop="datePublished">2017-03-12</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/React/">React</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="生命周期的三种状态"><a href="#生命周期的三种状态" class="headerlink" title="生命周期的三种状态"></a>生命周期的三种状态</h2><p><img src="/images/react-components-lifecycle/component-lifecycle.png" alt=""></p>
-<h3 id="Mounted"><a href="#Mounted" class="headerlink" title="Mounted"></a>Mounted</h3><p>React Components被render解析生成对应的DOM节点并被插入浏览器的DOM结构的一个过程。</p>
-<h3 id="Update"><a href="#Update" class="headerlink" title="Update"></a>Update</h3><p>一个mounted的React Components被重新render的过程。</p>
-<h3 id="Unmounted"><a href="#Unmounted" class="headerlink" title="Unmounted"></a>Unmounted</h3><p>一个mounted的React Components对应的DOM节点被从DOM结构中移除的这样一个过程。</p>
-        <!-- 生命周期的三种状态
-MountedReact Components被render解析生成对应的DOM节点并被插入浏览器的DOM结构的一个过程。
-Update一个mounted的React Components被重新render的过程。
-Unmounted一个mounted的React Components对应的DOM节点被从DOM结构中移除的这样一个过程。
-
-声明周期React 为每个状态都......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/12/React-Components-Lifecycle/#more">Read More</a>
-        </p>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
-
-    </div>
-    <footer class="article-footer">
-      
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-Performance-Optimization"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/20/Performance-Optimization/">Performance Optimization</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/02/20/Performance-Optimization/" class="article-date">
-	  <time datetime="2017-02-20T15:03:19.000Z" itemprop="datePublished">2017-02-20</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/front-end/">front-end</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="HTML标签语义化"><a href="#HTML标签语义化" class="headerlink" title="HTML标签语义化"></a>HTML标签语义化</h2><blockquote>
-<p>语义化是指用合理HTML标记以及其特有的属性去格式化文档内容。机器在需要更少的人类干预的情况下能够研究和收集信息,让网页能够被机器理解,最终让人类受益。即用正确的标签做正确的事。</p>
-</blockquote>
-<ul>
-<li>有利于搜索引擎</li>
-<li>结构清晰的HTML在团队合作中的作用：代码可读、便于维护、提高开发效率、快速达成共识、利于二次开发</li>
-<li>有利于盲人屏幕阅读器</li>
-</ul>
-<h2 id="减少HTTP请求"><a href="#减少HTTP请求" class="headerlink" title="减少HTTP请求"></a>减少HTTP请求</h2><p>一个正常HTTP请求的流程简述：如在浏览器中输入”www.xxxxxx.com”并按下回车，浏览器再与这个URL指向的服务器建立连接，然后浏览器才能向服务器发送请求信息，服务器在接受到请求的信息后再返回相应的信息，浏览器接收到来自服务器的应答信息后，对这些数据解释执行。</p>
-<p>而当我们请求的网页文件中有很多图片、CSS、JS甚至音乐等信息时，将会频繁的与服务器建立连接，与释放连接，这必定会造成资源的浪费，且每个HTTP请求都会对服务器和浏览器产生性能负担。</p>
-<p>网速相同的条件下，下载一个100KB的图片比下载两个50KB的图片要快。所以，请减少HTTP请求。</p>
-<h3 id="css、js文件数量及大小优化"><a href="#css、js文件数量及大小优化" class="headerlink" title="css、js文件数量及大小优化"></a>css、js文件数量及大小优化</h3><p>css、js建议采用外联式来进行导入，我们可以对css、js做相应的规划也可以减少css、js的个数以减少http请求。同时也要注重减少重复代码，注重代码重复利用，已达到用最少的代码干最多的事。同时当项目要投入线上使用的时候，可以对css、js文件进行代码压缩，文件的减少可以加速文件的链接导入，以便加速网页的加载渲染。</p>
-<h3 id="图片的数量和大小"><a href="#图片的数量和大小" class="headerlink" title="图片的数量和大小"></a>图片的数量和大小</h3><p>多个服务器请求会对站点的性能产生显著的影响。对一张图片进行导入又是一个http请求，因此我们应该减少图片的导入数量以便减少http请求。对于内容图片，可以对其进行适当的压缩，可以加快文档内容加载，或者如果是需要用户下载的图片，小的图片可以加快用户下载的速度。</p>
-        <!-- HTML标签语义化
-语义化是指用合理HTML标记以及其特有的属性去格式化文档内容。机器在需要更少的人类干预的情况下能够研究和收集信息,让网页能够被机器理解,最终让人类受益。即用正确的标签做正确的事。
-
-
-有利于搜索引擎
-结构清晰的HTML在团队合作中的作用：代码可读、便于维护、提高开发效率、快速达成共识、利于二次开发
-有利于盲人屏幕阅读器
-
-减少HTTP请求一个正常HTTP请求的流程简述：如......  -->
-        <p class="article-more-link">
-          <a href="/2017/02/20/Performance-Optimization/#more">Read More</a>
-        </p>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/performance/">performance</a></li></ul>
-
-    </div>
-    <footer class="article-footer">
-      
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-angular-directive"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/07/angular-directive/">Angular Directive</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/02/07/angular-directive/" class="article-date">
-	  <time datetime="2017-02-07T15:20:21.000Z" itemprop="datePublished">2017-02-07</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/AngularJS/">AngularJS</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://docs.angularjs.org/guide/directive" target="_blank" rel="external">指令</a>就是一些附加在HTML元素上的自定义标记（例如：属性，元素，或css类），它告诉AngularJS的HTML编译器 ($compile) 在元素上附加某些指定的行为，甚至操作DOM、改变DOM元素，以及它的各级子节点。</p>
-<p>Angular内置了一整套指令，如ngBind, ngModel, 和ngView。 就像你可以创建控制器和服务那样，你也可以创建自己的指令来让Angular使用。 当Angular 启动器引导你的应用程序时， HTML编译器就会遍历整个DOM，以匹配DOM元素里的指令。</p>
-        <!-- 指令就是一些附加在HTML元素上的自定义标记（例如：属性，元素，或css类），它告诉AngularJS的HTML编译器 ($compile) 在元素上附加某些指定的行为，甚至操作DOM、改变DOM元素，以及它的各级子节点。
-Angular内置了一整套指令，如ngBind, ngModel, 和ngView。 就像你可以创建控制器和服务那样，你也可以创建自己的指令来让Angular使用。 当A......  -->
-        <p class="article-more-link">
-          <a href="/2017/02/07/angular-directive/#more">Read More</a>
-        </p>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AngularJS/">AngularJS</a></li></ul>
-
-    </div>
-    <footer class="article-footer">
-      
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
     <article id="post-Function-From-JavaScript"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -596,11 +355,476 @@ Angular内置了一整套指令，如ngBind, ngModel, 和ngView。 就像你可�
 
 
   
+    <article id="post-BOM-DOM"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/12/21/BOM-DOM/">BOM And DOM</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/12/21/BOM-DOM/" class="article-date">
+	  <time datetime="2016-12-21T02:43:18.000Z" itemprop="datePublished">2016-12-21</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Event/">Event</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="DOM-Document-Object-Model-文档对象模型"><a href="#DOM-Document-Object-Model-文档对象模型" class="headerlink" title="DOM (Document Object Model) 文档对象模型"></a>DOM (Document Object Model) 文档对象模型</h2><p>一套HTML和XML提供的API（应用程序编程接口，DOM描述了一个层次化的节点，允许添加、移除、修改页面中的某个部分。</p>
+<h3 id="节点层次"><a href="#节点层次" class="headerlink" title="节点层次"></a>节点层次</h3><p>DOM可以将任意HTML或者XML文档描绘成一个由多层节点构成的结构。<br><img src="/images/bom-dom/document.png" alt=""><br>
+        <!-- DOM (Document Object Model) 文档对象模型一套HTML和XML提供的API（应用程序编程接口，DOM描述了一个层次化的节点，允许添加、移除、修改页面中的某个部分。
+节点层次DOM可以将任意HTML或者XML文档描绘成一个由多层节点构成的结构。
+节点类型
+
+Document : 整个文档树的顶层节点
+DocumentType : doctype标签（比如&lt;!DO......  -->
+        <p class="article-more-link">
+          <a href="/2016/12/21/BOM-DOM/#more">Read More</a>
+        </p>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Event/">Event</a></li></ul>
+
+    </div>
+    <footer class="article-footer">
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-Protocol"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/12/18/Protocol/">HTTP Protocol</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/12/18/Protocol/" class="article-date">
+	  <time datetime="2016-12-18T14:39:49.000Z" itemprop="datePublished">2016-12-18</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Protocol/">Protocol</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h2><blockquote>
+<p>Hypertext Transfer Protocol,超文本传输协议</p>
+</blockquote>
+<ul>
+<li>固定客户端和服务器之前的数据传输格式</li>
+<li>让客户端和服务器能有效的进行数据沟通</li>
+</ul>
+<p><img src="/images/http/http-protocol.png" alt=""></p>
+        <!-- HTTP协议
+Hypertext Transfer Protocol,超文本传输协议
+
+
+固定客户端和服务器之前的数据传输格式
+让客户端和服务器能有效的进行数据沟通
+
+
+
+HTTP的通信过程HTTP-Request
+ 请求行
+
+请求方法、请求资源路径、HTTP协议版本eg: GET /dale-.github.io/css/images/rocket.png HTTP/1.1
+
+ 请求头
+
+......  -->
+        <p class="article-more-link">
+          <a href="/2016/12/18/Protocol/#more">Read More</a>
+        </p>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Protocol/">Protocol</a></li></ul>
+
+    </div>
+    <footer class="article-footer">
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-Closures"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/12/14/Closures/">Closures</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/12/14/Closures/" class="article-date">
+	  <time datetime="2016-12-14T09:04:34.000Z" itemprop="datePublished">2016-12-14</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a>变量作用域</h2><p>变量的作用域有两种：全局变量和局部变量。<br>在JavaScript中，函数内部可以直接读取全局变量。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var n=999;</div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">f1</span></span>()&#123;</div><div class="line">　　alert(n);</div><div class="line">&#125;</div><div class="line">f1(); // 999</div></pre></td></tr></table></figure>
+        <!-- 变量作用域变量的作用域有两种：全局变量和局部变量。在JavaScript中，函数内部可以直接读取全局变量。
+12345var n=999;function f1()&#123;　　alert(n);&#125;f1(); // 999
+
+当然，在函数外部无法读取函数内的局部变量。
+1234function f1()&#123;　 var n=999;&#125;alert(n); // er......  -->
+        <p class="article-more-link">
+          <a href="/2016/12/14/Closures/#more">Read More</a>
+        </p>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </div>
+    <footer class="article-footer">
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-modular-programming"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/12/14/modular-programming/">Modular Programming</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/12/14/modular-programming/" class="article-date">
+	  <time datetime="2016-12-14T01:45:51.000Z" itemprop="datePublished">2016-12-14</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="模块的规范"><a href="#模块的规范" class="headerlink" title="模块的规范"></a>模块的规范</h2><p>先想一想，为什么模块很重要？</p>
+<p>因为有了模块，我们就可以更方便地使用别人的代码，想要什么功能，就加载什么模块。</p>
+<p>但是，这样做有一个前提，那就是大家必须以同样的方式编写模块，否则你有你的写法，我有我的写法，岂不是乱了套！<br>考虑到Javascript模块现在还没有官方规范，这一点就更重要了。</p>
+<ul>
+<li>组件的复用，降低开发成本和维护成本</li>
+<li>组件单独开发，方便分工合作</li>
+<li>模块化遵循标准，方便自动化依赖管理，代码优化，部署</li>
+</ul>
+<p>目前，AMD,CMD,CommonJS是目前最常用的三种模块化书写规范。</p>
+        <!-- 模块的规范先想一想，为什么模块很重要？
+因为有了模块，我们就可以更方便地使用别人的代码，想要什么功能，就加载什么模块。
+但是，这样做有一个前提，那就是大家必须以同样的方式编写模块，否则你有你的写法，我有我的写法，岂不是乱了套！考虑到Javascript模块现在还没有官方规范，这一点就更重要了。
+
+组件的复用，降低开发成本和维护成本
+组件单独开发，方便分工合作
+模块化遵循标准，方便自动化依赖管......  -->
+        <p class="article-more-link">
+          <a href="/2016/12/14/modular-programming/#more">Read More</a>
+        </p>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </div>
+    <footer class="article-footer">
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-Folders missing in project pane in Webstorm"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/12/13/Folders missing in project pane in Webstorm/">Folders missing in project pane in Webstorm</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/12/13/Folders missing in project pane in Webstorm/" class="article-date">
+	  <time datetime="2016-12-13T00:59:24.000Z" itemprop="datePublished">2016-12-13</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/webstorm/">webstorm</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/webstorm/webstorm-no-directory.png" alt=""></p>
+<blockquote>
+<p>It can be caused by the corrupted <code>.idea/modules.xml</code> project file</p>
+</blockquote>
+        <!-- 
+
+It can be caused by the corrupted .idea/modules.xml project file
+
+
+##
+
+quit webstorm
+delete the directory of .idea（ls -a show hidden file）
+reopen project
+
+...  -->
+        <p class="article-more-link">
+          <a href="/2016/12/13/Folders missing in project pane in Webstorm/#more">Read More</a>
+        </p>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webstorm/">webstorm</a></li></ul>
+
+    </div>
+    <footer class="article-footer">
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-Method Invocation Pattern"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/06/27/Method Invocation Pattern/">Method Invocation Pattern</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/06/27/Method Invocation Pattern/" class="article-date">
+	  <time datetime="2016-06-27T10:05:41.000Z" itemprop="datePublished">2016-06-27</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="方法调用（Method-Invocation-Pattern）"><a href="#方法调用（Method-Invocation-Pattern）" class="headerlink" title="方法调用（Method Invocation Pattern）"></a>方法调用（Method Invocation Pattern）</h2><p>在面向对象程序设计中，当函数（Function）作为对象属性时被称为方法（Method）。 方法被调用时this会被绑定到对应的对象。在JavaScript中有两种语法可以完成方法调用： a.func()和a<a href="">‘func’</a>。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;</div><div class="line">    val: 0,</div><div class="line">    count: <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">        this.val ++;</div><div class="line">        console.log(this.val);</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">obj.count();    // 1</div><div class="line">obj.count();    // 2</div></pre></td></tr></table></figure></p>
+<p>值得注意的是，this到obj的绑定属于极晚绑定（very late binding）， 绑定发生在调用的那一刻。这使得JavaScript函数在被重用时有极大的灵活性。</p>
+        <!-- 方法调用（Method Invocation Pattern）在面向对象程序设计中，当函数（Function）作为对象属性时被称为方法（Method）。 方法被调用时this会被绑定到对应的对象。在JavaScript中有两种语法可以完成方法调用： a.func()和a‘func’。12345678910var obj = &#123;    val: 0,    count: functi......  -->
+        <p class="article-more-link">
+          <a href="/2016/06/27/Method Invocation Pattern/#more">Read More</a>
+        </p>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </div>
+    <footer class="article-footer">
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-Object-From-JavaScript-API"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/01/02/Object-From-JavaScript-API/">Object From JavaScript API</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/01/02/Object-From-JavaScript-API/" class="article-date">
+	  <time datetime="2016-01-02T15:37:00.000Z" itemprop="datePublished">2016-01-02</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>第一版只更新 Simple Case<br>后期随时补充特性</p>
+</blockquote>
+<h2 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h2><h3 id="Object-prototype"><a href="#Object-prototype" class="headerlink" title="Object.prototype"></a>Object.prototype</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">var Person = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">  this.canTalk = <span class="literal">true</span>;</div><div class="line">  this.greet = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">    <span class="keyword">if</span> (this.canTalk) &#123;</div><div class="line">      console.log(<span class="string">'Hi, I\'</span>m <span class="string">' + this.name);</span></div><div class="line">    &#125;</div><div class="line">  &#125;;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var Employee = function(name, title) &#123;</div><div class="line">  this.name = name;</div><div class="line">  this.title = title;</div><div class="line">  this.greet = function() &#123;</div><div class="line">    if (this.canTalk) &#123;</div><div class="line">      console.log("Hi, I'm <span class="string">" + this.name + "</span>, the <span class="string">" + this.title);</span></div><div class="line">    &#125;</div><div class="line">  &#125;;</div><div class="line">&#125;;</div><div class="line">Employee.prototype = new Person();</div><div class="line"></div><div class="line">var Customer = function(name) &#123;</div><div class="line">  this.name = name;</div><div class="line">&#125;;</div><div class="line">Customer.prototype = new Person();</div><div class="line"></div><div class="line">var Mime = function(name) &#123;</div><div class="line">  this.name = name;</div><div class="line">  this.canTalk = false;</div><div class="line">&#125;;</div><div class="line">Mime.prototype = new Person();</div><div class="line"></div><div class="line">var bob = new Employee('Bob', 'Builder');</div><div class="line">var joe = new Customer('Joe');</div><div class="line">var rg = new Employee('Red Green', 'Handyman');</div><div class="line">var mike = new Customer('Mike');</div><div class="line">var mime = new Mime('Mime');</div><div class="line">bob.greet();</div><div class="line">joe.greet();</div><div class="line">rg.greet();</div><div class="line">mike.greet();</div><div class="line">mime.greet();</div></pre></td></tr></table></figure>
+        <!-- 
+第一版只更新 Simple Case后期随时补充特性
+
+PropertiesObject.prototype1234567891011121314151617181920212223242526272829303132333435363738394041var Person = function() &#123;  this.canTalk = true;  this.greet = fu......  -->
+        <p class="article-more-link">
+          <a href="/2016/01/02/Object-From-JavaScript-API/#more">Read More</a>
+        </p>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </div>
+    <footer class="article-footer">
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-Array-From-JavaScript-API"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/01/01/Array-From-JavaScript-API/">Array From JavaScript API</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/01/01/Array-From-JavaScript-API/" class="article-date">
+	  <time datetime="2016-01-01T01:09:08.000Z" itemprop="datePublished">2016-01-01</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>第一版只更新 Simple Case<br>后期随时补充特性</p>
+</blockquote>
+<h2 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h2><h3 id="Array-length"><a href="#Array-length" class="headerlink" title="Array.length"></a>Array.length</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var items = [<span class="string">"shoes"</span>, <span class="string">"shirts"</span>, <span class="string">"socks"</span>, <span class="string">"sweaters"</span>];</div><div class="line">items.length;</div><div class="line"></div><div class="line">// returns 4</div></pre></td></tr></table></figure>
+<h3 id="Array-prototype"><a href="#Array-prototype" class="headerlink" title="Array.prototype"></a>Array.prototype</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (!Array.prototype.first) &#123;</div><div class="line">  Array.prototype.first = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">    <span class="built_in">return</span> this[0];</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h2><h3 id="Array-from-ES6规范"><a href="#Array-from-ES6规范" class="headerlink" title="Array.from() (ES6规范)"></a>Array.from() (ES6规范)</h3><blockquote>
+<p>将一个 ArrayLike 对象或者 Iterable 对象转换成一个 Array（性能较差）</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Array.from(<span class="string">"foo"</span>);</div><div class="line">// [<span class="string">"f"</span>, <span class="string">"o"</span>, <span class="string">"o"</span>]</div></pre></td></tr></table></figure>
+<blockquote>
+<p>ArrayLike对象指具有数组某些行为的对象，表达出来的特征就是具有<code>length</code>属性</p>
+</blockquote>
+<p><em>Syntax</em></p>
+<blockquote>
+<p>Array.from(arrayLike[, mapFn[, thisArg]])</p>
+</blockquote>
+<p><a href="https://docs.angularjs.org/guide/directive" target="_blank" rel="external">Array.from()</a><br>
+        <!-- 
+第一版只更新 Simple Case后期随时补充特性
+
+PropertiesArray.length1234var items = ["shoes", "shirts", "socks", "sweaters"];items.length;// returns 4
+Array.prototype12345if (!Array.prototype.first) &#123;  Array.p......  -->
+        <p class="article-more-link">
+          <a href="/2016/01/01/Array-From-JavaScript-API/#more">Read More</a>
+        </p>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </div>
+    <footer class="article-footer">
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
   </nav>
 
 </section>
