@@ -20,7 +20,7 @@
 <meta property="og:description" content="Agile Software Development">
 <meta property="og:image" content="https://dale-.github.io/images/agile-software-development/agile-meeting.png">
 <meta property="og:image" content="https://dale-.github.io/images/agile-software-development/story-wall.png">
-<meta property="og:updated_time" content="2017-07-29T15:58:27.000Z">
+<meta property="og:updated_time" content="2017-07-29T16:08:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Agile Software Development">
 <meta name="twitter:description" content="Agile Software Development">
@@ -253,7 +253,54 @@
 <li>参会人员 ： 全体</li>
 </ul>
 <h2 id="Story-Wall"><a href="#Story-Wall" class="headerlink" title="Story Wall"></a>Story Wall</h2><p><img src="/images/agile-software-development/story-wall.png" alt=""></p>
-<h4 id="Story-Analysis"><a href="#Story-Analysis" class="headerlink" title="Story Analysis"></a>Story Analysis</h4><h4 id="Story-Done"><a href="#Story-Done" class="headerlink" title="Story Done"></a>Story Done</h4><h4 id="ToDo"><a href="#ToDo" class="headerlink" title="ToDo"></a>ToDo</h4><h4 id="Doing"><a href="#Doing" class="headerlink" title="Doing"></a>Doing</h4><h4 id="Waiting-For-Testing"><a href="#Waiting-For-Testing" class="headerlink" title="Waiting For Testing"></a>Waiting For Testing</h4><h4 id="Integration-Testing"><a href="#Integration-Testing" class="headerlink" title="Integration Testing"></a>Integration Testing</h4><h4 id="Testing"><a href="#Testing" class="headerlink" title="Testing"></a>Testing</h4><h4 id="Acceptance"><a href="#Acceptance" class="headerlink" title="Acceptance"></a>Acceptance</h4><h4 id="Done"><a href="#Done" class="headerlink" title="Done"></a>Done</h4>
+<h4 id="Story-Analysis"><a href="#Story-Analysis" class="headerlink" title="Story Analysis"></a>Story Analysis</h4><ul>
+<li>BA 在分析过程中的Story</li>
+<li>Story=&gt;Done（Story的描述和AC与产品确认好，卡已经更新到wiki上）</li>
+</ul>
+<h4 id="Story-Done"><a href="#Story-Done" class="headerlink" title="Story Done"></a>Story Done</h4><ul>
+<li>BA 已经分析好的Story</li>
+<li>Story Done =&gt; To Do（迭代启动会之前，本迭代计划的卡放到To Do里面）</li>
+</ul>
+<h4 id="ToDo"><a href="#ToDo" class="headerlink" title="ToDo"></a>ToDo</h4><ul>
+<li>这个迭代中需要做的Story</li>
+<li>一般To Do里面的卡是按照优先级来排列的</li>
+<li>To Do =&gt; Doing<ul>
+<li>开发有权利去挪卡</li>
+<li>挪卡后在物理卡上更新做卡的人</li>
+<li>jira备注上更新start时间以及做卡的人</li>
+<li>kill off</li>
+</ul>
+</li>
+</ul>
+<h4 id="Doing"><a href="#Doing" class="headerlink" title="Doing"></a>Doing</h4><ul>
+<li>已经有人在做的卡</li>
+<li>Doing =&gt; Integration Test<ul>
+<li>A3Report、Code Review</li>
+<li>需要找测试一起过mini showcase</li>
+</ul>
+</li>
+</ul>
+<h4 id="Waiting-For-Testing"><a href="#Waiting-For-Testing" class="headerlink" title="Waiting For Testing"></a>Waiting For Testing</h4><ul>
+<li>等待联调阶段</li>
+<li>当Dev（前端或者后端）开发完成，将Story移动到Waiting For Testing，等待联调</li>
+<li>Waiting For Testing =&gt; Integration Testing 需要前后端相互确认可以联调条件Ready，可以进入到联调阶段</li>
+</ul>
+<h4 id="Integration-Testing"><a href="#Integration-Testing" class="headerlink" title="Integration Testing"></a>Integration Testing</h4><ul>
+<li>改Story正处于联调阶段</li>
+<li>Integration Testing =&gt; Testing (联调成功后，和测试、BA一起过mini showcase)</li>
+</ul>
+<h4 id="Testing"><a href="#Testing" class="headerlink" title="Testing"></a>Testing</h4><ul>
+<li>联调成功，等待测试详细的测试</li>
+<li>Testing =&gt; Acceptance (测试测完OK后放入Accptance)</li>
+</ul>
+<h4 id="Acceptance"><a href="#Acceptance" class="headerlink" title="Acceptance"></a>Acceptance</h4><ul>
+<li>测试已通过，等待产品经理验收</li>
+<li>Acceptance =&gt; Done (产品验收成功)</li>
+</ul>
+<h4 id="Done"><a href="#Done" class="headerlink" title="Done"></a>Done</h4><ul>
+<li>产品经理验收成功，Story结束</li>
+</ul>
+
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/agile/">agile</a></li></ul>
