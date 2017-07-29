@@ -92,7 +92,7 @@
 
 
   
-    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/pose.jpg); background-size: auto 100%;">
+    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/home-bg.jpg); background-size: auto 100%;">
   
 
     <canvas width="100%" height="100%"></canvas>
@@ -189,6 +189,73 @@
       <div id="content" class="outer">
         
           <section id="main" style="float:none;">
+  
+    <article id="post-Array-From-JavaScript-API"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/01/01/Array-From-JavaScript-API/">Array From JavaScript API</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/01/01/Array-From-JavaScript-API/" class="article-date">
+	  <time datetime="2016-01-01T01:09:08.000Z" itemprop="datePublished">2016-01-01</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>第一版只更新 Simple Case<br>后期随时补充特性</p>
+</blockquote>
+<h2 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h2><h3 id="Array-length"><a href="#Array-length" class="headerlink" title="Array.length"></a>Array.length</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var items = [<span class="string">"shoes"</span>, <span class="string">"shirts"</span>, <span class="string">"socks"</span>, <span class="string">"sweaters"</span>];</div><div class="line">items.length;</div><div class="line"></div><div class="line">// returns 4</div></pre></td></tr></table></figure>
+<h3 id="Array-prototype"><a href="#Array-prototype" class="headerlink" title="Array.prototype"></a>Array.prototype</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (!Array.prototype.first) &#123;</div><div class="line">  Array.prototype.first = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">    <span class="built_in">return</span> this[0];</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h2><h3 id="Array-from-ES6规范"><a href="#Array-from-ES6规范" class="headerlink" title="Array.from() (ES6规范)"></a>Array.from() (ES6规范)</h3><blockquote>
+<p>将一个 ArrayLike 对象或者 Iterable 对象转换成一个 Array（性能较差）</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Array.from(<span class="string">"foo"</span>);</div><div class="line">// [<span class="string">"f"</span>, <span class="string">"o"</span>, <span class="string">"o"</span>]</div></pre></td></tr></table></figure>
+<blockquote>
+<p>ArrayLike对象指具有数组某些行为的对象，表达出来的特征就是具有<code>length</code>属性</p>
+</blockquote>
+<p><em>Syntax</em></p>
+<blockquote>
+<p>Array.from(arrayLike[, mapFn[, thisArg]])</p>
+</blockquote>
+<p><a href="https://docs.angularjs.org/guide/directive" target="_blank" rel="external">Array.from()</a><br>
+        <!-- 
+第一版只更新 Simple Case后期随时补充特性
+
+PropertiesArray.length1234var items = ["shoes", "shirts", "socks", "sweaters"];items.length;// returns 4
+Array.prototype12345if (!Array.prototype.first) &#123;  Array.p......  -->
+        <p class="article-more-link">
+          <a href="/2016/01/01/Array-From-JavaScript-API/#more">Read More</a>
+        </p>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </div>
+    <footer class="article-footer">
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
   
     <article id="post-Hexo-Github-Blog"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
