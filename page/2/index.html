@@ -92,7 +92,7 @@
 
 
   
-    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/sample.jpg); background-size: auto 100%;">
+    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/pose.jpg); background-size: auto 100%;">
   
 
     <canvas width="100%" height="100%"></canvas>
@@ -189,73 +189,6 @@
       <div id="content" class="outer">
         
           <section id="main" style="float:none;">
-  
-    <article id="post-Performance-Optimization"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/20/Performance-Optimization/">Performance Optimization</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/02/20/Performance-Optimization/" class="article-date">
-	  <time datetime="2017-02-20T15:03:19.000Z" itemprop="datePublished">2017-02-20</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/front-end/">front-end</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="HTML标签语义化"><a href="#HTML标签语义化" class="headerlink" title="HTML标签语义化"></a>HTML标签语义化</h2><blockquote>
-<p>语义化是指用合理HTML标记以及其特有的属性去格式化文档内容。机器在需要更少的人类干预的情况下能够研究和收集信息,让网页能够被机器理解,最终让人类受益。即用正确的标签做正确的事。</p>
-</blockquote>
-<ul>
-<li>有利于搜索引擎</li>
-<li>结构清晰的HTML在团队合作中的作用：代码可读、便于维护、提高开发效率、快速达成共识、利于二次开发</li>
-<li>有利于盲人屏幕阅读器</li>
-</ul>
-<h2 id="减少HTTP请求"><a href="#减少HTTP请求" class="headerlink" title="减少HTTP请求"></a>减少HTTP请求</h2><p>一个正常HTTP请求的流程简述：如在浏览器中输入”www.xxxxxx.com”并按下回车，浏览器再与这个URL指向的服务器建立连接，然后浏览器才能向服务器发送请求信息，服务器在接受到请求的信息后再返回相应的信息，浏览器接收到来自服务器的应答信息后，对这些数据解释执行。</p>
-<p>而当我们请求的网页文件中有很多图片、CSS、JS甚至音乐等信息时，将会频繁的与服务器建立连接，与释放连接，这必定会造成资源的浪费，且每个HTTP请求都会对服务器和浏览器产生性能负担。</p>
-<p>网速相同的条件下，下载一个100KB的图片比下载两个50KB的图片要快。所以，请减少HTTP请求。</p>
-<h3 id="css、js文件数量及大小优化"><a href="#css、js文件数量及大小优化" class="headerlink" title="css、js文件数量及大小优化"></a>css、js文件数量及大小优化</h3><p>css、js建议采用外联式来进行导入，我们可以对css、js做相应的规划也可以减少css、js的个数以减少http请求。同时也要注重减少重复代码，注重代码重复利用，已达到用最少的代码干最多的事。同时当项目要投入线上使用的时候，可以对css、js文件进行代码压缩，文件的减少可以加速文件的链接导入，以便加速网页的加载渲染。</p>
-<h3 id="图片的数量和大小"><a href="#图片的数量和大小" class="headerlink" title="图片的数量和大小"></a>图片的数量和大小</h3><p>多个服务器请求会对站点的性能产生显著的影响。对一张图片进行导入又是一个http请求，因此我们应该减少图片的导入数量以便减少http请求。对于内容图片，可以对其进行适当的压缩，可以加快文档内容加载，或者如果是需要用户下载的图片，小的图片可以加快用户下载的速度。</p>
-        <!-- HTML标签语义化
-语义化是指用合理HTML标记以及其特有的属性去格式化文档内容。机器在需要更少的人类干预的情况下能够研究和收集信息,让网页能够被机器理解,最终让人类受益。即用正确的标签做正确的事。
-
-
-有利于搜索引擎
-结构清晰的HTML在团队合作中的作用：代码可读、便于维护、提高开发效率、快速达成共识、利于二次开发
-有利于盲人屏幕阅读器
-
-减少HTTP请求一个正常HTTP请求的流程简述：如......  -->
-        <p class="article-more-link">
-          <a href="/2017/02/20/Performance-Optimization/#more">Read More</a>
-        </p>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/performance/">performance</a></li></ul>
-
-    </div>
-    <footer class="article-footer">
-      
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
   
     <article id="post-angular-directive"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
@@ -799,6 +732,59 @@ reopen project
         <!-- 方法调用（Method Invocation Pattern）在面向对象程序设计中，当函数（Function）作为对象属性时被称为方法（Method）。 方法被调用时this会被绑定到对应的对象。在JavaScript中有两种语法可以完成方法调用： a.func()和a‘func’。12345678910var obj = &#123;    val: 0,    count: functi......  -->
         <p class="article-more-link">
           <a href="/2016/06/27/Method Invocation Pattern/#more">Read More</a>
+        </p>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </div>
+    <footer class="article-footer">
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-Object-From-JavaScript-API"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/01/02/Object-From-JavaScript-API/">Object From JavaScript API</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/01/02/Object-From-JavaScript-API/" class="article-date">
+	  <time datetime="2016-01-02T15:37:00.000Z" itemprop="datePublished">2016-01-02</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>第一版只更新 Simple Case<br>后期随时补充特性</p>
+</blockquote>
+<h2 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h2><h3 id="Object-prototype"><a href="#Object-prototype" class="headerlink" title="Object.prototype"></a>Object.prototype</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">var Person = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">  this.canTalk = <span class="literal">true</span>;</div><div class="line">  this.greet = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">    <span class="keyword">if</span> (this.canTalk) &#123;</div><div class="line">      console.log(<span class="string">'Hi, I\'</span>m <span class="string">' + this.name);</span></div><div class="line">    &#125;</div><div class="line">  &#125;;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var Employee = function(name, title) &#123;</div><div class="line">  this.name = name;</div><div class="line">  this.title = title;</div><div class="line">  this.greet = function() &#123;</div><div class="line">    if (this.canTalk) &#123;</div><div class="line">      console.log("Hi, I'm <span class="string">" + this.name + "</span>, the <span class="string">" + this.title);</span></div><div class="line">    &#125;</div><div class="line">  &#125;;</div><div class="line">&#125;;</div><div class="line">Employee.prototype = new Person();</div><div class="line"></div><div class="line">var Customer = function(name) &#123;</div><div class="line">  this.name = name;</div><div class="line">&#125;;</div><div class="line">Customer.prototype = new Person();</div><div class="line"></div><div class="line">var Mime = function(name) &#123;</div><div class="line">  this.name = name;</div><div class="line">  this.canTalk = false;</div><div class="line">&#125;;</div><div class="line">Mime.prototype = new Person();</div><div class="line"></div><div class="line">var bob = new Employee('Bob', 'Builder');</div><div class="line">var joe = new Customer('Joe');</div><div class="line">var rg = new Employee('Red Green', 'Handyman');</div><div class="line">var mike = new Customer('Mike');</div><div class="line">var mime = new Mime('Mime');</div><div class="line">bob.greet();</div><div class="line">joe.greet();</div><div class="line">rg.greet();</div><div class="line">mike.greet();</div><div class="line">mime.greet();</div></pre></td></tr></table></figure>
+        <!-- 
+第一版只更新 Simple Case后期随时补充特性
+
+PropertiesObject.prototype1234567891011121314151617181920212223242526272829303132333435363738394041var Person = function() &#123;  this.canTalk = true;  this.greet = fu......  -->
+        <p class="article-more-link">
+          <a href="/2016/01/02/Object-From-JavaScript-API/#more">Read More</a>
         </p>
       
       
