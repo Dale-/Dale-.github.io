@@ -24,7 +24,7 @@
 <meta property="og:image" content="https://dale-.github.io/images/http/response.png">
 <meta property="og:image" content="https://dale-.github.io/images/http/process.png">
 <meta property="og:image" content="https://dale-.github.io/images/http/http-code.png">
-<meta property="og:updated_time" content="2017-08-10T13:07:38.000Z">
+<meta property="og:updated_time" content="2017-08-10T13:17:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTTP Protocol">
 <meta name="twitter:description" content="HTTP Protocol">
@@ -255,13 +255,103 @@
 <li><p>503 Service Unavailable 服务器端暂时无法处理请求（可能是过载或维护）</p>
 </li>
 </ul>
-<blockquote>
-<p>完整版<br>1**(信息类)：表示接收到请求并且继续处理<br>100——客户必须继续发出请求<br>101——客户要求服务器根据请求转换HTTP协议版本</p>
-<p>2**(响应成功)：表示动作被成功接收、理解和接受<br>200——表明该请求被成功地完成，所请求的资源发送回客户端<br>201——提示知道新文件的URL<br>202——接受和处理、但处理未完成<br>203——返回信息不确定或不完整<br>204——请求收到，但返回信息为空<br>205——服务器完成了请求，用户代理必须复位当前已经浏览过的文件<br>206——服务器已经完成了部分用户的GET请求</p>
-<p>3**(重定向类)：为了完成指定的动作，必须接受进一步处理<br>300——请求的资源可在多处得到<br>301——本网页被永久性转移到另一个URL<br>302——请求的网页被转移到一个新的地址，但客户访问仍继续通过原始URL地址，重定向，新的URL会在response中的Location中返回，浏览器将会使用新的URL发出新的Request。<br>303——建议客户访问其他URL或访问方式<br>304——自从上次请求后，请求的网页未修改过，服务器返回此响应时，不会返回网页内容，代表上次的文档已经被缓存了，还可以继续使用<br>305——请求的资源必须从服务器指定的地址得到<br>306——前一版本HTTP中使用的代码，现行版本中不再使用<br>307——申明请求的资源临时性删除</p>
-<p>4**(客户端错误类)：请求包含错误语法或不能正确执行<br>400——客户端请求有语法错误，不能被服务器所理解<br>401——请求未经授权，这个状态代码必须和WWW-Authenticate报头域一起使用<br>HTTP 401.1 - 未授权：登录失败<br>　　HTTP 401.2 - 未授权：服务器配置问题导致登录失败<br>　　HTTP 401.3 - ACL 禁止访问资源<br>　　HTTP 401.4 - 未授权：授权被筛选器拒绝<br>HTTP 401.5 - 未授权：ISAPI 或 CGI 授权失败<br>402——保留有效ChargeTo头响应<br>403——禁止访问，服务器收到请求，但是拒绝提供服务<br>HTTP 403.1 禁止访问：禁止可执行访问<br>　　HTTP 403.2 - 禁止访问：禁止读访问<br>　　HTTP 403.3 - 禁止访问：禁止写访问<br>　　HTTP 403.4 - 禁止访问：要求 SSL<br>　　HTTP 403.5 - 禁止访问：要求 SSL 128<br>　　HTTP 403.6 - 禁止访问：IP 地址被拒绝<br>　　HTTP 403.7 - 禁止访问：要求客户证书<br>　　HTTP 403.8 - 禁止访问：禁止站点访问<br>　　HTTP 403.9 - 禁止访问：连接的用户过多<br>　　HTTP 403.10 - 禁止访问：配置无效<br>　　HTTP 403.11 - 禁止访问：密码更改<br>　　HTTP 403.12 - 禁止访问：映射器拒绝访问<br>　　HTTP 403.13 - 禁止访问：客户证书已被吊销<br>　　HTTP 403.15 - 禁止访问：客户访问许可过多<br>　　HTTP 403.16 - 禁止访问：客户证书不可信或者无效<br>HTTP 403.17 - 禁止访问：客户证书已经到期或者尚未生效<br>404——一个404错误表明可连接服务器，但服务器无法取得所请求的网页，请求资源不存在。eg：输入了错误的URL<br>405——用户在Request-Line字段定义的方法不允许<br>406——根据用户发送的Accept拖，请求资源不可访问<br>407——类似401，用户必须首先在代理服务器上得到授权<br>408——客户端没有在用户指定的饿时间内完成请求<br>409——对当前资源状态，请求不能完成<br>410——服务器上不再有此资源且无进一步的参考地址<br>411——服务器拒绝用户定义的Content-Length属性请求<br>412——一个或多个请求头字段在当前请求中错误<br>413——请求的资源大于服务器允许的大小<br>414——请求的资源URL长于服务器允许的长度<br>415——请求资源不支持请求项目格式<br>416——请求中包含Range请求头字段，在当前请求资源范围内没有range指示值，请求也不包含If-Range请求头字段<br>417——服务器不满足请求Expect头字段指定的期望值，如果是代理服务器，可能是下一级服务器不能满足请求长。</p>
-<p>5**(服务端错误类)：服务器不能正确执行一个正确的请求<br>HTTP 500 - 服务器遇到错误，无法完成请求<br>　　HTTP 500.100 - 内部服务器错误 - ASP 错误<br>　　HTTP 500-11 服务器关闭<br>　　HTTP 500-12 应用程序重新启动<br>　　HTTP 500-13 - 服务器太忙<br>　　HTTP 500-14 - 应用程序无效<br>　　HTTP 500-15 - 不允许请求 global.asa<br>　　Error 501 - 未实现<br>HTTP 502 - 网关错误<br>HTTP 503：由于超载或停机维护，服务器目前无法使用，一段时间后可能恢复正常</p>
+<h3 id="完整版"><a href="#完整版" class="headerlink" title="完整版"></a>完整版</h3><blockquote>
+<p>1**(信息类)：表示接收到请求并且继续处理</p>
 </blockquote>
+<ul>
+<li>100——客户必须继续发出请求</li>
+<li>101——客户要求服务器根据请求转换HTTP协议版本</li>
+</ul>
+<blockquote>
+<p>2**(响应成功)：表示动作被成功接收、理解和接受</p>
+</blockquote>
+<ul>
+<li>200——表明该请求被成功地完成，所请求的资源发送回客户端</li>
+<li>201——提示知道新文件的URL</li>
+<li>202——接受和处理、但处理未完成</li>
+<li>203——返回信息不确定或不完整</li>
+<li>204——请求收到，但返回信息为空</li>
+<li>205——服务器完成了请求，用户代理必须复位当前已经浏览过的文件</li>
+<li>206——服务器已经完成了部分用户的GET请求</li>
+</ul>
+<blockquote>
+<p>3**(重定向类)：为了完成指定的动作，必须接受进一步处理</p>
+</blockquote>
+<ul>
+<li>300——请求的资源可在多处得到</li>
+<li>301——本网页被永久性转移到另一个URL</li>
+<li>302——请求的网页被转移到一个新的地址，但客户访问仍继续通过原始URL地址，重定向，新的URL会在response中的Location中返回，浏览器将会使用新的URL发出新的Request。</li>
+<li>303——建议客户访问其他URL或访问方式</li>
+<li>304——自从上次请求后，请求的网页未修改过，服务器返回此响应时，不会返回网页内容，代表上次的文档已经被缓存了，还可以继续使用</li>
+<li>305——请求的资源必须从服务器指定的地址得到</li>
+<li>306——前一版本HTTP中使用的代码，现行版本中不再使用</li>
+<li>307——申明请求的资源临时性删除</li>
+</ul>
+<blockquote>
+<p>4**(客户端错误类)：请求包含错误语法或不能正确执行</p>
+</blockquote>
+<ul>
+<li>400——客户端请求有语法错误，不能被服务器所理解</li>
+<li><p>401——请求未经授权，这个状态代码必须和WWW-Authenticate报头域一起使用</p>
+<p>HTTP 401.1 - 未授权：登录失败</p>
+<p>HTTP 401.2 - 未授权：服务器配置问题导致登录失败</p>
+<p>HTTP 401.3 - ACL 禁止访问资源</p>
+<p>HTTP 401.4 - 未授权：授权被筛选器拒绝</p>
+<p>HTTP 401.5 - 未授权：ISAPI 或 CGI 授权失败</p>
+</li>
+<li>402——保留有效ChargeTo头响应</li>
+<li><p>403——禁止访问，服务器收到请求，但是拒绝提供服务</p>
+<p>HTTP 403.1 禁止访问：禁止可执行访问</p>
+<p>HTTP 403.2 - 禁止访问：禁止读访问</p>
+<p>HTTP 403.3 - 禁止访问：禁止写访问</p>
+<p>HTTP 403.4 - 禁止访问：要求 SSL</p>
+<p>HTTP 403.5 - 禁止访问：要求 SSL 128</p>
+<p>HTTP 403.6 - 禁止访问：IP 地址被拒绝</p>
+<p>HTTP 403.7 - 禁止访问：要求客户证书</p>
+<p>HTTP 403.8 - 禁止访问：禁止站点访问</p>
+<p>HTTP 403.9 - 禁止访问：连接的用户过多</p>
+<p>HTTP 403.10 - 禁止访问：配置无效</p>
+<p>HTTP 403.11 - 禁止访问：密码更改</p>
+<p>HTTP 403.12 - 禁止访问：映射器拒绝访问</p>
+<p>HTTP 403.13 - 禁止访问：客户证书已被吊销</p>
+<p>HTTP 403.15 - 禁止访问：客户访问许可过多</p>
+<p>HTTP 403.16 - 禁止访问：客户证书不可信或者无效</p>
+<p>HTTP 403.17 - 禁止访问：客户证书已经到期或者尚未生效</p>
+</li>
+<li><p>404——一个404错误表明可连接服务器，但服务器无法取得所请求的网页，请求资源不存在。eg：输入了错误的URL</p>
+</li>
+<li>405——用户在Request-Line字段定义的方法不允许</li>
+<li>406——根据用户发送的Accept拖，请求资源不可访问</li>
+<li>407——类似401，用户必须首先在代理服务器上得到授权</li>
+<li>408——客户端没有在用户指定的饿时间内完成请求</li>
+<li>409——对当前资源状态，请求不能完成</li>
+<li>410——服务器上不再有此资源且无进一步的参考地址</li>
+<li>411——服务器拒绝用户定义的Content-Length属性请求</li>
+<li>412——一个或多个请求头字段在当前请求中错误</li>
+<li>413——请求的资源大于服务器允许的大小</li>
+<li>414——请求的资源URL长于服务器允许的长度</li>
+<li>415——请求资源不支持请求项目格式</li>
+<li>416——请求中包含Range请求头字段，在当前请求资源范围内没有range指示值，请求也不包含If-Range请求头字段</li>
+<li>417——服务器不满足请求Expect头字段指定的期望值，如果是代理服务器，可能是下一级服务器不能满足请求长。</li>
+</ul>
+<blockquote>
+<p>5**(服务端错误类)：服务器不能正确执行一个正确的请求</p>
+</blockquote>
+<ul>
+<li><p>HTTP 500 - 服务器遇到错误，无法完成请求</p>
+<p>HTTP 500.100 - 内部服务器错误 - ASP 错误<br>HTTP 500-11 服务器关闭</p>
+<p>HTTP 500-12 应用程序重新启动</p>
+<p>HTTP 500-13 - 服务器太忙</p>
+<p>HTTP 500-14 - 应用程序无效</p>
+<p>HTTP 500-15 - 不允许请求 global.asa</p>
+</li>
+<li><p>Error 501 - 未实现</p>
+</li>
+<li><p>HTTP 502 - 网关错误</p>
+</li>
+<li><p>HTTP 503：由于超载或停机维护，服务器目前无法使用，一段时间后可能恢复正常</p>
+</li>
+</ul>
 <h2 id="HTTP常用请求的方法"><a href="#HTTP常用请求的方法" class="headerlink" title="HTTP常用请求的方法"></a>HTTP常用请求的方法</h2><table>
 <thead>
 <tr>
@@ -319,7 +409,12 @@
 </tbody>
 </table>
 <blockquote>
-<p>GET /tickets # 获取ticket列表<br>GET /tickets/12 # 查看某个具体的ticket<br>POST /tickets # 新建一个ticket<br>PUT /tickets/12 # 更新ticket 12<br>PATCH /tickets/12 # 更新ticket 12<br>DELETE /tickets/12 # 删除ticekt 12</p>
+<p>GET /tickets # 获取ticket列表</p>
+<p>GET /tickets/12 # 查看某个具体的ticket</p>
+<p>POST /tickets # 新建一个ticket</p>
+<p>PUT /tickets/12 # 更新ticket 12</p>
+<p>PATCH /tickets/12 # 更新ticket 12</p>
+<p>DELETE /tickets/12 # 删除ticekt 12</p>
 </blockquote>
 <h2 id="一个页面从输入-URL-到页面加载显示完成的过程"><a href="#一个页面从输入-URL-到页面加载显示完成的过程" class="headerlink" title="一个页面从输入 URL 到页面加载显示完成的过程"></a>一个页面从输入 URL 到页面加载显示完成的过程</h2><ol>
 <li>浏览器根据请求的URL交给DNS域名解析，找到真实IP</li>
@@ -393,7 +488,7 @@
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP协议"><span class="toc-number">1.</span> <span class="toc-text">HTTP协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP的通信过程"><span class="toc-number">2.</span> <span class="toc-text">HTTP的通信过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP-Request"><span class="toc-number">2.1.</span> <span class="toc-text">HTTP-Request</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP-Response"><span class="toc-number">2.2.</span> <span class="toc-text">HTTP-Response</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#状态码"><span class="toc-number">3.</span> <span class="toc-text">状态码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP常用请求的方法"><span class="toc-number">4.</span> <span class="toc-text">HTTP常用请求的方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一个页面从输入-URL-到页面加载显示完成的过程"><span class="toc-number">5.</span> <span class="toc-text">一个页面从输入 URL 到页面加载显示完成的过程</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP协议"><span class="toc-number">1.</span> <span class="toc-text">HTTP协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP的通信过程"><span class="toc-number">2.</span> <span class="toc-text">HTTP的通信过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP-Request"><span class="toc-number">2.1.</span> <span class="toc-text">HTTP-Request</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP-Response"><span class="toc-number">2.2.</span> <span class="toc-text">HTTP-Response</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#状态码"><span class="toc-number">3.</span> <span class="toc-text">状态码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#完整版"><span class="toc-number">3.1.</span> <span class="toc-text">完整版</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP常用请求的方法"><span class="toc-number">4.</span> <span class="toc-text">HTTP常用请求的方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一个页面从输入-URL-到页面加载显示完成的过程"><span class="toc-number">5.</span> <span class="toc-text">一个页面从输入 URL 到页面加载显示完成的过程</span></a></li></ol>
     
     </div>
   </aside>
