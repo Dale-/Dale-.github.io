@@ -190,6 +190,70 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-Getting-Started-with-Redux"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/08/13/Getting-Started-with-Redux/">Getting Started with Redux</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/08/13/Getting-Started-with-Redux/" class="article-date">
+	  <time datetime="2017-08-13T10:52:40.000Z" itemprop="datePublished">2017-08-13</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Redux的需求从何而来？"><a href="#Redux的需求从何而来？" class="headerlink" title="Redux的需求从何而来？"></a>Redux的需求从何而来？</h2><h3 id="React中的props和state"><a href="#React中的props和state" class="headerlink" title="React中的props和state"></a>React中的props和state</h3><pre><code>* props代表父级分发到子级的属性
+
+* state代表组件内部的状态
+</code></pre><p>  React没有数据向上回溯的能力，也就是说只能由父级到子级向下分发，或者内部消化。</p>
+<h3 id="React中两个组件的交互"><a href="#React中两个组件的交互" class="headerlink" title="React中两个组件的交互"></a>React中两个组件的交互</h3><p>  一般一个组件内部就可能是一个完整的应用，你可以通过属性作为API来控制它。但是更多时候React无法让两个组件相互交流，使用对方的数据。然后这时候如果不通过DOM，唯一的解决办法就是提升state。将state放到共有的父组件中来管理，再通过props分发到子组件。子组件改变父组件state的办法通常是通过onClick触发父组件声明好的回调，这就需要父组件提前生命好函数或者方法去约定state的变化。这样就出现了一个模式：数据总是单向从顶层向下分发的，但是只有子组件回调时，会影响顶层的数据，这样的state在一定程度上是响应式的。</p>
+<p>  为了面临所有可能性的扩展，最容易想到的办法就是把state集中到所有组件的顶层管理，然后发给子组件。</p>
+<h3 id="Redux解决的问题"><a href="#Redux解决的问题" class="headerlink" title="Redux解决的问题"></a>Redux解决的问题</h3><p>  为了有更好的state管理，就需要一个库来作为更专业的顶层state分发给所有的React应用，这就是Redux。</p>
+<p>  重现上面结构的需求：</p>
+<pre><code>* 需要回调通知state(等同于回调函数) =&gt; Action
+
+* 需要根据回调处理（等同于父级方法）=&gt; Reducer
+
+* 需要state(等同于总状态) =&gt; store
+</code></pre><h3 id="Redux中三个重要要素"><a href="#Redux中三个重要要素" class="headerlink" title="Redux中三个重要要素"></a>Redux中三个重要要素</h3><ul>
+<li><p>Action是纯声明式的数据结构，只提供事件的所有要素，不提供逻辑。</p>
+</li>
+<li><p>Reducer是一个匹配函数，Action的发送是全局的: 所有的reducer都可以捕捉到并匹配是否与自身相关，能够匹配上就拿走Action中的要素进行逻辑处理，修改store中的状态，不匹配就不对state进行处理原样返回。</p>
+</li>
+<li><p>store负责存储状态并可以被react api回调，发布action。</p>
+</li>
+</ul>
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redux/">Redux</a></li></ul>
+
+    </div>
+    <footer class="article-footer">
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-Atom-Shortcut"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -707,61 +771,6 @@ UI组件 [component] component 负责渲染视图
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redux/">Redux</a></li></ul>
-
-    </div>
-    <footer class="article-footer">
-      
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-React-Components-Lifecycle"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/12/React-Components-Lifecycle/">React Components Lifecycle</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/12/React-Components-Lifecycle/" class="article-date">
-	  <time datetime="2017-03-12T10:05:49.000Z" itemprop="datePublished">2017-03-12</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/React/">React</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="生命周期的三种状态"><a href="#生命周期的三种状态" class="headerlink" title="生命周期的三种状态"></a>生命周期的三种状态</h2><p><img src="/images/react-components-lifecycle/component-lifecycle.png" alt=""></p>
-<h3 id="Mounted"><a href="#Mounted" class="headerlink" title="Mounted"></a>Mounted</h3><p>React Components被render解析生成对应的DOM节点并被插入浏览器的DOM结构的一个过程。</p>
-<h3 id="Update"><a href="#Update" class="headerlink" title="Update"></a>Update</h3><p>一个mounted的React Components被重新render的过程。</p>
-<h3 id="Unmounted"><a href="#Unmounted" class="headerlink" title="Unmounted"></a>Unmounted</h3><p>一个mounted的React Components对应的DOM节点被从DOM结构中移除的这样一个过程。</p>
-        <!-- 生命周期的三种状态
-MountedReact Components被render解析生成对应的DOM节点并被插入浏览器的DOM结构的一个过程。
-Update一个mounted的React Components被重新render的过程。
-Unmounted一个mounted的React Components对应的DOM节点被从DOM结构中移除的这样一个过程。
-
-声明周期React 为每个状态都......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/12/React-Components-Lifecycle/#more">Read More</a>
-        </p>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
 
     </div>
     <footer class="article-footer">

@@ -3,21 +3,25 @@
 <head>
   <meta charset="utf-8">
   
-  <title>archives: 2017/4 | The Girl Behind</title>
+  <title>getting started with redux | The Girl Behind</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
+    <meta name="keywords" content="react redux" />
   
   
   
-  <meta name="description" content="To be a better me">
-<meta property="og:type" content="website">
-<meta property="og:title" content="The Girl Behind">
-<meta property="og:url" content="https://dale-.github.io/archives/2017/04/index.html">
+  
+  <meta name="description" content="how to start a project with React Redux">
+<meta name="keywords" content="react redux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Getting Started with Redux">
+<meta property="og:url" content="https://dale-.github.io/2017/08/13/Getting-Started-with-Redux/index.html">
 <meta property="og:site_name" content="The Girl Behind">
-<meta property="og:description" content="To be a better me">
+<meta property="og:description" content="how to start a project with React Redux">
+<meta property="og:updated_time" content="2017-08-13T11:18:42.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="The Girl Behind">
-<meta name="twitter:description" content="To be a better me">
+<meta name="twitter:title" content="Getting Started with Redux">
+<meta name="twitter:description" content="how to start a project with React Redux">
   
     <link rel="alternate" href="/atom.xml" title="The Girl Behind" type="application/atom+xml">
   
@@ -49,8 +53,6 @@
   
 
   
-    <link rel="stylesheet" href="/css/archive.css" >
-  
 
 </head>
 
@@ -75,7 +77,7 @@
             
               <a class="brand" style="
                  margin-top: 0px;"  
-                 >
+                href="#" data-toggle="modal" data-target="#myModal" >
                   <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
               </a>
             
@@ -144,148 +146,114 @@
             
       <div id="content" class="outer">
         
-          <section id="main">
-  <div class="archives-tags-wrap"><blockquote><span>There are 24 posts in total till now.</span></blockquote>
-
-
-<!-- 分页显示 -->
-
-	
-	
-	
-	
-	  
-	  
-	  <section class="archives-wrap">
-	    <div class="archive-year-wrap">
-	      <h1><a href="/archives/2017" class="archive-year">2017</a></h1>
-	    </div>
-	    <div class="archives">
-	
-	<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="/2017/04/23/Loops-And-Iteration-In-JavaScript/" class="archive-article-date">
-	  <time datetime="2017-04-23T13:32:36.000Z" itemprop="datePublished">2017-04-23</time>
-	</a>
-
-      
+          <section id="main" style="float:none;"><article id="post-Getting-Started-with-Redux" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2017/04/23/Loops-And-Iteration-In-JavaScript/">Loops And Iteration In JavaScript</a>
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Getting Started with Redux
     </h1>
   
 
-    </header>
-  </div>
-</article>
-	
-	
-	
-	<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
+      </header>
+    
+    <div class="article-meta">
       
-	<a href="/2017/04/12/Getting-started-with-React-Redux/" class="archive-article-date">
-	  <time datetime="2017-04-12T14:50:59.000Z" itemprop="datePublished">2017-04-12</time>
+	<a href="/2017/08/13/Getting-Started-with-Redux/" class="article-date">
+	  <time datetime="2017-08-13T10:52:40.000Z" itemprop="datePublished">2017-08-13</time>
 	</a>
 
       
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2017/04/12/Getting-started-with-React-Redux/">Getting started with React Redux</a>
-    </h1>
-  
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
 
-    </header>
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Redux的需求从何而来？"><a href="#Redux的需求从何而来？" class="headerlink" title="Redux的需求从何而来？"></a>Redux的需求从何而来？</h2><h3 id="React中的props和state"><a href="#React中的props和state" class="headerlink" title="React中的props和state"></a>React中的props和state</h3><pre><code>* props代表父级分发到子级的属性
+
+* state代表组件内部的状态
+</code></pre><p>  React没有数据向上回溯的能力，也就是说只能由父级到子级向下分发，或者内部消化。</p>
+<h3 id="React中两个组件的交互"><a href="#React中两个组件的交互" class="headerlink" title="React中两个组件的交互"></a>React中两个组件的交互</h3><p>  一般一个组件内部就可能是一个完整的应用，你可以通过属性作为API来控制它。但是更多时候React无法让两个组件相互交流，使用对方的数据。然后这时候如果不通过DOM，唯一的解决办法就是提升state。将state放到共有的父组件中来管理，再通过props分发到子组件。子组件改变父组件state的办法通常是通过onClick触发父组件声明好的回调，这就需要父组件提前生命好函数或者方法去约定state的变化。这样就出现了一个模式：数据总是单向从顶层向下分发的，但是只有子组件回调时，会影响顶层的数据，这样的state在一定程度上是响应式的。</p>
+<p>  为了面临所有可能性的扩展，最容易想到的办法就是把state集中到所有组件的顶层管理，然后发给子组件。</p>
+<h3 id="Redux解决的问题"><a href="#Redux解决的问题" class="headerlink" title="Redux解决的问题"></a>Redux解决的问题</h3><p>  为了有更好的state管理，就需要一个库来作为更专业的顶层state分发给所有的React应用，这就是Redux。</p>
+<p>  重现上面结构的需求：</p>
+<pre><code>* 需要回调通知state(等同于回调函数) =&gt; Action
+
+* 需要根据回调处理（等同于父级方法）=&gt; Reducer
+
+* 需要state(等同于总状态) =&gt; store
+</code></pre><h3 id="Redux中三个重要要素"><a href="#Redux中三个重要要素" class="headerlink" title="Redux中三个重要要素"></a>Redux中三个重要要素</h3><ul>
+<li><p>Action是纯声明式的数据结构，只提供事件的所有要素，不提供逻辑。</p>
+</li>
+<li><p>Reducer是一个匹配函数，Action的发送是全局的: 所有的reducer都可以捕捉到并匹配是否与自身相关，能够匹配上就拿走Action中的要素进行逻辑处理，修改store中的状态，不匹配就不对state进行处理原样返回。</p>
+</li>
+<li><p>store负责存储状态并可以被react api回调，发布action。</p>
+</li>
+</ul>
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redux/">Redux</a></li></ul>
+
+    </div>
+    <footer class="article-footer">
+      
+        
+	<div id="comment">
+
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2017/08/13/Getting-Started-with-Redux/" data-title="Getting Started with Redux" data-url="https://dale-.github.io/2017/08/13/Getting-Started-with-Redux/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"daledu"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0]
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+
+	</div>
+
+
+      
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/08/08/Atom-Shortcut/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Build Atom Development Environment</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-	
-	
-		</div></section>
-	
 
-	<!-- 页数指示器 -->
-	
+<!-- Table of Contents -->
 
-
-
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Redux的需求从何而来？"><span class="toc-number">1.</span> <span class="toc-text">Redux的需求从何而来？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#React中的props和state"><span class="toc-number">1.1.</span> <span class="toc-text">React中的props和state</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#React中两个组件的交互"><span class="toc-number">1.2.</span> <span class="toc-text">React中两个组件的交互</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Redux解决的问题"><span class="toc-number">1.3.</span> <span class="toc-text">Redux解决的问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Redux中三个重要要素"><span class="toc-number">1.4.</span> <span class="toc-text">Redux中三个重要要素</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
 
 </section>
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AngularJS/">AngularJS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Event/">Event</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Plan/">Plan</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Protocol/">Protocol</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/React/">React</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/agile/">agile</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/atom/">atom</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/front-end/">front-end</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/methodology/">methodology</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/webstorm/">webstorm</a><span class="category-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AngularJS/">AngularJS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Event/">Event</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Plan/">Plan</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Protocol/">Protocol</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redux/">Redux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/agile/">agile</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/atom/">atom</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/methodology/">methodology</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/performance/">performance</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webstorm/">webstorm</a><span class="tag-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/AngularJS/" style="font-size: 10px;">AngularJS</a> <a href="/tags/Event/" style="font-size: 10px;">Event</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Plan/" style="font-size: 10px;">Plan</a> <a href="/tags/Protocol/" style="font-size: 10px;">Protocol</a> <a href="/tags/React/" style="font-size: 13.33px;">React</a> <a href="/tags/Redux/" style="font-size: 16.67px;">Redux</a> <a href="/tags/agile/" style="font-size: 10px;">agile</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/methodology/" style="font-size: 10px;">methodology</a> <a href="/tags/performance/" style="font-size: 10px;">performance</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2017/08/13/Getting-Started-with-Redux/">Getting Started with Redux</a>
-          </li>
-        
-          <li>
-            <a href="/2017/08/08/Atom-Shortcut/">Build Atom Development Environment</a>
-          </li>
-        
-          <li>
-            <a href="/2017/07/29/Agile-Software-Development/">Agile Software Development</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/19/How-To-Learn-A-New-Skill-Fast/">How To Learn A New Skill Fast</a>
-          </li>
-        
-          <li>
-            <a href="/2017/05/28/Understand-JavaScript’s-“this”/">[译] Understand JavaScript’s “this”</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
         
       </div>
       
@@ -373,6 +341,8 @@
 
 
 
+
+  <script src="/js/dialog.js"></script>
 
 
 
