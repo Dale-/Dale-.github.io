@@ -18,7 +18,7 @@
 <meta property="og:url" content="https://dale-.github.io/2017/08/13/Getting-Started-with-Redux/index.html">
 <meta property="og:site_name" content="The Girl Behind">
 <meta property="og:description" content="how to start a project with React Redux">
-<meta property="og:updated_time" content="2017-08-13T11:24:41.000Z">
+<meta property="og:updated_time" content="2017-08-13T11:30:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Getting Started with Redux">
 <meta name="twitter:description" content="how to start a project with React Redux">
@@ -185,7 +185,8 @@ b. state代表组件内部的状态
 b. 需要根据回调处理（等同于父级方法）=&gt; Reducer
 
 c. 需要state(等同于总状态) =&gt; store
-</code></pre><h3 id="Redux中三个重要要素"><a href="#Redux中三个重要要素" class="headerlink" title="Redux中三个重要要素"></a>Redux中三个重要要素</h3><ul>
+</code></pre><a id="more"></a>    
+<h3 id="Redux中三个重要要素"><a href="#Redux中三个重要要素" class="headerlink" title="Redux中三个重要要素"></a>Redux中三个重要要素</h3><ul>
 <li><p>Action是纯声明式的数据结构，只提供事件的所有要素，不提供逻辑。</p>
 </li>
 <li><p>Reducer是一个匹配函数，Action的发送是全局的: 所有的reducer都可以捕捉到并匹配是否与自身相关，能够匹配上就拿走Action中的要素进行逻辑处理，修改store中的状态，不匹配就不对state进行处理原样返回。</p>
