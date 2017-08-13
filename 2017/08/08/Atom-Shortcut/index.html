@@ -18,7 +18,7 @@
 <meta property="og:url" content="https://dale-.github.io/2017/08/08/Atom-Shortcut/index.html">
 <meta property="og:site_name" content="The Girl Behind">
 <meta property="og:description" content="Atom Shortcut">
-<meta property="og:updated_time" content="2017-08-13T09:20:39.000Z">
+<meta property="og:updated_time" content="2017-08-13T09:26:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Build Atom Development Environment">
 <meta name="twitter:description" content="Atom Shortcut">
@@ -180,43 +180,27 @@
 <h3 id="选取"><a href="#选取" class="headerlink" title="选取"></a>选取</h3><p><code>ctrl-shift-P</code>  选取至上一行<br><code>ctrl-shift-N</code>  选取至下一样<br><code>ctrl-shift-B</code>  选取至前一个字符<br><code>ctrl-shift-F</code>  选取至后一个字符<br><code>alt-shift-B</code>, <code>alt-shift-left</code>  选取至字符开始<br><code>alt-shift-F</code>, <code>alt-shift-right</code>  选取至字符结束<br><code>ctrl-shift-E</code>, <code>cmd-shift-right</code>  选取至本行结束<br><code>ctrl-shift-A</code>, <code>cmd-shift-left</code>  选取至本行开始<br><code>cmd-shift-up</code>  选取至文件开始<br><code>cmd-shift-down</code>  选取至文件结尾<br><code>cmd-L</code>  选取一行，继续按回选取下一行<br><code>ctrl-shift-W</code>  选取当前单词  </p>
 <h3 id="查找和替换"><a href="#查找和替换" class="headerlink" title="查找和替换"></a>查找和替换</h3><p><code>cmd-F</code> 在buffer中查找<br><code>cmd-shift-f</code> 在整个工程中查找  </p>
 <hr>
-<h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><ul>
-<li><p>atom-beautify</p>
-<blockquote>
+<h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><h3 id="atom-beautify"><a href="#atom-beautify" class="headerlink" title="atom-beautify"></a>atom-beautify</h3><blockquote>
 <p>其他编辑器都支持代码格式化，以便阅读。atom-beautify插件提供类似的功能用于美化代码，可以对html、css、js等文件进行格式美化。使用时需要先选中要美化的代码</p>
 </blockquote>
-</li>
-<li><p>file-icons</p>
-<blockquote>
+<h3 id="file-icons"><a href="#file-icons" class="headerlink" title="file-icons"></a>file-icons</h3><blockquote>
 <p>这个插件可以对不同类型的文件显示不同的文件图标，包含在目录树里面和标签页里面都会显示。</p>
 </blockquote>
-</li>
-<li><p>git-plus</p>
-<blockquote>
+<h3 id="git-plus"><a href="#git-plus" class="headerlink" title="git-plus"></a>git-plus</h3><blockquote>
 <p>git的增强插件，实现在Atom界面下完成Git Bash的一般操作</p>
 </blockquote>
-</li>
-<li><p>linter-eslint</p>
-<blockquote>
+<h3 id="linter-eslint"><a href="#linter-eslint" class="headerlink" title="linter-eslint"></a>linter-eslint</h3><blockquote>
 <p>该插件是用<code>jshint</code>来检查代码，想必大家都听说过<code>jshint</code>代码检查工具，它有一个配置文件.jshintrc，这个文件告诉<code>jshint</code>执行的检查规则。通过<code>jshint</code>能发现代码中存在的问题，可以及时避免bug的发生。linter-jshint插件基于atom规则来使用<code>jshint</code>，该插件可以在项目根目录下新建一个.jshintrc来告诉检查规则，也可以不用创建此文件来进行代码检查。<br>注意：linter-jshint是依赖linter插件来使用的，也就是说必须先安装linter插件；因为linter是一个粗糙的检查，有很多针对专门项的代码检查，如linter-csslint、linter-php等等</p>
 </blockquote>
-</li>
-<li><p>pigments</p>
-<blockquote>
+<h3 id="pigments"><a href="#pigments" class="headerlink" title="pigments"></a>pigments</h3><blockquote>
 <p>当你编写很多<code>CSS</code>时，<code>Pigments</code>会很方便，能够一目了然根据颜色代码显示颜色，你再不必拷贝粘贴颜色十六进制代码到其他图形编辑工具中以查看其颜色，甚至能够和SaSS变量一起工作，如果你在另外一个<code>SASS</code>文件中定义了一个变量的颜色，那么这个变量本身将会以它定义的颜色显示。</p>
 </blockquote>
-</li>
-<li><p>emmet</p>
-<blockquote>
+<h3 id="emmet"><a href="#emmet" class="headerlink" title="emmet"></a>emmet</h3><blockquote>
 <p>这款插件是用来支持<code>zend-coding</code>，Emmet的前身是大名鼎鼎的Zen coding，如果你从事Web前端开发的话，对该插件一定不会陌生。它使用仿CSS选择器的语法来生成代码，大大提高了HTML/CSS代码编写的速度</p>
 </blockquote>
-</li>
-<li><p>js-hyperclick</p>
-<blockquote>
+<h3 id="js-hyperclick"><a href="#js-hyperclick" class="headerlink" title="js-hyperclick"></a>js-hyperclick</h3><blockquote>
 <p>首先安装<code>hyperclick</code>, 实现按住command + 单击跳转到函数定义处或引入文件。再安装你所用的x-hyperclick，比如我用js，就安装js-hyperclick，其他语言同理。如果需要支持非本文件内的跳转，需要安装<a href="https://github.com/faceair/atom-goto-definition" target="_blank" rel="external">goto-definition</a></p>
 </blockquote>
-</li>
-</ul>
 
       
       
@@ -272,7 +256,7 @@
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#快捷键"><span class="toc-number">1.</span> <span class="toc-text">快捷键</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件"><span class="toc-number">1.1.</span> <span class="toc-text">文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Atom大小写转换"><span class="toc-number">1.2.</span> <span class="toc-text">Atom大小写转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#折叠"><span class="toc-number">1.3.</span> <span class="toc-text">折叠</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Markdown预览"><span class="toc-number">1.4.</span> <span class="toc-text">Markdown预览</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#选取"><span class="toc-number">1.5.</span> <span class="toc-text">选取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查找和替换"><span class="toc-number">1.6.</span> <span class="toc-text">查找和替换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#插件"><span class="toc-number">2.</span> <span class="toc-text">插件</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#快捷键"><span class="toc-number">1.</span> <span class="toc-text">快捷键</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件"><span class="toc-number">1.1.</span> <span class="toc-text">文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Atom大小写转换"><span class="toc-number">1.2.</span> <span class="toc-text">Atom大小写转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#折叠"><span class="toc-number">1.3.</span> <span class="toc-text">折叠</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Markdown预览"><span class="toc-number">1.4.</span> <span class="toc-text">Markdown预览</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#选取"><span class="toc-number">1.5.</span> <span class="toc-text">选取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查找和替换"><span class="toc-number">1.6.</span> <span class="toc-text">查找和替换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#插件"><span class="toc-number">2.</span> <span class="toc-text">插件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#atom-beautify"><span class="toc-number">2.1.</span> <span class="toc-text">atom-beautify</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#file-icons"><span class="toc-number">2.2.</span> <span class="toc-text">file-icons</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-plus"><span class="toc-number">2.3.</span> <span class="toc-text">git-plus</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#linter-eslint"><span class="toc-number">2.4.</span> <span class="toc-text">linter-eslint</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pigments"><span class="toc-number">2.5.</span> <span class="toc-text">pigments</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#emmet"><span class="toc-number">2.6.</span> <span class="toc-text">emmet</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#js-hyperclick"><span class="toc-number">2.7.</span> <span class="toc-text">js-hyperclick</span></a></li></ol></li></ol>
     
     </div>
   </aside>
