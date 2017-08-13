@@ -18,10 +18,12 @@
 <meta property="og:url" content="https://dale-.github.io/2017/08/13/Getting-Started-with-Redux/index.html">
 <meta property="og:site_name" content="The Girl Behind">
 <meta property="og:description" content="how to start a project with React Redux">
-<meta property="og:updated_time" content="2017-08-13T12:54:30.000Z">
+<meta property="og:image" content="https://dale-.github.io/images/getting-started-with-redux/redux.png">
+<meta property="og:updated_time" content="2017-08-13T12:59:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Getting Started with Redux">
 <meta name="twitter:description" content="how to start a project with React Redux">
+<meta name="twitter:image" content="https://dale-.github.io/images/getting-started-with-redux/redux.png">
   
     <link rel="alternate" href="/atom.xml" title="The Girl Behind" type="application/atom+xml">
   
@@ -197,15 +199,14 @@ c. 需要state(等同于总状态) =&gt; store
 <h2 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h2><h3 id="Action"><a href="#Action" class="headerlink" title="Action"></a>Action</h3><p>  Action是把数据从应用（服务器响应、用户输入或者其他非view的数据）传到store的有效载荷。它是store数据的<code>唯一</code>来源。一般来说你会通过<code>store.dispatch()</code>将action传入store。</p>
 <p>  Action是一个对象，其中的<code>type</code>属性是必须的，表示Action的名称，其他属性可以自由设置。</p>
 <p>  添加新的 todo 任务的 action 是这样的 :</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">const ADD_TODO = &apos;ADD_TODO&apos;;</div></pre></td></tr></table></figure>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">type: ADD_TODO,</div><div class="line">text: &apos;Build my first Redux app&apos;</div></pre></td></tr></table></figure>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> ADD_TODO = <span class="string">'ADD_TODO'</span>;</div><div class="line"></div><div class="line">type: ADD_TODO,</div><div class="line"><span class="attr">text</span>: <span class="string">'Build my first Redux app'</span></div></pre></td></tr></table></figure>
 <h3 id="Reducer"><a href="#Reducer" class="headerlink" title="Reducer"></a>Reducer</h3><pre><code>Action只是描述了`有事情发生了`这一事实，并没有指明应用如何更新state。而这正是`reducer`要做的事情。
 
 Store 收到 Action以后，必须给出一个新的State，这样 View 才会发生变化。这种State的计算过程就叫Reducer。
 
 Reducer是一个函数，它接受 Action 和当前 State 作为参数，返回一个新的 State。
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function todoApp(state = initialState, action) &#123;</div><div class="line">  switch (action.type) &#123;</div><div class="line">    case SET_VISIBILITY_FILTER:</div><div class="line">      return Object.assign(&#123;&#125;, state, &#123;</div><div class="line">          visibilityFilter: action.filter</div><div class="line">        &#125;)</div><div class="line">    default:</div><div class="line">      return state</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">todoApp</span>(<span class="params">state = initialState, action</span>) </span>&#123;</div><div class="line">  <span class="keyword">switch</span> (action.type) &#123;</div><div class="line">    <span class="keyword">case</span> SET_VISIBILITY_FILTER:</div><div class="line">      <span class="keyword">return</span> <span class="built_in">Object</span>.assign(&#123;&#125;, state, &#123;</div><div class="line">          <span class="attr">visibilityFilter</span>: action.filter</div><div class="line">        &#125;)</div><div class="line">    <span class="keyword">default</span>:</div><div class="line">      <span class="keyword">return</span> state</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
 &gt; 注意
 
@@ -221,16 +222,15 @@ Reducer是一个函数，它接受 Action 和当前 State 作为参数，返回�
 <li>通过 <code>subscribe(listener)</code> 注册监听器；</li>
 <li><p>通过 <code>subscribe(listener)</code> 返回的函数注销监听器。</p>
 <p>Redux提供<code>createStore</code>这个函数，用来生成Store。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">import &#123; createStore &#125; from &apos;redux&apos;;</div><div class="line">import todoAPP from &apos;./reducers&apos;;</div><div class="line">let store = creacteStore(todoApp);</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</div><div class="line"><span class="keyword">import</span> todoAPP <span class="keyword">from</span> <span class="string">'./reducers'</span>;</div><div class="line"><span class="keyword">let</span> store = creacteStore(todoApp);</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="数据流"><a href="#数据流" class="headerlink" title="数据流"></a>数据流</h3><pre><code>1. 调用 `store.dispatch(action)`
 2. Redux store 调用传入的 reducer 函数
 3. 根 reducer 把多个子 reducer 输出合并成一个单一的 state 树
 4. Redux store 保存了根 reducer 返回的完整 state 树
-
-![](/images/getting-started-with-redux/redux.png)
-</code></pre><h2 id="React-Redux"><a href="#React-Redux" class="headerlink" title="React-Redux"></a>React-Redux</h2>
+</code></pre><p>  <img src="/images/getting-started-with-redux/redux.png" alt=""></p>
+<h2 id="React-Redux"><a href="#React-Redux" class="headerlink" title="React-Redux"></a>React-Redux</h2>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redux/">Redux</a></li></ul>
