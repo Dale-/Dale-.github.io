@@ -18,7 +18,7 @@
 <meta property="og:url" content="https://dale-.github.io/2017/08/13/Getting-Started-with-Redux/index.html">
 <meta property="og:site_name" content="The Girl Behind">
 <meta property="og:description" content="how to start a project with React Redux">
-<meta property="og:updated_time" content="2017-08-13T11:30:37.000Z">
+<meta property="og:updated_time" content="2017-08-13T12:54:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Getting Started with Redux">
 <meta name="twitter:description" content="how to start a project with React Redux">
@@ -194,7 +194,43 @@ c. 需要state(等同于总状态) =&gt; store
 <li><p>store负责存储状态并可以被react api回调，发布action。</p>
 </li>
 </ul>
+<h2 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h2><h3 id="Action"><a href="#Action" class="headerlink" title="Action"></a>Action</h3><p>  Action是把数据从应用（服务器响应、用户输入或者其他非view的数据）传到store的有效载荷。它是store数据的<code>唯一</code>来源。一般来说你会通过<code>store.dispatch()</code>将action传入store。</p>
+<p>  Action是一个对象，其中的<code>type</code>属性是必须的，表示Action的名称，其他属性可以自由设置。</p>
+<p>  添加新的 todo 任务的 action 是这样的 :</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">const ADD_TODO = &apos;ADD_TODO&apos;;</div></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">type: ADD_TODO,</div><div class="line">text: &apos;Build my first Redux app&apos;</div></pre></td></tr></table></figure>
+<h3 id="Reducer"><a href="#Reducer" class="headerlink" title="Reducer"></a>Reducer</h3><pre><code>Action只是描述了`有事情发生了`这一事实，并没有指明应用如何更新state。而这正是`reducer`要做的事情。
 
+Store 收到 Action以后，必须给出一个新的State，这样 View 才会发生变化。这种State的计算过程就叫Reducer。
+
+Reducer是一个函数，它接受 Action 和当前 State 作为参数，返回一个新的 State。
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function todoApp(state = initialState, action) &#123;</div><div class="line">  switch (action.type) &#123;</div><div class="line">    case SET_VISIBILITY_FILTER:</div><div class="line">      return Object.assign(&#123;&#125;, state, &#123;</div><div class="line">          visibilityFilter: action.filter</div><div class="line">        &#125;)</div><div class="line">    default:</div><div class="line">      return state</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+&gt; 注意
+
+* 不要修改`state`。使用`Object.assign()`新建一个副本，不能使用 `Object.assign(state, { visibilityFilter: action.filter })`, 因为它会改变第一个参数的值，你`必须`把第一个参数设置为空对象。
+
+* 在 `default` 情况下返回旧的 `state`。遇到位置的 action 时，一定要返回旧的 `state`。
+</code></pre><h3 id="Store"><a href="#Store" class="headerlink" title="Store"></a>Store</h3><p>  我们知道 <code>action</code> 来描述“发生了什么”，使用 <code>reducer</code>来根据 action 更新 state的用法。</p>
+<p>  <code>Store</code> 就是把它们联系到一起的对象。Store有一下职责：</p>
+<ul>
+<li>维持应用的 state；</li>
+<li>提供 <code>getState()</code> 方法获取 state;</li>
+<li>提供 <code>dispatch(action)</code> 方法更新 state;</li>
+<li>通过 <code>subscribe(listener)</code> 注册监听器；</li>
+<li><p>通过 <code>subscribe(listener)</code> 返回的函数注销监听器。</p>
+<p>Redux提供<code>createStore</code>这个函数，用来生成Store。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">import &#123; createStore &#125; from &apos;redux&apos;;</div><div class="line">import todoAPP from &apos;./reducers&apos;;</div><div class="line">let store = creacteStore(todoApp);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="数据流"><a href="#数据流" class="headerlink" title="数据流"></a>数据流</h3><pre><code>1. 调用 `store.dispatch(action)`
+2. Redux store 调用传入的 reducer 函数
+3. 根 reducer 把多个子 reducer 输出合并成一个单一的 state 树
+4. Redux store 保存了根 reducer 返回的完整 state 树
+
+![](/images/getting-started-with-redux/redux.png)
+</code></pre><h2 id="React-Redux"><a href="#React-Redux" class="headerlink" title="React-Redux"></a>React-Redux</h2>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redux/">Redux</a></li></ul>
@@ -249,7 +285,7 @@ c. 需要state(等同于总状态) =&gt; store
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Redux的需求从何而来？"><span class="toc-number">1.</span> <span class="toc-text">Redux的需求从何而来？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#React中的props和state"><span class="toc-number">1.1.</span> <span class="toc-text">React中的props和state</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#React中两个组件的交互"><span class="toc-number">1.2.</span> <span class="toc-text">React中两个组件的交互</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Redux解决的问题"><span class="toc-number">1.3.</span> <span class="toc-text">Redux解决的问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Redux中三个重要要素"><span class="toc-number">1.4.</span> <span class="toc-text">Redux中三个重要要素</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Redux的需求从何而来？"><span class="toc-number">1.</span> <span class="toc-text">Redux的需求从何而来？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#React中的props和state"><span class="toc-number">1.1.</span> <span class="toc-text">React中的props和state</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#React中两个组件的交互"><span class="toc-number">1.2.</span> <span class="toc-text">React中两个组件的交互</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Redux解决的问题"><span class="toc-number">1.3.</span> <span class="toc-text">Redux解决的问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Redux中三个重要要素"><span class="toc-number">1.4.</span> <span class="toc-text">Redux中三个重要要素</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redux"><span class="toc-number">2.</span> <span class="toc-text">Redux</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Action"><span class="toc-number">2.1.</span> <span class="toc-text">Action</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Reducer"><span class="toc-number">2.2.</span> <span class="toc-text">Reducer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Store"><span class="toc-number">2.3.</span> <span class="toc-text">Store</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据流"><span class="toc-number">2.4.</span> <span class="toc-text">数据流</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#React-Redux"><span class="toc-number">3.</span> <span class="toc-text">React-Redux</span></a></li></ol>
     
     </div>
   </aside>
