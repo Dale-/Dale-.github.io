@@ -92,7 +92,7 @@
 
 
   
-    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/pose.jpg); background-size: auto 100%;">
+    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/home-bg.jpg); background-size: auto 100%;">
   
 
     <canvas width="100%" height="100%"></canvas>
@@ -241,56 +241,6 @@ React中两个组件的交互  一般一个组件内部就可能是一个完整�
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redux/">Redux</a></li></ul>
-
-    </div>
-    <footer class="article-footer">
-      
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-Atom-Shortcut"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/08/08/Atom-Shortcut/">Build Atom Development Environment</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/08/08/Atom-Shortcut/" class="article-date">
-	  <time datetime="2017-08-08T14:11:47.000Z" itemprop="datePublished">2017-08-08</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/atom/">atom</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><h3 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h3><p><code>ctrl-shift-s</code>  保存所有打开的文件<br><code>cmd-shift-o</code>  打开目录<br><code>cmd-alt-\</code>   显示或隐藏目录树<br><code>cmd-t</code>或<code>cmd-p</code> 查找文件<br><code>cmd-b</code> 在打开的文件之间切换<br><code>cmd-up</code> 移动到文件开始<br><code>cmd-down</code> 移动到文件结束</p>
-        <!-- 快捷键文件ctrl-shift-s  保存所有打开的文件cmd-shift-o  打开目录cmd-alt-\   显示或隐藏目录树cmd-t或cmd-p 查找文件cmd-b 在打开的文件之间切换cmd-up 移动到文件开始cmd-down 移动到文件结束
-
-Atom大小写转换cmd-u 使当前字符大写
-折叠alt-cmd-[ 折叠alt-cmd-] 展开alt-cmd-shift-{ 折叠全......  -->
-        <p class="article-more-link">
-          <a href="/2017/08/08/Atom-Shortcut/#more">Read More</a>
-        </p>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/atom/">atom</a></li></ul>
 
     </div>
     <footer class="article-footer">
@@ -771,6 +721,61 @@ UI组件 [component] component 负责渲染视图
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redux/">Redux</a></li></ul>
+
+    </div>
+    <footer class="article-footer">
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-React-Components-Lifecycle"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/12/React-Components-Lifecycle/">React Components Lifecycle</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/12/React-Components-Lifecycle/" class="article-date">
+	  <time datetime="2017-03-12T10:05:49.000Z" itemprop="datePublished">2017-03-12</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/React/">React</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="生命周期的三种状态"><a href="#生命周期的三种状态" class="headerlink" title="生命周期的三种状态"></a>生命周期的三种状态</h2><p><img src="/images/react-components-lifecycle/component-lifecycle.png" alt=""></p>
+<h3 id="Mounted"><a href="#Mounted" class="headerlink" title="Mounted"></a>Mounted</h3><p>React Components被render解析生成对应的DOM节点并被插入浏览器的DOM结构的一个过程。</p>
+<h3 id="Update"><a href="#Update" class="headerlink" title="Update"></a>Update</h3><p>一个mounted的React Components被重新render的过程。</p>
+<h3 id="Unmounted"><a href="#Unmounted" class="headerlink" title="Unmounted"></a>Unmounted</h3><p>一个mounted的React Components对应的DOM节点被从DOM结构中移除的这样一个过程。</p>
+        <!-- 生命周期的三种状态
+MountedReact Components被render解析生成对应的DOM节点并被插入浏览器的DOM结构的一个过程。
+Update一个mounted的React Components被重新render的过程。
+Unmounted一个mounted的React Components对应的DOM节点被从DOM结构中移除的这样一个过程。
+
+声明周期React 为每个状态都......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/12/React-Components-Lifecycle/#more">Read More</a>
+        </p>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
 
     </div>
     <footer class="article-footer">
