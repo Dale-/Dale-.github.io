@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://dale-.github.io/images/getting-started-with-redux/redux.png">
 <meta property="og:image" content="https://dale-.github.io/images/getting-started-with-redux/redux-workflow.png">
 <meta property="og:image" content="https://dale-.github.io/images/getting-started-with-redux/react-redux.png">
-<meta property="og:updated_time" content="2017-08-20T14:27:58.000Z">
+<meta property="og:updated_time" content="2017-08-20T14:29:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Getting Started with Redux">
 <meta name="twitter:description" content="how to start a project with React Redux">
@@ -250,9 +250,11 @@ Reducer是一个函数，它接受 Action 和当前 State 作为参数，返回�
 <li><p>mapStateToProps</p>
 <p>建立一个从（外部的）state对象到（UI 组件的）props对象的映射关系。</p>
 <p>作为函数，mapStateToProps执行后应该返回一个对象，里面的每一个键值对就是一个映射。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">const</span> mapStateToProps = <span class="function">(<span class="params">state</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    <span class="attr">todos</span>: getVisibleTodos(state.todos, state.visibilityFilter)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 <li><p>mapDispatchToProps</p>
 <p>mapDispatchToProps是connect函数的第二个参数，用来建立 UI 组件的参数到store.dispatch方法的映射。也就是说，它定义了哪些用户的操作应该当作 Action，传给 Store。它可以是一个函数，也可以是一个对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">const</span> mapDispatchToProps = (</div><div class="line">  dispatch,</div><div class="line">  ownProps</div><div class="line">) =&gt; &#123;</div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    <span class="attr">onClick</span>: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">      dispatch(&#123;</div><div class="line">        <span class="attr">type</span>: <span class="string">'SET_VISIBILITY_FILTER'</span>,</div><div class="line">        <span class="attr">filter</span>: ownProps.filter</div><div class="line">      &#125;);</div><div class="line">    &#125;</div><div class="line">  &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <h2 id="Resource"><a href="#Resource" class="headerlink" title="Resource"></a>Resource</h2><blockquote>
