@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://dale-.github.io/images/getting-started-with-redux/redux.png">
 <meta property="og:image" content="https://dale-.github.io/images/getting-started-with-redux/redux-workflow.png">
 <meta property="og:image" content="https://dale-.github.io/images/getting-started-with-redux/react-redux.png">
-<meta property="og:updated_time" content="2017-08-20T14:24:42.000Z">
+<meta property="og:updated_time" content="2017-08-20T14:27:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Getting Started with Redux">
 <meta name="twitter:description" content="how to start a project with React Redux">
@@ -248,10 +248,11 @@ Reducer是一个函数，它接受 Action 和当前 State 作为参数，返回�
 <h3 id="connect"><a href="#connect" class="headerlink" title="connect"></a>connect</h3><p>  connect是真正的重点，它是一个科里化函数，意思是先接受两个参数（数据绑定mapStateToProps和事件绑定mapDispatchToProps），再接受一个参数（将要绑定的组件本身）。</p>
 <ul>
 <li><p>mapStateToProps</p>
-<p>构建好Redux系统的时候，它会被自动初始化，但是你的React组件并不知道它的存在，因此你需要分拣出你需要的Redux状态，所以你需要绑定一个函数，它的参数是state，简单返回你关心的几个值。</p>
+<p>建立一个从（外部的）state对象到（UI 组件的）props对象的映射关系。</p>
+<p>作为函数，mapStateToProps执行后应该返回一个对象，里面的每一个键值对就是一个映射。</p>
 </li>
 <li><p>mapDispatchToProps</p>
-<p>声明好的action作为回调，也可以被注入到组件里，就是通过这个函数，它的参数是dispatch，通过redux的辅助方法bindActionCreator绑定所有action以及参数的dispatch，就可以作为属性在组件里面作为函数简单使用了，不需要手动dispatch。这个mapDispatchToProps是可选的，如果不传这个参数redux会简单把dispatch作为属性注入给组件，可以手动当做store.dispatch使用。这也是为什么要科里化的原因</p>
+<p>mapDispatchToProps是connect函数的第二个参数，用来建立 UI 组件的参数到store.dispatch方法的映射。也就是说，它定义了哪些用户的操作应该当作 Action，传给 Store。它可以是一个函数，也可以是一个对象。</p>
 </li>
 </ul>
 <h2 id="Resource"><a href="#Resource" class="headerlink" title="Resource"></a>Resource</h2><blockquote>
