@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://dale-.github.io/images/getting-started-with-redux/redux.png">
 <meta property="og:image" content="https://dale-.github.io/images/getting-started-with-redux/redux-workflow.png">
 <meta property="og:image" content="https://dale-.github.io/images/getting-started-with-redux/react-redux.png">
-<meta property="og:updated_time" content="2017-08-20T14:23:17.000Z">
+<meta property="og:updated_time" content="2017-08-20T14:24:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Getting Started with Redux">
 <meta name="twitter:description" content="how to start a project with React Redux">
@@ -239,7 +239,12 @@ Reducer是一个函数，它接受 Action 和当前 State 作为参数，返回�
 <li>所有数据都由参数（this.props）提供</li>
 <li>不使用任何 Redux 的 API</li>
 </ul>
-<h3 id="容器组件"><a href="#容器组件" class="headerlink" title="容器组件"></a>容器组件</h3><h3 id="Provider"><a href="#Provider" class="headerlink" title="Provider"></a>Provider</h3><p>  Provider是一个普通组件，可以作为顶层app的分发点，它只需要store属性就可以了。它会将state分发给所有被connect的组件，不管它在哪里，被嵌套多少层。</p>
+<h3 id="容器组件"><a href="#容器组件" class="headerlink" title="容器组件"></a>容器组件</h3><ul>
+<li>负责管理数据和业务逻辑，不负责 UI 的呈现</li>
+<li>带有内部状态</li>
+<li>使用 Redux 的 API</li>
+</ul>
+<h3 id="Provider"><a href="#Provider" class="headerlink" title="Provider"></a>Provider</h3><p>  Provider是一个普通组件，可以作为顶层app的分发点，它只需要store属性就可以了。它会将state分发给所有被connect的组件，不管它在哪里，被嵌套多少层。</p>
 <h3 id="connect"><a href="#connect" class="headerlink" title="connect"></a>connect</h3><p>  connect是真正的重点，它是一个科里化函数，意思是先接受两个参数（数据绑定mapStateToProps和事件绑定mapDispatchToProps），再接受一个参数（将要绑定的组件本身）。</p>
 <ul>
 <li><p>mapStateToProps</p>
