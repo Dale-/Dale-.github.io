@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://dale-.github.io/images/getting-started-with-redux/redux.png">
 <meta property="og:image" content="https://dale-.github.io/images/getting-started-with-redux/redux-workflow.png">
 <meta property="og:image" content="https://dale-.github.io/images/getting-started-with-redux/react-redux.png">
-<meta property="og:updated_time" content="2017-08-20T14:29:50.000Z">
+<meta property="og:updated_time" content="2017-08-24T13:54:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Getting Started with Redux">
 <meta name="twitter:description" content="how to start a project with React Redux">
@@ -245,6 +245,8 @@ Reducer是一个函数，它接受 Action 和当前 State 作为参数，返回�
 <li>使用 Redux 的 API</li>
 </ul>
 <h3 id="Provider"><a href="#Provider" class="headerlink" title="Provider"></a>Provider</h3><p>  Provider是一个普通组件，可以作为顶层app的分发点，它只需要store属性就可以了。它会将state分发给所有被connect的组件，不管它在哪里，被嵌套多少层。</p>
+<p>  React-Redux 提供Provider组件，可以让容器组件拿到state。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; Provider &#125; <span class="keyword">from</span> <span class="string">'react-redux'</span></div><div class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span></div><div class="line"><span class="keyword">import</span> todoApp <span class="keyword">from</span> <span class="string">'./reducers'</span></div><div class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'./components/App'</span></div><div class="line"></div><div class="line"><span class="keyword">let</span> store = createStore(todoApp);</div><div class="line"></div><div class="line">render(</div><div class="line">&lt;Provider store=&#123;store&#125;&gt;</div><div class="line">  &lt;App /&gt;</div><div class="line">&lt;/Provider&gt;,</div><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">'root'</span>)</div><div class="line">)</div></pre></td></tr></table></figure>
 <h3 id="connect"><a href="#connect" class="headerlink" title="connect"></a>connect</h3><p>  connect是真正的重点，它是一个科里化函数，意思是先接受两个参数（数据绑定mapStateToProps和事件绑定mapDispatchToProps），再接受一个参数（将要绑定的组件本身）。</p>
 <ul>
 <li><p>mapStateToProps</p>
