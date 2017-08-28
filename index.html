@@ -229,8 +229,21 @@
 <li>Pending =&gt; Fulfilled</li>
 <li>Pending =&gt; Rejected</li>
 </ul>
-<h2 id="Promise使用"><a href="#Promise使用" class="headerlink" title="Promise使用"></a>Promise使用</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">  <span class="comment">// ... some code</span></div><div class="line"></div><div class="line">  <span class="keyword">if</span> (<span class="comment">/* 异步操作成功 */</span>)&#123;</div><div class="line">    resolve(value);</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    reject(error);</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p><img src="/images/promise/promises.png" alt=""></p>
+        <!-- Promise定义
+所谓 Promise，就是一个对象，用来传递异步操作的消息。它代表了某个未来才会知道结果的事件（通常是一个异步操作），并且这个事件提供统一的 API，可供进一步处理。
 
+三种状态
+Pending(进行中)
+Fulfilled(已成功)
+Rejected(已失败)
+
+只有异步操作的结果可以决定当前处于哪一种状态，其他任何操作都无法改变这个状态。
+状态的改变
+Pending ......  -->
+        <p class="article-more-link">
+          <a href="/2017/08/28/Promise/#more">Read More</a>
+        </p>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/">ES6</a></li></ul>

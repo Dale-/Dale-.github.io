@@ -18,10 +18,12 @@
 <meta property="og:url" content="https://dale-.github.io/2017/08/28/Promise/index.html">
 <meta property="og:site_name" content="The Girl Behind">
 <meta property="og:description" content="Promise">
-<meta property="og:updated_time" content="2017-08-28T14:31:37.000Z">
+<meta property="og:image" content="https://dale-.github.io/images/promise/promises.png">
+<meta property="og:updated_time" content="2017-08-28T14:33:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Promise">
 <meta name="twitter:description" content="Promise">
+<meta name="twitter:image" content="https://dale-.github.io/images/promise/promises.png">
   
     <link rel="alternate" href="/atom.xml" title="The Girl Behind" type="application/atom+xml">
   
@@ -185,6 +187,8 @@
 <li>Pending =&gt; Fulfilled</li>
 <li>Pending =&gt; Rejected</li>
 </ul>
+<p><img src="/images/promise/promises.png" alt=""></p>
+<a id="more"></a>  
 <h2 id="Promise使用"><a href="#Promise使用" class="headerlink" title="Promise使用"></a>Promise使用</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">  <span class="comment">// ... some code</span></div><div class="line"></div><div class="line">  <span class="keyword">if</span> (<span class="comment">/* 异步操作成功 */</span>)&#123;</div><div class="line">    resolve(value);</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    reject(error);</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 
       
