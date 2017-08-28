@@ -18,7 +18,7 @@
 <meta property="og:url" content="https://dale-.github.io/2017/08/28/Promise/index.html">
 <meta property="og:site_name" content="The Girl Behind">
 <meta property="og:description" content="Promise">
-<meta property="og:updated_time" content="2017-08-28T14:26:39.000Z">
+<meta property="og:updated_time" content="2017-08-28T14:31:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Promise">
 <meta name="twitter:description" content="Promise">
@@ -183,9 +183,10 @@
 <p>只有异步操作的结果可以决定当前处于哪一种状态，其他任何操作都无法改变这个状态。</p>
 <h3 id="状态的改变"><a href="#状态的改变" class="headerlink" title="状态的改变"></a>状态的改变</h3><ul>
 <li>Pending =&gt; Fulfilled</li>
-<li>Pending =&gt; Rejected </li>
+<li>Pending =&gt; Rejected</li>
 </ul>
-<h2 id="Promise使用"><a href="#Promise使用" class="headerlink" title="Promise使用"></a>Promise使用</h2>
+<h2 id="Promise使用"><a href="#Promise使用" class="headerlink" title="Promise使用"></a>Promise使用</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">  <span class="comment">// ... some code</span></div><div class="line"></div><div class="line">  <span class="keyword">if</span> (<span class="comment">/* 异步操作成功 */</span>)&#123;</div><div class="line">    resolve(value);</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    reject(error);</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/">ES6</a></li></ul>
