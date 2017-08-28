@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="The Girl Behind">
 <meta property="og:description" content="Promise">
 <meta property="og:image" content="https://dale-.github.io/images/promise/promises.png">
-<meta property="og:updated_time" content="2017-08-28T14:35:43.000Z">
+<meta property="og:updated_time" content="2017-08-28T14:36:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Promise">
 <meta name="twitter:description" content="Promise">
@@ -191,6 +191,8 @@
 <a id="more"></a>  
 <h2 id="Promise使用"><a href="#Promise使用" class="headerlink" title="Promise使用"></a>Promise使用</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">  <span class="comment">// ... some code</span></div><div class="line"></div><div class="line">  <span class="keyword">if</span> (<span class="comment">/* 异步操作成功 */</span>)&#123;</div><div class="line">    resolve(value);</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    reject(error);</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>resolve函数的作用是，将Promise对象的状态从“未完成”变为“成功”（即从 Pending 变为 Resolved），在异步操作成功时调用，并将异步操作的结果，作为参数传递出去；reject函数的作用是，将Promise对象的状态从“未完成”变为“失败”（即从 Pending 变为 Rejected），在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">promise.then(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</div><div class="line">  <span class="comment">// success</span></div><div class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</div><div class="line">  <span class="comment">// failure</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>Promise实例生成以后，可以用then方法分别指定Resolved状态和Rejected状态的回调函数。</p>
 
       
       
