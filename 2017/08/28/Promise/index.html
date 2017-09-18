@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="The Girl Behind">
 <meta property="og:description" content="Promise">
 <meta property="og:image" content="https://dale-.github.io/images/promise/promises.png">
-<meta property="og:updated_time" content="2017-08-28T14:36:45.000Z">
+<meta property="og:updated_time" content="2017-09-18T14:15:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Promise">
 <meta name="twitter:description" content="Promise">
@@ -189,6 +189,11 @@
 </ul>
 <p><img src="/images/promise/promises.png" alt=""></p>
 <a id="more"></a>  
+<h2 id="三种类型"><a href="#三种类型" class="headerlink" title="三种类型"></a>三种类型</h2><h3 id="Constructor"><a href="#Constructor" class="headerlink" title="Constructor"></a>Constructor</h3><blockquote>
+<p>Promise类似于 XMLHttpRequest，从构造函数 Promise 来创建一个新建新promise对象作为接口。</p>
+</blockquote>
+<p>要想创建一个promise对象、可以使用new来调用Promise的构造器来进行实例化。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">    <span class="comment">// 异步处理</span></div><div class="line">    <span class="comment">// 处理结束后、调用resolve 或 reject</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <h2 id="Promise使用"><a href="#Promise使用" class="headerlink" title="Promise使用"></a>Promise使用</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">  <span class="comment">// ... some code</span></div><div class="line"></div><div class="line">  <span class="keyword">if</span> (<span class="comment">/* 异步操作成功 */</span>)&#123;</div><div class="line">    resolve(value);</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    reject(error);</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>resolve函数的作用是，将Promise对象的状态从“未完成”变为“成功”（即从 Pending 变为 Resolved），在异步操作成功时调用，并将异步操作的结果，作为参数传递出去；reject函数的作用是，将Promise对象的状态从“未完成”变为“失败”（即从 Pending 变为 Rejected），在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">promise.then(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</div><div class="line">  <span class="comment">// success</span></div><div class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</div><div class="line">  <span class="comment">// failure</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
@@ -248,7 +253,7 @@
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Promise定义"><span class="toc-number">1.</span> <span class="toc-text">Promise定义</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#三种状态"><span class="toc-number">1.1.</span> <span class="toc-text">三种状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#状态的改变"><span class="toc-number">1.2.</span> <span class="toc-text">状态的改变</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Promise使用"><span class="toc-number">2.</span> <span class="toc-text">Promise使用</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Promise定义"><span class="toc-number">1.</span> <span class="toc-text">Promise定义</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#三种状态"><span class="toc-number">1.1.</span> <span class="toc-text">三种状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#状态的改变"><span class="toc-number">1.2.</span> <span class="toc-text">状态的改变</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三种类型"><span class="toc-number">2.</span> <span class="toc-text">三种类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Constructor"><span class="toc-number">2.1.</span> <span class="toc-text">Constructor</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Promise使用"><span class="toc-number">3.</span> <span class="toc-text">Promise使用</span></a></li></ol>
     
     </div>
   </aside>
