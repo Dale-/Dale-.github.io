@@ -92,7 +92,7 @@
 
 
   
-    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/sample.jpg); background-size: auto 100%;">
+    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/pose.jpg); background-size: auto 100%;">
   
 
     <canvas width="100%" height="100%"></canvas>
@@ -189,6 +189,56 @@
       <div id="content" class="outer">
         
           <section id="main" style="float:none;">
+  
+    <article id="post-Flex-Layout"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/09/19/Flex-Layout/">Flex Layout</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/09/19/Flex-Layout/" class="article-date">
+	  <time datetime="2017-09-19T13:19:32.000Z" itemprop="datePublished">2017-09-19</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/CSS/">CSS</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Flex-容器"><a href="#Flex-容器" class="headerlink" title="Flex 容器"></a>Flex 容器</h2><p><img src="/images/flex/flex-container.png" alt=""></p>
+<h2 id="容器属性"><a href="#容器属性" class="headerlink" title="容器属性"></a>容器属性</h2><h3 id="flex-direcion"><a href="#flex-direcion" class="headerlink" title="flex-direcion"></a>flex-direcion</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span> &#123;</div><div class="line">  <span class="attribute">flex-direction</span>: row | row-reverse | column | column-reverse;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="flex-wrap"></a>flex-wrap</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span>&#123;</div><div class="line">  <span class="attribute">flex-wrap</span>: nowrap | wrap | wrap-reverse;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="flex-flow"><a href="#flex-flow" class="headerlink" title="flex-flow"></a>flex-flow</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span> &#123;</div><div class="line">  <span class="attribute">flex-flow</span>: &lt;flex-direction&gt; || &lt;flex-wrap&gt;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span> &#123;</div><div class="line">  <span class="attribute">flex-direction</span>: row | row-reverse | column | column-reverse;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a>align-items</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span> &#123;</div><div class="line">  <span class="attribute">flex-direction</span>: row | row-reverse | column | column-reverse;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span> &#123;</div><div class="line">  <span class="attribute">justify-content</span>: flex-start | flex-end | center | space-between | space-around;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="项目属性"><a href="#项目属性" class="headerlink" title="项目属性"></a>项目属性</h2><h3 id="order"><a href="#order" class="headerlink" title="order"></a>order</h3><h3 id="flex-grow"><a href="#flex-grow" class="headerlink" title="flex-grow"></a>flex-grow</h3><h3 id="flex-shrink"><a href="#flex-shrink" class="headerlink" title="flex-shrink"></a>flex-shrink</h3><h3 id="flex-basis"><a href="#flex-basis" class="headerlink" title="flex-basis"></a>flex-basis</h3><h3 id="align-self"><a href="#align-self" class="headerlink" title="align-self"></a>align-self</h3>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+
+    </div>
+    <footer class="article-footer">
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
   
     <article id="post-Promise"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
@@ -717,76 +767,6 @@ createStore函数接受另一个函数作为参数，返回新生成的Store对�
 store.disp......  -->
         <p class="article-more-link">
           <a href="/2017/04/12/Getting-started-with-React-Redux/#more">Read More</a>
-        </p>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redux/">Redux</a></li></ul>
-
-    </div>
-    <footer class="article-footer">
-      
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-Using-redux-with-react"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/14/Using-redux-with-react/">Using redux with react</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/14/Using-redux-with-react/" class="article-date">
-	  <time datetime="2017-03-14T12:06:08.000Z" itemprop="datePublished">2017-03-14</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h2><blockquote>
-<p>React-Redux 将所有组件分成两大类：UI 组件（presentational component）和容器组件（container component）。</p>
-</blockquote>
-<h3 id="UI组件-component"><a href="#UI组件-component" class="headerlink" title="UI组件 [component]"></a>UI组件 [component]</h3><p> <strong>component 负责渲染视图</strong></p>
-<ul>
-<li>只负责 UI 的渲染，不带有任何业务逻辑</li>
-<li>没有状态（即不使用this.state这个变量）</li>
-<li>所有数据都由参数（this.props）提供</li>
-<li>不使用 Redux 的 API</li>
-</ul>
-<h3 id="容器组件-container"><a href="#容器组件-container" class="headerlink" title="容器组件 [container]"></a>容器组件 [container]</h3><p> <strong>container 负责管理数据和逻辑、状态</strong></p>
-<ul>
-<li>负责管理数据和业务逻辑，不负责 UI 的呈现</li>
-<li>带有内部状态</li>
-<li>使用 Redux 的 API</li>
-</ul>
-        <!-- 组件
-React-Redux 将所有组件分成两大类：UI 组件（presentational component）和容器组件（container component）。
-
-UI组件 [component] component 负责渲染视图
-
-只负责 UI 的渲染，不带有任何业务逻辑
-没有状态（即不使用this.state这个变量）
-所有数据都由参数（this.props）提供
-不使用 Red......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/14/Using-redux-with-react/#more">Read More</a>
         </p>
       
       
