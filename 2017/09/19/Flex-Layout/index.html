@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="The Girl Behind">
 <meta property="og:description" content="flex layout">
 <meta property="og:image" content="https://dale-.github.io/images/flex/flex-container.png">
-<meta property="og:updated_time" content="2017-09-20T14:34:31.000Z">
+<meta property="og:updated_time" content="2017-09-22T15:41:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flex Layout">
 <meta name="twitter:description" content="flex layout">
@@ -189,7 +189,7 @@
 </li>
 <li><p>main size : 单个项目占据的主轴空间</p>
 </li>
-<li>cross size : 占据的交叉轴空间 </li>
+<li>cross size : 占据的交叉轴空间</li>
 </ul>
 <h2 id="容器属性"><a href="#容器属性" class="headerlink" title="容器属性"></a>容器属性</h2><h3 id="flex-direcion"><a href="#flex-direcion" class="headerlink" title="flex-direcion"></a>flex-direcion</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span> &#123;</div><div class="line">  <span class="attribute">flex-direction</span>: row | row-reverse | column | column-reverse;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ul>
@@ -199,7 +199,8 @@
 <li>column-reverse：主轴为垂直方向，起点在下沿。</li>
 </ul>
 <a id="more"></a>  
-<h3 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="flex-wrap"></a>flex-wrap</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span>&#123;</div><div class="line">  <span class="attribute">flex-wrap</span>: nowrap | wrap | wrap-reverse;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="flex-wrap"></a>flex-wrap</h3><p>默认情况下，项目都排在一条线（又称”轴线”）上。flex-wrap属性定义，如果一条轴线排不下，如何换行。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span>&#123;</div><div class="line">  <span class="attribute">flex-wrap</span>: nowrap | wrap | wrap-reverse;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ul>
 <li>nowrap（默认）：不换行。</li>
 <li>wrap：换行，第一行在上方。</li>
