@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://dale-.github.io/images/flex/justify-content-center.png">
 <meta property="og:image" content="https://dale-.github.io/images/flex/justify-content-space-between.png">
 <meta property="og:image" content="https://dale-.github.io/images/flex/justify-content-space-around.png">
-<meta property="og:updated_time" content="2017-09-24T14:41:00.000Z">
+<meta property="og:updated_time" content="2017-09-24T14:42:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flex Layout">
 <meta name="twitter:description" content="flex layout">
@@ -240,7 +240,10 @@
 <li>space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。<br><img src="/images/flex/justify-content-space-around.png" alt=""></li>
 </ul>
 <hr>
-<h3 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a>align-items</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span> &#123;</div><div class="line">  <span class="attribute">align-items</span>: flex-start | flex-end | center | baseline | stretch;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a>align-items</h3><blockquote>
+<p>align-items属性定义项目在交叉轴上如何对齐。</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span> &#123;</div><div class="line">  <span class="attribute">align-items</span>: flex-start | flex-end | center | baseline | stretch;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ul>
 <li>flex-start：交叉轴的起点对齐。</li>
 <li>flex-end：交叉轴的终点对齐。</li>
@@ -249,7 +252,10 @@
 <li>stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。</li>
 </ul>
 <hr>
-<h3 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span> &#123;</div><div class="line">  <span class="attribute">align-content</span>: flex-start | flex-end | center | space-between | space-around | stretch;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h3><blockquote>
+<p>align-content属性定义了多根轴线（多行）的对齐方式。如果项目只有一根轴线，该属性不起作用。</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span> &#123;</div><div class="line">  <span class="attribute">align-content</span>: flex-start | flex-end | center | space-between | space-around | stretch;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ul>
 <li>flex-start：与交叉轴的起点对齐。</li>
 <li>flex-end：与交叉轴的终点对齐。</li>
