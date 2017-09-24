@@ -23,7 +23,12 @@
 <meta property="og:image" content="https://dale-.github.io/images/flex/flex-no-wrap.png">
 <meta property="og:image" content="https://dale-.github.io/images/flex/flex-wrap.png">
 <meta property="og:image" content="https://dale-.github.io/images/flex/flex-wrap-reverse.png">
-<meta property="og:updated_time" content="2017-09-24T14:34:16.000Z">
+<meta property="og:image" content="https://dale-.github.io/images/flex/justify-content-flex-start.png">
+<meta property="og:image" content="https://dale-.github.io/images/flex/justify-content-flex-end.png">
+<meta property="og:image" content="https://dale-.github.io/images/flex/justify-content-center.png">
+<meta property="og:image" content="https://dale-.github.io/images/flex/justify-content-space-between.png">
+<meta property="og:image" content="https://dale-.github.io/images/flex/justify-content-space-around.png">
+<meta property="og:updated_time" content="2017-09-24T14:41:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flex Layout">
 <meta name="twitter:description" content="flex layout">
@@ -223,13 +228,16 @@
 <h3 id="flex-flow"><a href="#flex-flow" class="headerlink" title="flex-flow"></a>flex-flow</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span> &#123;</div><div class="line">  <span class="attribute">flex-flow</span>: &lt;flex-direction&gt; || &lt;flex-wrap&gt;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>flex-flow属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap。</p>
 <hr>
-<h3 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span> &#123;</div><div class="line">  <span class="attribute">justify-content</span>: flex-start | flex-end | center | space-between | space-around;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h3><blockquote>
+<p>justify-content属性定义了项目在主轴上的对齐方式。</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span> &#123;</div><div class="line">  <span class="attribute">justify-content</span>: flex-start | flex-end | center | space-between | space-around;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ul>
-<li>flex-start（默认值）：左对齐</li>
-<li>flex-end：右对齐</li>
-<li>center： 居中</li>
-<li>space-between：两端对齐，项目之间的间隔都相等。</li>
-<li>space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。</li>
+<li>flex-start（默认值）：左对齐<br><img src="/images/flex/justify-content-flex-start.png" alt=""></li>
+<li>flex-end：右对齐<br><img src="/images/flex/justify-content-flex-end.png" alt=""></li>
+<li>center： 居中<br><img src="/images/flex/justify-content-center.png" alt=""></li>
+<li>space-between：两端对齐，项目之间的间隔都相等。<br><img src="/images/flex/justify-content-space-between.png" alt=""></li>
+<li>space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。<br><img src="/images/flex/justify-content-space-around.png" alt=""></li>
 </ul>
 <hr>
 <h3 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a>align-items</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span> &#123;</div><div class="line">  <span class="attribute">align-items</span>: flex-start | flex-end | center | baseline | stretch;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
