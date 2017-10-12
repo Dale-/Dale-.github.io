@@ -44,7 +44,7 @@
 <meta property="og:image" content="https://dale-.github.io/images/flex/flex-shrink.png">
 <meta property="og:image" content="https://dale-.github.io/images/flex/flex-basis.png">
 <meta property="og:image" content="https://dale-.github.io/images/flex/flex-align-self.png">
-<meta property="og:updated_time" content="2017-10-12T12:49:48.000Z">
+<meta property="og:updated_time" content="2017-10-12T12:57:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flex Layout">
 <meta name="twitter:description" content="flex layout">
@@ -209,18 +209,14 @@
 <a id="more"></a>  
 <ul>
 <li>flex container : Flex容器</li>
-<li><p>flex item : Flex项目</p>
-</li>
-<li><p>main axis : 水平的主轴</p>
-</li>
+<li>flex item : Flex项目</li>
+<li>main axis : 水平的主轴</li>
 <li>cross axis : 垂直的交叉轴</li>
 <li>main start : 主轴的开始位置（与边框的交叉点）</li>
 <li>main end : 主轴的结束位置（与边框的交叉点）</li>
 <li>cross start : 交叉轴的开始位置</li>
-<li><p>cross end : 交叉轴的结束位置</p>
-</li>
-<li><p>main size : 单个项目占据的主轴空间</p>
-</li>
+<li>cross end : 交叉轴的结束位置</li>
+<li>main size : 单个项目占据的主轴空间</li>
 <li>cross size : 占据的交叉轴空间</li>
 </ul>
 <h2 id="容器属性"><a href="#容器属性" class="headerlink" title="容器属性"></a>容器属性</h2><h3 id="flex-direcion"><a href="#flex-direcion" class="headerlink" title="flex-direcion"></a>flex-direcion</h3><blockquote>
@@ -257,6 +253,7 @@
 <hr>
 <h3 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h3><blockquote>
 <p>justify-content属性定义了项目在主轴上的对齐方式。</p>
+<p>This defines the alignment along the main axis. It helps distribute extra free space left over when either all the flex items on a line are inflexible, or are flexible but have reached their maximum size. It also exerts some control over the alignment of items when they overflow the line.</p>
 </blockquote>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span> &#123;</div><div class="line">  <span class="attribute">justify-content</span>: flex-start | flex-end | center | space-between | space-around;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h4 id="flex-start（默认值）：左对齐"><a href="#flex-start（默认值）：左对齐" class="headerlink" title="flex-start（默认值）：左对齐"></a>flex-start（默认值）：左对齐</h4><p><img src="/images/flex/justify-content-flex-start.png" alt=""></p>
@@ -267,6 +264,7 @@
 <hr>
 <h3 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a>align-items</h3><blockquote>
 <p>align-items属性定义项目在交叉轴上如何对齐。</p>
+<p>This defines the default behaviour for how flex items are laid out along the cross axis on the current line. Think of it as the justify-content version for the cross-axis (perpendicular to the main-axis).</p>
 </blockquote>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span> &#123;</div><div class="line">  <span class="attribute">align-items</span>: flex-start | flex-end | center | baseline | stretch;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h4 id="flex-start：交叉轴的起点对齐。"><a href="#flex-start：交叉轴的起点对齐。" class="headerlink" title="flex-start：交叉轴的起点对齐。"></a>flex-start：交叉轴的起点对齐。</h4><p><img src="/images/flex/align-items-flex-start.png" alt=""></p>
@@ -277,6 +275,8 @@
 <hr>
 <h3 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h3><blockquote>
 <p>align-content属性定义了多根轴线（多行）的对齐方式。如果项目只有一根轴线，该属性不起作用。</p>
+<p>This aligns a flex container’s lines within when there is extra space in the cross-axis, similar to how justify-content aligns individual items within the main-axis.</p>
+<p>Note: this property has no effect when there is only one line of flex items.</p>
 </blockquote>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span> &#123;</div><div class="line">  <span class="attribute">align-content</span>: flex-start | flex-end | center | space-between | space-around | stretch;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h4 id="flex-start：与交叉轴的起点对齐。"><a href="#flex-start：与交叉轴的起点对齐。" class="headerlink" title="flex-start：与交叉轴的起点对齐。"></a>flex-start：与交叉轴的起点对齐。</h4><p><img src="/images/flex/align-content-flex-start.png" alt=""></p>
@@ -287,30 +287,37 @@
 <h4 id="stretch（默认值）：轴线占满整个交叉轴。"><a href="#stretch（默认值）：轴线占满整个交叉轴。" class="headerlink" title="stretch（默认值）：轴线占满整个交叉轴。"></a>stretch（默认值）：轴线占满整个交叉轴。</h4><p><img src="/images/flex/align-content-stretch.png" alt=""></p>
 <h2 id="项目属性"><a href="#项目属性" class="headerlink" title="项目属性"></a>项目属性</h2><h3 id="order"><a href="#order" class="headerlink" title="order"></a>order</h3><blockquote>
 <p>order属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。</p>
+<p>By default, flex items are laid out in the source order. However, the order property controls the order in which they appear in the flex container.</p>
 </blockquote>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.item</span> &#123;</div><div class="line">  <span class="attribute">order</span>: &lt;integer&gt;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><img src="/images/flex/flex-order.png" alt=""></p>
 <hr>
 <h3 id="flex-grow"><a href="#flex-grow" class="headerlink" title="flex-grow"></a>flex-grow</h3><blockquote>
 <p>flex-grow属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。</p>
+<p>This defines the ability for a flex item to grow if necessary. It accepts a unitless value that serves as a proportion. It dictates what amount of the available space inside the flex container the item should take up.</p>
+<p>If all items have flex-grow set to 1, the remaining space in the container will be distributed equally to all children. If one of the children has a value of 2, the remaining space would take up twice as much space as the others (or it will try to, at least).</p>
 </blockquote>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.item</span> &#123;</div><div class="line">  <span class="attribute">flex-grow</span>: &lt;number&gt;; <span class="comment">/* default 0 */</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><img src="/images/flex/flex-grow.png" alt=""></p>
 <hr>
 <h3 id="flex-shrink"><a href="#flex-shrink" class="headerlink" title="flex-shrink"></a>flex-shrink</h3><blockquote>
 <p>flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。</p>
+<p>This defines the ability for a flex item to shrink if necessary.</p>
 </blockquote>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.item</span> &#123;</div><div class="line">  <span class="attribute">flex-shrink</span>: &lt;number&gt;; <span class="comment">/* default 1 */</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><img src="/images/flex/flex-shrink.png" alt=""></p>
 <hr>
 <h3 id="flex-basis"><a href="#flex-basis" class="headerlink" title="flex-basis"></a>flex-basis</h3><blockquote>
 <p>flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。</p>
+<p>This defines the default size of an element before the remaining space is distributed. It can be a length (e.g. 20%, 5rem, etc.) or a keyword. The auto keyword means “look at my width or height property” (which was temporarily done by the main-size keyword until deprecated). The content keyword means “size it based on the item’s content” - this keyword isn’t well supported yet, so it’s hard to test and harder to know what its brethren max-content, min-content, and fit-content do.</p>
 </blockquote>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.item</span> &#123;</div><div class="line">  <span class="attribute">flex-basis</span>: &lt;length&gt; | auto; <span class="comment">/* default auto */</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><img src="/images/flex/flex-basis.png" alt=""></p>
 <hr>
 <h3 id="align-self"><a href="#align-self" class="headerlink" title="align-self"></a>align-self</h3><blockquote>
 <p>align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。</p>
+<p>This allows the default alignment (or the one specified by align-items) to be overridden for individual flex items.</p>
+<p>Please see the align-items explanation to understand the available values.</p>
 </blockquote>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.item</span> &#123;</div><div class="line">  <span class="attribute">align-self</span>: auto | flex-start | flex-end | center | baseline | stretch;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><img src="/images/flex/flex-align-self.png" alt=""></p>
