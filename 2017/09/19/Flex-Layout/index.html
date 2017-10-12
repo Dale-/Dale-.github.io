@@ -44,7 +44,7 @@
 <meta property="og:image" content="https://dale-.github.io/images/flex/flex-shrink.png">
 <meta property="og:image" content="https://dale-.github.io/images/flex/flex-basis.png">
 <meta property="og:image" content="https://dale-.github.io/images/flex/flex-align-self.png">
-<meta property="og:updated_time" content="2017-10-12T12:48:26.000Z">
+<meta property="og:updated_time" content="2017-10-12T12:49:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flex Layout">
 <meta name="twitter:description" content="flex layout">
@@ -236,8 +236,10 @@
 </ul>
 <p><img src="/images/flex/flex-direction.png" alt=""></p>
 <hr>
-<h3 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="flex-wrap"></a>flex-wrap</h3><p>默认情况下，项目都排在一条线（又称”轴线”）上。flex-wrap属性定义，如果一条轴线排不下，如何换行。</p>
+<h3 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="flex-wrap"></a>flex-wrap</h3><blockquote>
+<p>默认情况下，项目都排在一条线（又称”轴线”）上。flex-wrap属性定义，如果一条轴线排不下，如何换行。</p>
 <p>By default, flex items will all try to fit onto one line. You can change that and allow the items to wrap as needed with this property.</p>
+</blockquote>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span>&#123;</div><div class="line">  <span class="attribute">flex-wrap</span>: nowrap | wrap | wrap-reverse;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ul>
 <li>nowrap（默认）：不换行。</li>
@@ -247,9 +249,11 @@
 <h4 id="nowrap-默认-：不换行"><a href="#nowrap-默认-：不换行" class="headerlink" title="nowrap(默认)：不换行"></a>nowrap(默认)：不换行</h4><p><img src="/images/flex/flex-no-wrap.png" alt=""></p>
 <h4 id="wrap：换行，第一行在上方"><a href="#wrap：换行，第一行在上方" class="headerlink" title="wrap：换行，第一行在上方"></a>wrap：换行，第一行在上方</h4><p><img src="/images/flex/flex-wrap.png" alt=""></p>
 <h4 id="wrap-reverse：换行，第一行在下方"><a href="#wrap-reverse：换行，第一行在下方" class="headerlink" title="wrap-reverse：换行，第一行在下方"></a>wrap-reverse：换行，第一行在下方</h4><p><img src="/images/flex/flex-wrap-reverse.png" alt=""></p>
-<h3 id="flex-flow"><a href="#flex-flow" class="headerlink" title="flex-flow"></a>flex-flow</h3><p>This is a shorthand flex-direction and flex-wrap properties, which together define the flex container’s main and cross axes. Default is row nowrap.</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span> &#123;</div><div class="line">  <span class="attribute">flex-flow</span>: &lt;flex-direction&gt; || &lt;flex-wrap&gt;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="flex-flow"><a href="#flex-flow" class="headerlink" title="flex-flow"></a>flex-flow</h3><blockquote>
 <p>flex-flow属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap。</p>
+<p>This is a shorthand flex-direction and flex-wrap properties, which together define the flex container’s main and cross axes. Default is row nowrap.</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span> &#123;</div><div class="line">  <span class="attribute">flex-flow</span>: &lt;flex-direction&gt; || &lt;flex-wrap&gt;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <hr>
 <h3 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h3><blockquote>
 <p>justify-content属性定义了项目在主轴上的对齐方式。</p>
