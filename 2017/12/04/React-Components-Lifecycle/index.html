@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>react components lifecycle | The Girl Behind</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Components-Lifecycle" />
+  
+  
+  
+  
+  <meta name="description" content="React Components Lifecycle">
+<meta name="keywords" content="Components-Lifecycle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React Components Lifecycle">
+<meta property="og:url" content="https://dale-.github.io/2017/12/04/React-Components-Lifecycle/index.html">
+<meta property="og:site_name" content="The Girl Behind">
+<meta property="og:description" content="React Components Lifecycle">
+<meta property="og:image" content="https://dale-.github.io/images/react-components-lifecycle/component-lifecycle.png">
+<meta property="og:image" content="https://dale-.github.io/images/react-components-lifecycle/mounting.png">
+<meta property="og:image" content="https://dale-.github.io/images/react-components-lifecycle/updating-props.png">
+<meta property="og:image" content="https://dale-.github.io/images/react-components-lifecycle/updating-state.png">
+<meta property="og:image" content="https://dale-.github.io/images/react-components-lifecycle/unmounting.png">
+<meta property="og:updated_time" content="2017-12-04T15:23:43.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React Components Lifecycle">
+<meta name="twitter:description" content="React Components Lifecycle">
+<meta name="twitter:image" content="https://dale-.github.io/images/react-components-lifecycle/component-lifecycle.png">
+  
+    <link rel="alternate" href="/atom.xml" title="The Girl Behind" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+
+</head>
+
+<body>
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="https://github.com/Dale-">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-React-Components-Lifecycle" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      React Components Lifecycle
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/12/04/React-Components-Lifecycle/" class="article-date">
+	  <time datetime="2017-12-04T14:05:49.000Z" itemprop="datePublished">2017-12-04</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/React/">React</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="生命周期的三种状态"><a href="#生命周期的三种状态" class="headerlink" title="生命周期的三种状态"></a>生命周期的三种状态</h2><p><img src="/images/react-components-lifecycle/component-lifecycle.png" alt=""></p>
+<h3 id="Mounted"><a href="#Mounted" class="headerlink" title="Mounted"></a>Mounted</h3><p>React Components被render解析生成对应的DOM节点并被插入浏览器的DOM结构的一个过程。</p>
+<h3 id="Update"><a href="#Update" class="headerlink" title="Update"></a>Update</h3><p>一个mounted的React Components被重新render的过程。</p>
+<h3 id="Unmounted"><a href="#Unmounted" class="headerlink" title="Unmounted"></a>Unmounted</h3><p>一个mounted的React Components对应的DOM节点被从DOM结构中移除的这样一个过程。</p>
+<a id="more"></a>
+<h2 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h2><p>React 为每个状态都提供了两种处理函数，will 函数在进入状态之前调用，did 函数在进入状态之后调用，三种状态共计五种处理函数。</p>
+<ul>
+<li>componentWillMount()</li>
+<li>componentDidMount()</li>
+<li>componentWillUpdate(object nextProps, object nextState)</li>
+<li>componentDidUpdate(object prevProps, object prevState)</li>
+<li>componentWillUnmount()</li>
+</ul>
+<p>此外，React 还提供两种特殊状态的处理函数。</p>
+<ul>
+<li>componentWillReceiveProps(object nextProps)：已加载组件收到新的参数时调用</li>
+<li>shouldComponentUpdate(object nextProps, object nextState)：组件判断是否重新渲染时调用</li>
+</ul>
+<h3 id="Mounting"><a href="#Mounting" class="headerlink" title="Mounting"></a>Mounting</h3><p><img src="/images/react-components-lifecycle/mounting.png" alt=""></p>
+<script async src="//jsfiddle.net/Dale_/gfLrfg1d/embed/"></script>
+
+<h3 id="Updating"><a href="#Updating" class="headerlink" title="Updating"></a>Updating</h3><p><img src="/images/react-components-lifecycle/updating-props.png" alt=""><br><img src="/images/react-components-lifecycle/updating-state.png" alt=""></p>
+<script async src="//jsfiddle.net/Dale_/gfLrfg1d/2/embed/"></script>
+
+<h3 id="Unmounting"><a href="#Unmounting" class="headerlink" title="Unmounting"></a>Unmounting</h3><p><img src="/images/react-components-lifecycle/unmounting.png" alt=""></p>
+<h2 id="生命周期API"><a href="#生命周期API" class="headerlink" title="生命周期API"></a>生命周期API</h2><h3 id="getDefaultProps"><a href="#getDefaultProps" class="headerlink" title="getDefaultProps"></a>getDefaultProps</h3><blockquote>
+<p>作用于组件类，只调用一次，返回对象用于设置默认的props，对于引用值，会在实例中共享。</p>
+</blockquote>
+<h3 id="getInitialState"><a href="#getInitialState" class="headerlink" title="getInitialState"></a>getInitialState</h3><blockquote>
+<p>作用于组件的实例，在实例创建时调用一次，用于初始化每个实例的state，此时可以访问this.props。</p>
+</blockquote>
+<h3 id="componentWillMount"><a href="#componentWillMount" class="headerlink" title="componentWillMount"></a>componentWillMount</h3><blockquote>
+<p>在完成首次渲染之前调用，此时仍可以修改组件的state。</p>
+</blockquote>
+<h3 id="render"><a href="#render" class="headerlink" title="render"></a>render</h3><blockquote>
+<p>必选的方法，创建虚拟DOM，该方法具有特殊的规则：</p>
+<ul>
+<li>只能通过this.props和this.state访问数据</li>
+<li>可以返回null、false或任何React组件</li>
+<li>只能出现一个顶级组件（不能返回数组）</li>
+<li>不能改变组件的状态</li>
+<li>不能修改DOM的输出</li>
+</ul>
+</blockquote>
+<h3 id="componentDidMount"><a href="#componentDidMount" class="headerlink" title="componentDidMount"></a>componentDidMount</h3><blockquote>
+<p>真实的DOM被渲染出来后调用，在该方法中可通过this.getDOMNode()访问到真实的DOM元素。此时已可以使用其他类库来操作这个DOM。(在服务端中，该方法不会被调用。)</p>
+</blockquote>
+<h3 id="componentWillUpdate"><a href="#componentWillUpdate" class="headerlink" title="componentWillUpdate"></a>componentWillUpdate</h3><blockquote>
+<p>组件接收到新的props时调用，并将其作为参数nextProps使用，此时可以更改组件props及state。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">componentWillReceiveProps: <span class="function"><span class="keyword">function</span>(<span class="params">nextProps</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (nextProps.bool) &#123;</div><div class="line">        <span class="keyword">this</span>.setState(&#123;</div><div class="line">            <span class="attr">bool</span>: <span class="literal">true</span></div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="shouldComponentUpdate"><a href="#shouldComponentUpdate" class="headerlink" title="shouldComponentUpdate"></a>shouldComponentUpdate</h3><blockquote>
+<p>组件是否应当渲染新的props或state，返回false表示跳过后续的生命周期方法，通常不需要使用以避免出现bug。在出现应用的瓶颈时，可通过该方法进行适当的优化。</p>
+<p>在首次渲染期间或者调用了forceUpdate方法后，该方法不会被调用</p>
+</blockquote>
+<h3 id="componentWillUpdate-1"><a href="#componentWillUpdate-1" class="headerlink" title="componentWillUpdate"></a>componentWillUpdate</h3><blockquote>
+<p>接收到新的props或者state后，进行渲染之前调用，此时不允许更新props或state。</p>
+</blockquote>
+<h3 id="componentDidUpdate"><a href="#componentDidUpdate" class="headerlink" title="componentDidUpdate"></a>componentDidUpdate</h3><blockquote>
+<p>完成渲染新的props或者state后调用，此时可以访问到新的DOM元素。</p>
+</blockquote>
+<h3 id="componentWillReceiveProps"><a href="#componentWillReceiveProps" class="headerlink" title="componentWillReceiveProps"></a>componentWillReceiveProps</h3><blockquote>
+<p>组件被移除之前被调用，可以用于做一些清理工作，在componentDidMount方法中添加的所有任务都需要在该方法中撤销，比如创建的定时器或添加的事件监听器。</p>
+</blockquote>
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
+
+    </div>
+    <footer class="article-footer">
+      
+        
+	<div id="comment">
+
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2017/12/04/React-Components-Lifecycle/" data-title="React Components Lifecycle" data-url="https://dale-.github.io/2017/12/04/React-Components-Lifecycle/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"daledu"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0]
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+
+	</div>
+
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/09/19/Flex-Layout/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Flex Layout</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#生命周期的三种状态"><span class="toc-number">1.</span> <span class="toc-text">生命周期的三种状态</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Mounted"><span class="toc-number">1.1.</span> <span class="toc-text">Mounted</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Update"><span class="toc-number">1.2.</span> <span class="toc-text">Update</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Unmounted"><span class="toc-number">1.3.</span> <span class="toc-text">Unmounted</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生命周期"><span class="toc-number">2.</span> <span class="toc-text">生命周期</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Mounting"><span class="toc-number">2.1.</span> <span class="toc-text">Mounting</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Updating"><span class="toc-number">2.2.</span> <span class="toc-text">Updating</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Unmounting"><span class="toc-number">2.3.</span> <span class="toc-text">Unmounting</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生命周期API"><span class="toc-number">3.</span> <span class="toc-text">生命周期API</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#getDefaultProps"><span class="toc-number">3.1.</span> <span class="toc-text">getDefaultProps</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#getInitialState"><span class="toc-number">3.2.</span> <span class="toc-text">getInitialState</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#componentWillMount"><span class="toc-number">3.3.</span> <span class="toc-text">componentWillMount</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#render"><span class="toc-number">3.4.</span> <span class="toc-text">render</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#componentDidMount"><span class="toc-number">3.5.</span> <span class="toc-text">componentDidMount</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#componentWillUpdate"><span class="toc-number">3.6.</span> <span class="toc-text">componentWillUpdate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#shouldComponentUpdate"><span class="toc-number">3.7.</span> <span class="toc-text">shouldComponentUpdate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#componentWillUpdate-1"><span class="toc-number">3.8.</span> <span class="toc-text">componentWillUpdate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#componentDidUpdate"><span class="toc-number">3.9.</span> <span class="toc-text">componentDidUpdate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#componentWillReceiveProps"><span class="toc-number">3.10.</span> <span class="toc-text">componentWillReceiveProps</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      <div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2015 - 2017 The Girl Behind All Rights Reserved.</p>
+	      <p id="copyRightCn">Dale Du hold copyright</p>
+	</div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="https://github.com/Dale-" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+<script src="/js/bootstrap.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            The Girl Behind
+          </div>
+          <div class="panel-body">
+            Copyright © 2017 Dale Du All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+</body>
+</html>

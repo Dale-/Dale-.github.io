@@ -190,6 +190,61 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-Getting-started-with-React-Redux"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/04/12/Getting-started-with-React-Redux/">Getting started with React Redux</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/04/12/Getting-started-with-React-Redux/" class="article-date">
+	  <time datetime="2017-04-12T14:50:59.000Z" itemprop="datePublished">2017-04-12</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Store"><a href="#Store" class="headerlink" title="Store"></a>Store</h2><p>Store 就是保存数据的地方，你可以把它看成一个容器。<br>Redux提供<code>createStore</code>这个函数，用来生成Store。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</div><div class="line"><span class="keyword">const</span> store = createStore(fn);</div></pre></td></tr></table></figure>
+<p><code>createStore</code>函数接受另一个函数作为参数，返回新生成的Store对象。</p>
+<h3 id="store-dispatch"><a href="#store-dispatch" class="headerlink" title="store.dispatch()"></a>store.dispatch()</h3><p><code>store.dispatch()</code>是View发出Action的唯一方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</div><div class="line"><span class="keyword">const</span> store = createStore(fn);</div><div class="line"></div><div class="line">store.dispatch(&#123;</div><div class="line">  <span class="attr">type</span>: <span class="string">'ADD_TODO'</span>,</div><div class="line">  <span class="attr">payload</span>: <span class="string">'Learn Redux'</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>结合 Action Creator ，这段代码可以改写如下。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">store.dispatch(addTodo(<span class="string">'Learn Redux'</span>));</div></pre></td></tr></table></figure></p>
+        <!-- StoreStore 就是保存数据的地方，你可以把它看成一个容器。Redux提供createStore这个函数，用来生成Store。
+12import &#123; createStore &#125; from 'redux';const store = createStore(fn);
+createStore函数接受另一个函数作为参数，返回新生成的Store对象。
+store.dispa......  -->
+        <p class="article-more-link">
+          <a href="/2017/04/12/Getting-started-with-React-Redux/#more">Read More</a>
+        </p>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redux/">Redux</a></li></ul>
+
+    </div>
+    <footer class="article-footer">
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-Using-redux-with-react"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -247,61 +302,6 @@ UI组件 [component] component 负责渲染视图
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redux/">Redux</a></li></ul>
-
-    </div>
-    <footer class="article-footer">
-      
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-React-Components-Lifecycle"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/12/React-Components-Lifecycle/">React Components Lifecycle</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/12/React-Components-Lifecycle/" class="article-date">
-	  <time datetime="2017-03-12T10:05:49.000Z" itemprop="datePublished">2017-03-12</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/React/">React</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="生命周期的三种状态"><a href="#生命周期的三种状态" class="headerlink" title="生命周期的三种状态"></a>生命周期的三种状态</h2><p><img src="/images/react-components-lifecycle/component-lifecycle.png" alt=""></p>
-<h3 id="Mounted"><a href="#Mounted" class="headerlink" title="Mounted"></a>Mounted</h3><p>React Components被render解析生成对应的DOM节点并被插入浏览器的DOM结构的一个过程。</p>
-<h3 id="Update"><a href="#Update" class="headerlink" title="Update"></a>Update</h3><p>一个mounted的React Components被重新render的过程。</p>
-<h3 id="Unmounted"><a href="#Unmounted" class="headerlink" title="Unmounted"></a>Unmounted</h3><p>一个mounted的React Components对应的DOM节点被从DOM结构中移除的这样一个过程。</p>
-        <!-- 生命周期的三种状态
-MountedReact Components被render解析生成对应的DOM节点并被插入浏览器的DOM结构的一个过程。
-Update一个mounted的React Components被重新render的过程。
-Unmounted一个mounted的React Components对应的DOM节点被从DOM结构中移除的这样一个过程。
-
-声明周期React 为每个状态都......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/12/React-Components-Lifecycle/#more">Read More</a>
-        </p>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
 
     </div>
     <footer class="article-footer">
