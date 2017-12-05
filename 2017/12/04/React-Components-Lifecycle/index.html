@@ -24,7 +24,7 @@
 <meta property="og:image" content="https://dale-.github.io/images/react-components-lifecycle/updating-state.png">
 <meta property="og:image" content="https://dale-.github.io/images/react-components-lifecycle/unmounting.png">
 <meta property="og:image" content="https://dale-.github.io/images/react-components-lifecycle/cycle-react.png">
-<meta property="og:updated_time" content="2017-12-05T14:26:22.000Z">
+<meta property="og:updated_time" content="2017-12-05T14:27:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React Components Lifecycle">
 <meta name="twitter:description" content="React Components Lifecycle">
@@ -206,7 +206,8 @@
 <h3 id="Unmounting"><a href="#Unmounting" class="headerlink" title="Unmounting"></a>Unmounting</h3><p><img src="/images/react-components-lifecycle/unmounting.png" alt=""></p>
 <h2 id="生命周期API"><a href="#生命周期API" class="headerlink" title="生命周期API"></a>生命周期API</h2><p><img src="/images/react-components-lifecycle/cycle-react.png" alt=""></p>
 <h3 id="getDefaultProps"><a href="#getDefaultProps" class="headerlink" title="getDefaultProps"></a>getDefaultProps</h3><blockquote>
-<p>作用于组件类，只调用一次，返回对象用于设置默认的props，对于引用值，会在实例中共享。</p>
+<p>只在组件创建时调用一次并缓存返回的对象（即在 React.createClass 之后就会调用）。</p>
+<p>因为这个方法在实例初始化之前调用，所以在这个方法里面不能依赖 this 获取到这个组件的实例。<br>在组件装载之后，这个方法缓存的结果会用来保证访问 this.props 的属性时，当这个属性没有在父组件中传入（在这个组件的 JSX 属性里设置），也总是有值的。<br>如果是使用 ES6 语法，可以直接定义 defaultProps 这个类属性来替代，这样能更直观的知道 default props 是预先定义好的对象值：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Counter.defaultProps = &#123; <span class="attr">initialCount</span>: <span class="number">0</span> &#125;;</div></pre></td></tr></table></figure></p>
 </blockquote>
 <h3 id="getInitialState"><a href="#getInitialState" class="headerlink" title="getInitialState"></a>getInitialState</h3><blockquote>
 <p>初始化 this.state 的值，只在组件装载之前调用一次。<br>如果是使用 ES6 的语法，你也可以在构造函数中初始化状态，比如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Counter</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line"><span class="keyword">constructor</span>(props) &#123;</div><div class="line">  <span class="keyword">super</span>(props);</div><div class="line">  <span class="keyword">this</span>.state = &#123; <span class="attr">count</span>: props.initialCount &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">render() &#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
