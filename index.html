@@ -92,7 +92,7 @@
 
 
   
-    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/sample.jpg); background-size: auto 100%;">
+    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/pose.jpg); background-size: auto 100%;">
   
 
     <canvas width="100%" height="100%"></canvas>
@@ -271,16 +271,20 @@ Subscrib......  -->
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="生命周期的三种状态"><a href="#生命周期的三种状态" class="headerlink" title="生命周期的三种状态"></a>生命周期的三种状态</h2><p><img src="/images/react-components-lifecycle/component-lifecycle.png" alt=""></p>
+        <h2 id="虚拟DOM"><a href="#虚拟DOM" class="headerlink" title="虚拟DOM"></a>虚拟DOM</h2><p>React对底层的代码作了封装，在大多数情况下，我们不需要直接去操作DOM。但是有时候我们还是需要使用到底层的代码的，比如输入框获取焦点，这个时候可以通过第三方的类库或者React提供的API实现。</p>
+<p>React之所以快，是因为它不直接操作DOM。React将DOM结构存储在内存中，然后同render()的返回内容进行比较，计算出需要改动的地方，最后才反映到DOM中。<br>此外，React实现了一套完整的事件合成机制，能够保持事件冒泡的一致性，跨浏览器执行。甚至可以在IE8中使用HTML5的事件。<br>大部分情况下，我们都是在构建React的组件，也就是操作虚拟DOM。但是有时候我们需要访问底层的API，可能或通过使用第三方的插件来实现我们的功能，如jQuery。React也提供了接口让我们操作底层API。</p>
+<h3 id="Virtual-DOM-算法步骤"><a href="#Virtual-DOM-算法步骤" class="headerlink" title="Virtual DOM 算法步骤"></a>Virtual DOM 算法步骤</h3><ul>
+<li>用 JavaScript 对象结构表示 DOM 树的结构；然后用这个树构建一个真正的 DOM 树，插到文档当中</li>
+<li>当状态变更的时候，重新构造一棵新的对象树。然后用新的树和旧的树进行比较，记录两棵树差异</li>
+<li>把2所记录的差异应用到步骤1所构建的真正的DOM树上，视图就更新了</li>
+</ul>
+<p>Virtual DOM 本质上就是在 JS 和 DOM 之间做了一个缓存。可以类比 CPU 和硬盘，既然硬盘这么慢，我们就在它们之间加个缓存：既然 DOM 这么慢，我们就在它们 JS 和 DOM 之间加个缓存。CPU（JS）只操作内存（Virtual DOM），最后的时候再把变更写入硬盘（DOM）。</p>
+<h2 id="生命周期的三种状态"><a href="#生命周期的三种状态" class="headerlink" title="生命周期的三种状态"></a>生命周期的三种状态</h2><p><img src="/images/react-components-lifecycle/component-lifecycle.png" alt=""></p>
 <h3 id="Mounted"><a href="#Mounted" class="headerlink" title="Mounted"></a>Mounted</h3><p>React Components被render解析生成对应的DOM节点并被插入浏览器的DOM结构的一个过程。</p>
 <h3 id="Update"><a href="#Update" class="headerlink" title="Update"></a>Update</h3><p>一个mounted的React Components被重新render的过程。</p>
 <h3 id="Unmounted"><a href="#Unmounted" class="headerlink" title="Unmounted"></a>Unmounted</h3><p>一个mounted的React Components对应的DOM节点被从DOM结构中移除的这样一个过程。</p>
-        <!-- 生命周期的三种状态
-MountedReact Components被render解析生成对应的DOM节点并被插入浏览器的DOM结构的一个过程。
-Update一个mounted的React Components被重新render的过程。
-Unmounted一个mounted的React Components对应的DOM节点被从DOM结构中移除的这样一个过程。
-
-生命周期React 为每个状态都......  -->
+        <!-- 虚拟DOMReact对底层的代码作了封装，在大多数情况下，我们不需要直接去操作DOM。但是有时候我们还是需要使用到底层的代码的，比如输入框获取焦点，这个时候可以通过第三方的类库或者React提供的API实现。
+React之所以快，是因为它不直接操作DOM。React将DOM结构存储在内存中，然后同render()的返回内容进行比较，计算出需要改动的地方，最后才反映到DOM中。此外，React......  -->
         <p class="article-more-link">
           <a href="/2017/12/04/React-Components-Lifecycle/#more">Read More</a>
         </p>
