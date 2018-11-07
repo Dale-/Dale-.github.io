@@ -25,7 +25,8 @@
 <meta property="og:image" content="https://dale-.github.io/images/bom-dom/constructor.jpeg">
 <meta property="og:image" content="https://dale-.github.io/images/bom-dom/event-delegation-1.png">
 <meta property="og:image" content="https://dale-.github.io/images/bom-dom/event-delegation-2.png">
-<meta property="og:updated_time" content="2018-11-07T03:40:21.000Z">
+<meta property="og:image" content="https://dale-.github.io/images/bom-dom/event-loop.png">
+<meta property="og:updated_time" content="2018-11-07T04:49:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BOM And DOM">
 <meta name="twitter:description" content="Event BOM &amp; DOM">
@@ -326,6 +327,7 @@
 <li>主线程不断重复上面的第三步。</li>
 </ol>
 <p>简单的说，就是在程序中（不一定是浏览器）中跑两个线程，一个负责程序本身的运行，作为主线程； 另一个负责主线程与其他线程的的通信，被称为“Event Loop 线程” 。  每当遇到异步的 setTimeOut ，setInterval 这些异步任务，交给 EventLoop 线程，然后自己往后运行，等到主线程运行完后，再去 Event Loop 线程拿结果。</p>
+<p><img src="/images/bom-dom/event-loop.png" alt=""></p>
 
       
       
