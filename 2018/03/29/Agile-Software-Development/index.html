@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>agile software development | The Girl Behind</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="agile develop" />
+  
+  
+  
+  
+  <meta name="description" content="Agile Software Development">
+<meta name="keywords" content="agile develop">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Agile Software Development">
+<meta property="og:url" content="https://dale-.github.io/2018/03/29/Agile-Software-Development/index.html">
+<meta property="og:site_name" content="The Girl Behind">
+<meta property="og:description" content="Agile Software Development">
+<meta property="og:image" content="https://dale-.github.io/images/agile-software-development/agile-meeting.png">
+<meta property="og:image" content="https://dale-.github.io/images/agile-software-development/retro-demo.png">
+<meta property="og:image" content="https://dale-.github.io/images/agile-software-development/story-wall.png">
+<meta property="og:image" content="https://dale-.github.io/images/agile-software-development/agile.jpg">
+<meta property="og:image" content="https://dale-.github.io/images/agile-software-development/iteration-circle.png">
+<meta property="og:updated_time" content="2018-11-28T13:42:53.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Agile Software Development">
+<meta name="twitter:description" content="Agile Software Development">
+<meta name="twitter:image" content="https://dale-.github.io/images/agile-software-development/agile-meeting.png">
+  
+    <link rel="alternate" href="/atom.xml" title="The Girl Behind" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+
+</head>
+
+<body>
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="https://github.com/Dale-">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-Agile-Software-Development" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Agile Software Development
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/03/29/Agile-Software-Development/" class="article-date">
+	  <time datetime="2018-03-29T14:46:22.000Z" itemprop="datePublished">2018-03-29</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/agile/">agile</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Agile-Meeting"><a href="#Agile-Meeting" class="headerlink" title="Agile Meeting"></a>Agile Meeting</h2><p><img src="/images/agile-software-development/agile-meeting.png" alt=""></p>
+<h4 id="Kick-Off"><a href="#Kick-Off" class="headerlink" title="Kick Off"></a>Kick Off</h4><ul>
+<li>频率 ： 每张story</li>
+<li>时长 ： 3分钟</li>
+<li>内容 ： 在Dev领取Stroy前，需要Dev与BA、QA一起过Story的描述和AC，在三方都达成共识的情况下进行请下来的开发</li>
+<li>参会人员 ： BA、DEV、QA</li>
+</ul>
+<a id="more"></a>    
+<h4 id="Stand-Up"><a href="#Stand-Up" class="headerlink" title="Stand Up"></a>Stand Up</h4><ul>
+<li>频率 ： 每天早上</li>
+<li>时长 ： 10 - 15分钟（根据团队大小进行调节）</li>
+<li>内容<ul>
+<li>工作在哪张卡上</li>
+<li>昨天做了哪些工作</li>
+<li>是否遇到困难</li>
+<li>今天计划做哪些工作</li>
+<li>这张卡还需要多久可以完成</li>
+</ul>
+</li>
+<li>原则<ul>
+<li>token ： 站会时，大家围城一个圈，手持token，发言结束后顺时针传递token。没有token的人不能发言，需要发言申请token</li>
+<li>简短 ：尽量保持简短，涉及技术细节的可另约时间或者会议沟通</li>
+<li>参会人员 ： 全体</li>
+</ul>
+</li>
+</ul>
+<h4 id="Retro"><a href="#Retro" class="headerlink" title="Retro"></a>Retro</h4><ul>
+<li>频率 ： 每个迭代的最后一个工作日</li>
+<li>时长 ： 30 - 60分钟（根据团队大小进行调节）</li>
+<li>内容<ul>
+<li>由retro主持预定会议室以及时间，发送邀请邮件给全体组员</li>
+<li>会议开始前主持在白板上列出”Well”、”Less Well”、”Suggestion”和”Action”</li>
+<li>每个人以便签的形式，写出自己的想法、贴到对应的主题下</li>
+<li>参会人员为白板上的内容投票，由时间决定按照票数前几项进行讨论</li>
+<li>讨论的结果形成Action，每个Action需要找到对应的owner</li>
+<li>下次Retro首先要列出上次Action，并且逐步检查完成</li>
+</ul>
+</li>
+<li>原则<ul>
+<li>会议主持人的选取采用轮换制</li>
+<li>一个便签上只表达一个想法</li>
+<li>每个Action都需要有人认领</li>
+<li>会议结束后，会议主持人负责拍照总结到wiki上，并发送邮件给全体组员</li>
+</ul>
+</li>
+<li>参会人员 ： 全体</li>
+<li>Demo<br><img src="/images/agile-software-development/retro-demo.png" alt=""></li>
+</ul>
+<h4 id="ShowCase"><a href="#ShowCase" class="headerlink" title="ShowCase"></a>ShowCase</h4><ul>
+<li>频率 ： 每个迭代的最后一天或者新迭代开始的第一天</li>
+<li>时长 ： 20 - 30分钟（根据团队大小进行调节）</li>
+<li>内容 ： 为产品经理或者客户演示本迭代完成的产品功能</li>
+<li>参会人员 ： 全体</li>
+</ul>
+<h4 id="Code-Review"><a href="#Code-Review" class="headerlink" title="Code Review"></a>Code Review</h4><ul>
+<li>频率 ： 每天、每个Story（按照团队的规则）</li>
+<li>时长 ： 30分钟</li>
+<li>内容<ul>
+<li>快速代码走查</li>
+<li>上一次review的反馈跟踪</li>
+</ul>
+</li>
+<li>参会人员 : DEV</li>
+</ul>
+<h4 id="IPM"><a href="#IPM" class="headerlink" title="IPM"></a>IPM</h4><ul>
+<li>频率 ： 每个迭代开始的第一天</li>
+<li>时长 ： 20 - 40分钟（根据团队大小进行调节）</li>
+<li>内容<ul>
+<li>BA将下个迭代的所有story列出（描述和验证标准）</li>
+<li>全组成员需共同理解每个story所要完成的产品功能，并对story进行估点</li>
+<li>BA及时更新story信息到物理卡墙和jira(BOSS)上，同事更新迭代计划和发布计划</li>
+</ul>
+</li>
+<li>参会人员 ： 全体</li>
+</ul>
+<h2 id="Story-Wall"><a href="#Story-Wall" class="headerlink" title="Story Wall"></a>Story Wall</h2><p><img src="/images/agile-software-development/story-wall.png" alt=""></p>
+<h4 id="Story-Analysis"><a href="#Story-Analysis" class="headerlink" title="Story Analysis"></a>Story Analysis</h4><ul>
+<li>BA 在分析过程中的Story</li>
+<li>Story=&gt;Done（Story的描述和AC与产品确认好，卡已经更新到wiki上）</li>
+</ul>
+<h4 id="Story-Done"><a href="#Story-Done" class="headerlink" title="Story Done"></a>Story Done</h4><ul>
+<li>BA 已经分析好的Story</li>
+<li>Story Done =&gt; To Do（迭代启动会之前，本迭代计划的卡放到To Do里面）</li>
+</ul>
+<h4 id="ToDo"><a href="#ToDo" class="headerlink" title="ToDo"></a>ToDo</h4><ul>
+<li>这个迭代中需要做的Story</li>
+<li>一般To Do里面的卡是按照优先级来排列的</li>
+<li>To Do =&gt; Doing<ul>
+<li>开发有权利去挪卡</li>
+<li>挪卡后在物理卡上更新做卡的人</li>
+<li>jira备注上更新start时间以及做卡的人</li>
+<li>kill off</li>
+</ul>
+</li>
+</ul>
+<h4 id="Doing"><a href="#Doing" class="headerlink" title="Doing"></a>Doing</h4><ul>
+<li>已经有人在做的卡</li>
+<li>Doing =&gt; Integration Test<ul>
+<li>A3Report、Code Review</li>
+<li>需要找测试一起过mini showcase</li>
+</ul>
+</li>
+</ul>
+<h4 id="Waiting-For-Testing"><a href="#Waiting-For-Testing" class="headerlink" title="Waiting For Testing"></a>Waiting For Testing</h4><ul>
+<li>等待联调阶段</li>
+<li>当Dev（前端或者后端）开发完成，将Story移动到Waiting For Testing，等待联调</li>
+<li>Waiting For Testing =&gt; Integration Testing 需要前后端相互确认可以联调条件Ready，可以进入到联调阶段</li>
+</ul>
+<h4 id="Integration-Testing"><a href="#Integration-Testing" class="headerlink" title="Integration Testing"></a>Integration Testing</h4><ul>
+<li>改Story正处于联调阶段</li>
+<li>Integration Testing =&gt; Testing (联调成功后，和测试、BA一起过mini showcase)</li>
+</ul>
+<h4 id="Testing"><a href="#Testing" class="headerlink" title="Testing"></a>Testing</h4><ul>
+<li>联调成功，等待测试详细的测试</li>
+<li>Testing =&gt; Acceptance (测试测完OK后放入Accptance)</li>
+</ul>
+<h4 id="Acceptance"><a href="#Acceptance" class="headerlink" title="Acceptance"></a>Acceptance</h4><ul>
+<li>测试已通过，等待产品经理验收</li>
+<li>Acceptance =&gt; Done (产品验收成功)</li>
+</ul>
+<h4 id="Done"><a href="#Done" class="headerlink" title="Done"></a>Done</h4><ul>
+<li>产品经理验收成功，Story结束</li>
+</ul>
+<h2 id="沟通"><a href="#沟通" class="headerlink" title="沟通"></a>沟通</h2><p>  <img src="/images/agile-software-development/agile.jpg" alt=""></p>
+<h2 id="敏捷开发宣言"><a href="#敏捷开发宣言" class="headerlink" title="敏捷开发宣言"></a>敏捷开发宣言</h2><blockquote>
+<p><strong>个体和互动</strong> 高于 流程和工具</p>
+<p><strong>工作的软件</strong> 高于 详尽的文档</p>
+<p><strong>客户合作</strong> 高于 合同谈判</p>
+<p><strong>响应变化</strong> 高于 遵循计划</p>
+</blockquote>
+<ul>
+<li>也就是说，尽管右项有其价值，我们更重视左项的价值。   </li>
+</ul>
+<h2 id="敏捷开发闭环"><a href="#敏捷开发闭环" class="headerlink" title="敏捷开发闭环"></a>敏捷开发闭环</h2><p>  <img src="/images/agile-software-development/iteration-circle.png" alt=""></p>
+<ul>
+<li>Story Planning Session</li>
+<li>Write Story &amp; Scenarios</li>
+<li>Implement Automated Acceptance Tests</li>
+<li>Implement Functionality</li>
+<li>Regular BA / QA Demo</li>
+<li>BA / QA Signoff on Dev Box</li>
+<li>Story Testing</li>
+<li>Showcase to Business</li>
+</ul>
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/agile/">agile</a></li></ul>
+
+    </div>
+    <footer class="article-footer">
+      
+        
+	<div id="comment">
+
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2018/03/29/Agile-Software-Development/" data-title="Agile Software Development" data-url="https://dale-.github.io/2018/03/29/Agile-Software-Development/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"daledu"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0]
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+
+	</div>
+
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/05/28/Understand-JavaScript’s-“this”/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          [译] Understand JavaScript’s “this”
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/12/04/React-Components-Lifecycle/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">React Components Lifecycle</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Agile-Meeting"><span class="toc-number">1.</span> <span class="toc-text">Agile Meeting</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Kick-Off"><span class="toc-number">1.0.1.</span> <span class="toc-text">Kick Off</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Stand-Up"><span class="toc-number">1.0.2.</span> <span class="toc-text">Stand Up</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Retro"><span class="toc-number">1.0.3.</span> <span class="toc-text">Retro</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ShowCase"><span class="toc-number">1.0.4.</span> <span class="toc-text">ShowCase</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Code-Review"><span class="toc-number">1.0.5.</span> <span class="toc-text">Code Review</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#IPM"><span class="toc-number">1.0.6.</span> <span class="toc-text">IPM</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Story-Wall"><span class="toc-number">2.</span> <span class="toc-text">Story Wall</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Story-Analysis"><span class="toc-number">2.0.1.</span> <span class="toc-text">Story Analysis</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Story-Done"><span class="toc-number">2.0.2.</span> <span class="toc-text">Story Done</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ToDo"><span class="toc-number">2.0.3.</span> <span class="toc-text">ToDo</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Doing"><span class="toc-number">2.0.4.</span> <span class="toc-text">Doing</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Waiting-For-Testing"><span class="toc-number">2.0.5.</span> <span class="toc-text">Waiting For Testing</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Integration-Testing"><span class="toc-number">2.0.6.</span> <span class="toc-text">Integration Testing</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Testing"><span class="toc-number">2.0.7.</span> <span class="toc-text">Testing</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Acceptance"><span class="toc-number">2.0.8.</span> <span class="toc-text">Acceptance</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Done"><span class="toc-number">2.0.9.</span> <span class="toc-text">Done</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#沟通"><span class="toc-number">3.</span> <span class="toc-text">沟通</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#敏捷开发宣言"><span class="toc-number">4.</span> <span class="toc-text">敏捷开发宣言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#敏捷开发闭环"><span class="toc-number">5.</span> <span class="toc-text">敏捷开发闭环</span></a></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      <div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2015 - 2018 The Girl Behind All Rights Reserved.</p>
+	      <p id="copyRightCn">Dale Du hold copyright</p>
+	</div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="https://github.com/Dale-" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+<script src="/js/bootstrap.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            The Girl Behind
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 Dale Du All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+</body>
+</html>
