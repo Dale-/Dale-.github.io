@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>react render performance | The Girl Behind</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="react performance" />
+  
+  
+  
+  
+  <meta name="description" content="React Render Performance">
+<meta name="keywords" content="react performance">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React Render Performance">
+<meta property="og:url" content="https://dale-.github.io/2019/02/19/React-Render-Performance/index.html">
+<meta property="og:site_name" content="The Girl Behind">
+<meta property="og:description" content="React Render Performance">
+<meta property="og:image" content="https://dale-.github.io/images/react-render-performance/react-update.png">
+<meta property="og:image" content="https://dale-.github.io/images/react-render-performance/react-render-flow.png">
+<meta property="og:image" content="https://dale-.github.io/images/react-render-performance/why-did-you-update.png">
+<meta property="og:image" content="https://dale-.github.io/images/react-render-performance/react_perf.png">
+<meta property="og:image" content="https://dale-.github.io/images/react-render-performance/timeline-annotated.png">
+<meta property="og:image" content="https://dale-.github.io/images/react-render-performance/immutable-structural-sharing.png">
+<meta property="og:updated_time" content="2019-02-19T14:54:51.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React Render Performance">
+<meta name="twitter:description" content="React Render Performance">
+<meta name="twitter:image" content="https://dale-.github.io/images/react-render-performance/react-update.png">
+  
+    <link rel="alternate" href="/atom.xml" title="The Girl Behind" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+
+</head>
+
+<body>
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="https://github.com/Dale-">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-React-Render-Performance" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      React Render Performance
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/02/19/React-Render-Performance/" class="article-date">
+	  <time datetime="2019-02-19T12:46:22.000Z" itemprop="datePublished">2019-02-19</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/react/">react</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>React使用几种巧妙的技术来最大限度地减少更新UI所需的昂贵的 DOM 操作的数量, 今天我们通过对React渲染机制的回顾，从一些性能检测工具入手，介绍一些优化React应用性能的办法。</p>
+<h2 id="React渲染机制"><a href="#React渲染机制" class="headerlink" title="React渲染机制"></a>React渲染机制</h2><p>React不直接操作真实DOM，它在内部维护了一套快速相应的虚拟DOM(本篇文章简称为VDOM)，<code>render</code>方法返回一个VDOM的描述，React会在reconsilation之后最小化的进行VDOM的更新，最终patch到真实的DOM。</p>
+<p><img src="/images/react-render-performance/react-update.png" alt=""></p>
+<a id="more"></a>    
+<p>上图官网给出的React组件渲染机制描述图</p>
+<p>根据渲染流程，首先会判断shouldComponentUpdate(SCU)是否需要更新。如果需要更新，则调用组件的render生成新的虚拟DOM，然后再与旧的虚拟DOM对比(vDOMEq)，如果对比一致就不更新，如果对比不同，则根据最小粒度改变去更新DOM；如果SCU不需要更新，则直接保持不变，同时其子元素也保持不变。</p>
+<ul>
+<li>C1根节点，绿色SCU (true)，表示需要更新，然后vDOMEq红色，表示虚拟DOM不一致，需要更新。</li>
+<li>C2节点，红色SCU (false)，表示不需要更新，所以C4,C5均不再进行检查</li>
+<li>C3节点同C1，需要更新</li>
+<li>C6节点，绿色SCU (true)，表示需要更新，然后vDOMEq红色，表示虚拟DOM不一致，更新DOM。</li>
+<li>C7节点同C2</li>
+<li>C8节点，绿色SCU (true)，表示需要更新，然后vDOMEq绿色，表示虚拟DOM一致，不更新DOM。</li>
+</ul>
+<p>我们再来看看 触发组件更新的流程图</p>
+<p><img src="/images/react-render-performance/react-render-flow.png" alt=""></p>
+<p>通过上述流程图，再对比渲染机制描述图我们可以发现，如果进行性能优化，关键在：</p>
+<ul>
+<li>shouldComponentUpdate阶段，如果props与state与上一次相同，这个时候可以中断后续的生成虚拟DOM以及DOM DIFF的过程。</li>
+<li>提高DOM DIFF的效率</li>
+</ul>
+<h2 id="性能检测工具"><a href="#性能检测工具" class="headerlink" title="性能检测工具"></a>性能检测工具</h2><h3 id="Why-did-you-update"><a href="#Why-did-you-update" class="headerlink" title="Why-did-you-update"></a>Why-did-you-update</h3><p>why-did-you-update是一个可以检测到潜在不必要的组件渲染的库。当发生比必要的更新时，它可以在控制台上打印出可能的可以避免多次 re-render 的操作。</p>
+<p>它的原理是，通过比较每次 render 时组件的 prevProps 和 this.props，这里的比较是深比较，对 plain object 递归比较，对同为函数的相同属性只通过比较函数名来判断是否相同。</p>
+<p><img src="/images/react-render-performance/why-did-you-update.png" alt=""></p>
+<blockquote>
+<p>Setup</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm install --save why-did-you-update</div><div class="line">or</div><div class="line">yarn add why-did-you-update</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Usage</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span>) &#123;</div><div class="line">  <span class="keyword">const</span> &#123;whyDidYouUpdate&#125; = <span class="built_in">require</span>(<span class="string">'why-did-you-update'</span>);</div><div class="line">  whyDidYouUpdate(React);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>More Options please click <a href="https://github.com/maicki/why-did-you-update" target="_blank" rel="external">why-did-you-update</a></p>
+<p>需要注意的是，要确保<code>why-did-you-update</code>在production环境中被禁用，因为它会减慢应用程序的速度。</p>
+<h3 id="性能时间表"><a href="#性能时间表" class="headerlink" title="性能时间表"></a>性能时间表</h3><p>React 15.4.0引入了性能时间轴的功能，可以更直观的了解可视化的组件生命周期。</p>
+<p>React 官方文档里推荐的性能检测方法，是对 Chrome Devtool 的加强，可以将 Devtool 中 JS 部分的火焰图细分为组件各个声明周期的时间，在目前的开发模式下，不用输入 ?rect_perf 也已经开启了这个功能，生产模式下的页面仍然需要加上这个命令。</p>
+<blockquote>
+<p>使用方法</p>
+</blockquote>
+<ul>
+<li>打开你的应用程序并添加查询字符串?react_perf 。例如: <a href="http://localhost:3000" target="_blank" rel="external">http://localhost:3000</a></li>
+<li>打开Chrome DevTools, 选择Performance，点击Record。</li>
+<li>执行你想要分析的动作。</li>
+<li>停止记录。</li>
+<li>React事件将会被归类在 <strong>User Timing</strong> 标签下。</li>
+</ul>
+<p><img src="/images/react-render-performance/react_perf.png" alt=""></p>
+<p>这些数字是相对的，因此组件在生产版本中会运行更快*。然而，这也能够帮助你了解何时会有无关的组件被错误的更新，以及你的组件更新的深度和频率。</p>
+<blockquote>
+<p>Performance的四个窗格</p>
+</blockquote>
+<p><img src="/images/react-render-performance/timeline-annotated.png" alt=""></p>
+<ul>
+<li>Controls</li>
+<li>Overview: 从FPS、CPU、NET三方面进行性能汇总。</li>
+<li>火焰图</li>
+<li>记录详细信息: 在火焰图中选择事件时，Details窗格会显示与事件相关的其他信息。</li>
+</ul>
+<h2 id="优化方法"><a href="#优化方法" class="headerlink" title="优化方法"></a>优化方法</h2><h3 id="PureComponent"><a href="#PureComponent" class="headerlink" title="PureComponent"></a>PureComponent</h3><blockquote>
+<p>Component的默认渲染行为</p>
+</blockquote>
+<p>在React Component的生命周期中，又一个<code>shouldComponentUpdate</code>方法，这个方法的默认返回值为<code>true</code>。</p>
+<p>这意味着Component不会比较对当前和下一个状态下的<code>props</code>和<code>state</code>, 因此每当<code>shouldComponentUpdate</code>被调用时，组件默认会重新渲染。从而导致组件因为不相关数据的改变导致重绘，这极大的降低了React的渲染效率。</p>
+<blockquote>
+<p>PureComponent</p>
+</blockquote>
+<p>当组件更新时，如果组件的<code>prop</code>和<code>state</code>都没发生变化，<code>render</code>方法就不会被触发。从而省去了<code>Virtual DOM</code>的生成和对比过程，达到了提升渲染效率的目的。</p>
+<p>下面是PureComponent对比<code>props</code>和<code>state</code>的浅比较<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (<span class="keyword">this</span>._compositeType === CompositeTypes.PureClass) &#123;</div><div class="line">  shouldUpdate = !shallowEqual(prevProps, nextProps) || ! shallowEqual(inst.state, nextState);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>下面是shallowEqual的源码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"><span class="meta">'use strict'</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> hasOwnProperty = <span class="built_in">Object</span>.prototype.hasOwnProperty;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * inlined Object.is polyfill to avoid requiring consumers ship their own</div><div class="line"> * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">is</span>(<span class="params">x: mixed, y: mixed</span>): <span class="title">boolean</span> </span>&#123;</div><div class="line">  <span class="comment">// SameValue algorithm</span></div><div class="line">  <span class="keyword">if</span> (x === y) &#123; <span class="comment">// Steps 1-5, 7-10</span></div><div class="line">    <span class="comment">// Steps 6.b-6.e: +0 != -0</span></div><div class="line">    <span class="comment">// Added the nonzero y check to make Flow happy, but it is redundant</span></div><div class="line">    <span class="keyword">return</span> x !== <span class="number">0</span> || y !== <span class="number">0</span> || <span class="number">1</span> / x === <span class="number">1</span> / y;</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="comment">// Step 6.a: NaN == NaN</span></div><div class="line">    <span class="keyword">return</span> x !== x &amp;&amp; y !== y;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">/**</span></div><div class="line"> * Performs equality by iterating through keys on an object and returning false</div><div class="line"> * when any key has values which are not strictly equal between the arguments.</div><div class="line"> * Returns true when the values of all keys are strictly equal.</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">shallowEqual</span>(<span class="params">objA: mixed, objB: mixed</span>): <span class="title">boolean</span> </span>&#123;</div><div class="line">  <span class="keyword">if</span> (is(objA, objB)) &#123; <span class="comment">// 如果 ===，返回 true</span></div><div class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">  &#125;</div><div class="line"></div><div class="line"></div><div class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> objA !== <span class="string">'object'</span> || objA === <span class="literal">null</span> ||</div><div class="line">      <span class="keyword">typeof</span> objB !== <span class="string">'object'</span> || objB === <span class="literal">null</span>) &#123;</div><div class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">const</span> keysA = <span class="built_in">Object</span>.keys(objA);</div><div class="line">  <span class="keyword">const</span> keysB = <span class="built_in">Object</span>.keys(objB);</div><div class="line"></div><div class="line">  <span class="keyword">if</span> (keysA.length !== keysB.length) &#123;</div><div class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">// Test for A's keys different from B.</span></div><div class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; keysA.length; i++) &#123;</div><div class="line">    <span class="keyword">if</span> (</div><div class="line">      !hasOwnProperty.call(objB, keysA[i]) || <span class="comment">// A B 中包含相同元素且相等，函数也是直接用 === 来比较</span></div><div class="line">      !is(objA[keysA[i]], objB[keysA[i]])</div><div class="line">    ) &#123;</div><div class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><code>shallowEqual</code> 会对Object的每个属性，如果是非引用类型，那么可以直接比较判断是否相等。如果是引用类型，则通过比较引用的地址进行严格比较（===）。当 props 和 state 是不可突变数据的时候，可以直接使用 PureComponent。</p>
+<blockquote>
+<p>使用方法</p>
+</blockquote>
+<p>将原组件继承自React.Component,替换为React.PureComponent</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React, &#123; PureComponent &#125; <span class="keyword">from</span> React</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span> <span class="title">extend</span> <span class="title">PureComponent</span> </span>&#123;</div><div class="line">  render() &#123;</div><div class="line">    <span class="comment">// ...</span></div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> Foo</div></pre></td></tr></table></figure>
+<h3 id="ImmutableJS"><a href="#ImmutableJS" class="headerlink" title="ImmutableJS"></a>ImmutableJS</h3><p>我们也可以在<code>shouldComponentUpdate()</code>中使用深拷贝来避免无必要的 render()，但deepCopy 和 deepCompare 一般都是非常耗性能的。FaceBook官方提出的不可变数据<a href="https://facebook.github.io/immutable-js/" target="_blank" rel="external">ImmutableJS</a>，使用structural sharing解决了复杂数据在 deepCopy 和 deepCompare过程中性能损耗的问题。</p>
+<p>ImmutableJS拥有 Persistent Data Structure（持久化数据结构）与 structural sharing（结构共享）的特点。持久化数据结构保证数据一旦创建就不能修改，使用旧数据创建新数据时，旧数据也不会改变。而结构共享是指没有改变的数据共用一个引用，这样既减少了深拷贝的性能消耗们也减少了内存开销。</p>
+<p><img src="/images/react-render-performance/immutable-structural-sharing.png" alt=""></p>
+<p>左边红色节点表示变化的值，右边生成新值改变了红色节点到根节点路径之间的所有节点，也就是所有绿色节点的值，其他使用它的地方并不会受到影响，而且蓝色节点还是和旧值共享的。即如果对象树中一个节点发生变化，只修改这个节点和受它影响的父节点，其它节点则进行共享。</p>
+<p><code>ImmutableJS</code> 提供了大量的方法去更新、删除、添加数据，极大的方便了我们操纵数据。除此之外，还提供了原生类型与 <code>ImmutableJS</code> 类型判断与转换方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; <span class="built_in">Map</span>, fromJS, isImmutable  &#125; <span class="keyword">from</span> <span class="string">"immutable"</span>;</div><div class="line"><span class="keyword">const</span> map1 = <span class="built_in">Map</span>(&#123; <span class="attr">a</span>: <span class="string">'a'</span>, <span class="attr">b</span>: <span class="string">'b'</span>, <span class="attr">c</span>: <span class="string">'c'</span> &#125;);</div><div class="line"><span class="keyword">const</span> map2 = map1.set(<span class="string">'b'</span>, <span class="string">'bb'</span>);</div><div class="line">map1 !== map2; <span class="comment">// true</span></div><div class="line">map1.get(<span class="string">'b'</span>); <span class="comment">// b</span></div><div class="line">map2.get(<span class="string">'b'</span>); <span class="comment">// bb</span></div><div class="line">map1.get(<span class="string">'a'</span>) === map2.get(<span class="string">'a'</span>); <span class="comment">// true</span></div><div class="line"></div><div class="line"><span class="keyword">const</span> object = fromJS(&#123;</div><div class="line">  <span class="attr">a</span>: <span class="string">'a'</span>,</div><div class="line">  <span class="attr">b</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</div><div class="line">&#125;); <span class="comment">// 支持混合类型</span></div><div class="line">isImmutable(obj); <span class="comment">// true</span></div><div class="line">obj.size(); <span class="comment">// 2</span></div><div class="line"><span class="keyword">const</span> obj1 = obj.toJS(); <span class="comment">// 转换成原生 `js` 类型</span></div></pre></td></tr></table></figure>
+<p>Immutable 则提供了简洁高效的判断数据是否变化的方法，只需 === 和 is 比较就能知道是否需要执行 render()，而这个操作成本很低，所以可以极大提高性能。我们可以使用is来控制 shouldComponentUpdate：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; is &#125; <span class="keyword">from</span> <span class="string">'immutable'</span>;</div><div class="line"></div><div class="line">shouldComponentUpdate: <span class="function">(<span class="params">nextProps = &#123;&#125;, nextState = &#123;&#125;</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">const</span> thisProps = <span class="keyword">this</span>.props || &#123;&#125;, thisState = <span class="keyword">this</span>.state || &#123;&#125;;</div><div class="line"></div><div class="line">  <span class="keyword">if</span> (<span class="built_in">Object</span>.keys(thisProps).length !== <span class="built_in">Object</span>.keys(nextProps).length ||</div><div class="line">      <span class="built_in">Object</span>.keys(thisState).length !== <span class="built_in">Object</span>.keys(nextState).length) &#123;</div><div class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> key <span class="keyword">in</span> nextProps) &#123;</div><div class="line">    <span class="keyword">if</span> (!is(thisProps[key], nextProps[key])) &#123;</div><div class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> key <span class="keyword">in</span> nextState) &#123;</div><div class="line">    <span class="keyword">if</span> (thisState[key] !== nextState[key] || !is(thisState[key], nextState[key])) &#123;</div><div class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="实现-shouldComponentUpdate"><a href="#实现-shouldComponentUpdate" class="headerlink" title="实现 shouldComponentUpdate"></a>实现 shouldComponentUpdate</h3><p>我们知道<code>PureComponent</code>的<code>shadowEqual</code>只会浅检查组件的<code>props</code>和<code>state</code>,所以嵌套对象和数组是不会被比较的。所以如果是需要深比较，我们也可以使用<code>shouldComponentUpdate</code>来手动单个比较是否需要重新渲染。</p>
+<p><code>shouldComponentUpdate</code>是<code>props</code>或<code>state</code>更改后、render前被调用的方法。如果<code>shouldComponentUpdate</code>返回<code>true</code>，<code>render</code>将被调用，如果它返回<code>false</code>，则组件不会重新渲染。</p>
+<p>所以在一些情况下，你可以通过重写这个生命周期函数<code>shouldComponentUpdate</code>来提升渲染效率。这个函数默认返回<code>true</code>。如果你知道在某些情况下你的组件不需要更新，你可以在<code>shouldComponentUpdate</code>内返回<code>false</code>来跳过整个渲染进程。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">shouldComponetUpdate(nextProps, nextState) &#123;</div><div class="line">  <span class="keyword">if</span> (<span class="comment">/* do some compare*/</span>) &#123;</div><div class="line">      reture <span class="literal">true</span>;</div><div class="line">  &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="plugin-transform-react-inline-elements"><a href="#plugin-transform-react-inline-elements" class="headerlink" title="plugin-transform-react-inline-elements"></a>plugin-transform-react-inline-elements</h3><p><a href="https://github.com/facebook/react/issues/3228" target="_blank" rel="external">(Reference)Optimizing Compiler: Inline React Elements</a></p>
+<p>在production环境，优化<code>React.createElement</code> function为<code>babelHelpers.jsx</code></p>
+<blockquote>
+<p>In</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;Baz foo=<span class="string">"bar"</span> key=<span class="string">"1"</span>&gt;&lt;/Baz&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Out</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">babelHelpers.jsx(Baz, &#123;</div><div class="line">    <span class="attr">foo</span>: <span class="string">"bar"</span></div><div class="line">&#125;, <span class="string">"1"</span>);</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line">* Instead of</div><div class="line">*/</div><div class="line"></div><div class="line">React.createElement(Baz, &#123;</div><div class="line">  <span class="attr">foo</span>: <span class="string">"bar"</span>,</div><div class="line">  <span class="attr">key</span>: <span class="string">"1"</span>,</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="无状态组件-Stateless-Component"><a href="#无状态组件-Stateless-Component" class="headerlink" title="无状态组件 (Stateless Component)"></a>无状态组件 (Stateless Component)</h3><p>React官方在0.14版本中加入了<code>无状态组件</code>, 这种组件没有状态，没有生命周期，接受props渲染生成DOM结构。无状态组件非常简单，开销很低，如果一个组件不需要管理state只是纯展示，那么就可以定义成无状态组件。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> Component (props) =&gt; (</div><div class="line">    &lt;div&gt;</div><div class="line">        &#123;props.text&#125;</div><div class="line">        ...</div><div class="line">    &lt;/div&gt;</div><div class="line">)</div></pre></td></tr></table></figure>
+<p>原本需要写类定义( <code>React.createClass</code> 或 <code>extends React.component</code>)来创建自己组件的定义，现在被精简成了上述代码。由于这是一个无状态函数，React在渲染的时候也省掉了将”组件类”实例化的过程。</p>
+<blockquote>
+<p>无状态组件不支持”ref”</p>
+</blockquote>
+<p>需要注意的是，因为无状态组件只是函数，没有实例返回，所以没有refs属性。</p>
+<h3 id="使用稳定的-key"><a href="#使用稳定的-key" class="headerlink" title="使用稳定的 key"></a>使用稳定的 <code>key</code></h3><blockquote>
+<p>使用稳定的 key, 对子组件进行唯一性识别，准确知道要操作的自组件，提高DOM DIFF的效率</p>
+</blockquote>
+<ul>
+<li>唯一的: 元素的 key 在它的兄弟元素中应该是唯一的（而非全局唯一）</li>
+<li>稳定的: 元素的 key 不应随时间、页面刷新或者元素重新排序而变</li>
+</ul>
+<p>当使用数组中的索引作为 key时，若元素没有重排，该方法效果不错。但是如果其中的item被删除或移动导致重排,则整个key 就失去了与原项的对应关系，加大了diff的开销。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><p><a href="https://github.com/maicki/why-did-you-update" target="_blank" rel="external">Tool: Why Did You Update</a></p>
+</li>
+<li><p><a href="https://react.docschina.org/docs/optimizing-performance.html" target="_blank" rel="external">React 渲染机制</a></p>
+</li>
+<li><p><a href="https://reactjs.org/docs/optimizing-performance.html" target="_blank" rel="external">React 性能优化</a></p>
+</li>
+<li><p><a href="https://facebook.github.io/immutable-js/" target="_blank" rel="external">优化方法: ImmutableJS</a></p>
+</li>
+</ul>
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
+
+    </div>
+    <footer class="article-footer">
+      
+        
+	<div id="comment">
+
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2019/02/19/React-Render-Performance/" data-title="React Render Performance" data-url="https://dale-.github.io/2019/02/19/React-Render-Performance/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"daledu"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0]
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+
+	</div>
+
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/11/28/Agile-Methodology/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Agile Methodology</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#React渲染机制"><span class="toc-number">2.</span> <span class="toc-text">React渲染机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#性能检测工具"><span class="toc-number">3.</span> <span class="toc-text">性能检测工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Why-did-you-update"><span class="toc-number">3.1.</span> <span class="toc-text">Why-did-you-update</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#性能时间表"><span class="toc-number">3.2.</span> <span class="toc-text">性能时间表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优化方法"><span class="toc-number">4.</span> <span class="toc-text">优化方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#PureComponent"><span class="toc-number">4.1.</span> <span class="toc-text">PureComponent</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ImmutableJS"><span class="toc-number">4.2.</span> <span class="toc-text">ImmutableJS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现-shouldComponentUpdate"><span class="toc-number">4.3.</span> <span class="toc-text">实现 shouldComponentUpdate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#plugin-transform-react-inline-elements"><span class="toc-number">4.4.</span> <span class="toc-text">plugin-transform-react-inline-elements</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#无状态组件-Stateless-Component"><span class="toc-number">4.5.</span> <span class="toc-text">无状态组件 (Stateless Component)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用稳定的-key"><span class="toc-number">4.6.</span> <span class="toc-text">使用稳定的 key</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">5.</span> <span class="toc-text">参考</span></a></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      <div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2015 - 2019 The Girl Behind All Rights Reserved.</p>
+	      <p id="copyRightCn">Dale Du hold copyright</p>
+	</div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="https://github.com/Dale-" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+<script src="/js/bootstrap.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            The Girl Behind
+          </div>
+          <div class="panel-body">
+            Copyright © 2019 Dale Du All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+</body>
+</html>

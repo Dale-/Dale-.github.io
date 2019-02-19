@@ -190,6 +190,56 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-React-Render-Performance"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2019/02/19/React-Render-Performance/">React Render Performance</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/02/19/React-Render-Performance/" class="article-date">
+	  <time datetime="2019-02-19T12:46:22.000Z" itemprop="datePublished">2019-02-19</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/react/">react</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>React使用几种巧妙的技术来最大限度地减少更新UI所需的昂贵的 DOM 操作的数量, 今天我们通过对React渲染机制的回顾，从一些性能检测工具入手，介绍一些优化React应用性能的办法。</p>
+<h2 id="React渲染机制"><a href="#React渲染机制" class="headerlink" title="React渲染机制"></a>React渲染机制</h2><p>React不直接操作真实DOM，它在内部维护了一套快速相应的虚拟DOM(本篇文章简称为VDOM)，<code>render</code>方法返回一个VDOM的描述，React会在reconsilation之后最小化的进行VDOM的更新，最终patch到真实的DOM。</p>
+<p><img src="/images/react-render-performance/react-update.png" alt=""></p>
+        <!-- 前言React使用几种巧妙的技术来最大限度地减少更新UI所需的昂贵的 DOM 操作的数量, 今天我们通过对React渲染机制的回顾，从一些性能检测工具入手，介绍一些优化React应用性能的办法。
+React渲染机制React不直接操作真实DOM，它在内部维护了一套快速相应的虚拟DOM(本篇文章简称为VDOM)，render方法返回一个VDOM的描述，React会在reconsilation之......  -->
+        <p class="article-more-link">
+          <a href="/2019/02/19/React-Render-Performance/#more">Read More</a>
+        </p>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
+
+    </div>
+    <footer class="article-footer">
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-Agile-Methodology"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -727,61 +777,6 @@ Constructi......  -->
 
 
   
-    <article id="post-React-createClass-extends-component"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/05/22/React-createClass-extends-component/">[译]React: createClass &amp; extends Component</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/05/22/React-createClass-extends-component/" class="article-date">
-	  <time datetime="2017-05-22T10:05:49.000Z" itemprop="datePublished">2017-05-22</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/React/">React</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>原文地址：<a href="https://toddmotto.com/react-create-class-versus-component/#syntax-differences" target="_blank" rel="external">React.createClass versus extends React.Component</a></p>
-<blockquote>
-<p>这其实是殊途同归的两种方式。过去我们使用React提供<code>React.createClass</code>的方式，<br>而后React提供了小小的语法糖可以允许我们更好基于ES6语法实现此功能:<code>React.Component</code>,<br>我们可以使用<code>extends React.Component</code>替代<code>createClass</code>。</p>
-<p>虽然这两种方式的差别很小，但是有一些值得我们探索的，很有趣的知识，这允许我们在不同的场景中恰当的选择最适合的方式。</p>
-</blockquote>
-<h2 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h2><h3 id="React-createClass"><a href="#React-createClass" class="headerlink" title="React.createClass"></a>React.createClass</h3><p>这里我们把这个React class赋给一个const变量，用render方法来完成一个component最基本的定义。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">import React from <span class="string">'react'</span>;</div><div class="line"></div><div class="line">const Contacts = React.createClass(&#123;</div><div class="line">  <span class="function"><span class="title">render</span></span>() &#123;</div><div class="line">    <span class="built_in">return</span> (</div><div class="line">      &lt;div&gt;&lt;/div&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="built_in">export</span> default Contacts;</div></pre></td></tr></table></figure>
-        <!-- 原文地址：React.createClass versus extends React.Component
-
-这其实是殊途同归的两种方式。过去我们使用React提供React.createClass的方式，而后React提供了小小的语法糖可以允许我们更好基于ES6语法实现此功能:React.Component,我们可以使用extends React.Component替代createClas......  -->
-        <p class="article-more-link">
-          <a href="/2017/05/22/React-createClass-extends-component/#more">Read More</a>
-        </p>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
-
-    </div>
-    <footer class="article-footer">
-      
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
 
 
   <nav id="page-nav">
@@ -801,7 +796,7 @@ Constructi......  -->
   <div class="container">
       <div class="row">
 	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> </p>
-	      <p id="copyRightEn">Copyright &copy; 2015 - 2018 The Girl Behind All Rights Reserved.</p>
+	      <p id="copyRightEn">Copyright &copy; 2015 - 2019 The Girl Behind All Rights Reserved.</p>
 	      <p id="copyRightCn">Dale Du hold copyright</p>
 	</div>
   </div>
@@ -932,7 +927,7 @@ Constructi......  -->
             The Girl Behind
           </div>
           <div class="panel-body">
-            Copyright © 2018 Dale Du All Rights Reserved.
+            Copyright © 2019 Dale Du All Rights Reserved.
           </div>
         </div>
       </div>
